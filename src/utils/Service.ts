@@ -20,4 +20,3 @@ class AuthService {
 }
 
 export default new AuthService();
-// import AuthServices from "@/services/auth.service";
