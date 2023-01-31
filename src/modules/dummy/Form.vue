@@ -1,44 +1,42 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div>
-    <form>
-        <label>Indicator:</label>
-        <input type="text" class="form-input" v-model="indicator">
-        <label class="mr-3">Datasource:</label>
-        <input type="text" class="form-input" v-model="datasource">
-        <button type="submit">Login</button>
-    </form>
-  </div>
-</template>
-
-<script setup>
-// import { ref, onMounted } from "vue";
-
-// const count = ref(0);
-
-// function increment() {
-//   count.value++;
-// }
-// function getConnectionStatus(e) {
-//   const { type } = e;
-//   if (type === "online") {
-//     alert("Connection restored");
-//   } else {
-//     alert("Please check your internet connection");
-//   }
-// }
-// onMounted(() => {
-//   console.log(`The initial count is ${count.value}.`);
-//   window.addEventListener("online", this.getConnectionStatus);
-//   window.addEventListener("offline", this.getConnectionStatus);
-// });
-</script>
-
-<style scoped>
-.form-input {
-    margin-right: 20px;
+    <div style="margin: 20px;" class="guy">
+    <el-form
+      :label-position="labelPosition"
+      label-width="100px"
+      :model="formLabelAlign"
+      style="max-width: 460px"
+    >
+      <el-form-item label="Indicator">
+        <el-input v-model="formLabelAlign.indicator" />
+      </el-form-item>
+      <el-form-item label="Datasource">
+        <el-input v-model="formLabelAlign.datasource" />
+      </el-form-item>
+      <el-button type="success" class="button" plain>Success</el-button>
+    </el-form>
+    </div>
+  </template>
+  
+  <script lang="ts" setup>
+  import { reactive, ref } from 'vue'
+//   import 
+  
+  const labelPosition = ref('right')
+  
+  const formLabelAlign = reactive({
+    indicator: '',
+    datasource: '',
+  })
+  </script>
+<style>
+.guy {
+    min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-label {
-    margin-right: 10px;
+.button {
+    float: right;
 }
 </style>
