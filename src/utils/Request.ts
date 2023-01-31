@@ -1,13 +1,13 @@
 import aphrc_Client from "@/plugins/Axios";
 import { AxiosResponse } from "axios";
 
-type MethodType = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
+// type MethodType = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
 
 const Request = async (
-  method: MethodType = "GET",
+  method = "GET",
   url: string,
+  data?: any,
   contentType = "application/json",
-  data?: any
 ): Promise<AxiosResponse> => {
   try {
     const response = await aphrc_Client({
