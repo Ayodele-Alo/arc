@@ -14,15 +14,13 @@
       <el-form-item label="Datasource">
         <el-input v-model.trim="dataObject.datasource" />
       </el-form-item>
-      <el-button type="success" class="button" plain
-        >Success</el-button
-      >
+      <el-button type="success" class="button" plain>Success</el-button>
     </el-form>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from "vue";
+import { reactive, ref, onMounted } from "vue";
 import AuthService from "@/utils/Service";
 
 const labelPosition = ref("right");
@@ -36,6 +34,17 @@ const handleSubmit = async () => {
   const response = await AuthService.submitData(dataObject);
   console.log(response);
 };
+const getConnectionStatus = (e: { type: any }) => {
+  const { type } = e;
+  if (type === "online") {
+    console.log("Online");
+  } else {
+    console.log("Offline");
+  }
+};
+onMounted(() => {
+  console.log("mounted in the composition api!");
+});
 </script>
 <style>
 .guy {
