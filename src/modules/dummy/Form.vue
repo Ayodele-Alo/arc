@@ -16,7 +16,6 @@
       </el-form-item>
       <el-button type="success" class="button" plain>Success</el-button>
     </el-form>
-    <Hey />
   </div>
 </template>
 
