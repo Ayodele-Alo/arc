@@ -6,7 +6,7 @@
       label-width="100px"
       :model="dataObject"
       style="max-width: 460px"
-      @submit.prevent="handleSubmit"
+      @click.prevent="handleSubmit"
     >
       <el-form-item label="Indicator">
         <el-input v-model.trim="dataObject.indicator" />
@@ -20,7 +20,8 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, onMounted } from "vue";
+import { reactive, ref, onMounted, onUnmounted } from "vue";
+import { ElNotification } from 'element-plus'
 import AuthService from "@/utils/Service";
 
 const labelPosition = ref("right");
@@ -32,18 +33,32 @@ const dataObject = reactive({
 
 const handleSubmit = async () => {
   const response = await AuthService.submitData(dataObject);
-  console.log(response);
+  return response;
 };
 const getConnectionStatus = (e: { type: any }) => {
   const { type } = e;
   if (type === "online") {
-    console.log("Online");
+    ElNotification({
+    title: 'Success',
+    message: 'Connection Restored',
+    type: 'success',
+  })
   } else {
-    console.log("Offline");
+    ElNotification({
+    title: 'Error',
+    message: 'Connection Lost',
+    type: 'error',
+  })
   }
 };
 onMounted(() => {
   console.log("mounted in the composition api!");
+  window.addEventListener("online", getConnectionStatus);
+  window.addEventListener("offline", getConnectionStatus);
+});
+onUnmounted(() => {
+  window.removeEventListener("online", getConnectionStatus);
+  window.removeEventListener("offline", getConnectionStatus);
 });
 </script>
 <style>
