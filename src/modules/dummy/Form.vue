@@ -20,8 +20,8 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, onMounted, onUnmounted } from "vue";
-import { ElNotification } from 'element-plus'
+import { reactive, ref, onMounted, onUnmounted, provide } from "vue";
+import { ElNotification } from "element-plus";
 import AuthService from "@/utils/Service";
 
 const labelPosition = ref("right");
@@ -35,24 +35,25 @@ const handleSubmit = async () => {
   const response = await AuthService.submitData(dataObject);
   return response;
 };
+
 const getConnectionStatus = (e: { type: any }) => {
   const { type } = e;
+  provide("internetStatus", type);
   if (type === "online") {
     ElNotification({
-    title: 'Success',
-    message: 'Connection Restored',
-    type: 'success',
-  })
+      title: "Success",
+      message: "Connection Restored",
+      type: "success",
+    });
   } else {
     ElNotification({
-    title: 'Error',
-    message: 'Connection Lost',
-    type: 'error',
-  })
+      title: "Error",
+      message: "Connection Lost",
+      type: "error",
+    });
   }
 };
 onMounted(() => {
-  console.log("mounted in the composition api!");
   window.addEventListener("online", getConnectionStatus);
   window.addEventListener("offline", getConnectionStatus);
 });
