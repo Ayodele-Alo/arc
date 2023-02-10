@@ -1,16 +1,15 @@
-import aphrc_Client from "@/plugins/Axios";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import APHRC_Client from "@/plugins/Axios";
 import { AxiosResponse } from "axios";
 
-// type MethodType = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
-
 const Request = async (
-  method = "GET",
   url: string,
-  data?: any,
+  method = "GET",
+  data?: FormData | object,
   contentType = "application/json",
 ): Promise<AxiosResponse> => {
   try {
-    const response = await aphrc_Client({
+    const response = await APHRC_Client({
       method,
       url,
       data,
