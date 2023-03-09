@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import { router as LANDING_PAGE_ROUTE } from "@/modules/homepage";
 import { router as DASHBOARD_ROUTE } from "@/modules/dashboard";
-import { router as DATA_ENTRY_ROUTE } from '../modules/data-entry';
+import { router as DATA_ENTRY_ROUTE } from '@/modules/data-entry';
 
 const routes: Array<RouteRecordRaw> = [
   ...LANDING_PAGE_ROUTE,

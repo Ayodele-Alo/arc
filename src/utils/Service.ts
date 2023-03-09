@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Request from "@/utils/Request";
+import Request from "@/helpers/Request";
 import APHRC_Client from "@/plugins/Axios"; 
 import { DataEntry } from "@/types/DataEntry";
 
