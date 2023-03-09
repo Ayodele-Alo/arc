@@ -116,25 +116,25 @@
                   </p>
                   <select class="custom-select">
                     <option selected>Select</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="1">1</option>
+                    <option value="2">1</option>
+                    <option value="3">3</option>
                   </select>
 
                   <p class="sub-heading-2 mt-3">Impact (Impact of the risk)</p>
                   <select class="custom-select">
                     <option selected>Select</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
                   </select>
 
                   <p class="sub-heading-2 mt-3">Overall = P x I :</p>
                   <select class="custom-select">
                     <option selected>Select</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
                   </select>
                 </div>
               </div>
@@ -224,10 +224,15 @@ input {
   background-color: #dbdbdb;
 }
 select {
-  padding: 10px 5px;
+  padding: 10px 8px;
   border: 1px solid #70707091;
   border-radius: 4px;
-  width: 100px;
+  width: 130px;
   margin-top: -10px;
+}
+
+option {
+  font-size: 18px;
+  padding-left: 20px;
 }
 </style>
