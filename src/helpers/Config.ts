@@ -7,7 +7,7 @@ export const configObject: Array<configType> = [
       {
         name: "Total number of active and inactive grants",
         // url: "https://public.tableau.com/views/Financedashboard_16472462810160/Dashboard1?:language=en-US&amp;publish=yes&amp;:display_count=n&amp;:origin=viz_share_link:showVizHome=no&amp;:embed=true",
-        url: "https://public.tableau.com/views/APHRC3/Dashboard1?:language=en-GB&publish=yes&:display_count=n&:origin=viz_share_link",
+        url: "https://public.tableau.com/views/APHRC3/Dashboard1?:language=en-GB&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
       },
       {
