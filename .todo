@@ -1,0 +1,14 @@
+1. table should be red when table is 2month or less than current date
+find the geoJson data for africa
+theme=>Global_Dimension
+
+2 =||(Map)Total number of active project in a particular country [[list all projects per country, onclick check how many is active and not active]]
+3. Map-Donor
+=||Total number of donor in a particular country [how many donors are from a country]
+4.Donor_performance
+=|| Donor/Sponsoring Founder name => Global_Dimension => group by end_date [x] => get the total amount [y]
+
+
+----
+
+Skeletal Framework

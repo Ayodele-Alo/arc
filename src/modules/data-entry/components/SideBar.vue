@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
-        <div class="row flex-nowrap">
-            <div class="col-auto bg-black side">
+        <div class="row flex-nowrap  side">
+            <div class="col-auto bg-black">
                 <div class="d-flex flex-column align-items-start pt-2 text-white min-vh-100">
 
                     <div class="nav flex-column gap-4 w-100 " id="menu">
