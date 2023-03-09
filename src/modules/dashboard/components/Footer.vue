@@ -17,7 +17,8 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 footer {
-  background: #000000db;
+  background: #000000;
+  z-index: 20;
   height: 1rem;
   padding: 1.5rem;
   width: 100%;
