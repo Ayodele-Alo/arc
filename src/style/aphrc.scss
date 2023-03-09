@@ -1,0 +1,255 @@
+button.btn.btn_aphrc {
+  background: transparent
+    linear-gradient(180deg, #000000db 0%, #2c4a13eb 0%, #61a229 100%) 0% 0%
+    no-repeat padding-box;
+  border: 1px solid #707070;
+  border-radius: 4px;
+  text-align: left;
+  letter-spacing: 0px;
+  color: #ffffff;
+  padding: 1.2rem 2.7rem;
+  font-weight: normal;
+  font-size: 0.8rem;
+  font-family: Montserrat;
+  letter-spacing: 0px;
+}
+
+// **
+// Route Slides
+// **
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+// For slide-right animation:
+
+.slide-right-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-right-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-right-enter-from,
+.slide-right-leave-to {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+
+// For fade-right animation:
+
+.fade-right-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.fade-right-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.fade-right-enter-from,
+.fade-right-leave-to {
+  transform: translateX(0px);
+  opacity: 0;
+}
+
+// For slide-up animation:
+
+.slide-up-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-up-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-up-enter-from,
+.slide-up-leave-to {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+// For fade-up animation:
+
+.fade-up-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.fade-up-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.fade-up-enter-from,
+.fade-up-leave-to {
+  transform: translateY(0px);
+  opacity: 0;
+}
+
+// For fade-down animation:
+
+.fade-down-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.fade-down-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.fade-down-enter-from,
+.fade-down-leave-to {
+  transform: translateY(0px);
+  opacity: 0;
+}
+
+// For fade-left animation:
+
+.fade-left-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.fade-left-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.fade-left-enter-from,
+.fade-left-leave-to {
+  transform: translateX(0px);
+  opacity: 0;
+}
+
+// For slide-left animation:
+
+.slide-left-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-left-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-left-enter-from,
+.slide-left-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+// For slide-down animation:
+
+.slide-down-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-down-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-down-enter-from,
+.slide-down-leave-to {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+// For slide-fade-up:
+
+.slide-fade-up-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-up-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-up-enter-from,
+.slide-fade-up-leave-to {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+// For slide-fade-down:
+
+.slide-fade-down-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-down-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-down-enter-from,
+.slide-fade-down-leave-to {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+// For slide-fade-left:
+
+.slide-fade-left-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-left-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-left-enter-from,
+.slide-fade-left-leave-to {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+
+// For slide-fade-right:
+
+.slide-fade-right-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-right-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-right-enter-from,
+.slide-fade-right-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+// =========
+.el-input-group__append,
+.el-input-group__prepend {
+  background-color: inherit;
+  letter-spacing: 0px;
+  color: #818181;
+  padding: 5px 20px;
+}
+
+.el-input-group__prepend {
+  // width: 30%;
+  // span {
+  //   font-weight: 300;
+  //   font-style: italic;
+  //   font-size: 0.9rem;
+  // }
+}
+div.group {
+  margin-bottom: 1rem;
+  .el-input-group {
+    display: inline-flex;
+    width: 100%;
+    align-items: stretch;
+    height: 3rem;
+  }
+  small{
+    font-size: 0.65rem;
+    color: #818181;
+  }
+}
