@@ -42,6 +42,8 @@
               exact-active-class="active"
               class="nav-link"
               to="/"
+              type="button"
+              @click="handleLoginType('entry')"
             >
               <h6>Data Entry</h6>
             </router-link>
@@ -50,6 +52,8 @@
               exact-active-class="active"
               class="nav-link"
               to="/"
+              type="button"
+              @click="handleLoginType('import')"
             >
               <h6>Data Import</h6>
             </router-link>
@@ -58,6 +62,8 @@
               exact-active-class="active"
               class="nav-link"
               to="/"
+              type="button"
+              @click="handleLoginType('report')"
             >
               <h6>Data Report</h6>
             </router-link>
@@ -70,11 +76,18 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { mapMutations } from "vuex";
 
 export default defineComponent({
   name: "Header-Layout",
   data() {
     return {};
+  },
+  methods: {
+    ...mapMutations(["setLoginModal"]),
+    handleLoginType(type: string) {
+      this.setLoginModal(type);
+    },
   },
 });
 </script>

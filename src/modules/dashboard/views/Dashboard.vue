@@ -7,8 +7,10 @@
 </template>
 
 <script lang="ts" setup>
+import { mapGetters } from "vuex";
 import Tab from "../components/Tab.vue";
 import SectionCard from "../components/SectionCard.vue";
+import EntryLogin from "../components/login/Entry.vue";
 </script>
 
 <style lang="scss" scoped>

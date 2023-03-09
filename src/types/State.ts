@@ -13,8 +13,8 @@ type configType = {
 
 interface state {
   config: Array<configType>;
-  // activeTab: Omit<configType, 'visuals'>;
   activeTab: string;
+  activeModal: string;
 }
 
 export { state, generic, visualType, configType };

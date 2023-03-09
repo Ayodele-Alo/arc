@@ -8,7 +8,8 @@ const defaultTabConfig = configObject[0].name
 // state object
 const state: state = {
   config: TabConfig,
-  activeTab: defaultTabConfig
+  activeTab: defaultTabConfig,
+  activeModal: "",
 };
 
 export default state;
