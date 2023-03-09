@@ -1,0 +1,17 @@
+stages:
+
+  - deploy
+
+deploy_SPA:
+  
+  stage: deploy
+  
+  before_script: 
+      - mkdir -p ~/.ssh
+      - echo -e "$PRIVATE_KEY" > ~/.ssh/id_rsa
+      - chmod 600 ~/.ssh/id_rsa
+      - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  script:
+    - ssh -p3322 e4esysadmin@208.87.128.190 "cd /home/e4esysadmin/aphrc/  && git pull origin develop && sudo yarn install && sudo yarn build "
+  only:
+    - develop
