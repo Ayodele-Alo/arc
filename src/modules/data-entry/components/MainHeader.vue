@@ -1,6 +1,7 @@
 <template>
-  <header>
-    <nav class="navbar navbar-expand-lg shadow bg-white py-lg-3 fixed-top">
+  <header class="main">
+    <nav class="nav-header navbar navbar-expand-lg shadow bg-white py-lg-3 fixed-top">
+
       <div class="container-fluid px-lg-5 h-100">
         <router-link
           exact
@@ -21,56 +22,11 @@
             </p>
           </div>
         </router-link>
-        <button
-          class="navbar-toggler border-0 shadow-sm"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#aphrcToggle"
-          aria-controls="aphrcToggle"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div
-          class="collapse navbar-collapse justify-content-end"
-          id="aphrcToggle"
-        >
-          <div class="navbar-nav mt-lg-0 mt-3">
-            <router-link
-              exact
-              exact-active-class="active"
-              class="nav-link"
-              to="#"
-              type="button"
-              @click="handleLoginType('entry')"
-            >
-              <h6>Data Entry</h6>
-            </router-link>
-            <router-link
-              exact
-              exact-active-class="active"
-              class="nav-link"
-              to="#"
-              type="button"
-              @click="handleLoginType('import')"
-            >
-              <h6>Data Import</h6>
-            </router-link>
-            <router-link
-              exact
-              exact-active-class="active"
-              class="nav-link"
-              to="#"
-              type="button"
-              @click="handleLoginType('report')"
-            >
-              <h6>Data Report</h6>
-            </router-link>
-          </div>
-        </div>
+     
+   <div>Admin</div>
       </div>
     </nav>
+            <br><br><br><br>
   </header>
 </template>
 
@@ -93,6 +49,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.nav-header{
+    min-height: 11vh;
+}
 h6 {
   font-size: 1rem;
   font-family: Montserrat;
@@ -122,6 +81,7 @@ div.title_container {
     height: 2.5rem;
   }
 }
+
 
 @media only screen and (max-width: 700px) {
   div.title_container {

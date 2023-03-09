@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-4">
+  <div class="mt-4 px-4">
     <div class="mb-3 text-start">
       <p class="fw-bold text-secondary mb-1">1. Human Resource Report Tool</p>
       <small class="text-secondary">This report gives an annual summary of the status of the Center in terms of human Resource guided by the strategic plan 2022-2026</small>
@@ -32,6 +32,48 @@
       <byCadre />
     </div>
     </div>
+
+    <div>
+      <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseExample3"
+    >
+      <span>C. Human Resource Recruitment Process</span>
+    </div>
+
+    <div class="collapse" id="collapseExample3">
+      <recruitmentProcess />
+    </div>
+    </div>
+
+    <div>
+      <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseExample4"
+    >
+      <span>D. Sensitization meetings</span>
+    </div>
+
+    <div class="collapse" id="collapseExample4">
+      <sensitizationMeetings />
+    </div>
+    </div>
+
+    <div>
+      <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseExample5"
+    >
+      <span>E. Systems Thinking Approach -HR</span>
+    </div>
+
+    <div class="collapse" id="collapseExample5">
+      <systemThinkingApproach />
+    </div>
+    </div>
   </div>
 </template>
 
@@ -39,18 +81,18 @@
 import { defineComponent } from "vue";
 import humanResource from './form-sections/humanResource.vue'
 import byCadre from './form-sections/byCadre.vue'
-import humanResourceRecruitmentProcess from './form-sections/humanResourceRecruitmentProcess.vue'
-import sensitizationMeeting from './form-sections/sensitizationMeeting.vue'
-import systemThinkingApproach from './form-sections/systemThinkingApproach.vue'
+import recruitmentProcess from './form-sections/recruitmentProcess.vue'
+import sensitizationMeetings from "./form-sections/sensitizationMeetings.vue";
+import systemThinkingApproach from "./form-sections/systemsThinking.vue";
 
 export default defineComponent({
   name: "createForm",
   components: {
     humanResource,
     byCadre,
-    // humanResourceRecruitmentProcess,
-    // sensitizationMeeting,
-    // systemThinkingApproach
+    recruitmentProcess,
+    sensitizationMeetings,
+    systemThinkingApproach
   },
 });
 </script>

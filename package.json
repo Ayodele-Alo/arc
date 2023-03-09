@@ -11,6 +11,9 @@
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
+    "@element-plus/icons-vue": "^2.1.0",
+    "axios": "^1.2.6",
+    "axios-cache-adapter": "^2.7.3",
     "bootstrap-icons": "^1.10.3",
     "bootstrap-vue": "^2.23.1",
     "@element-plus/icons-vue": "^2.1.0",

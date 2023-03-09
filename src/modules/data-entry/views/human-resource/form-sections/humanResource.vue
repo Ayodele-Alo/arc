@@ -3,12 +3,12 @@
       <tbody>
         <tr>
           <th class="row-header">Indicators</th>
-          <th class="row-header" scope="col">Total</th>
-          <th class="header-width row-header text-center" scope="col"> Research
-            <tr class="d-flex justify-content-around mt-3" >
+          <th class="row-header">Total</th>
+          <th class="header-width text-center"> Research
+            <div class="d-flex justify-content-around mt-3" >
             <th> Male</th>
             <th> Female</th>
-            </tr>
+            </div>
         </th>
         <th class="header-width row-header text-center" scope="col"> Research
             <div class="d-flex justify-content-around mt-3" >
@@ -63,17 +63,6 @@
           <td></td>
           <td></td>
         </tr>
-        <!-- <tr>
-          <th class="publication-content">Number of employees hired under short term flexi contracts by mid-year</th>
-          <td class="d-flex flex-column justify-content-between">
-            <tr>
-                Voluntary turnover Rate
-            </tr>
-            <tr>
-                Involuntary turnover Rate
-            </tr>
-          </td>
-        </tr> -->
       </tbody>
     </table>
 <!--     
