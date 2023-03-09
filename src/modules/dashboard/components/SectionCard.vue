@@ -10,9 +10,11 @@
         <div class="underline" />
       </div>
       <div class="card-body">
+        <div v-if="el.tableau === false && el.url !== ''">
+          <AlertTable v-if="el.url === 'alert_table'" />
+        </div>
         <iframe
-          v-if="el.url !== ''"
-          data-v-728e96cc=""
+          v-else-if="el.tableau === true && el.url !== ''"
           :src="el.url"
           width="100%"
           height="400"
@@ -30,9 +32,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapGetters, mapMutations } from "vuex";
+import AlertTable from "./visuals/AlertTable.vue";
 
 export default defineComponent({
   name: "Section-Card",
+  components: {
+    AlertTable,
+  },
   data() {
     return {};
   },
