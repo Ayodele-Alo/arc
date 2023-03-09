@@ -3,6 +3,7 @@
   <section class="dashboard">
     <Tab />
     <SectionCard />
+    <!-- Modals -->
     <EntryLogin v-if="getActiveModal === 'entry'" />
     <ImportLogin v-if="getActiveModal === 'import'" />
     <ReportLogin v-if="getActiveModal === 'report'" />
