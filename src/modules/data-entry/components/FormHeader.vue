@@ -15,7 +15,7 @@
         v-model="unit"
         @change="changeUnit()"
       >
-        <option selected>Select</option>
+        <option value="select">Select</option>
         <option value="Annual Performance">
           Annual Performance Report and Planning
         </option>
@@ -37,7 +37,7 @@ export default defineComponent({
   name: "createForm",
   data() {
     return {
-      unit: "Annual Performance",
+      unit: "select",
     };
   },
   components: {},
@@ -51,7 +51,13 @@ export default defineComponent({
         this.$router.push("/data-entry/human-resource/create");
       }
       if (this.unit === "Policy Engagement") {
-        this.$router.push("/data-entry/policy-engagement/create");
+        this.$router.push("/data-entry/policy-engagement");
+      }
+      if (this.unit === "research") {
+        this.$router.push("/data-entry/research-related");
+      }
+      if (this.unit === "publications") {
+        this.$router.push("/data-entry/publications");
       }
     },
   },
@@ -60,10 +66,12 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .header {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 100px;
   background-color: #f9f9f9;
   padding-bottom: 15px;
+  width: 83vw;
+  padding-top: 10px;
 
   .text1 {
     color: #61a229;

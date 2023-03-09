@@ -6,6 +6,9 @@ import annualCreateForm from './views/annual-performance/createForm.vue'
 import humanHome from './views/human-resource/humanHome.vue'
 import humanCreateForm from './views/human-resource/createForm.vue'
 
+// no format
+import noForm from './views/noForm.vue'
+
 
 export default [
   {
@@ -15,6 +18,13 @@ export default [
       requiresAuth: false,
     },
     children: [
+      {
+        path: '',
+        meta: {
+          requiresAuth: false,
+        },
+        component: noForm,
+      },
         {
           path: 'annual-performance',
           meta: {
@@ -46,6 +56,33 @@ export default [
               component: humanCreateForm,
             },
           ]
+        },
+
+        {
+          path: 'policy-engagement',
+          meta: {
+            requiresAuth: false,
+          },
+          component: noForm,
+     
+        },
+
+        {
+          path: 'research-related',
+          meta: {
+            requiresAuth: false,
+          },
+          component: noForm,
+    
+        },
+
+        {
+          path: 'publications',
+          meta: {
+            requiresAuth: false,
+          },
+          component: noForm,
+    
         },
     ]
   },

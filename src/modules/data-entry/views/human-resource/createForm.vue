@@ -18,7 +18,7 @@
     <br /><br />
 
     <div class="text-start">
-      <span class="annual-text1">1. Annual Performace Report 2022</span>
+      <span class="annual-text1">1. Human Resource Report Tool</span>
     </div>
 
     <br />
@@ -33,13 +33,13 @@
       data-bs-toggle="collapse"
       data-bs-target="#collapseExample"
     >
-<span>A. Strategic Outcomes</span>
+<span>A. Human Resource</span>
       <i class="fa fa-angle-down fs-6 " aria-hidden="true"></i>
       
     </div>
 
     <div class="collapse" id="collapseExample">
-      <strategicOutcomes />
+      <humanResource />
     </div>
 
     <div class="section-header text-start">
@@ -64,14 +64,14 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import strategicOutcomes from "./form-sections/strategicOutcomes.vue";
-import PublicationComponent from "./form-sections/publications.vue";
-import EngagementComponent from "./form-sections/engagement.vue";
+import humanResource from "./form-sections/humanResource.vue";
+import PublicationComponent from "./form-sections/byCadre.vue";
+import EngagementComponent from "./form-sections/humanResource.vue";
 
 export default defineComponent({
   name: "createForm",
   components: {
-    strategicOutcomes,
+    humanResource,
     PublicationComponent,
     EngagementComponent,
   },

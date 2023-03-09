@@ -31,6 +31,8 @@
       data-bs-target="#collapseExample"
     >
       <span>A. Strategic Outcomes</span>
+        <i class="fa fa-angle-down fs-6 " aria-hidden="true"></i>
+      
     </div>
 
     <div class="collapse" id="collapseExample">
@@ -39,6 +41,8 @@
 
     <div class="section-header text-start">
       <span>B. Publications</span>
+        <i class="fa fa-angle-down fs-6 " aria-hidden="true"></i>
+      
     </div>
 
      <publications />
@@ -47,6 +51,8 @@
 
     <div class="section-header text-start">
       <span>C. Engagement with policy and decision makers</span>
+        <i class="fa fa-angle-down fs-6 " aria-hidden="true"></i>
+      
     </div>
 
 <engagement />
@@ -98,6 +104,9 @@ export default defineComponent({
   margin-bottom: 20px;
   padding: 15px;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .annual-text1 {

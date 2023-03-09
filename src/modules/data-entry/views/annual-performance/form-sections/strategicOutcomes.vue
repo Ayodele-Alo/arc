@@ -21,7 +21,6 @@
         Policy actions/policy decisions informed by research and policy
         engagement efforts on APHRC’s focus areas/ signature issues. 
          <br /><br />
-        <strong>Ideas, Methodology, Processes, Best Practices, Products</strong>
         <input
           type="email"
           class="form-control"
@@ -39,7 +38,7 @@
         />
       </div>
 
-      <br /><br /><br />
+      <br /><br />
       <div class="form-card text-start">
         This report gives a summary of the performance and achievements of the
         theme from the set targets highlighted in the strategic plan 2022-2026
@@ -57,8 +56,8 @@
 <style scoped>
 .form-card {
   background-color: white;
-  min-height: 20vh;
-  width: 74vw;
+  min-height: 15vh;
+  width: 82vw;
   padding: 20px;
   background: var(--60-bg) 0% 0% no-repeat padding-box;
   background: #ffffff 0% 0% no-repeat padding-box;
