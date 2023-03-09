@@ -9,6 +9,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
     "axios": "^1.2.6",
     "axios-cache-adapter": "^2.7.3",
     "bootstrap": "^5.2.3",

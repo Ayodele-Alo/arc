@@ -5,10 +5,13 @@ button.btn.btn_aphrc {
   border: 1px solid #707070;
   border-radius: 4px;
   text-align: left;
-  font: normal normal normal 16px/19px Montserrat;
   letter-spacing: 0px;
   color: #ffffff;
   padding: 1.2rem 2.7rem;
+  font-weight: normal;
+  font-size: 0.8rem;
+  font-family: Montserrat;
+  letter-spacing: 0px;
 }
 
 // **
@@ -159,63 +162,94 @@ button.btn.btn_aphrc {
 // For slide-fade-up:
 
 .slide-fade-up-enter-active {
-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .slide-fade-up-leave-active {
-transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .slide-fade-up-enter-from,
 .slide-fade-up-leave-to {
-transform: translateY(20px);
-opacity: 0;
+  transform: translateY(20px);
+  opacity: 0;
 }
 
 // For slide-fade-down:
 
 .slide-fade-down-enter-active {
-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .slide-fade-down-leave-active {
-transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .slide-fade-down-enter-from,
 .slide-fade-down-leave-to {
-transform: translateY(-20px);
-opacity: 0;
+  transform: translateY(-20px);
+  opacity: 0;
 }
 
 // For slide-fade-left:
 
 .slide-fade-left-enter-active {
-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .slide-fade-left-leave-active {
-transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .slide-fade-left-enter-from,
 .slide-fade-left-leave-to {
-transform: translateX(-20px);
-opacity: 0;
+  transform: translateX(-20px);
+  opacity: 0;
 }
 
 // For slide-fade-right:
 
 .slide-fade-right-enter-active {
-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .slide-fade-right-leave-active {
-transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .slide-fade-right-enter-from,
 .slide-fade-right-leave-to {
-transform: translateX(20px);
-opacity: 0;
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+// =========
+.el-input-group__append,
+.el-input-group__prepend {
+  background-color: inherit;
+  letter-spacing: 0px;
+  color: #818181;
+  padding: 5px 20px;
+}
+
+.el-input-group__prepend {
+  // width: 30%;
+  // span {
+  //   font-weight: 300;
+  //   font-style: italic;
+  //   font-size: 0.9rem;
+  // }
+}
+div.group {
+  margin-bottom: 1rem;
+  .el-input-group {
+    display: inline-flex;
+    width: 100%;
+    align-items: stretch;
+    height: 3rem;
+  }
+  small{
+    font-size: 0.65rem;
+    color: #818181;
+  }
 }

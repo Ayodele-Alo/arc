@@ -1,15 +1,19 @@
 <template>
   <section id="tab" class="tab shadow_sm">
-    <div class="container-lg container-fluid tab_container">
-      <div
-        :title="el.name"
-        :class="[getActiveTab === el.name ? 'active_tab' : '', 'tabs']"
-        v-for="(el, i) in getTabValues"
-        :key="i"
-        @click="switchTab(el.name)"
-      >
-        <span class="tab-label">{{ el.name }}</span>
-      </div>
+    <div class="container-lg container-fluid">
+      <el-scrollbar>
+        <div class="tab_container">
+          <div
+            :title="el.name"
+            :class="[getActiveTab === el.name ? 'active_tab' : '', 'tabs']"
+            v-for="(el, i) in getTabValues"
+            :key="i"
+            @click="switchTab(el.name)"
+          >
+            <span class="tab-label">{{ el.name }}</span>
+          </div>
+        </div>
+      </el-scrollbar>
     </div>
   </section>
 </template>

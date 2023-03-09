@@ -13,7 +13,7 @@
         <h6>African Population and Health Research Centre.</h6>
       </div>
       <div class="body">
-        <p class="title mt-3 mb-4">Data Entry Module</p>
+        <p class="title mt-3 mb-4">Data Report Module</p>
 
         <form action="">
           <div class="group">
@@ -47,7 +47,7 @@
 
           <div class="text-center py-4">
             <button class="btn btn_aphrc">
-              Login into APHRC - Data Entry Module
+              Login into APHRC - Data Report Module
             </button>
           </div>
         </form>
@@ -61,7 +61,7 @@ import { defineComponent } from "vue";
 import { mapMutations } from "vuex";
 
 export default defineComponent({
-  name: "Entry-Login-Modal",
+  name: "Report-Login-Modal",
   data() {
     return {
       loginDetails: {

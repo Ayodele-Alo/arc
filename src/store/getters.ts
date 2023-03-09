@@ -1,5 +1,5 @@
 import { GetterTree } from "vuex";
-import { state, configType} from "@/types";
+import { state, configType } from "@/types";
 
 const getters: GetterTree<state, unknown> = {
   getConfig: (state: state) => state.config,
@@ -13,7 +13,7 @@ const getters: GetterTree<state, unknown> = {
   getActiveTab: (state: state) => state.activeTab,
   getActiveTabConfig: (state: state) =>
     state.config.find((item: configType) => item.name === state.activeTab),
-  getActiveModal: (state:state) => state.activeModal,
+  getActiveModal: (state: state) => state.activeModal,
 };
 
 export default getters;
