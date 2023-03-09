@@ -49,6 +49,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.nav-header{
+    min-height: 11vh;
+}
 h6 {
   font-size: 1rem;
   font-family: Montserrat;
