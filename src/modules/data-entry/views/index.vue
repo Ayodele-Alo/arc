@@ -2,6 +2,7 @@
   <div class="main d-flex flex-column">
     <!-- <Header /> -->
     <div class="row align-items-start">
+
       <div class="col-3"><SideBar /></div>
       <div class="col-9 form-view">
         <FormHeader />
@@ -13,16 +14,16 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+// import Header from "../../dashboard/components/Header.vue";
 import FormHeader from "../components/FormHeader.vue";
 import SideBar from "../components/SideBar.vue";
-// import FormHeader from "../../dashboard/components/Header.vue";
 
 export default defineComponent({
   name: "indexHome",
   components: {
     FormHeader,
     SideBar,
-    // Header,
+
   },
 });
 </script>
@@ -34,7 +35,6 @@ export default defineComponent({
 
 .main {
   background-color: #f9f9f9;
-  z-index: 10;
   position: relative;
 }
 </style>
