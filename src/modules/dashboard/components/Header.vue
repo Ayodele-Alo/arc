@@ -41,7 +41,7 @@
               exact
               exact-active-class="active"
               class="nav-link"
-              to="/"
+              to="#"
               type="button"
               @click="handleLoginType('entry')"
             >
@@ -51,7 +51,7 @@
               exact
               exact-active-class="active"
               class="nav-link"
-              to="/"
+              to="#"
               type="button"
               @click="handleLoginType('import')"
             >
@@ -61,7 +61,7 @@
               exact
               exact-active-class="active"
               class="nav-link"
-              to="/"
+              to="#"
               type="button"
               @click="handleLoginType('report')"
             >
