@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <section class="homepage row">
-    <div class="col-lg-6 order-lg-first order-md-last d-none d-md-flex">
+    <div class="col-lg-6 order-lg-first order-md-last d-none d-md-flex px-md-0">
       <div class="img_container">
         <img
           :src="require(`@/assets/hero_bg.png`)"
@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="col-lg-6 description order-lg-last order-md-first">
-      <div class="welcome_note p-md-5 mx-md-3 mt-1 p-3">
+      <div class="welcome_note p-md-5 mx-lg-3 m-1 p-3">
         <h3>{{ textState.welcomeNote }}</h3>
         <div class="underline"></div>
       </div>
