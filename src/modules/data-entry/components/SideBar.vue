@@ -1,9 +1,5 @@
 <template>
     <div class="side left">
-
-            
-
-
         <div>Forms</div>
         <span>Log History</span>
         <span>Sign Out</span>
