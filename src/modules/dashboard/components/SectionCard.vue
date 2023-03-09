@@ -17,7 +17,7 @@
           v-else-if="el.tableau === true && el.url !== ''"
           :src="el.url"
           width="100%"
-          height="400"
+          height="500"
           class="embed-responsive-item"
         ></iframe>
         <div class="coming_soon" v-else>

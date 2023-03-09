@@ -6,23 +6,22 @@ export const configObject: Array<configType> = [
     visuals: [
       {
         name: "Total number of active and inactive grants",
-        // url: "https://public.tableau.com/views/Financedashboard_16472462810160/Dashboard1?:language=en-US&amp;publish=yes&amp;:display_count=n&amp;:origin=viz_share_link:showVizHome=no&amp;:embed=true",
-        url: "https://public.tableau.com/views/APHRC3/Dashboard1?:language=en-GB&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
+        url: "",
         tableau: true,
       },
       {
         name: "Total number of active and inactive themes",
-        url: "https://public.tableau.com/views/APHRCDashboard2/Dashboard2?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
+        url: "https://public.tableau.com/views/ActiveInactivethemes/ActiveInactivethemes_1?:language=en-US&:origin=viz_share_link&amp;:embed=true&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
       },
       {
         name: "Grants of less than one year and more than one year",
-        url: "",
+        url: "https://public.tableau.com/views/1year1year/1year1year?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link&amp;:embed=true&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
       },
       {
         name: "Grants of less than 1 million and more than 1 million",
-        url: "",
+        url: "https://public.tableau.com/views/Oneyearmultiyears/oneyearmultiyear?:language=en-US&:origin=viz_share_link&amp;:embed=true&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
       },
       {
@@ -77,22 +76,22 @@ export const configObject: Array<configType> = [
     visuals: [
       {
         name: "total number of grants per theme",
-        url: "",
+        url: "https://public.tableau.com/views/Grantspertheme/NoofGrantspertheme?:language=en-US&:origin=viz_share_link&amp;:embed=true&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
       },
       {
         name: "themes as synergy or signature",
-        url: "",
+        url: "https://public.tableau.com/views/Themesassignaturesynergy/ThemesasSignaturesynergy?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
       },
       {
         name: "Theme as prime or sub-award with amount ",
-        url: "",
+        url: "https://public.tableau.com/views/Themesasprimesubaward/Themeasprimesub?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
       },
       {
         name: "Percentage of products as prime or subaward",
-        url: "",
+        url: "https://public.tableau.com/views/Themesasprimesubaward_16783800455270/Dashboard10?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
       },
     ],
