@@ -14,7 +14,7 @@ export default defineComponent({
   },
   mounted() {
     console.log(
-      `%c 👋🏽, Welcome to the APHRC PLATFORM! \n\n \r\r APHRC is a platform for the sharing of ideas and innovations in the field of education and research.!`,
+      `%c 👋🏽,WELCOME TO APHRC M&E PLATFORM`,
       "color: #ccc; font-family:sans-serif; font-size: 1rem; padding-left: 1rem"
     );
   },

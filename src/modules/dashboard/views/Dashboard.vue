@@ -14,6 +14,5 @@ import SectionCard from "../components/SectionCard.vue";
 <style lang="scss" scoped>
 section.dashboard {
   background: #f9f9f9 0% 0% no-repeat padding-box;
-  // margin-bottom: 3rem;
 }
 </style>
