@@ -2,9 +2,9 @@
   <div class="main d-flex flex-column">
     <!-- <Header /> -->
     <div class="row align-items-start">
-
-      <div class="col-3"><SideBar /></div>
-      <div class="col-9 form-view">
+      <!-- <Header /> -->
+      <div class="col-2"><SideBar /></div>
+      <div class="col-10 form-view">
         <FormHeader />
         <router-view></router-view>
       </div>
@@ -23,7 +23,7 @@ export default defineComponent({
   components: {
     FormHeader,
     SideBar,
-
+    // Header
   },
 });
 </script>
@@ -31,11 +31,13 @@ export default defineComponent({
 <style scoped>
 .form-view {
   background-color: #f9f9f9;
+    padding: 20px;
 }
 
 .main {
   background-color: #f9f9f9;
   position: relative;
+
 }
 </style>
 
