@@ -85,6 +85,54 @@
       <span>J. Risk Identified</span>
     </div>
     <RiskIdentified />
+ <div class="">
+      <h1 class="header-2">2. Annual Work Plan 2023</h1>
+      <p class="sub-header-2">
+        This annual work plan outlines activities for the theme from the set
+        targets highlighted in the strategic plan 2022-2026 as well as
+        activities from the projects’ annual work plans 2023.
+      </p>
+    </div>
+
+    <div class="section-header text-start">
+      <span>A. Major planned activities aligned to the Strategic Plan</span>
+    </div>
+    <MajorActivitesPlanned />
+
+    <div class="section-header text-start">
+      <span>B. 2023 Projects</span>
+    </div>
+    <annualProjects />
+
+    <div class="section-header text-start">
+      <span>C. Plans and targets for the year</span>
+    </div>
+    <PlanAndTargetComponent />
+
+    <div class="section-header text-start">
+      <span>D. Engagements with policy and decision makers</span>
+    </div>
+    <EngagementAndPolicy />
+
+    <div class="section-header text-start">
+      <span>E. Collaborations, Partnerships and Alliances for 2023:</span>
+    </div>
+    <CollaborationsAndPartnership />
+
+    <div class="section-header text-start">
+      <span>F. Opportunities and new initiatives for 2023</span>
+    </div>
+    <OpportunitiesAndNewInitiatives />
+
+    <div class="section-header text-start">
+      <span>G. Business Development and funding</span>
+    </div>
+    <BusinessDevelopmentAndFunding />
+
+    <div class="section-header text-start">
+      <span>G. Staffing Needs and Proposed Staff Time Allocation</span>
+    </div>
+    <StafflingNeed />
   </div>
 </template>
 
@@ -94,12 +142,25 @@ import strategicOutcomes from "./form-sections/strategicOutcomes.vue";
 import PublicationComponent from "./form-sections/publications.vue";
 import EngagementComponent from "./form-sections/engagement.vue";
 // import AnnualPerformanceComponent from "./form-sections/annualPerformance.vue";
+import AnnualPerformanceComponent from "./form-sections/annualPerformance.vue";
 import AdditionalAchivementsComponemt from "./form-sections/additionalAchivements.vue";
 import ChallengesAndLesson from "./form-sections/challengeAndLesson.vue";
 import BusinessDevelopment from "./form-sections/businessDevelopment.vue";
 import NewOpportunities from "./form-sections/newOppotunities.vue";
 import AchivementsComponent from "./form-sections/Achivements.vue";
 import RiskIdentified from "./form-sections/riskIdentified.vue";
+import MajorActivitesPlanned from "./form-sections/majorActivitiesPlanned.vue";
+import annualProjects from "./form-sections/annualProjects.vue";
+import PlanAndTargetComponent from "./form-sections/planAndTarget.vue";
+import EngagementAndPolicy from "./form-sections/engagementAndPolicy.vue";
+import CollaborationsAndPartnership from "./form-sections/collaborationsAndPartnership.vue";
+import OpportunitiesAndNewInitiatives from "./form-sections/opportunitesAndNewInitiatives.vue";
+import BusinessDevelopmentAndFunding from "./form-sections/businessDevelopmentAndFunding.vue";
+import StafflingNeed from "./form-sections/stafflingNeed.vue";
+
+
+
+
 
 export default defineComponent({
   name: "createForm",
@@ -114,6 +175,14 @@ export default defineComponent({
     NewOpportunities,
     AchivementsComponent,
     RiskIdentified,
+        MajorActivitesPlanned,
+    annualProjects,
+    PlanAndTargetComponent,
+    EngagementAndPolicy,
+    CollaborationsAndPartnership,
+    OpportunitiesAndNewInitiatives,
+    BusinessDevelopmentAndFunding,
+    StafflingNeed,
   },
 });
 </script>

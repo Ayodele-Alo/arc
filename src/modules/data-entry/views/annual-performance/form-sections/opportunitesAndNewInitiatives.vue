@@ -1,11 +1,7 @@
 <template>
   <div class="row w-100">
     <div class="col text-start">
-      <p class="engagement-text">
-        Describe other key achievements or updates by the theme that were not
-        planned, if any, with respect to the center’s strategic objectives and
-        goals of the theme. E.g. any trainings attended by staff etc.
-      </p>
+      <p class="engagement-text">Describe any other opportunities identified</p>
       <textarea
         name=""
         placeholder="Type Here"
@@ -19,7 +15,7 @@
 
 <script>
 export default {
-  name: "AdditionalAchivementsComponemt",
+  name: "OpportunitiesAndNewInitiatives",
 };
 </script>
 
@@ -37,6 +33,7 @@ textarea {
   width: 100%;
   margin: 5px 0;
   padding: 20px;
+  border-radius: 5px;
 }
 
 textarea ::placeholder {
