@@ -41,12 +41,15 @@
       <span>B. Publications</span>
     </div>
 
+     <publications />
+
     <!-- put publications component here -->
 
     <div class="section-header text-start">
       <span>C. Engagement with policy and decision makers</span>
     </div>
 
+<engagement />
     <!-- Table form1 section -->
 
     <!-- Table form2 section -->
@@ -56,11 +59,15 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import strategicOutcomes from "./form-sections/strategicOutcomes.vue";
+import engagement from "./form-sections/engagement.vue";
+import publications from "./form-sections/publications.vue";
 
 export default defineComponent({
   name: "createForm",
   components: {
     strategicOutcomes,
+    engagement,
+    publications
   },
 });
 </script>

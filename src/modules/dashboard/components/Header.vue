@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="navbar navbar-expand-lg shadow bg-white py-lg-3 fixed-top">
+    <nav class="navbar navbar-expand-lg shadow bg-white py-lg-3 ">
       <div class="container-fluid px-lg-5 h-100">
         <router-link
           exact
