@@ -67,7 +67,42 @@
     <!-- Table form1 section -->
     <EngagementComponent />
 
+    <div class="section-header text-start">
+      <span>D. Annual Performance against the work plans</span>
+    </div>
+
     <!-- Table form2 section -->
+    <AnnualPerformanceComponent />
+
+    <div class="section-header text-start">
+      <span>E. Additional achievements or updates:</span>
+    </div>
+    <AdditionalAchivementsComponemt />
+
+    <div class="section-header text-start">
+      <span>F. Challenges and Lessons Learnt</span>
+    </div>
+    <ChallengesAndLesson />
+
+    <div class="section-header text-start">
+      <span>G. Business Development</span>
+    </div>
+    <BusinessDevelopment />
+
+    <div class="section-header text-start">
+      <span>H. New opportunities identified during the year</span>
+    </div>
+    <NewOpportunities />
+
+    <div class="section-header text-start">
+      <span>I. Additional achievements or updates:</span>
+    </div>
+    <AchivementsComponent />
+
+    <div class="section-header text-start">
+      <span>J. Risk Identified</span>
+    </div>
+    <RiskIdentified />
   </div>
 </template>
 
@@ -76,6 +111,13 @@ import { defineComponent } from "vue";
 import strategicOutcomes from "./form-sections/strategicOutcomes.vue";
 import PublicationComponent from "./form-sections/publications.vue";
 import EngagementComponent from "./form-sections/engagement.vue";
+import AnnualPerformanceComponent from "./form-sections/annaualPerformance.vue";
+import AdditionalAchivementsComponemt from "./form-sections/additionalAchivements.vue";
+import ChallengesAndLesson from "./form-sections/challengeAndLesson.vue";
+import BusinessDevelopment from "./form-sections/businessDevelopment.vue";
+import NewOpportunities from "./form-sections/newOppotunities.vue";
+import AchivementsComponent from "./form-sections/Achivements.vue";
+import RiskIdentified from "./form-sections/riskIdentified.vue";
 
 export default defineComponent({
   name: "createForm",
@@ -83,6 +125,13 @@ export default defineComponent({
     strategicOutcomes,
     PublicationComponent,
     EngagementComponent,
+    AnnualPerformanceComponent,
+    AdditionalAchivementsComponemt,
+    ChallengesAndLesson,
+    BusinessDevelopment,
+    NewOpportunities,
+    AchivementsComponent,
+    RiskIdentified,
   },
 });
 </script>
