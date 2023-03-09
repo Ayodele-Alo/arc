@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="col-lg-6 description order-lg-last order-md-first">
-      <div class="welcome_note p-lg-5 mx-3 p-3">
+      <div class="welcome_note p-md-5 mx-md-3 mt-1 p-3">
         <h3>{{ textState.welcomeNote }}</h3>
         <div class="underline"></div>
       </div>
@@ -20,7 +20,7 @@
         <div class="underline_2" />
         <p>{{ textState.description }}</p>
       </div>
-      <div class="text-center link_out">
+      <div class="text-center link_out mb-3 mb-lg-0">
         <router-link to="/dashboard"
           ><button class="btn btn_aphrc" @click="goToDasboard">
             Proceed to Dashboard
