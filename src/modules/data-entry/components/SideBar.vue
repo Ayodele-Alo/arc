@@ -9,6 +9,7 @@
 
 <style lang="scss">
 .side{
+    top: 0;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -16,6 +17,9 @@
     background-color: black;
     color: white;
     position: fixed;
+    top: 10vh;
     padding: 10px;
+    
+  top: 1vh;
 }
 </style>

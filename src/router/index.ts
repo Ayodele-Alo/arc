@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import { router as LANDING_PAGE_ROUTE } from "@/modules/homepage";
 import { router as DASHBOARD_ROUTE } from "@/modules/dashboard";
-import { router as DATA_ENTRY_ROUTE } from '@/modules/data-entry';
+import { router as DATA_ENTRY_ROUTE } from "@/modules/data-entry";
 
 const routes: Array<RouteRecordRaw> = [
   ...LANDING_PAGE_ROUTE,
   ...DASHBOARD_ROUTE,
-  DATA_ENTRY_ROUTE,
+  ...DATA_ENTRY_ROUTE,
   {
     path: "/:catchAll(.*)",
     name: "NotFound",
@@ -19,7 +19,7 @@ const routes: Array<RouteRecordRaw> = [
     },
     component: () => import("@/components/NotFound.vue"),
   },
-]
+];
 
 const router = createRouter({
   history: createWebHistory(),

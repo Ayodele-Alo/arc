@@ -60,8 +60,8 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .header {
-  position: sticky;
-  top: 0;
+  position: relative;
+  top: 100vh;
   background-color: #f9f9f9;
   padding-bottom: 15px;
 
