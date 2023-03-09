@@ -7,24 +7,24 @@
         <span class="text2">- {{ unit }}</span>
       </span>
     </div>
+    
     <div class="col">
       <div class="text-start">Select Units</div>
       <select
         class="form-select"
         aria-label="Default select example"
         v-model="unit"
-        @change="changeUnit()"
       >
-        <option value="select">Select</option>
-        <option value="Annual Performance">
+        <option selected value="select">Select</option>
+        <option @click="changeUnit('Annual Performance')" value="Annual Performance">
           Annual Performance Report and Planning
         </option>
-        <option value="Human Resource">Human Resource Report</option>
-        <option value="Policy Engagement">Policy Engagement Reporting</option>
-        <option value="research">
+        <option @click="changeUnit('Human Resource')" value="Human Resource">Human Resource Report</option>
+        <option @click="changeUnit('Policy Engagement')" value="Policy Engagement">Policy Engagement Reporting</option>
+        <option @click="changeUnit('research')" value="research">
           Research And Research Related Capacity Strengthning Report
         </option>
-        <option value="publications">Publications</option>
+        <option @click="changeUnit('publications')" value="publications">Publications</option>
       </select>
     </div>
   </div>
@@ -37,30 +37,41 @@ export default defineComponent({
   name: "createForm",
   data() {
     return {
-      unit: "select",
+      unit: ""
     };
   },
   components: {},
 
   methods: {
-    changeUnit() {
-      if (this.unit === "Annual Performance") {
-        this.$router.push("/data-entry/annual-performance/create");
-      }
-      if (this.unit === "Human Resource") {
-        this.$router.push("/data-entry/human-resource/create");
-      }
-      if (this.unit === "Policy Engagement") {
-        this.$router.push("/data-entry/policy-engagement");
-      }
-      if (this.unit === "research") {
-        this.$router.push("/data-entry/research-related");
-      }
-      if (this.unit === "publications") {
-        this.$router.push("/data-entry/publications");
-      }
+    async changeUnit() {
+      // this.unit = item,
+      this.$router.push({ path: '/' })
+
+      console.log('unit')
+      // if (this.unit === "Annual Performance") {
+      //   await this.$router.push("/data-entry/annual-performance/create");
+      // }
+      // if (this.unit === "Human Resource") {
+      //  await  this.$router.push("/data-entry/human-resource/create");
+      // }
+      // if (this.unit === "Policy Engagement") {
+      //   await this.$router.push("/data-entry/policy-engagement");
+      // }
+      // if (this.unit === "research") {
+      //   await this.$router.push("/data-entry/research-related");
+      // }
+      // if (this.unit === "publications") {
+      //   await this.$router.push("/data-entry/publications");
+      // }
+      //    this.$forceUpdate();
     },
   },
+
+  watch: {
+    unit(val){
+          console.log('dnnjed')
+    }
+  }
 });
 </script>
 

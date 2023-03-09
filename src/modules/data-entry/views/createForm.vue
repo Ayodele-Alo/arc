@@ -2,32 +2,28 @@
   <div>
 
     <div class="mb-3">
-           <label for="exampleInputEmail1" class="form-label">Theme name</label>
+      <label for="exampleInputEmail1" class="form-label">Theme name</label>
       <input
         type="email"
-        class="form-control theme-name-input"
-        placeholder="Input details"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
       />
-
-
-        <div id="emailHelp" class="form-text">
-        This document includes Annual Performance Review Report for 2022. It
-        also highlights the Annual Work Plans 2023 for the theme.
+      <div id="emailHelp" class="form-text">
+        We'll never share your email with anyone else.
       </div>
     </div>
     <br /><br />
+    <span
+      >This document includes Annual Performance Review Reoprt for 2022. It also
+      highlights the Annual Work Plans 2023 for the theme.</span
+    >
 
-    <div class="text-start">
-      <span class="annual-text1">1. Annual Performace Report 2022</span>
-    </div>
-
-    <br />
-    <div class="text-start annual-text2">
-      This report gives a summary of the performance and achievements of the
-      theme from the set targets highlighted in the strategic plan 2022-2026 as
-      well as performance from the annual work plans for 2021.
-    </div>
-
+    <span>1. Annual Performace Report 2022</span>
+    <span
+      >Thus report gives a summary of the performance and achievements of the
+      themem</span
+    >
 
     <div class="section-header text-start">
       <span>A. Strategic Outcomes</span>
@@ -93,13 +89,13 @@ import { defineComponent } from "vue";
 import strategicOutcomes from "./form-sections/strategicOutcomes.vue";
 import PublicationComponent from "./form-sections/publications.vue";
 import EngagementComponent from "./form-sections/engagement.vue";
-// import AnnualPerformanceComponent from "./form-sections/annualPerformance.vue";
-import AdditionalAchivementsComponemt from "./form-sections/additionalAchivements.vue";
-import ChallengesAndLesson from "./form-sections/challengeAndLesson.vue";
-import BusinessDevelopment from "./form-sections/businessDevelopment.vue";
-import NewOpportunities from "./form-sections/newOppotunities.vue";
-import AchivementsComponent from "./form-sections/Achivements.vue";
-import RiskIdentified from "./form-sections/riskIdentified.vue";
+import AnnualPerformanceComponent from "./form-sections/annaualPerformance.vue";
+import AdditionalAchivementsComponemt from "./annual-performance/form-sections/additionalAchivements.vue";
+import ChallengesAndLesson from "./annual-performance/form-sections/challengeAndLesson.vue";
+import BusinessDevelopment from "./annual-performance/form-sections/businessDevelopment.vue";
+import NewOpportunities from "./annual-performance/form-sections/newOppotunities.vue";
+import AchivementsComponent from "./annual-performance/form-sections/Achivements.vue";
+import RiskIdentified from "./annual-performance/form-sections/riskIdentified.vue";
 
 export default defineComponent({
   name: "createForm",
@@ -107,7 +103,7 @@ export default defineComponent({
     strategicOutcomes,
     PublicationComponent,
     EngagementComponent,
-    // AnnualPerformanceComponent,
+    AnnualPerformanceComponent,
     AdditionalAchivementsComponemt,
     ChallengesAndLesson,
     BusinessDevelopment,
@@ -129,8 +125,6 @@ export default defineComponent({
   color: #61a229;
   opacity: 1;
 }
-
-
 
 .text2 {
   letter-spacing: var(--unnamed-character-spacing-0);
@@ -163,27 +157,4 @@ export default defineComponent({
 .form-section {
   overflow-y: scroll;
 }
-
-.annual-text1 {
-  letter-spacing: var(--unnamed-character-spacing-0);
-  color: var(--text);
-  text-align: left;
-  font: normal normal bold 20px/24px Montserrat;
-  letter-spacing: 0px;
-  color: #707070;
-  opacity: 1;
-}
-
-.annual-text2 {
-  letter-spacing: var(--unnamed-character-spacing-0);
-  color: var(--text);
-  text-align: left;
-  font: normal normal normal 16px/19px Montserrat;
-  letter-spacing: 0px;
-  color: #707070;
-  opacity: 1;
-}
-
-
-
 </style>
