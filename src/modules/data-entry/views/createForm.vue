@@ -58,12 +58,14 @@
     </div>
 
     <!-- put publications component here -->
+    <PublicationComponent />
 
     <div class="section-header text-start">
       <span>C. Engagement with policy and decision makers</span>
     </div>
 
     <!-- Table form1 section -->
+    <EngagementComponent />
 
     <!-- Table form2 section -->
   </div>
@@ -72,11 +74,15 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import strategicOutcomes from "./form-sections/strategicOutcomes.vue";
+import PublicationComponent from "./form-sections/publications.vue";
+import EngagementComponent from "./form-sections/engagement.vue";
 
 export default defineComponent({
   name: "createForm",
   components: {
-    strategicOutcomes
+    strategicOutcomes,
+    PublicationComponent,
+    EngagementComponent,
   },
 });
 </script>
