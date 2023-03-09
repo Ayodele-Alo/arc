@@ -1,10 +1,10 @@
 <template>
-    <div class="side">
+    <div class="side left">
 
             
 
 
-        <span>Forms</span>
+        <div>Forms</div>
         <span>Log History</span>
         <span>Sign Out</span>
     </div>
@@ -19,5 +19,7 @@
     width: 20vw;
     background-color: black;
     color: white;
+    position: fixed;
+    padding: 10px;
 }
 </style>
