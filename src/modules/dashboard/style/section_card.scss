@@ -1,0 +1,82 @@
+section.section_card {
+  div.card {
+    border: 0;
+    div.card-header {
+      background: #000000db 0% 0% no-repeat padding-box;
+      border-radius: 1rem 1rem 0px 0px;
+      height: 5.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      h5 {
+        font-weight: normal;
+        font-size: 1rem;
+        font-family: Montserrat;
+        letter-spacing: 0px;
+        color: #ffffff;
+        text-transform: capitalize;
+      }
+      div.underline {
+        width: 10rem;
+        height: 3px;
+        background: #ffffff 0% 0% no-repeat padding-box;
+        border-radius: 6px;
+      }
+    }
+    div.card-body {
+      background: #ffffff 0% 0% no-repeat padding-box;
+      box-shadow: 0px 3px 34px #61a22912;
+      border: 1px solid #61a2293b;
+      border-radius: 4px;
+      min-height: 35rem;
+      height: 35rem;
+      overflow-y: auto;
+
+      div.coming_soon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        position: relative;
+        h4 {
+          font-weight: bold;
+          font-size: 1rem;
+          font-family: Montserrat;
+          letter-spacing: 0px;
+          color: #707070;
+          text-transform: capitalize;
+          margin-bottom: 0;
+          margin-right: 1rem;
+        }
+
+        div.loading_dots {
+          position: relative;
+          left: -9999px;
+          width: 7px;
+          height: 7px;
+          border-radius: 7px;
+          background-color: #2C4A13EB;
+          color: #2C4A13EB;
+          box-shadow: 9984px 0 0 0 #2C4A13EB, 9999px 0 0 0 #2C4A13EB,
+            10014px 0 0 0 #2C4A13EB;
+          animation: dot-carousel 1.5s infinite linear;
+        }
+
+        @keyframes dot-carousel {
+          0% {
+            box-shadow: 9984px 0 0 -1px #2C4A13EB, 9999px 0 0 1px #2C4A13EB,
+              10014px 0 0 -1px #2C4A13EB;
+          }
+          50% {
+            box-shadow: 10014px 0 0 -1px #2C4A13EB, 9984px 0 0 -1px #2C4A13EB,
+              9999px 0 0 1px #2C4A13EB;
+          }
+          100% {
+            box-shadow: 9999px 0 0 1px #2C4A13EB, 10014px 0 0 -1px #2C4A13EB,
+              9984px 0 0 -1px #2C4A13EB;
+          }
+        }
+      }
+    }
+  }
+}

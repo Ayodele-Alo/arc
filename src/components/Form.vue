@@ -22,7 +22,7 @@
 <script lang="ts" setup>
 import { reactive, ref, onMounted, onUnmounted, provide } from "vue";
 import { ElNotification } from 'element-plus'
-import AuthService from "@/utils/Service";
+import AuthService from "@/helpers/Service";
 
 const labelPosition = ref("right");
 const dataObject = reactive({

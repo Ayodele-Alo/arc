@@ -19,15 +19,8 @@ const Request = async (
     });
     return response;
   } catch (err: any) {
-    if (err.response) {
-      throw err.response;
-    } else if (err.request) {
-      console.error("err.request:", err.request);
-      throw err.request;
-    } else {
       console.error("Error:", err.message);
       throw err.message;
-    }
   }
 };
 

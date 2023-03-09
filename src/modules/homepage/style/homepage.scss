@@ -1,0 +1,109 @@
+section.homepage {
+  max-height: 100vh;
+  height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  div.img_container {
+    height: 100%;
+    img {
+      height: 100vh;
+    }
+  }
+
+  div.description {
+    color: #707070;
+    text-align: left;
+
+    div.welcome_note,
+    div.description_note,
+    div.link_out {
+      opacity: 0;
+      animation-duration: 0.75s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+
+    div.welcome_note {
+      background: #000000DB 0% 0% no-repeat padding-box;
+      border-radius: 1rem 1rem 0px 0px;
+      margin-bottom: 1.5rem;
+      animation-name: slideInRight;
+      animation-delay: 0.5s;
+
+      h3 {
+        font-size: 2rem;
+        font-family: "Playfair Display", serif;
+        font-weight: bold;
+        letter-spacing: 3.2px;
+        color: #F9F9F9;
+      }
+
+      div.underline {
+        background: #61a229 0% 0% no-repeat padding-box;
+        border-radius: 6px;
+        width: 18rem;
+        height: 8px;
+      }
+    }
+
+    div.description_note {
+      animation-name: slideInRight;
+      animation-delay: 1s;
+
+      h3 {
+        font-size: 2rem;
+        font-family: "Playfair Display", serif;
+        font-weight: bold;
+        letter-spacing: 3.2px;
+        margin-bottom: 0.5rem;
+      }
+
+      div.underline_2 {
+        width: 10rem;
+        height: 2px;
+        background: #000000 0% 0% no-repeat padding-box;
+        border-radius: 6px;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-family: Montserrat;
+        font-weight: 400;
+        font-size: 1rem;
+        letter-spacing: 0px;
+        line-height: 1.8rem;
+      }
+    }
+
+    div.link_out {
+      animation-name: slideInRight;
+      animation-delay: 1.5s;
+    }
+
+    @media only screen and (max-width: 640px) {
+      div.welcome_note {
+        margin-bottom: 1rem;
+        h3 {
+          font-size: 1.75rem;
+        }
+      }
+      div.description_note {
+        h3 {
+          font-size: 1.75rem;
+        }
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50%);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0%);
+      }
+    }
+  }
+}
