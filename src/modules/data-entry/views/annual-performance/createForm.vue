@@ -26,62 +26,142 @@
       well as performance from the annual work plans for 2021.
     </div>
 
-    <div class="section-header text-start">
+    <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseExample"
+    >
       <span>A. Strategic Outcomes</span>
+      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
-    <strategicOutcomes />
-
-    <div class="section-header text-start">
-      <span>B. Publications</span>
+    <div class="collapse" id="collapseExample">
+      <strategicOutcomes />
     </div>
 
-    <!-- put publications component here -->
-    <PublicationComponent />
 
-    <div class="section-header text-start">
-      <span>C. Engagement with policy and decision makers</span>
+        <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse2"
+    >
+       <span>B. Publications</span>
+      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
-    <!-- Table form1 section -->
-    <EngagementComponent />
-
-    <div class="section-header text-start">
-      <span>D. Annual Performance against the work plans</span>
+    <div class="collapse" id="collapse2">
+        <PublicationComponent />
     </div>
 
-    <!-- Table form2 section -->
-    <AnnualPerformanceComponent />
-
-    <div class="section-header text-start">
-      <span>E. Additional achievements or updates:</span>
+       <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse3"
+    >
+       <span>C. Engagement with policy and decision makers</span>
+      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
-    <AdditionalAchivementsComponemt />
 
-    <div class="section-header text-start">
-      <span>F. Challenges and Lessons Learnt</span>
+    <div class="collapse" id="collapse3">
+            <EngagementComponent />
     </div>
-    <ChallengesAndLesson />
 
-    <div class="section-header text-start">
-      <span>G. Business Development</span>
+      <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse4"
+    >
+       <span>D. Annual Performance against the work plans</span>
+      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
-    <BusinessDevelopment />
 
-    <div class="section-header text-start">
-      <span>H. New opportunities identified during the year</span>
+    <div class="collapse" id="collapse4">
+             <AnnualPerformanceComponent />
     </div>
-    <NewOpportunities />
 
-    <div class="section-header text-start">
-      <span>I. Additional achievements or updates:</span>
-    </div>
-    <AchivementsComponent />
 
-    <div class="section-header text-start">
-      <span>J. Risk Identified</span>
+    <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse5"
+    >
+        <span>E. Additional achievements or updates:</span>
+      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
-    <RiskIdentified />
+
+    <div class="collapse" id="collapse5">
+              <AdditionalAchivementsComponemt />
+    </div>
+
+
+ <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse6"
+    >
+        <span>F. Challenges and Lessons Learnt</span>
+      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
+    </div>
+
+    <div class="collapse" id="collapse6">
+               <ChallengesAndLesson />
+    </div>
+
+
+
+ <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse7"
+    >
+        <span>G. Business Development</span>
+      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
+    </div>
+
+    <div class="collapse" id="collapse7">
+               <BusinessDevelopment />
+    </div>
+
+     <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse8"
+    >
+        <span>H. New opportunities identified during the year</span>
+      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
+    </div>
+
+    <div class="collapse" id="collapse8">
+               <NewOpportunities />
+    </div>
+
+       <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse9"
+    >
+        <span>I. Additional achievements or updates:</span>
+      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
+    </div>
+
+    <div class="collapse" id="collapse9">
+              <AchivementsComponent />
+    </div>
+
+           <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse10"
+    >
+       <span>J. Risk Identified</span>
+      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
+    </div>
+
+    <div class="collapse" id="collapse10">
+              <RiskIdentified />
+    </div>
+
+
     <div class="">
       <h1 class="header-2">2. Annual Work Plan 2023</h1>
       <p class="sub-header-2">
@@ -91,45 +171,117 @@
       </p>
     </div>
 
-    <div class="section-header text-start">
-      <span>A. Major planned activities aligned to the Strategic Plan</span>
-    </div>
-    <MajorActivitesPlanned />
 
-    <div class="section-header text-start">
-      <span>B. 2023 Projects</span>
+         <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse11"
+    >
+         <span>A. Major planned activities aligned to the Strategic Plan</span>
+      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
-    <annualProjects />
 
-    <div class="section-header text-start">
-      <span>C. Plans and targets for the year</span>
+    <div class="collapse" id="collapse11">
+                <MajorActivitesPlanned />
     </div>
-    <PlanAndTargetComponent />
 
-    <div class="section-header text-start">
-      <span>D. Engagements with policy and decision makers</span>
-    </div>
-    <EngagementAndPolicy />
 
-    <div class="section-header text-start">
-      <span>E. Collaborations, Partnerships and Alliances for 2023:</span>
+           <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse11.5"
+    >
+         <span>B. 2023 Projects</span>
+      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
-    <CollaborationsAndPartnership />
 
-    <div class="section-header text-start">
-      <span>F. Opportunities and new initiatives for 2023</span>
+    <div class="collapse" id="collapse11.5">
+                 <annualProjects />
     </div>
-    <OpportunitiesAndNewInitiatives />
 
-    <div class="section-header text-start">
-      <span>G. Business Development and funding</span>
+             <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse12"
+    >
+        <span>C. Plans and targets for the year</span>
+      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
-    <BusinessDevelopmentAndFunding />
 
-    <div class="section-header text-start">
-      <span>G. Staffing Needs and Proposed Staff Time Allocation</span>
+    <div class="collapse" id="collapse12">
+                 <PlanAndTargetComponent />
     </div>
-    <StafflingNeed />
+
+
+
+             <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse13"
+    >
+        <span>D. Engagements with policy and decision makers</span>
+      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
+    </div>
+
+    <div class="collapse" id="collapse13">
+                 <EngagementAndPolicy />
+    </div>
+
+
+             <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse14"
+    >
+         <span>E. Collaborations, Partnerships and Alliances for 2023:</span>
+      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
+    </div>
+
+    <div class="collapse" id="collapse14">
+                 <CollaborationsAndPartnership />
+    </div>
+
+    
+          <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse15"
+    >
+         <span>F. Opportunities and new initiatives for 2023</span>
+      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
+    </div>
+
+    <div class="collapse" id="collapse15">
+                <OpportunitiesAndNewInitiatives />
+    </div>
+
+           <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse16"
+    >
+         <span>G. Business Development and funding</span>
+      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
+    </div>
+
+    <div class="collapse" id="collapse16">
+                <BusinessDevelopmentAndFunding />
+    </div>
+
+    
+      <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse17"
+    >
+           <span>G. Staffing Needs and Proposed Staff Time Allocation</span>
+      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
+    </div>
+
+    <div class="collapse" id="collapse17">
+                <StafflingNeed />
+    </div>
+
   </div>
 </template>
 
@@ -218,6 +370,10 @@ export default defineComponent({
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 15px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .form-section {

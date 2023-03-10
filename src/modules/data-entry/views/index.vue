@@ -3,7 +3,7 @@
     <!-- <div class="position-fixed bottom-0 end-0">
       <button class="submit-btn">Submit Form</button>
       <button class="save-btn">Save to draft</button>
-    </div> --> 
+    </div>  -->
     <MainHeader />
     <div class="row align-items-start mt-5 pt-lg-5 pt-3">
       <div class="col-2"><SideBar /></div>
