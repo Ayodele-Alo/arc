@@ -10,7 +10,7 @@
         />
       </div>
     </div>
-    <div class="col-lg-6 description order-lg-last order-md-first">
+    <div class="col-lg-6 py-2 description order-lg-last order-md-first">
       <div class="welcome_note p-md-5 mx-lg-3 m-1 p-3">
         <h3>{{ textState.welcomeNote }}</h3>
         <div class="underline"></div>

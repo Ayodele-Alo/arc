@@ -1,7 +1,6 @@
 <template>
   <header class="main">
-    <nav class="nav-header navbar navbar-expand-lg shadow bg-white py-lg-3 fixed-top">
-
+    <nav class="nav-header navbar navbar-expand-lg shadow bg-white fixed-top">
       <div class="container-fluid px-lg-5 h-100">
         <router-link
           exact
@@ -22,11 +21,10 @@
             </p>
           </div>
         </router-link>
-     
-   <div>Admin</div>
+
+        <div>Admin</div>
       </div>
     </nav>
-            <br><br><br><br>
   </header>
 </template>
 
@@ -49,8 +47,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.nav-header{
-    min-height: 11vh;
+.nav-header {
+  min-height: 11vh;
 }
 h6 {
   font-size: 1rem;
@@ -81,7 +79,6 @@ div.title_container {
     height: 2.5rem;
   }
 }
-
 
 @media only screen and (max-width: 700px) {
   div.title_container {

@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="navbar navbar-expand-lg shadow bg-white py-lg-3 fixed-top">
+    <nav class="navbar navbar-expand-lg shadow bg-white py-lg-2 fixed-top">
       <div class="container-fluid px-lg-5 h-100">
         <router-link
           exact
@@ -94,7 +94,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 h6 {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-family: Montserrat;
   font-weight: bold;
   letter-spacing: 0;
@@ -110,7 +110,7 @@ div.title_container {
 
   p {
     font-family: Montserrat;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 400;
     letter-spacing: 0px;
     color: #707070;

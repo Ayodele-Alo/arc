@@ -3,70 +3,58 @@
     <div class="col text-start">
       <div class="text-start">
         <p class="engagement-text">
-          The type of engagement include consultative meetings with policy
-          makers, policy cafes, conferences and any other fora. Kindly provide
-          the list of engagements and indicate the roles played by the theme
-          (e.g., keynote speaker, presenter, discussant, chair etc.) Kindly
-          attach, as a means of verification, the notes from the
-          engagement/meeting including action points and next steps for APHRC.
+          Kindly provide, as a means of verification, copies of the proposals
+          submitted and the feedback email or documents from the funder.
         </p>
       </div>
       <table class="table table-bordered">
         <tbody>
           <tr>
-            <th class="row-header">Themes</th>
+            <th class="row-header">Proposal Title</th>
             <th class="header-width" scope="col">
-              <p class="row-header">Type of engagement</p>
-              <p class="row-sub-header">
-                (Consultative meetings with policy makers, conferences, forums,
-                policy cafes, dissemination workshops)
-              </p>
+              <p class="row-header">Funder</p>
             </th>
             <th class="header-width" scope="col">
-              <p class="row-header">Brief comment on the engagement</p>
+              <p class="row-header">Signature issue addressed</p>
               <p class="row-sub-header">
-                (including the focus areas/signature issues the engagement is
-                on)
+                (Does the proposal objective address the theme SI?- Yes/no)
               </p>
             </th>
 
             <th class="header-width" scope="col">
-              <p class="row-header">
-                Signature issue approach utilized during the engagement
-              </p>
+              <p class="row-header">Submission date</p>
               <p class="row-sub-header">
-                (Did the engagement utilize the signature issue approach?
-                YES/NO)
+                (date when the proposal as submitted)
               </p>
             </th>
             <th class="header-width" scope="col">
-              <p class="row-header">Countries</p>
+              <p class="row-header">Project Period</p>
             </th>
             <th class="header-width" scope="col">
-              <p class="row-header">Title of presentation made</p>
-              <p class="row-sub-header">(where applicable)</p>
+              <p class="row-header">Project Budget</p>
             </th>
             <th class="header-width" scope="col">
-              <p class="row-header">Role of presenter</p>
+              <p class="row-header">Partners</p>
+            </th>
+            <th class="header-width" scope="col">
+              <p class="row-header">Feedback from funder</p>
               <p class="row-sub-header">
-                (Key note speaker, presenter, discussant, chair, etc.)
+                (approved, unsuccessful, waiting feedback)
               </p>
             </th>
             <th class="header-width" scope="col">
-              <p class="row-header">Organizations/ institutions present</p>
-            </th>
-            <th class="header-width" scope="col">
-              <p class="row-header">
-                Key people present with whom contact was made
-              </p>
+              <p class="row-header">Date of feedback</p>
+              <p class="row-sub-header">(when the feedback has been given)</p>
             </th>
           </tr>
           <tr>
             <th class="row-header">
               <div class="row">
-                <div class="col text-start">
-                  <p>1.</p>
-                  <input placeholder="Type Here" type="text" />
+                <div class="row">
+                  <div class="d-flex align-items-center">
+                    <p class="mt-3">1.</p>
+                    <input placeholder="Type Here" class="px-1" type="text" />
+                  </div>
                 </div>
               </div>
             </th>
@@ -88,7 +76,7 @@
 
 <script>
 export default {
-  name: "EngagementComponent",
+  name: "BusinessDevelopment",
 };
 </script>
 
@@ -105,7 +93,7 @@ export default {
   height: 100px;
   text-align: left;
   padding: 4px 8px;
-  padding: 0 15px;
+  padding: 10px 15px;
 }
 .row-header {
   letter-spacing: 0px;
@@ -118,7 +106,7 @@ export default {
   font-size: 16px;
   line-height: 19px;
   text-align: left;
-  padding-top: 15px;
+  padding-top: 25px;
 }
 .publication-iten {
   display: flex;
