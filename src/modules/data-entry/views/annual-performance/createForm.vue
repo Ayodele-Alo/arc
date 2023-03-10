@@ -1,16 +1,14 @@
 <template>
   <div>
-
     <div class="mb-3">
-           <label for="exampleInputEmail1" class="form-label">Theme name</label>
+      <label for="exampleInputEmail1" class="form-label">Theme name</label>
       <input
         type="email"
         class="form-control theme-name-input"
         placeholder="Input details"
       />
 
-
-        <div id="emailHelp" class="form-text">
+      <div id="emailHelp" class="form-text">
         This document includes Annual Performance Review Report for 2022. It
         also highlights the Annual Work Plans 2023 for the theme.
       </div>
@@ -27,7 +25,6 @@
       theme from the set targets highlighted in the strategic plan 2022-2026 as
       well as performance from the annual work plans for 2021.
     </div>
-
 
     <div class="section-header text-start">
       <span>A. Strategic Outcomes</span>
@@ -85,7 +82,7 @@
       <span>J. Risk Identified</span>
     </div>
     <RiskIdentified />
- <div class="">
+    <div class="">
       <h1 class="header-2">2. Annual Work Plan 2023</h1>
       <p class="sub-header-2">
         This annual work plan outlines activities for the theme from the set
@@ -142,7 +139,7 @@ import strategicOutcomes from "./form-sections/strategicOutcomes.vue";
 import PublicationComponent from "./form-sections/publications.vue";
 import EngagementComponent from "./form-sections/engagement.vue";
 // import AnnualPerformanceComponent from "./form-sections/annualPerformance.vue";
-import AnnualPerformanceComponent from "./form-sections/annualPerformance.vue";
+// import AnnualPerformanceComponent from "./form-sections/annualPerformance.vue";
 import AdditionalAchivementsComponemt from "./form-sections/additionalAchivements.vue";
 import ChallengesAndLesson from "./form-sections/challengeAndLesson.vue";
 import BusinessDevelopment from "./form-sections/businessDevelopment.vue";
@@ -158,10 +155,6 @@ import OpportunitiesAndNewInitiatives from "./form-sections/opportunitesAndNewIn
 import BusinessDevelopmentAndFunding from "./form-sections/businessDevelopmentAndFunding.vue";
 import StafflingNeed from "./form-sections/stafflingNeed.vue";
 
-
-
-
-
 export default defineComponent({
   name: "createForm",
   components: {
@@ -175,7 +168,7 @@ export default defineComponent({
     NewOpportunities,
     AchivementsComponent,
     RiskIdentified,
-        MajorActivitesPlanned,
+    MajorActivitesPlanned,
     annualProjects,
     PlanAndTargetComponent,
     EngagementAndPolicy,
@@ -198,8 +191,6 @@ export default defineComponent({
   color: #61a229;
   opacity: 1;
 }
-
-
 
 .text2 {
   letter-spacing: var(--unnamed-character-spacing-0);
@@ -252,7 +243,4 @@ export default defineComponent({
   color: #707070;
   opacity: 1;
 }
-
-
-
 </style>
