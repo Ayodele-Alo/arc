@@ -1,85 +1,93 @@
 <template>
-  <div>
-    <!-- form -->
-    <form action="" class="form-section">
-      <div class="form-card text-start">
-        Innovations based on or informed by research conducted by APHRC.
-        (Innovations can be new ideas, methodology, processes, best practices or
-        products. Include Innovations adopted and the
-        institution/individual/community/ using it). (For RRCS may include
-        innovations by the RRCS fellows that can be attributed to the
-        fellowships) <br /><br />
-        <strong>Ideas, Methodology, Processes, Best Practices, Products</strong>
-        <input
-          type="email"
-          class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-        />
-      </div>
-
-      <br /><br />
-      <div class="form-card text-start">
-        Policy actions/policy decisions informed by research and policy
-        engagement efforts on APHRC’s focus areas/ signature issues. 
-         <br /><br />
-        <strong>Ideas, Methodology, Processes, Best Practices, Products</strong>
-        <input
-          type="email"
-          class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-        />
-      </div>
-
-      <br /><br />
-      <div class="form-card text-start">
-        Policy actions/policy decisions informed by research and policy
-        engagement efforts on APHRC’s focus areas/ signature issues.
-        <br><br>
-        <input
-          type="email"
-          class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-        />
-      </div>
-
-      <br /><br /><br />
-      <div class="form-card text-start">
-        This report gives a summary of the performance and achievements of the
-        theme from the set targets highlighted in the strategic plan 2022-2026
-        as well as performance from the annual work plans for 2021.
-        <br>
-        <input
-          type="email"
-          class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-        />
-      </div>
-    </form>
+  <div class="mt-3">
+    <div class=" bg-white border border-2">
+      <label class="form-label fw-bold text-secondary  p-3">Institutionalized procedures to forecast human resources requirements at the Center</label>
+<div class="border-top border-2 w-100 mx-0">
+  <ol class="px-6 py-1">
+        <li>
+          <input
+        type="email"
+        class="border-0 form-control bg-white"
+        placeholder="Type Here"
+      />
+        </li>
+      </ol>
+</div>
+    </div>
+    <p class="add-more p-2 fw-bold text-secondary">+ Add more</p>
+  </div>
+  <div class="mt-3">
+    <div class=" bg-white border border-2">
+      <label class="form-label fw-bold text-secondary  p-3">Lead time in mobilizing human resources to meet the demand for new skills and staff for new initiatives and opportunities</label>
+<div class="border-top border-2 w-100 mx-0">
+  <ol class="px-6 py-1">
+        <li>
+          <input
+        type="email"
+        class="border-0 form-control bg-white"
+        placeholder="Type Here"
+      />
+        </li>
+      </ol>
+</div>
+    </div>
+    <p class="add-more p-2 fw-bold text-secondary">+ Add more</p>
+  </div>
+  <div class="mt-3">
+    <div class=" bg-white border border-2">
+      <label class="form-label fw-bold text-secondary  p-3">Turn-around time of talent/human resource acquisition</label>
+<div class="border-top border-2 w-100 mx-0">
+  <ol class="px-6 py-1">
+        <li>
+          <input
+        type="email"
+        class="border-0 form-control bg-white"
+        placeholder="Type Here"
+      />
+        </li>
+      </ol>
+</div>
+    </div>
+    <p class="add-more p-2 fw-bold text-secondary">+ Add more</p>
+  </div>
+  <div class="mt-3">
+    <div class=" bg-white border border-2">
+      <label class="form-label fw-bold text-secondary  p-3">Updates on operationalizing the Succession planning roadmap</label>
+<div class="border-top border-2 w-100 mx-0">
+  <ol class="px-6 py-1">
+        <li>
+          <input
+        type="email"
+        class="border-0 form-control bg-white"
+        placeholder="Type Here"
+      />
+        </li>
+      </ol>
+</div>
+    </div>
+    <p class="add-more p-2 fw-bold text-secondary">+ Add more</p>
+  </div>
+  <div class="mt-3">
+    <div class=" bg-white border border-2">
+      <label class="form-label fw-bold text-secondary  p-3">Updates on Procedures instituted to forecast human resources requirements at the Center</label>
+<div class="border-top border-2 w-100 mx-0">
+  <ol class="px-6 py-1">
+        <li>
+          <input
+        type="email"
+        class="border-0 form-control bg-white"
+        placeholder="Type Here"
+      />
+        </li>
+      </ol>
+</div>
+    </div>
+    <p class="add-more p-2 fw-bold text-secondary">+ Add more</p>
   </div>
 </template>
 
 <style scoped>
-.form-card {
-  background-color: white;
-  min-height: 20vh;
-  width: 74vw;
-  padding: 20px;
-  background: var(--60-bg) 0% 0% no-repeat padding-box;
-  background: #ffffff 0% 0% no-repeat padding-box;
-  border: 1px solid #707070ab;
-  opacity: 1;
-}
-
-.section-header {
-  background-color: #61a229;
-  color: white;
-}
-
-.form-section {
-  overflow-y: scroll;
+.add-more {
+  cursor: pointer;
 }
 </style>

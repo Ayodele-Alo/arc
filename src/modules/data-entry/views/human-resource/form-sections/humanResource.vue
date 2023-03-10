@@ -1,111 +1,97 @@
 <template>
-  <div class="row px-2">
-    <div class="col text-start">
-      <div class="text-start">
-        <p class="publication-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum commodi
-          neque voluptas veniam! Aliquid iusto laborum, deserunt illo iste, vel
-        </p>
-        <p class="publication-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum commodi
-          neque voluptas veniam! Aliquid iusto laborum, deserunt illo iste, vel
-          esse, voluptas voluptatem aliquam quod vero dignissimos ea maxime
-          blanditiis. Dolorem adipisci commodi illum odio? Delectus earum quas
-          eos cum.
-        </p>
-        <p class="publication-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum commodi
-          neque voluptas veniam! Aliquid iusto laborum, deserunt illo iste, vel
-          esse, voluptas voluptatem aliquam quod vero dignissimos ea maxime
-        </p>
-      </div>
-      <table class="table table-bordered">
-        <tbody>
-          <tr>
-            <th class="row-header">Themes</th>
-            <th class="header-width" scope="col">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Doloremque magnam quis mollitia iste odio dolor vero debitis
-              accusantium nobis, earum minus voluptates, qui provident,
-            </th>
-            <th class="header-width" scope="col">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Doloremque magnam quis mollitia iste odio dolor vero debitis
-              accusantium nobis, earum minus voluptates, qui provident, modi ut
-              cum quam. Rem, nobis.
-            </th>
-            <th class="header-width" scope="col"></th>
-            <th class="header-width" scope="col">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Doloremque magnam quis mollitia iste odio dolor vero debitis
-            </th>
-            <th class="header-width" scope="col">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Doloremque magnam quis mollitia iste odio dolor vero debitis
-              accusantium nobis, earum minus voluptates, qui provident,
-            </th>
-            <th class="header-width" scope="col">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Doloremque magnam quis mollitia iste odio dolor vero debitis a
-            </th>
-            <th class="header-width" scope="col">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Doloremque magnam quis mollitia iste odio dolor vero debitis
-            </th>
-            <th class="header-width" scope="col">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Doloremque magnam quis mollitia iste odio dolor vero debitis
-            </th>
-          </tr>
-          <tr>
-            <th class="row-header">
-              <div class="row">
-                <div class="col text-start">
-                  <p>1.</p>
-                  <input placeholder="Type Here" type="text" />
-                </div>
-              </div>
-            </th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-      <p class="add-more">+ Add more</p>
-    </div>
-  </div>
+<table class="table table-bordered">
+      <tbody>
+        <tr>
+          <th class="row-header">Indicators</th>
+          <th class="row-header">Total</th>
+          <th class="header-width text-center"> Research
+            <div class="d-flex justify-content-around mt-3" >
+            <th> Male</th>
+            <th> Female</th>
+            </div>
+        </th>
+        <th class="header-width row-header text-center" scope="col"> Research
+            <div class="d-flex justify-content-around mt-3" >
+            <th> Male</th>
+            <th> Female</th>
+            </div>
+        </th>
+        <th class="header-width row-header text-center" scope="col"> Research
+            <div class="d-flex justify-content-around mt-3" >
+            <th> Male</th>
+            <th> Female</th>
+            </div>
+        </th>
+        <th class="header-width row-header text-center" scope="col"> Research
+            <div class="d-flex justify-content-around mt-3" >
+            <th> Male</th>
+            <th> Female</th>
+            </div>
+        </th>
+          <th class="header-width row-header" scope="col">National (Distribution)
+          </th>
+        </tr>
+        <tr>
+          <th class="publication-content">Number of regular employees at the start of the year</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th class="publication-content">Number of regular employees at mid-year</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th class="publication-content">Number of employees hired under short term flexi contracts by mid-year</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th class="publication-content">Number of employees who have left APHRC e.g thrpough resignation, termination, laying off, Contracting ending etc.</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+<!--     
+    <table>
+
+    </table> -->
 </template>
 
-<script>
-export default {
-  name: "EngagementComponent",
-};
-</script>
-
 <style scoped>
-.publication-text {
-  color: #707070;
-  font: normal normal normal 16px/19px Montserrat;
-  letter-spacing: 0px;
-  color: #707070;
-}
 .header-width {
-  width: 170px;
-  text-align: left;
-  padding: 4px 8px;
+  width: 300px;
 }
 .row-header {
+  letter-spacing: 0px;
+  color: #707070;
+  opacity: 1;
+  /* font: normal normal bold 16px/19px Montserrat; */
+  font-weight: bold;
+  font-style: normal;
+  font-family: Montserrat;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 25px 15px;
+  text-align: left;
 }
 .publication-iten {
   display: flex;
 }
-input {
+.publication-iten input {
   height: 25px;
   border: none;
   outline: none;
@@ -118,14 +104,20 @@ input {
   align-items: flex-start;
   padding: 0 4px;
 }
-.add-more {
-  cursor: pointer;
+.publication-content {
+  letter-spacing: 0px;
+  color: #707070;
+  opacity: 1;
+  /* font: normal normal bold 16px/19px Montserrat; */
+  font-weight: normal;
+  font-style: normal;
+  font-family: Montserrat;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 25px 15px;
+  text-align: left;
 }
-.add-more:hover {
-  color: red;
-}
-.row-header {
-  padding: 15px 5px;
-  height: 100px;
+table {
+  background-color: white;
 }
 </style>
