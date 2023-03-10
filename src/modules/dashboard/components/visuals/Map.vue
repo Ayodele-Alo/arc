@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isLoaded" style="height: 500px">
+  <div v-if="isLoaded">
     <vue-highcharts type="mapChart" :options="chartOptions"></vue-highcharts>
   </div>
 </template>
@@ -7,8 +7,8 @@
 <script lang="js">
 import { defineComponent } from "vue";
 import VueHighcharts from 'vue3-highcharts';
-// import mapData from "@highcharts/map-collection/custom/world.geo.json";
-import mapData from "./world-map-data.json";
+import mapData from "@highcharts/map-collection/custom/world.geo.json";
+// import mapData from "./world-map-data.json";
 
 import Highcharts from 'highcharts';
 import HighchartsMap from 'highcharts/modules/map';
@@ -46,88 +46,75 @@ export default defineComponent({
         title: {
           text: "APHRC",
         },
-         legend: {
-                title: {
-                    text: 'Population density per km²',
-                    style: {
-                        color: ( // theme
-                            Highcharts.defaultOptions &&
-                            Highcharts.defaultOptions.legend &&
-                            Highcharts.defaultOptions.legend.title &&
-                            Highcharts.defaultOptions.legend.title.style &&
-                            Highcharts.defaultOptions.legend.title.style.color
-                        ) || 'black'
-                    }
-                }
-            },
-
-            mapNavigation: {
-                enabled: true,
-                buttonOptions: {
-                    verticalAlign: 'bottom'
-                }
-            },
-            tooltip: {
-                backgroundColor: 'none',
-                borderWidth: 0,
-                shadow: false,
-                useHTML: true,
-                padding: 0,
-                pointFormat: '<span class="f32"><span class="flag {point.properties.hc-key}">' +
-                    '</span></span> {point.name}<br>' +
-                    '<span style="font-size:30px">{point.value}/aphrc</span>',
-                positioner: function () {
-                    return { x: 0, y: 250 };
-                }
-            },
-
-            colorAxis: {
-                min: 1,
-                max: 1000,
-                type: 'logarithmic'
-            },
-            series: [{
-                name: 'DATA TEST',
-                joinBy: ['hc-key', 'code'], // join by hc-key property
-                data: [{
-                  name: 'Canada',
-                  value: 100,
-                  code: 'ca' // ISO-3166-1-A2 code for Canada
-                }, {
-                  name: 'United States',
-                  value: 75,
-                  code: 'us' // ISO-3166-1-A2 code for United States
-                }, {
-                  name: 'Mexico',
-                  value: 50,
-                  code: 'mx' // ISO-3166-1-A2 code for Mexico
-                }],
-                mapData: mapData,
-                states: {
-                  hover: {
-                    color: '#BADA55'
+         credits: {
+          enabled: false,
+        },
+        legend: {
+              title: {
+                  text: 'Indicator Performance Across Time',
+                  style: {
+                      color: (
+                          Highcharts.defaultOptions &&
+                          Highcharts.defaultOptions.legend &&
+                          Highcharts.defaultOptions.legend.title &&
+                          Highcharts.defaultOptions.legend.title.style &&
+                          Highcharts.defaultOptions.legend.title.style.color
+                      ) || 'black'
                   }
-                },
-                dataLabels: {
-                  enabled: true,
-                  format: '{point.name}'
-                }
-              }],
-               drilldown: {
-            activeDataLabelStyle: {
-                color: '#FFFFFF',
-                textDecoration: 'none',
-                textOutline: '1px #000000'
+              }
+          },
+          mapNavigation: {
+              enabled: true,
+              buttonOptions: {
+                  verticalAlign: 'bottom'
+              }
+          },
+          tooltip: {
+              backgroundColor: '#eeeeee',
+              padding: '10px',
+              borderWidth: 1,
+              shadow: true,
+              useHTML: true,
+              pointFormat: '<span class="f32"><span class="flag {point.properties.hc-key}">' +
+                  '</span></span> {point.name}<br>' +
+                  '<span style="font-size:20px">{point.value}/aphrc</span>',
+              positioner: function () {
+                  return { x: 0, y: 50 };
+              }
             },
-            drillUpButton: {
-                relativeTo: 'spacingBox',
-                position: {
-                    x: 0,
-                    y: 60
-                }
-            }
-        }
 
+          colorAxis: {
+              min: 1,
+              max: 1000,
+              type: 'logarithmic'
+          },
+          series: [{
+              name: 'DATA TEST',
+              joinBy: ['hc-key', 'code'], // join by hc-key property
+              data: [{
+                name: 'Kenya',
+                value: 100,
+                code: 'ke' // ISO-3166-1-A2 code for Canada
+              }, {
+                name: 'United States',
+                value: 75,
+                code: 'us' // ISO-3166-1-A2 code for United States
+              }, {
+                name: 'Nigeria',
+                value: 50,
+                code: 'ng' // ISO-3166-1-A2 code for Mexico
+              }],
+              mapData: mapData,
+              states: {
+                hover: {
+                  color: '#61A229'
+                }
+              },
+              dataLabels: {
+                enabled: true,
+                format: '{point.name}'
+              }
+            }],
       },
     };
   },
@@ -136,3 +123,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.vue-highcharts {
+  width: 100%;
+  height: 75vh;
+}
+</style>
