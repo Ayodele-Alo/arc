@@ -1,5 +1,9 @@
 <template>
   <div class="mt-4 px-4">
+       <div class="position-fixed bottom-0 end-0">
+      <button class="submit-btn">Submit Form</button>
+      <button class="save-btn">Save to draft</button>
+    </div> 
     <div class="mb-3 text-start">
       <p class="fw-bold text-secondary mb-1">1. Human Resource Report Tool</p>
       <small class="text-secondary">This report gives an annual summary of the status of the Center in terms of human Resource guided by the strategic plan 2022-2026</small>
@@ -12,6 +16,7 @@
       data-bs-target="#collapseExample"
     >
       <span>A. Human Resource</span>
+         <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapseExample">
@@ -26,6 +31,7 @@
       data-bs-target="#collapseExample2"
     >
       <span>B. By Cadre</span>
+         <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapseExample2">
@@ -40,6 +46,7 @@
       data-bs-target="#collapseExample3"
     >
       <span>C. Human Resource Recruitment Process</span>
+         <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapseExample3">
@@ -54,6 +61,7 @@
       data-bs-target="#collapseExample4"
     >
       <span>D. Sensitization meetings</span>
+         <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapseExample4">
@@ -68,6 +76,7 @@
       data-bs-target="#collapseExample5"
     >
       <span>E. Systems Thinking Approach -HR</span>
+         <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapseExample5">
@@ -123,6 +132,9 @@ export default defineComponent({
   margin-bottom: 20px;
   padding: 15px;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .form-section {
@@ -147,5 +159,48 @@ export default defineComponent({
   letter-spacing: 0px;
   color: #707070;
   opacity: 1;
+}
+
+.submit-btn {
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--60-bg);
+  text-align: center;
+  font: normal normal normal 16px/19px Montserrat;
+  letter-spacing: 0px;
+  color: #ffffff;
+  opacity: 1;
+  background: transparent
+    linear-gradient(
+      180deg,
+      var(--unnamed-color-000000db) 0%,
+      #2c4a13eb 0%,
+      var(--30-) 100%
+    )
+    0% 0% no-repeat padding-box;
+  background: transparent
+    linear-gradient(180deg, #000000db 0%, #2c4a13eb 0%, #61a229 100%) 0% 0%
+    no-repeat padding-box;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  z-index: 10;
+}
+
+.save-btn {
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--60-bg);
+  text-align: center;
+  font: normal normal normal 16px/19px Montserrat;
+  letter-spacing: 0px;
+  color: #ffffff;
+  opacity: 1;
+  background: var(--unnamed-color-000000) 0% 0% no-repeat padding-box;
+  background: #000000 0% 0% no-repeat padding-box;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  z-index: 10;
 }
 </style>
