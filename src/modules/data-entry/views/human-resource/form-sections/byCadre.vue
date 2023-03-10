@@ -1,104 +1,144 @@
 <template>
-  <div class="px-2">
-    <div class="text-start">
-      <p class="publication-text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum commodi
-        neque voluptas veniam! Aliquid iusto laborum, deserunt illo iste, vel
-      </p>
-      <p class="publication-text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum commodi
-        neque voluptas veniam! Aliquid iusto laborum, deserunt illo iste, vel
-        esse, voluptas voluptatem aliquam quod vero dignissimos ea maxime
-        blanditiis. Dolorem adipisci commodi illum odio? Delectus earum quas eos
-        cum.
-      </p>
-      <p class="publication-text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum commodi
-        neque voluptas veniam! Aliquid iusto laborum, deserunt illo iste, vel
-        esse, voluptas voluptatem aliquam quod vero dignissimos ea maxime
-      </p>
-    </div>
-    <table class="table table-bordered">
+<table class="table table-bordered">
       <tbody>
         <tr>
-          <th class="row-header">Types of Publication</th>
-          <th scope="col">List of Publication</th>
-          <th class="header-width" scope="col">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-            magnam quis mollitia iste odio dolor vero debitis accusantium nobis,
-            earum minus voluptates, qui provident, modi ut cum quam. Rem, nobis.
+            <th class="header-width row-header" scope="col">Cadre
           </th>
-          <th class="header-width" scope="col">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-            magnam quis mollitia iste odio dolor vero debitis accusantium nobis,
-            earum minus voluptates, qui provident, modi ut cum quam. Rem, nobis.
+        <th class="header-width row-header" scope="col">Research
           </th>
-          <th class="header-width" scope="col">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-            magnam quis mollitia iste odio dolor vero debitis accusantium nobis,
-            earum minus voluptates, qui provident, modi ut cum quam. Rem, nobis.
+        <th class="header-width row-header" scope="col">RRCS
+          </th>
+        <th class="header-width row-header" scope="col">PEC
+          </th>
+          <th class="header-width row-header" scope="col">Operations
+          </th>
+          <th class="header-width row-header" scope="col">Total
           </th>
         </tr>
         <tr>
-          <th class="row-header">Published Papers</th>
-          <td>
-            <div class="pub-item-wrapper">
-              <div class="publication-iten">
-                <p>1.</p>
-
-                <input type="text" placeholder="Type Here" name="" id="" />
-              </div>
-              <p class="add-more">+ Add more</p>
-            </div>
-          </td>
-          <td>Lorem ipsum</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th class="row-header">Supplements</th>
+          <th class="publication-content">Post Docs</th>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <th class="row-header">Books</th>
+          <th class="publication-content">Research Scientist</th>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <th class="row-header">Book Chapters</th>
+          <th class="publication-content">Associate Research Scientists</th>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <th class="row-header">Techinical Reports</th>
+          <th class="publication-content">Research Officers</th>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <th class="row-header">Policy Brief</th>
+          <th class="publication-content">Data Analyst</th>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <th class="row-header">Fact Sheet</th>
+          <th class="publication-content">Program Assistants</th>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
-          <th class="row-header">Blogs</th>
+          <th class="publication-content">M&E Officers</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th class="publication-content">HR officers</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        
+        <tr>
+          <th class="publication-content">Finance officers</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        
+        <tr>
+          <th class="publication-content">Development officers</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        
+        <tr>
+          <th class="publication-content">IT officers</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th class="publication-content">Procurement officers</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th class="publication-content">Government liaison officers</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th class="publication-content">Policy engagement and outreach staff</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th class="publication-content">Systems thinking experts</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th class="publication-content">Strategic proposal writers</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th class="publication-content">Interns (through HR)</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th class="publication-content fw-bold">Total</th>
           <td></td>
           <td></td>
           <td></td>
@@ -106,26 +146,24 @@
         </tr>
       </tbody>
     </table>
-  </div>
 </template>
 
-<script>
-export default {
-  name: "PublicationComponent",
-};
-</script>
-
 <style scoped>
-.publication-text {
-  color: #707070;
-  font: normal normal normal 16px/19px Montserrat;
-  letter-spacing: 0px;
-  color: #707070;
-}
 .header-width {
   width: 300px;
 }
 .row-header {
+  letter-spacing: 0px;
+  color: #707070;
+  opacity: 1;
+  /* font: normal normal bold 16px/19px Montserrat; */
+  font-weight: bold;
+  font-style: normal;
+  font-family: Montserrat;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 25px 15px;
+  text-align: left;
 }
 .publication-iten {
   display: flex;
@@ -143,13 +181,20 @@ export default {
   align-items: flex-start;
   padding: 0 4px;
 }
-.add-more {
-  cursor: pointer;
+.publication-content {
+  letter-spacing: 0px;
+  color: #707070;
+  opacity: 1;
+  /* font: normal normal bold 16px/19px Montserrat; */
+  font-weight: normal;
+  font-style: normal;
+  font-family: Montserrat;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 25px 15px;
+  text-align: left;
 }
-.add-more:hover {
-  color: red;
-}
-.row-header {
-  padding: 15px 0;
+table {
+  background-color: white;
 }
 </style>
