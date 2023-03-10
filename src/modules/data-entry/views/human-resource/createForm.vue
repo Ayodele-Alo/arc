@@ -1,79 +1,107 @@
 <template>
-  <div>
-
+  <div class="mt-4 px-4">
+       <div class="position-fixed bottom-0 end-0">
+      <button class="submit-btn">Submit Form</button>
+      <button class="save-btn">Save to draft</button>
+    </div> 
     <div class="mb-3 text-start">
-      <label for="exampleInputEmail1" class="form-label">Theme name</label>
-      <input
-        type="email"
-        class="form-control theme-name-input"
-        id="exampleInputEmail1"
-        aria-describedby="emailHelp"
-        placeholder="Input details"
-      />
-      <div id="emailHelp" class="form-text">
-        This document includes Annual Performance Review Report for 2022. It
-        also highlights the Annual Work Plans 2023 for the theme.
-      </div>
-    </div>
-    <br /><br />
-
-    <div class="text-start">
-      <span class="annual-text1">1. Human Resource Report Tool</span>
+      <p class="fw-bold text-secondary mb-1">1. Human Resource Report Tool</p>
+      <small class="text-secondary">This report gives an annual summary of the status of the Center in terms of human Resource guided by the strategic plan 2022-2026</small>
     </div>
 
-    <br />
-    <div class="text-start annual-text2">
-      This report gives a summary of the performance and achievements of the
-      theme from the set targets highlighted in the strategic plan 2022-2026 as
-      well as performance from the annual work plans for 2021.
-    </div>
-
-    <div
+    <div>
+      <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapseExample"
     >
-<span>A. Human Resource</span>
-      <i class="fa fa-angle-down fs-6 " aria-hidden="true"></i>
-      
+      <span>A. Human Resource</span>
+         <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapseExample">
       <humanResource />
     </div>
-
-    <div class="section-header text-start">
-      <span>B. Publications</span>
-        <i class="fa fa-angle-down fs-6 " aria-hidden="true"></i>
     </div>
 
-    <!-- put publications component here -->
-    <PublicationComponent />
-
-    <div class="section-header text-start">
-      <span>C. Engagement with policy and decision makers</span>
-        <i class="fa fa-angle-down fs-6 " aria-hidden="true"></i>
+    <div>
+      <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseExample2"
+    >
+      <span>B. By Cadre</span>
+         <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
-    <!-- Table form1 section -->
-    <EngagementComponent />
+    <div class="collapse" id="collapseExample2">
+      <byCadre />
+    </div>
+    </div>
 
-    <!-- Table form2 section -->
+    <div>
+      <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseExample3"
+    >
+      <span>C. Human Resource Recruitment Process</span>
+         <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
+    </div>
+
+    <div class="collapse" id="collapseExample3">
+      <recruitmentProcess />
+    </div>
+    </div>
+
+    <div>
+      <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseExample4"
+    >
+      <span>D. Sensitization meetings</span>
+         <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
+    </div>
+
+    <div class="collapse" id="collapseExample4">
+      <sensitizationMeetings />
+    </div>
+    </div>
+
+    <div>
+      <div
+      class="section-header text-start"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseExample5"
+    >
+      <span>E. Systems Thinking Approach -HR</span>
+         <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
+    </div>
+
+    <div class="collapse" id="collapseExample5">
+      <systemThinkingApproach />
+    </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import humanResource from "./form-sections/humanResource.vue";
-import PublicationComponent from "./form-sections/byCadre.vue";
-import EngagementComponent from "./form-sections/humanResource.vue";
+import humanResource from './form-sections/humanResource.vue'
+import byCadre from './form-sections/byCadre.vue'
+import recruitmentProcess from './form-sections/recruitmentProcess.vue'
+import sensitizationMeetings from "./form-sections/sensitizationMeetings.vue";
+import systemThinkingApproach from "./form-sections/systemsThinking.vue";
 
 export default defineComponent({
   name: "createForm",
   components: {
     humanResource,
-    PublicationComponent,
-    EngagementComponent,
+    byCadre,
+    recruitmentProcess,
+    sensitizationMeetings,
+    systemThinkingApproach
   },
 });
 </script>
@@ -131,5 +159,48 @@ export default defineComponent({
   letter-spacing: 0px;
   color: #707070;
   opacity: 1;
+}
+
+.submit-btn {
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--60-bg);
+  text-align: center;
+  font: normal normal normal 16px/19px Montserrat;
+  letter-spacing: 0px;
+  color: #ffffff;
+  opacity: 1;
+  background: transparent
+    linear-gradient(
+      180deg,
+      var(--unnamed-color-000000db) 0%,
+      #2c4a13eb 0%,
+      var(--30-) 100%
+    )
+    0% 0% no-repeat padding-box;
+  background: transparent
+    linear-gradient(180deg, #000000db 0%, #2c4a13eb 0%, #61a229 100%) 0% 0%
+    no-repeat padding-box;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  z-index: 10;
+}
+
+.save-btn {
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--60-bg);
+  text-align: center;
+  font: normal normal normal 16px/19px Montserrat;
+  letter-spacing: 0px;
+  color: #ffffff;
+  opacity: 1;
+  background: var(--unnamed-color-000000) 0% 0% no-repeat padding-box;
+  background: #000000 0% 0% no-repeat padding-box;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  z-index: 10;
 }
 </style>
