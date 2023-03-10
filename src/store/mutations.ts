@@ -7,6 +7,9 @@ const mutations: MutationTree<state> = {
   },
   setLoginModal: (state, data): void => {
     state.activeModal = data;
+  },
+  setActiveForm: (state, data): void => {
+    state.activeForm = data;
   }
 };
 

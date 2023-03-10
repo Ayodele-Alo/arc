@@ -121,6 +121,3 @@ section.dashboard {
   background: #f9f9f9 0% 0% no-repeat padding-box;
 }
 </style>
-https://public.tableau.com/app/profile/data.team8402/viz/APHRCDashboard2/Dashboard2?publish=yes
-
-https://public.tableau.com/app/profile/data.team8402/viz/APHRCDashboard1/Dashboard1?publish=yes

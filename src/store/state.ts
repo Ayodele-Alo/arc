@@ -10,6 +10,7 @@ const state: state = {
   config: TabConfig,
   activeTab: defaultTabConfig,
   activeModal: "",
+  activeForm: "",
 };
 
 export default state;

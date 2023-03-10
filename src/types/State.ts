@@ -15,6 +15,7 @@ interface state {
   config: Array<configType>;
   activeTab: string;
   activeModal: string;
+  activeForm: string;
 }
 
 export { state, generic, visualType, configType };

@@ -4,7 +4,7 @@
     <div class="col">
       <span>
         <span class="text1">Data Entry Form</span>
-        <span class="text2">- {{ unit }}</span>
+        <span class="text2">- {{ getActiveForm }}</span>
       </span>
     </div>
 
@@ -15,20 +15,18 @@
         aria-label="Default select example"
         v-model="unit"
       >
-        <option selected value="select" disabled>--Select Option--</option>
-        <!-- @click="changeUnit('Annual Performance')" -->
+        <option value="" disabled>--Select Option--</option>
         <option value="Annual Performance">
           Annual Performance Report and Planning
         </option>
-        <option @click="changeUnit('Human Resource')" value="Human Resource">
+        <option value="Human Resource">
           Human Resource Report
         </option>
-        <!-- @click="changeUnit('Policy Engagement')" -->
         <option value="Policy Engagement">Policy Engagement Reporting</option>
-        <option @click="changeUnit('research')" value="research">
+        <option value="research">
           Research And Research Related Capacity Strengthning Report
         </option>
-        <option @click="changeUnit('publications')" value="publications">
+        <option value="publications">
           Publications
         </option>
       </select>
@@ -38,6 +36,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { mapGetters, mapMutations } from "vuex";
 
 export default defineComponent({
   name: "CreateForm",
@@ -46,8 +45,15 @@ export default defineComponent({
       unit: "",
     };
   },
+  computed: {
+    ...mapGetters(["getActiveForm"]),
+  },
+  methods: {
+    ...mapMutations(["setActiveForm"]),
+  },
   watch: {
     unit(val) {
+      this.setActiveForm(val)
       switch (val) {
         case "Annual Performance":
           this.$router.push("/data-entry/annual-performance/create");
@@ -68,6 +74,11 @@ export default defineComponent({
           this.$router.push("/data-entry");
       }
     },
+  },
+  created() {
+    if (this.getActiveForm) {
+      this.unit = this.getActiveForm;
+    }
   },
 });
 </script>

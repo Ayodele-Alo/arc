@@ -4,6 +4,7 @@ import { RouteLocationNormalized } from "vue-router";
 import { configObject } from "@/helpers";
 import Index from "../index.vue";
 import Home from "../views/Dashboard.vue";
+import Map from "../components/visuals/Map.vue";
 
 const routes = [
   {
@@ -30,6 +31,14 @@ const routes = [
         }),
         meta: {
           transition: "slide-fade-down",
+        },
+      },
+      {
+        path: "Map",
+        name: "Map",
+        component: Map,
+        meta: {
+          transition: "slide-fade-up",
         },
       },
     ],
