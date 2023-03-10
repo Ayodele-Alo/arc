@@ -1,28 +1,23 @@
 <template>
-  <div v-if="isLoaded">
-    <highcharts :options="chartOptions"></highcharts>
+  <div v-if="isLoaded" style="height: 500px">
+    <vue-highcharts type="mapChart" :options="chartOptions"></vue-highcharts>
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import { defineComponent } from "vue";
-// import Highcharts from 'highcharts/highmaps';
-// import HighchartsVue from 'highcharts-vue';
-// import HighchartsMapModule from 'highcharts/modules/map'
-import Highcharts from "highcharts";
-import HighchartsMap from "highcharts/modules/map";
-import mapData from "@highcharts/map-collection/custom/world.geo.json";
-import exportData from "highcharts/modules/export-data";
-import exporting from "highcharts/modules/exporting";
-import noData from "highcharts/modules/no-data-to-display";
-import loadDrilldown from "highcharts/modules/drilldown";
-import offlineExporting from "highcharts/modules/offline-exporting";
-// import worldMap from "./world-map-data.json";
-// import { genComponent } from 'vue-highcharts';
+import VueHighcharts from 'vue3-highcharts';
+// import mapData from "@highcharts/map-collection/custom/world.geo.json";
+import mapData from "./world-map-data.json";
 
-// Highcharts.maps["myMapName"] = mapData;
+import Highcharts from 'highcharts';
+import HighchartsMap from 'highcharts/modules/map';
+import exporting from 'highcharts/modules/exporting';
+import noData from 'highcharts/modules/no-data-to-display';
+import offlineExporting from 'highcharts/modules/offline-exporting';
+import loadDrilldown from 'highcharts/modules/drilldown';
+import exportData from 'highcharts/modules/export-data';
 
-// load map
 HighchartsMap(Highcharts);
 exporting(Highcharts);
 offlineExporting(Highcharts);
@@ -30,58 +25,113 @@ exportData(Highcharts);
 noData(Highcharts);
 loadDrilldown(Highcharts);
 
+Highcharts.maps["custom/world"] = mapData;
+
 export default defineComponent({
   name: "MapView",
   components: {
-    // HighchartsVue,
-    Highcharts,
+    VueHighcharts,
   },
-  //   data() {
-  //     return {
-  //       isLoaded: false,
-  //       chartOptions: {
-  //         chart: {
-  //           map: worldMap,
-  //         },
-  //         title: {
-  //           text: "World Map",
-  //         },
-  //         series: [
-  //           {
-  //             name: "Countries",
-  //             data: [
-  //               // Add your data here
-  //             ],
-  //           },
-  //         ],
-  //       },
-  //     };
-  //   },
-  data() {
+   data() {
     return {
       isLoaded: false,
       chartOptions: {
         chart: {
           map: "custom/world",
+            //  events: {
+            //     drilldown,
+            //     drillup
+            // }
         },
         title: {
-          text: "World Map",
+          text: "APHRC",
         },
-        mapNavigation: {
-          enabled: true,
-        },
-        series: [
-          {
-            type: "map",
-            data: [],
-            mapData,
-          },
-        ],
+         legend: {
+                title: {
+                    text: 'Population density per km²',
+                    style: {
+                        color: ( // theme
+                            Highcharts.defaultOptions &&
+                            Highcharts.defaultOptions.legend &&
+                            Highcharts.defaultOptions.legend.title &&
+                            Highcharts.defaultOptions.legend.title.style &&
+                            Highcharts.defaultOptions.legend.title.style.color
+                        ) || 'black'
+                    }
+                }
+            },
+
+            mapNavigation: {
+                enabled: true,
+                buttonOptions: {
+                    verticalAlign: 'bottom'
+                }
+            },
+            tooltip: {
+                backgroundColor: 'none',
+                borderWidth: 0,
+                shadow: false,
+                useHTML: true,
+                padding: 0,
+                pointFormat: '<span class="f32"><span class="flag {point.properties.hc-key}">' +
+                    '</span></span> {point.name}<br>' +
+                    '<span style="font-size:30px">{point.value}/aphrc</span>',
+                positioner: function () {
+                    return { x: 0, y: 250 };
+                }
+            },
+
+            colorAxis: {
+                min: 1,
+                max: 1000,
+                type: 'logarithmic'
+            },
+            series: [{
+                name: 'DATA TEST',
+                joinBy: ['hc-key', 'code'], // join by hc-key property
+                data: [{
+                  name: 'Canada',
+                  value: 100,
+                  code: 'ca' // ISO-3166-1-A2 code for Canada
+                }, {
+                  name: 'United States',
+                  value: 75,
+                  code: 'us' // ISO-3166-1-A2 code for United States
+                }, {
+                  name: 'Mexico',
+                  value: 50,
+                  code: 'mx' // ISO-3166-1-A2 code for Mexico
+                }],
+                mapData: mapData,
+                states: {
+                  hover: {
+                    color: '#BADA55'
+                  }
+                },
+                dataLabels: {
+                  enabled: true,
+                  format: '{point.name}'
+                }
+              }],
+               drilldown: {
+            activeDataLabelStyle: {
+                color: '#FFFFFF',
+                textDecoration: 'none',
+                textOutline: '1px #000000'
+            },
+            drillUpButton: {
+                relativeTo: 'spacingBox',
+                position: {
+                    x: 0,
+                    y: 60
+                }
+            }
+        }
+
       },
     };
   },
   mounted() {
-    HighchartsMap(Highcharts);
     this.isLoaded = true;
   },
 });

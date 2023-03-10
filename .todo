@@ -1,5 +1,5 @@
 1. table should be red when table is 2month or less than current date
-find the geoJson data for africa
+find the geoJson data for africa, name too, current year should be deafult
 theme=>Global_Dimension
 
 2 =||(Map)Total number of active project in a particular country [[list all projects per country, onclick check how many is active and not active]]
