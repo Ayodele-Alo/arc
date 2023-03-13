@@ -6,7 +6,7 @@ export const configObject: Array<configType> = [
     visuals: [
       {
         name: "Total number of active and inactive grants",
-        url: "",
+        url: "https://public.tableau.com/views/Donutdb/Donutdb?:language=en-GB&publish=yes&:display_count=n&:origin=viz_share_link&amp;:embed=true&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
       },
       {

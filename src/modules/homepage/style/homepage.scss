@@ -16,6 +16,8 @@ section.homepage {
     text-align: left;
     max-height: 100vh;
     overflow-y: auto;
+    overflow-x: hidden;
+    
 
     div.welcome_note,
     div.description_note,
