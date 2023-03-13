@@ -6,6 +6,10 @@ import annualCreateForm from "./views/annual-performance/createForm.vue";
 import humanHome from "./views/human-resource/humanHome.vue";
 import humanCreateForm from "./views/human-resource/createForm.vue";
 
+// Policy engagement
+import policyHome from "./views/policy-engagement/policyHome.vue";
+import policyCreateForm from "./views/policy-engagement/createForm.vue";
+
 // no format
 import EmptyForm from "./views/EmptyForm.vue";
 
@@ -73,7 +77,17 @@ export default [
           requiresAuth: false,
           transition: "slide-fade-left",
         },
-        component: EmptyForm,
+        component: policyHome,
+        children: [
+          {
+            path: "create",
+            meta: {
+              requiresAuth: false,
+              transition: "slide-fade-right",
+            },
+            component: policyCreateForm,
+          },
+        ],
       },
 
       {

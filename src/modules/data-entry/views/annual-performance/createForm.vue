@@ -194,13 +194,13 @@
            <div
       class="section-header text-start"
       data-bs-toggle="collapse"
-      data-bs-target="#collapse11.5"
+      data-bs-target="#collapse115"
     >
          <span>B. 2023 Projects</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
-    <div class="collapse" id="collapse11.5">
+    <div class="collapse" id="collapse115">
                  <annualProjects />
     </div>
 
