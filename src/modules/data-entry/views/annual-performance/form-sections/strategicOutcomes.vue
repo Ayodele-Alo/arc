@@ -195,6 +195,7 @@
         <br />
         <strong>
           <span @click="addExistingDataField()">Add more +</span>
+          <span @click="save()">Save</span>
         </strong>
       </div>
     </form>
@@ -256,6 +257,9 @@ export default defineComponent({
     addExistingDataField() {
       this.existingDataCount++;
     },
+    save(){
+      console.log('form', this.form)
+    }
   },
 });
 </script>

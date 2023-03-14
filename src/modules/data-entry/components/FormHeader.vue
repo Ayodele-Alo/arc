@@ -24,7 +24,7 @@
         </option>
         <option value="Policy Engagement">Policy Engagement Reporting</option>
         <option value="research">
-          Research And Research Related Capacity Strengthning Report
+          Research And Research Related Capacity Strengthening Report
         </option>
         <option value="publications">
           Publications

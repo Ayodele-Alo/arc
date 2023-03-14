@@ -61,11 +61,11 @@
               </p>
             </th>
           </tr>
-          <tr>
+            <tr v-for="item in formCount" :key="item">
             <th class="row-header">
               <div class="row">
                 <div class="col text-start">
-                  <p>1.</p>
+                  <p>{{item}}.</p>
                   <input placeholder="Type Here" type="text" />
                 </div>
               </div>
@@ -80,16 +80,60 @@
             <td></td>
           </tr>
         </tbody>
+
+        
       </table>
-      <p class="add-more">+ Add more</p>
+      <p class="add-more" @click="addFormCount()">+ Add more</p>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: "EngagementComponent",
-};
+<script lang="ts">
+import { defineComponent } from "vue";
+import { mapGetters, mapMutations } from "vuex";
+
+export default defineComponent({
+  name: "EngagementAndPolicy",
+  components: {},
+  data() {
+    return {
+      formCount: 1,
+      form: {
+        1: {
+          themes: "",
+          engagement_type: ""
+        }
+      },
+    };
+  },
+
+  methods: {
+    addFormCount() {
+      this.formCount++;
+    },
+    // addPoliciesField() {
+    //   this.policyCount++;
+    // },
+    // addProgramsField() {
+    //   this.programCount++;
+    // },
+    // addAliancesField() {
+    //   this.alianceCount++;
+    // },
+    // addLevelsField() {
+    //   this.levelCount++;
+    // },
+    // addIndividualsField() {
+    //   this.individualCount++;
+    // },
+    // addInstitutionsField() {
+    //   this.institutionCount++;
+    // },
+    // addExistingDataField() {
+    //   this.existingDataCount++;
+    // },
+  },
+});
 </script>
 
 <style scoped>

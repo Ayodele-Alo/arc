@@ -13,11 +13,11 @@
             <th class="row-header p-5">Challenges</th>
             <th class="row-header p-5" scope="col">Lesson Learnt</th>
           </tr>
-          <tr>
+          <tr v-for="item in formCount" :key="item">
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3">1.</p>
+                  <p class="mt-3">{{ item }}.</p>
                   <input placeholder="Type Here" class="px-1" type="text" />
                 </div>
               </div>
@@ -25,7 +25,7 @@
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3">1.</p>
+                  <p class="mt-3">{{ item }}.</p>
                   <input placeholder="Type Here" class="px-1" type="text" />
                 </div>
               </div>
@@ -33,15 +33,57 @@
           </tr>
         </tbody>
       </table>
-      <p class="add-more">+ Add more</p>
+      <p class="add-more" @click="addFormCount()">+ Add more</p>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: "ChallengesAndLesson",
-};
+<script lang="ts">
+import { defineComponent } from "vue";
+import { mapGetters, mapMutations } from "vuex";
+
+export default defineComponent({
+  name: "ChallengesAndLessons",
+  components: {},
+  data() {
+    return {
+      formCount: 1,
+      form: {
+        1: {
+          themes: "",
+          engagement_type: ""
+        }
+      },
+    };
+  },
+
+  methods: {
+    addFormCount() {
+      this.formCount++;
+    },
+    // addPoliciesField() {
+    //   this.policyCount++;
+    // },
+    // addProgramsField() {
+    //   this.programCount++;
+    // },
+    // addAliancesField() {
+    //   this.alianceCount++;
+    // },
+    // addLevelsField() {
+    //   this.levelCount++;
+    // },
+    // addIndividualsField() {
+    //   this.individualCount++;
+    // },
+    // addInstitutionsField() {
+    //   this.institutionCount++;
+    // },
+    // addExistingDataField() {
+    //   this.existingDataCount++;
+    // },
+  },
+});
 </script>
 
 <style scoped>

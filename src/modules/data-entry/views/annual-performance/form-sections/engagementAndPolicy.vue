@@ -95,15 +95,61 @@
           </tr>
         </tbody>
       </table>
-      <p class="add-more">+ Add more</p>
+      <p class="add-more" @click="addFormCount()">+ Add more</p>
     </div>
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "vue";
+import { mapGetters, mapMutations } from "vuex";
+
+export default defineComponent({
   name: "EngagementAndPolicy",
-};
+  components: {},
+  data() {
+    return {
+      formCount: 1,
+      form: {
+        ideas: {},
+        policies: {},
+        programs: {},
+        aliances: {},
+        levels: {},
+        individuals: {},
+        institutions: {},
+        existing_data: {},
+      },
+    };
+  },
+
+  methods: {
+    addFormCount() {
+      this.formCount++;
+    },
+    // addPoliciesField() {
+    //   this.policyCount++;
+    // },
+    // addProgramsField() {
+    //   this.programCount++;
+    // },
+    // addAliancesField() {
+    //   this.alianceCount++;
+    // },
+    // addLevelsField() {
+    //   this.levelCount++;
+    // },
+    // addIndividualsField() {
+    //   this.individualCount++;
+    // },
+    // addInstitutionsField() {
+    //   this.institutionCount++;
+    // },
+    // addExistingDataField() {
+    //   this.existingDataCount++;
+    // },
+  },
+});
 </script>
 
 <style scoped>

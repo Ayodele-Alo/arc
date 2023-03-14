@@ -2,7 +2,7 @@
   <div>
 
         <div class="position-fixed bottom-0 end-0">
-      <button class="submit-btn">Submit Form</button>
+      <button class="submit-btn" @click.prevent="submitForm()">Submit Form</button>
       <button class="save-btn">Save to draft</button>
     </div> 
     <div class="mb-3">
@@ -41,7 +41,7 @@
     </div>
 
     <div class="collapse" id="collapseExample">
-      <strategicOutcomes />
+      <strategicOutcomes :bus="bus" />
     </div>
 
 
@@ -334,6 +334,12 @@ export default defineComponent({
     BusinessDevelopmentAndFunding,
     StafflingNeed,
   },
+  methods: {
+    // submitForm(){
+      
+    // }
+  },
+  
 });
 </script>
 

@@ -9,7 +9,6 @@
         cols="30"
         rows="5"
       ></textarea>
-
       <div class="mt-2">
         <table class="table table-bordered">
           <tbody>
