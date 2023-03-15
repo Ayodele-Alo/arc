@@ -1,6 +1,6 @@
 import { configType } from "@/types";
 
-export const configObject: Array<configType> = [
+export const configObject: configType[] = [
   {
     name: "Projects",
     visuals: [

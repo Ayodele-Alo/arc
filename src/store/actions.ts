@@ -9,7 +9,7 @@ const actions: ActionTree<state, unknown> = {
    */
   async GET_TAGS({ commit }): Promise<void> {
     try {
-      const { data } = await Request("GET", "tags/");
+      const { data } = await Request("tags/");
       commit("setTags", data);
       return data;
     } catch (error: any) {

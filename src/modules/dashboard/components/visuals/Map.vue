@@ -91,6 +91,7 @@ export default defineComponent({
           series: [{
               name: 'DATA TEST',
               joinBy: ['hc-key', 'code'], // join by hc-key property
+              animation: true,
               data: [{
                 name: 'Kenya',
                 value: 100,

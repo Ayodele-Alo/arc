@@ -10,7 +10,7 @@ class AuthService {
    */
   async submitData(data: DataEntry) {
     try {
-      const response = await Request("POST", "posts", data);
+      const response = await Request("posts", "POST", data);
       console.log(response);
     } catch (error) {
       console.log(error);

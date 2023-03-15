@@ -15,7 +15,7 @@
       <div class="body">
         <p class="title mt-3 mb-4">Data Report Module</p>
 
-        <form action="">
+        <form action="" @submit.prevent="handleLogin">
           <div class="group">
             <el-input
               v-model="loginDetails.username"
@@ -72,6 +72,9 @@ export default defineComponent({
   },
   methods: {
     ...mapMutations(["setLoginModal"]),
+    handleLogin() {
+      this.$router.push("/data-entry");
+    },
   },
 });
 </script>

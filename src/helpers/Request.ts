@@ -1,26 +1,36 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import APHRC_Client from "@/plugins/Axios";
 import { AxiosResponse } from "axios";
+import { MethodType } from "@/types";
+
+/**
+ * @function: Request
+ * @description: This generic function is used to make requests to the API
+ * @param {string} url
+ * @param {MethodType} method
+ * @param {FormData | object} data
+ * @param {string} contentType
+ * @returns {Promise<AxiosResponse>}
+ */
 
 const Request = async (
   url: string,
-  method = "GET",
+  method: MethodType = "GET",
   data?: FormData | object,
-  contentType = "application/json",
+  contentType?: string
 ): Promise<AxiosResponse> => {
   try {
-    const response = await APHRC_Client({
+    return await APHRC_Client({
       method,
       url,
       data,
       headers: {
-        "Content-Type": contentType,
+        "Content-Type": contentType || "application/json",
       },
     });
-    return response;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
-      console.error("Error:", err.message);
-      throw err.message;
+    console.error("Error:", err.message);
+    throw err.message;
   }
 };
 
