@@ -25,43 +25,69 @@
               <p class="">Targets</p>
             </th>
           </tr>
-          <tr>
+          <tr  v-for="(item, index) in plan_form" :key="index">
             <th class="row-header p-5">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3">1.</p>
-                  <input placeholder="Type Here" class="px-1" type="text" />
+                  <p class="mt-3">{{ index }}.</p>
+                  <input placeholder="Type Here" class="px-1" type="text" v-model="item.project_name"  />
                 </div>
               </div>
             </th>
             <th class="row-header p-5">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3">1.</p>
-                  <input placeholder="Type Here" class="px-1" type="text" />
+                  <p class="mt-3"> {{index}}.</p>
+                  <input placeholder="Type Here" class="px-1" type="text" v-model="item.planned_activities" />
                 </div>
               </div>
             </th>
             <th class="row-header p-5">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3">1.</p>
-                  <input placeholder="Type Here" class="px-1" type="text" />
+                  <p class="mt-3"> {{index}}.</p>
+                  <input placeholder="Type Here" class="px-1" type="text" v-model="item.targets" />
                 </div>
               </div>
             </th>
           </tr>
         </tbody>
       </table>
-      <p class="add-more">+ Add more</p>
+      <p class="add-more" @click="addToPlanForm">+ Add more</p>
     </div>
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "vue";
+import { mapGetters, mapMutations } from "vuex";
+
+export default defineComponent({
   name: "PlanAndTargetComponent",
-};
+  components: {},
+  data() {
+    return {
+      formCount: 1,
+         plan_form: [
+        {
+          project_name: "",
+          planned_activities: "",
+          targets: ""
+        },
+      ],
+    };
+  },
+
+  methods: {
+       addToPlanForm() {
+      this.plan_form.push({
+             project_name: "",
+          planned_activities: "",
+          targets: ""
+      });
+    },
+  },
+});
 </script>
 
 <style scoped>

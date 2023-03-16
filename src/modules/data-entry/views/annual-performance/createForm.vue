@@ -1,10 +1,11 @@
 <template>
   <div>
-
-        <div class="position-fixed bottom-0 end-0">
-      <button class="submit-btn" @click.prevent="submitForm()">Submit Form</button>
+    <div class="position-fixed bottom-0 end-0">
+      <button class="submit-btn" @click.prevent="submitForm()">
+        Submit Form
+      </button>
       <button class="save-btn">Save to draft</button>
-    </div> 
+    </div>
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Theme name</label>
       <input
@@ -44,128 +45,122 @@
       <strategicOutcomes :bus="bus" />
     </div>
 
-
-        <div
+    <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse2"
     >
-       <span>B. Publications</span>
+      <span>B. Publications</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse2">
-        <PublicationComponent />
+      <PublicationComponent />
     </div>
 
-       <div
+    <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse3"
     >
-       <span>C. Engagement with policy and decision makers</span>
+      <span>C. Engagement with policy and decision makers</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse3">
-            <EngagementComponent />
+      <EngagementComponent />
     </div>
 
-      <div
+    <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse4"
     >
-       <span>D. Annual Performance against the work plans</span>
+      <span>D. Annual Performance against the work plans</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse4">
-             <AnnualPerformanceComponent />
+      <AnnualPerformanceComponent />
     </div>
-
 
     <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse5"
     >
-        <span>E. Additional achievements or updates:</span>
+      <span>E. Additional achievements or updates:</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse5">
-              <AdditionalAchivementsComponemt />
+      <AdditionalAchivementsComponemt />
     </div>
 
-
- <div
+    <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse6"
     >
-        <span>F. Challenges and Lessons Learnt</span>
+      <span>F. Challenges and Lessons Learnt</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse6">
-               <ChallengesAndLesson />
+      <ChallengesAndLesson />
     </div>
 
-
-
- <div
+    <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse7"
     >
-        <span>G. Business Development</span>
+      <span>G. Business Development</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse7">
-               <BusinessDevelopment />
+      <BusinessDevelopment />
     </div>
 
-     <div
+    <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse8"
     >
-        <span>H. New opportunities identified during the year</span>
+      <span>H. New opportunities identified during the year</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse8">
-               <NewOpportunities />
+      <NewOpportunities />
     </div>
 
-       <div
+    <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse9"
     >
-        <span>I. Additional achievements or updates:</span>
+      <span>I. Additional achievements or updates:</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse9">
-              <AchivementsComponent />
+      <AchivementsComponent />
     </div>
 
-           <div
+    <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse10"
     >
-       <span>J. Risk Identified</span>
+      <span>J. Risk Identified</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse10">
-              <RiskIdentified />
+      <RiskIdentified />
     </div>
-
 
     <div class="">
       <h1 class="header-2">2. Annual Work Plan 2023</h1>
@@ -176,117 +171,109 @@
       </p>
     </div>
 
-
-         <div
+    <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse11"
     >
-         <span>A. Major planned activities aligned to the Strategic Plan</span>
+      <span>A. Major planned activities aligned to the Strategic Plan</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse11">
-                <MajorActivitesPlanned />
+      <MajorActivitesPlanned />
     </div>
 
-
-           <div
+    <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse115"
     >
-         <span>B. 2023 Projects</span>
+      <span>B. 2023 Projects</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse115">
-                 <annualProjects />
+      <annualProjects />
     </div>
 
-             <div
+    <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse12"
     >
-        <span>C. Plans and targets for the year</span>
+      <span>C. Plans and targets for the year</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse12">
-                 <PlanAndTargetComponent />
+      <PlanAndTargetComponent />
     </div>
 
-
-
-             <div
+    <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse13"
     >
-        <span>D. Engagements with policy and decision makers</span>
+      <span>D. Engagements with policy and decision makers</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse13">
-                 <EngagementAndPolicy />
+      <EngagementAndPolicy />
     </div>
 
-
-             <div
+    <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse14"
     >
-         <span>E. Collaborations, Partnerships and Alliances for 2023:</span>
+      <span>E. Collaborations, Partnerships and Alliances for 2023:</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse14">
-                 <CollaborationsAndPartnership />
+      <CollaborationsAndPartnership />
     </div>
 
-    
-          <div
+    <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse15"
     >
-         <span>F. Opportunities and new initiatives for 2023</span>
+      <span>F. Opportunities and new initiatives for 2023</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse15">
-                <OpportunitiesAndNewInitiatives />
+      <OpportunitiesAndNewInitiatives />
     </div>
 
-           <div
+    <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse16"
     >
-         <span>G. Business Development and funding</span>
+      <span>G. Business Development and funding</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse16">
-                <BusinessDevelopmentAndFunding />
+      <BusinessDevelopmentAndFunding />
     </div>
 
-    
-      <div
+    <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse17"
     >
-           <span>G. Staffing Needs and Proposed Staff Time Allocation</span>
+      <span>G. Staffing Needs and Proposed Staff Time Allocation</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse17">
-                <StafflingNeed />
+      <StafflingNeed />
     </div>
-
   </div>
 </template>
 
@@ -336,10 +323,8 @@ export default defineComponent({
   },
   methods: {
     // submitForm(){
-      
     // }
   },
-  
 });
 </script>
 

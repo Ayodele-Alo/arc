@@ -24,35 +24,65 @@
               <p class="row-header">Comments and Next Steps</p>
             </th>
           </tr>
-          <tr>
+          <tr v-for="(item, index) in collaborations_form" :key="index">
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3">1.</p>
-                  <input placeholder="Type Here" class="px-1" type="text" />
+                  <p class="mt-3">{{ index}}.</p>
+                  <input placeholder="Type Here" class="px-1" type="text" v-model="item.opportunity_type" />
                 </div>
               </div>
             </th>
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3">1.</p>
-                  <input placeholder="Type Here" class="px-1" type="text" />
+                  <p class="mt-3"> {{ index}}.</p>
+                  <input placeholder="Type Here" class="px-1" type="text" v-model="item.comments" />
                 </div>
               </div>
             </th>
           </tr>
         </tbody>
       </table>
-      <p class="add-more">+ Add more</p>
+      <p class="add-more" @click="addToCollaborationsForm()">+ Add more</p>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: "CollaborationsAndPartnership",
-};
+<script lang="ts">
+import { defineComponent } from "vue";
+import { mapGetters, mapMutations } from "vuex";
+
+export default defineComponent({
+  name: "CollaborationsAndPartnerships",
+  components: {},
+  data() {
+    return {
+      formCount: 1,
+      form: {
+        1: {
+          themes: "",
+          engagement_type: "",
+        },
+      },
+      collaborations_form: [
+        {
+          opportunity_type: "",
+       comments: ""
+        },
+      ],
+    };
+  },
+
+  methods: {
+    addToCollaborationsForm() {
+      this.collaborations_form.push({
+       opportunity_type: "",
+       comments: ""
+      });
+    },
+  },
+});
 </script>
 
 <style scoped>

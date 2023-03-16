@@ -8,6 +8,7 @@
         id=""
         cols="30"
         rows="5"
+        v-model="opportunities"
       ></textarea>
     </div>
   </div>
@@ -16,6 +17,12 @@
 <script>
 export default {
   name: "OpportunitiesAndNewInitiatives",
+  components: {},
+  data(){
+    return{
+      opportunities: ""
+    }
+  }
 };
 </script>
 

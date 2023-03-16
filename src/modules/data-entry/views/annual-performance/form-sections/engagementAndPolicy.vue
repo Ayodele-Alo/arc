@@ -17,7 +17,7 @@
               <p class="row-header">Comments and Next Steps</p>
             </th>
           </tr>
-          <tr>
+          <tr v-for="(item, index) in engagements_policy_form" :key="index">
             <th class="row-header">
               <div class="d-flex align-items-center mt-3">
                 <p class="row-sub-header">1. Policy engagement plans</p>
@@ -26,7 +26,12 @@
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <input placeholder="Type Here" class="mt-2" type="text" />
+                  <input
+                    placeholder="Type Here"
+                    class="mt-2"
+                    type="text"
+                    v-model="item.opportunity_type"
+                  />
                 </div>
               </div>
             </th>
@@ -95,7 +100,7 @@
           </tr>
         </tbody>
       </table>
-      <p class="add-more" @click="addFormCount()">+ Add more</p>
+      <p class="add-more" @click="addToEngagementsPolicyForm()">+ Add more</p>
     </div>
   </div>
 </template>
@@ -120,6 +125,12 @@ export default defineComponent({
         institutions: {},
         existing_data: {},
       },
+      engagements_policy_form: [
+        {
+          opportunity_type: "",
+          comments: "",
+        },
+      ],
     };
   },
 
@@ -127,27 +138,12 @@ export default defineComponent({
     addFormCount() {
       this.formCount++;
     },
-    // addPoliciesField() {
-    //   this.policyCount++;
-    // },
-    // addProgramsField() {
-    //   this.programCount++;
-    // },
-    // addAliancesField() {
-    //   this.alianceCount++;
-    // },
-    // addLevelsField() {
-    //   this.levelCount++;
-    // },
-    // addIndividualsField() {
-    //   this.individualCount++;
-    // },
-    // addInstitutionsField() {
-    //   this.institutionCount++;
-    // },
-    // addExistingDataField() {
-    //   this.existingDataCount++;
-    // },
+    addToEngagementsPolicyForm() {
+      this.engagements_policy_form.push({
+        opportunity_type: "",
+        comments: "",
+      });
+    },
   },
 });
 </script>

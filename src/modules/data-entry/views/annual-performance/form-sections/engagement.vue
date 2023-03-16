@@ -61,29 +61,80 @@
               </p>
             </th>
           </tr>
-            <tr v-for="item in formCount" :key="item">
+          <tr v-for="(item, index) in engagements_form" :key="index">
             <th class="row-header">
               <div class="row">
                 <div class="col text-start">
-                  <p>{{item}}.</p>
-                  <input placeholder="Type Here" type="text" />
+                  <p>{{ index }}.</p>
+                  <input
+                    placeholder="Type Here"
+                    type="text"
+                    v-model="item.themes"
+                  />
                 </div>
               </div>
             </th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>
+              <input
+                placeholder="Type Here"
+                type="text"
+                v-model="item.engagement_type"
+              />
+            </td>
+            <td>
+              <input
+                placeholder="Type Here"
+                type="text"
+                v-model="item.brief_comment_on_engagement"
+              />
+            </td>
+            <td>
+              <input
+                placeholder="Type Here"
+                type="text"
+                v-model="item.signature_issue_approach"
+              />
+            </td>
+            <td>
+              <input
+                placeholder="Type Here"
+                type="text"
+                v-model="item.countries"
+              />
+            </td>
+            <td>
+              <input
+                placeholder="Type Here"
+                type="text"
+                v-model="item.title_of_prensentation_made"
+              />
+            </td>
+            <td>
+              <input
+                placeholder="Type Here"
+                type="text"
+                v-model="item.role_of_presenter"
+              />
+            </td>
+            <td>
+              <input
+                placeholder="Type Here"
+                type="text"
+                v-model="item.organization_and_institution_present"
+              />
+            </td>
+            <td>
+              <input
+                placeholder="Type Here"
+                type="text"
+                v-model="item.key_people_present"
+              />
+            </td>
             <td></td>
           </tr>
         </tbody>
-
-        
       </table>
-      <p class="add-more" @click="addFormCount()">+ Add more</p>
+      <p class="add-more" @click="addToEngagementsForm()">+ Add more</p>
     </div>
   </div>
 </template>
@@ -97,41 +148,36 @@ export default defineComponent({
   components: {},
   data() {
     return {
-      formCount: 1,
-      form: {
-        1: {
+      engagements_form: [
+        {
           themes: "",
-          engagement_type: ""
-        }
-      },
+          engagement_type: "",
+          brief_comment_on_engagement: "",
+          signature_issue_approach: "",
+          countries: "",
+          title_of_prensentation_made: "",
+          role_of_presenter: "",
+          organization_and_institution_present: "",
+          key_people_present: "",
+        },
+      ],
     };
   },
 
   methods: {
-    addFormCount() {
-      this.formCount++;
+    addToEngagementsForm() {
+      this.engagements_form.push({
+        themes: "",
+        engagement_type: "",
+        brief_comment_on_engagement: "",
+        signature_issue_approach: "",
+        countries: "",
+        title_of_prensentation_made: "",
+        role_of_presenter: "",
+        organization_and_institution_present: "",
+        key_people_present: "",
+      });
     },
-    // addPoliciesField() {
-    //   this.policyCount++;
-    // },
-    // addProgramsField() {
-    //   this.programCount++;
-    // },
-    // addAliancesField() {
-    //   this.alianceCount++;
-    // },
-    // addLevelsField() {
-    //   this.levelCount++;
-    // },
-    // addIndividualsField() {
-    //   this.individualCount++;
-    // },
-    // addInstitutionsField() {
-    //   this.institutionCount++;
-    // },
-    // addExistingDataField() {
-    //   this.existingDataCount++;
-    // },
   },
 });
 </script>
@@ -200,5 +246,6 @@ input {
 }
 table {
   background-color: white;
+  overflow-x: scroll;
 }
 </style>
