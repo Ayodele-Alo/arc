@@ -49,6 +49,11 @@ export const configObject: configType[] = [
         url: "",
         tableau: false,
       },
+      {
+        name: "Country performance over time",
+        url: "https://public.tableau.com/views/Projectspercountryandmultipleyears/Projectscountryyear?:language=en-GB&publish=yes&:display_count=n&:origin=viz_share_link&amp;:embed=true&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
+        tableau: true,
+      },
     ],
   },
   {
@@ -94,6 +99,11 @@ export const configObject: configType[] = [
         url: "https://public.tableau.com/views/Themesasprimesubaward_16783800455270/Dashboard10?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
       },
+      {
+        name: "Theme performance over time",
+        url: "https://public.tableau.com/views/Projectsperformanceovertime/Projectovertimedb?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
+        tableau: true,
+      },
     ],
   },
   {
@@ -117,4 +127,3 @@ export const configObject: configType[] = [
     ],
   },
 ];
-
