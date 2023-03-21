@@ -23,7 +23,7 @@
             </tr>
           </tbody>
         </table>
-         <span @click="addNewProjectsField()">Add more +</span>
+         <span @click="addNewProjectsField()" class="add-more">Add more +</span>
       </div>
       <div class="col text-start mt-2">
         <div class="text-start"></div>
@@ -47,7 +47,7 @@
             </tr>
           </tbody>
         </table>
-        <span @click="addOngoingProjectsField()">Add more +</span>
+        <span @click="addOngoingProjectsField()" class="add-more">Add more +</span>
       </div>
       <div class="col text-start mt-2">
         <div class="text-start"></div>
@@ -71,7 +71,7 @@
             </tr>
           </tbody>
         </table>
-       <span @click="addClosingProjectsField()">Add more +</span>
+       <span @click="addClosingProjectsField()" class="add-more">Add more +</span>
       </div>
     </div>
   </div>
@@ -106,9 +106,6 @@ export default defineComponent({
     },
     addClosingProjectsField() {
       this.closingProjectsCount++;
-    },
-    save(){
-      console.log('form', this.form)
     }
   },
 });

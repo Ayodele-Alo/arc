@@ -28,7 +28,7 @@
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3">{{ index}}.</p>
+                  <p class="mt-3">{{ index + 1}}.</p>
                   <input placeholder="Type Here" class="px-1" type="text" v-model="item.opportunity_type" />
                 </div>
               </div>
@@ -36,7 +36,7 @@
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3"> {{ index}}.</p>
+                  <p class="mt-3"> {{ index + 1}}.</p>
                   <input placeholder="Type Here" class="px-1" type="text" v-model="item.comments" />
                 </div>
               </div>
@@ -108,6 +108,12 @@ input {
 }
 table {
   background-color: white;
+}
+.add-more {
+  cursor: pointer;
+}
+.add-more:hover {
+  color: red;
 }
 .row-header {
   letter-spacing: 0px;

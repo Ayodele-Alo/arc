@@ -45,25 +45,25 @@
       <strategicOutcomes :bus="bus" />
     </div>
 
-    <div
+    <!-- <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse2"
-    >
-      <span>B. Publications</span>
+    > -->
+      <!-- <span>B. Publications</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse2">
       <PublicationComponent />
-    </div>
+    </div> -->
 
     <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse3"
     >
-      <span>C. Engagement with policy and decision makers</span>
+      <span>B. Engagement with policy and decision makers</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
@@ -76,7 +76,7 @@
       data-bs-toggle="collapse"
       data-bs-target="#collapse4"
     >
-      <span>D. Annual Performance against the work plans</span>
+      <span>C. Annual Performance against the work plans</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
@@ -89,7 +89,7 @@
       data-bs-toggle="collapse"
       data-bs-target="#collapse5"
     >
-      <span>E. Additional achievements or updates:</span>
+      <span>D. Additional achievements or updates:</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
@@ -102,7 +102,7 @@
       data-bs-toggle="collapse"
       data-bs-target="#collapse6"
     >
-      <span>F. Challenges and Lessons Learnt</span>
+      <span>E. Challenges and Lessons Learnt</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
@@ -115,7 +115,7 @@
       data-bs-toggle="collapse"
       data-bs-target="#collapse7"
     >
-      <span>G. Business Development</span>
+      <span>F. Business Development</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
@@ -128,7 +128,7 @@
       data-bs-toggle="collapse"
       data-bs-target="#collapse8"
     >
-      <span>H. New opportunities identified during the year</span>
+      <span>G. New opportunities identified during the year</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
@@ -141,7 +141,7 @@
       data-bs-toggle="collapse"
       data-bs-target="#collapse9"
     >
-      <span>I. Additional achievements or updates:</span>
+      <span>H. Additional achievements or updates:</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
@@ -154,7 +154,7 @@
       data-bs-toggle="collapse"
       data-bs-target="#collapse10"
     >
-      <span>J. Risk Identified</span>
+      <span>I. Risk Identified</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
@@ -280,9 +280,9 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import strategicOutcomes from "./form-sections/strategicOutcomes.vue";
-import PublicationComponent from "./form-sections/publications.vue";
+// import PublicationComponent from "./form-sections/publications.vue";
 import EngagementComponent from "./form-sections/engagement.vue";
-// import AnnualPerformanceComponent from "./form-sections/annualPerformance.vue";
+import AnnualPerformanceComponent from "./form-sections/annualPerformance.vue";
 // import AnnualPerformanceComponent from "./form-sections/annualPerformance.vue";
 import AdditionalAchivementsComponemt from "./form-sections/additionalAchivements.vue";
 import ChallengesAndLesson from "./form-sections/challengeAndLesson.vue";
@@ -303,9 +303,9 @@ export default defineComponent({
   name: "createForm",
   components: {
     strategicOutcomes,
-    PublicationComponent,
+    // PublicationComponent,
     EngagementComponent,
-    // AnnualPerformanceComponent,
+    AnnualPerformanceComponent,
     AdditionalAchivementsComponemt,
     ChallengesAndLesson,
     BusinessDevelopment,

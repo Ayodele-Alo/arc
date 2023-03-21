@@ -12,16 +12,30 @@
         id=""
         cols="30"
         rows="5"
+        v-model="additional_achievements"
       ></textarea>
     </div>
   </div>
 </template>
+<script lang="ts">
+import { defineComponent } from "vue";
+import { mapGetters, mapMutations } from "vuex";
 
-<script>
-export default {
-  name: "AdditionalAchivementsComponemt",
-};
+export default defineComponent({
+  name: "AdditionalAchievementsComponent",
+  components: {},
+  data() {
+    return {
+      additional_achievements: ""
+    };
+  },
+
+  methods: {
+
+  },
+});
 </script>
+
 
 <style scoped>
 .engagement-text {

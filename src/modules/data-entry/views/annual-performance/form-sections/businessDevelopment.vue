@@ -52,7 +52,7 @@
               <div class="row">
                 <div class="row">
                   <div class="d-flex align-items-center">
-                    <p class="mt-3">{{ index }}.</p>
+                    <p class="mt-3">{{ index + 1 }}.</p>
                     <input placeholder="Type Here" class="px-1" type="text" v-model="item.proposal"/>
                   </div>
                 </div>

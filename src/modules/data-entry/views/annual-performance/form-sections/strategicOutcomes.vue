@@ -26,7 +26,7 @@
         </div>
         <br />
         <strong>
-          <span @click="addIdeasField()">Add more +</span>
+          <span class="add-more" @click="addIdeasField()">Add more +</span>
         </strong>
       </div>
 
@@ -50,7 +50,7 @@
         </div>
         <br />
         <strong>
-          <span @click="addPoliciesField()">Add more +</span>
+          <span class="add-more" @click="addPoliciesField()">Add more +</span>
         </strong>
       </div>
 
@@ -74,7 +74,7 @@
         </div>
         <br />
         <strong>
-          <span @click="addProgramsField()">Add more +</span>
+          <span class="add-more" @click="addProgramsField()">Add more +</span>
         </strong>
       </div>
 
@@ -98,7 +98,7 @@
         </div>
         <br />
         <strong>
-          <span @click="addAliancesField()">Add more +</span>
+          <span class="add-more" @click="addAliancesField()">Add more +</span>
         </strong>
       </div>
 
@@ -122,7 +122,7 @@
         </div>
         <br />
         <strong>
-          <span @click="addLevelsField()">Add more +</span>
+          <span class="add-more" @click="addLevelsField()">Add more +</span>
         </strong>
       </div>
 
@@ -149,7 +149,7 @@
             </div>
             <br />
             <strong>
-              <span @click="addIndividualsField()">Add more +</span>
+              <span class="add-more" @click="addIndividualsField()">Add more +</span>
             </strong>
           </span>
         </div>
@@ -171,7 +171,7 @@
             </div>
             <br />
             <strong>
-              <span @click="addInstitutionsField()">Add more +</span>
+              <span class="add-more" @click="addInstitutionsField()">Add more +</span>
             </strong>
           </span>
         </div>
@@ -194,8 +194,7 @@
         </div>
         <br />
         <strong>
-          <span @click="addExistingDataField()">Add more +</span>
-          <span @click="save()">Save</span>
+          <span class="add-more" @click="addExistingDataField()">Add more +</span>
         </strong>
       </div>
     </form>
@@ -278,6 +277,13 @@ export default defineComponent({
   font: normal normal normal 16px/19px Montserrat;
   letter-spacing: 0px;
   color: #707070;
+}
+
+.add-more {
+  cursor: pointer;
+}
+.add-more:hover {
+  color: red;
 }
 
 .section-header {

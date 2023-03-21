@@ -29,7 +29,7 @@
             <th class="row-header p-5">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3">{{ index }}.</p>
+                  <p class="mt-3">{{ index + 1 }}.</p>
                   <input placeholder="Type Here" class="px-1" type="text" v-model="item.project_name"  />
                 </div>
               </div>
@@ -37,7 +37,7 @@
             <th class="row-header p-5">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3"> {{index}}.</p>
+                  <p class="mt-3"> {{index + 1}}.</p>
                   <input placeholder="Type Here" class="px-1" type="text" v-model="item.planned_activities" />
                 </div>
               </div>
@@ -45,7 +45,7 @@
             <th class="row-header p-5">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3"> {{index}}.</p>
+                  <p class="mt-3"> {{index + 1}}.</p>
                   <input placeholder="Type Here" class="px-1" type="text" v-model="item.targets" />
                 </div>
               </div>
@@ -110,6 +110,12 @@ input {
   outline: none;
   background-color: transparent;
   margin-left: 4px;
+}
+.add-more {
+  cursor: pointer;
+}
+.add-more:hover {
+  color: red;
 }
 table {
   background-color: white;

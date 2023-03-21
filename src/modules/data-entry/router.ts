@@ -10,6 +10,10 @@ import humanCreateForm from "./views/human-resource/createForm.vue";
 import policyHome from "./views/policy-engagement/policyHome.vue";
 import policyCreateForm from "./views/policy-engagement/createForm.vue";
 
+// Publications
+import publicationsHome from "./views/publications/publicationsHome.vue";
+import publicationsCreateForm from "./views/publications/createForm.vue";
+
 // no format
 import EmptyForm from "./views/EmptyForm.vue";
 
@@ -105,7 +109,17 @@ export default [
           requiresAuth: false,
           transition: "slide-fade-right",
         },
-        component: EmptyForm,
+        component: publicationsHome,
+        children: [
+          {
+            path: "create",
+            meta: {
+              requiresAuth: false,
+              transition: "slide-fade-right",
+            },
+            component: publicationsCreateForm,
+          },
+        ],
       },
     ],
   },

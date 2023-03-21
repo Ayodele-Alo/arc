@@ -31,7 +31,7 @@
               <th class="row-header p-5">
                 <div class="row">
                   <div class="d-flex align-items-center">
-                    {{ index }}
+                    {{ index + 1 }}
                     <input
                       placeholder="Type Here"
                       class="px-1 mt-2"
@@ -43,7 +43,7 @@
               <th class="row-header p-5">
                 <div class="row">
                   <div class="d-flex align-items-center">
-                    {{ index }}
+                    {{ index + 1}}
                     <input
                       placeholder="Type Here"
                       class="px-1 mt-2"
@@ -55,7 +55,7 @@
               <th class="row-header p-5">
                 <div class="row">
                   <div class="d-flex align-items-center">
-                    {{ index }}
+                    {{ index + 1}}
                     <input
                       placeholder="Type Here"
                       class="px-1 mt-2"
@@ -68,7 +68,7 @@
                 <div class="row">
                   <div class="d-flex align-items-center">
 
-                    {{ index }}
+                    {{ index + 1}}
                     <input
                       placeholder="Type Here"
                       class="px-1 mt-2"
@@ -174,5 +174,12 @@ input {
   font-size: 16px;
   line-height: 19px;
   text-align: left;
+}
+
+.add-more {
+  cursor: pointer;
+}
+.add-more:hover {
+  color: red;
 }
 </style>

@@ -17,7 +17,7 @@
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3">{{ index }}.</p>
+                  <p class="mt-3">{{ index + 1 }}.</p>
                   <input placeholder="Type Here" class="px-1" type="text" v-model="item.challenges" />
                 </div>
               </div>
@@ -25,7 +25,7 @@
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3">{{ index }}.</p>
+                  <p class="mt-3">{{ index + 1 }}.</p>
                   <input placeholder="Type Here" class="px-1" type="text" v-model="item.lessons_learnt" />
                 </div>
               </div>
@@ -85,6 +85,14 @@ export default defineComponent({
   text-align: left;
   padding-top: 25px;
 }
+
+.add-more {
+  cursor: pointer;
+}
+.add-more:hover {
+  color: red;
+}
+
 input {
   height: 25px;
   border: none;

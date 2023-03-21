@@ -65,7 +65,7 @@
             <th class="row-header">
               <div class="row">
                 <div class="col text-start">
-                  <p>{{ index }}.</p>
+                  <p>{{ index + 1 }}.</p>
                   <input
                     placeholder="Type Here"
                     type="text"
@@ -106,7 +106,7 @@
               <input
                 placeholder="Type Here"
                 type="text"
-                v-model="item.title_of_prensentation_made"
+                v-model="item.title_of_presentation_made"
               />
             </td>
             <td>
@@ -155,7 +155,7 @@ export default defineComponent({
           brief_comment_on_engagement: "",
           signature_issue_approach: "",
           countries: "",
-          title_of_prensentation_made: "",
+          title_of_presentation_made: "",
           role_of_presenter: "",
           organization_and_institution_present: "",
           key_people_present: "",
@@ -172,7 +172,7 @@ export default defineComponent({
         brief_comment_on_engagement: "",
         signature_issue_approach: "",
         countries: "",
-        title_of_prensentation_made: "",
+        title_of_presentation_made: "",
         role_of_presenter: "",
         organization_and_institution_present: "",
         key_people_present: "",

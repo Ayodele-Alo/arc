@@ -89,6 +89,14 @@ export default defineComponent({
   color: #707070;
   line-height: 40px;
 }
+
+.add-more {
+  cursor: pointer;
+}
+.add-more:hover {
+  color: red;
+}
+
 .row-header {
   letter-spacing: 0px;
   color: #707070;
