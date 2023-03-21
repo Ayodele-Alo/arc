@@ -139,9 +139,9 @@ const chartOptions = {
         },
         mouseOut() {
           // Remove the details from the side info menu
-          // const sideMenu = document.getElementById("info-menu");
-          // sideMenu.innerHTML = "";
-          // sideMenu.className = "";
+          const sideMenu = document.getElementById("info-menu");
+          sideMenu.innerHTML = "";
+          sideMenu.className = "";
         },
       },
     },
