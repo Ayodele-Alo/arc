@@ -7,60 +7,162 @@
           reports/attendance list are stored, as a means of verification.
         </p>
       </div>
-      <table class="table table-bordered">
-        <tbody>
-          <tr>
-            <th class="header-width" scope="col">
-              <span class="row-header">
-                Themes
-                <p class="row-sub-header">
-                  (Themes the research was conducted)
-                </p>
-              </span>
-            </th>
+      <div class="">
+        <div class="">
+          <table class="table table-bordered mt-2">
+            <tbody>
+              <tr>
+                <td>
+                  <span class="row-header">
+                    Themes
+                    <p class="row-sub-header">
+                      (Themes the research was conducted)
+                    </p>
+                  </span>
+                </td>
+                <td>
+                  <span class="row-header">
+                    Type of research outputs disseminated
+                    <p class="row-sub-header">
+                      (policy briefs/ fact sheet/ other material)
+                    </p>
+                  </span>
+                </td>
+                <td>
+                  <span class="row-header">
+                    Title of policy briefs/fact sheet/other material
+                    disseminated
+                  </span>
+                </td>
+                <td>
+                  <span class="row-header">
+                    Brief comment on the dissemination meeting (dates, who was
+                    in the meeting etc.)
+                  </span>
+                </td>
+              </tr>
+              <tr v-for="(item, index) in engagements_form" :key="index">
+                <td>
+                  <div class="d-flex align-items-center">
+                    <p class="mt-3">{{ index + 1 }}.</p>
+                    <input
+                      placeholder="Type Here"
+                      type="text"
+                      v-model="item.themes"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <input
+                    placeholder="Type Here"
+                    type="text"
+                    v-model="item.types_of_research_output"
+                  />
+                </td>
+                <td>
+                  <input
+                    placeholder="Type Here"
+                    type="text"
+                    v-model="item.title_of_policy_briefs"
+                  />
+                </td>
 
-            <th class="header-width" scope="col">
-              <span class="row-header">
-                Type of research outputs disseminated
-                <p class="row-sub-header">
-                  (policy briefs/ fact sheet/ other material)
-                </p>
-              </span>
-            </th>
-            <th class="header-width" scope="col">
-              <span class="row-header">
-                Title of policy briefs/fact sheet/other material disseminated
-              </span>
-            </th>
-            <th class="header-width" scope="col">
-              <span class="row-header">
-                Brief comment on the dissemination meeting (dates, who was in
-                the meeting etc.)
-              </span>
-            </th>
-          </tr>
-          <tr>
-            <th class="row-header py-3">
-              <div class="row">
-                <div class="col text-start">
-                  <input placeholder="Type Here" type="text" />
-                </div>
-              </div>
-            </th>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-      <p class="add-more">+ Add more</p>
+                <td class="wrapper">
+                  <input
+                    placeholder="Type Here"
+                    type="text"
+                    v-model="item.brief_comment"
+                  />
+                  <div
+                    v-if="engagements_form.length > 1"
+                    @click="removeRow(item)"
+                    class="remove-icon"
+                  >
+                    x
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <p @click="addToPolicyBriefsForm()" class="add-more mx-3">+ Add more</p>
+      <div class="d-flex justify-content-end">
+        <button @click="saveForm()" class="btn btn-outline-primary">
+          save
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   name: "PolicyBtiefsAndFacts",
+
+  data() {
+    return {
+      error: true,
+      engagements_form: [
+        {
+          id: 1,
+          themes: "",
+          types_of_research_output: "",
+          title_of_policy_briefs: "",
+          brief_comment: "",
+        },
+      ],
+    };
+  },
+
+  methods: {
+    addToPolicyBriefsForm() {
+      this.engagements_form.push({
+        id: new Date().getTime(),
+        themes: "",
+        types_of_research_output: "",
+        title_of_policy_briefs: "",
+        brief_comment: "",
+      });
+    },
+
+    removeRow(rowItem) {
+      if (this.engagements_form.length > 1) {
+        this.engagements_form = this.engagements_form.filter(
+          (item) => item.id !== rowItem.id
+        );
+      }
+    },
+
+    saveForm() {
+      this.engagements_form.forEach((item) => {
+        for (const property in item) {
+          // console.log(`${property}: ${object[property]}`);
+          if (item[property] === "") {
+            this.error = true;
+            alert(`please ${property} cannot be blank `);
+            return;
+          } else {
+            this.error = false;
+            // console.log(this.engagements_form);
+          }
+        }
+      });
+      if (this.error) {
+        return;
+      }
+      this.formatData();
+    },
+
+    formatData() {
+      const data = {
+        engagements_form: this.engagements_form,
+      };
+
+      console.log(data);
+    },
+  },
 };
 </script>
 
@@ -137,5 +239,28 @@ input {
 }
 table {
   background-color: white;
+}
+
+table td {
+  width: 230px;
+}
+
+.wrapper {
+  position: relative;
+}
+.remove-icon {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  background-color: #f75d59;
+  padding: 2px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
 }
 </style>

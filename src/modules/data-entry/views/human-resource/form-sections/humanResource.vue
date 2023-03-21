@@ -10,19 +10,19 @@
             <th> Female</th>
             </div>
         </th>
-        <th class="header-width row-header text-center" scope="col"> Research
+        <th class="header-width row-header text-center" scope="col"> RRCS
             <div class="d-flex justify-content-around mt-3" >
             <th> Male</th>
             <th> Female</th>
             </div>
         </th>
-        <th class="header-width row-header text-center" scope="col"> Research
+        <th class="header-width row-header text-center" scope="col"> PEC
             <div class="d-flex justify-content-around mt-3" >
             <th> Male</th>
             <th> Female</th>
             </div>
         </th>
-        <th class="header-width row-header text-center" scope="col"> Research
+        <th class="header-width row-header text-center" scope="col"> Operations
             <div class="d-flex justify-content-around mt-3" >
             <th> Male</th>
             <th> Female</th>

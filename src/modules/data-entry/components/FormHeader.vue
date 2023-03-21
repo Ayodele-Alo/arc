@@ -62,13 +62,13 @@ export default defineComponent({
           this.$router.push("/data-entry/human-resource/create");
           break;
         case "Policy Engagement":
-          this.$router.push("/data-entry/policy-engagement");
+          this.$router.push("/data-entry/policy-engagement/create");
           break;
         case "research":
-          this.$router.push("/data-entry/research-related");
+          this.$router.push("/data-entry/research-related/create");
           break;
         case "publications":
-          this.$router.push("/data-entry/publications");
+          this.$router.push("/data-entry/publications/create");
           break;
         default:
           this.$router.push("/data-entry");

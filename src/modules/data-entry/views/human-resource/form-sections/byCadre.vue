@@ -12,6 +12,8 @@
           </th>
           <th class="header-width row-header" scope="col">Operations
           </th>
+                <th class="header-width row-header" scope="col">Gender Distribution
+          </th>
           <th class="header-width row-header" scope="col">Total
           </th>
         </tr>
@@ -132,6 +134,13 @@
         </tr>
         <tr>
           <th class="publication-content">Interns (through HR)</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+          <tr>
+          <th class="publication-content">Others</th>
           <td></td>
           <td></td>
           <td></td>
