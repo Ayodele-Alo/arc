@@ -33,6 +33,23 @@ class ProjectService {
       throw error;
     }
   }
+
+    /**
+   * @function getCountryByAwardNo
+   * @description: This function is used to get country by award number
+   * @param {string} awardNo
+   * @returns {Promise<AxiosResponse>}
+   * @example: getCountryByAwardNo("APHRC/2019/001")
+   */
+    async getProjectByExpiryYear(year: string) {
+      try {
+        const { data } = await Request(`projects/?end_date_year=${year}`);
+        return data.results;
+      } catch (error) {
+        console.log(error);
+        throw error;
+      }
+    }
    
 }
 

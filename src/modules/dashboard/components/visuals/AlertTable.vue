@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-years -->
 <template>
   <section class="alert_table">
-    <el-select v-model="value" placeholder="Select">
+    <el-select v-model="yearValue" placeholder="Select">
       <el-option
         v-for="item in yearList"
         :key="item.value"
@@ -11,7 +11,7 @@
     </el-select>
 
     <el-table
-      :load="load"
+      :load="isLoading"
       :data="tableData"
       height="500"
       style="width: 100%"
@@ -47,45 +47,31 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapGetters, mapMutations } from "vuex";
-import { AlertTableI } from "@/types";
+import dayjs from "dayjs";
+import { GenericI } from "@/types";
+import ProjectService from "@/helpers/Project.Service";
 
 export default defineComponent({
   name: "Alert-Table",
   components: {},
   data() {
     return {
+      isLoading: false,
       yearList: [] as { label: number; value: number }[],
-      value: 2023,
-      tableData: [
-        {
-          date: "2023/10/03",
-          name: "GOS",
-          year: "2023",
-          difference: 10,
-          month: "October",
-          expiring_threshold: false,
-        },
-        {
-          date: "2016/09/02",
-          name: "GOS",
-          year: "2023",
-          difference: 9,
-          month: "September",
-          expiring_threshold: false,
-        },
-        {
-          date: "2023/05/04",
-          name: "CAPACITY BUILDING",
-          year: "2023",
-          difference: 2,
-          month: "May",
-          expiring_threshold: true,
-        },
-      ] as AlertTableI[],
+      yearValue: "" as string,
+      tableData: [] as GenericI[],
     };
   },
   computed: {
     ...mapGetters(["getActiveModal", "getActiveTab"]),
+  },
+  watch: {
+    yearValue: {
+      handler: async function () {
+        await this.getDataFromApi();
+      },
+      immediate: true,
+    },
   },
   methods: {
     ...mapMutations(["setActiveTab"]),
@@ -102,11 +88,50 @@ export default defineComponent({
           return { label: year, value: year };
         }
       ).sort((a, b) => b.value - a.value);
+      this.yearValue = this.yearList[0].value.toString();
+    },
+
+    async getDataFromApi() {
+      try {
+        this.isLoading = true;
+        const resp = await ProjectService.getProjectByExpiryYear(
+          this.yearValue
+        );
+
+        const tableData = resp.map((item: GenericI) => {
+          // get the difference in months between the expiry date and the start of the current month
+          const monthDiff = dayjs(item.end_date).diff(
+            dayjs().startOf("month"),
+            "month"
+          );
+          // get the expiry month name
+          const expiringMonth = dayjs(item.end_date).format("MMMM");
+          const expiringThreshold = monthDiff <= 2;
+          return {
+            date: item.end_date,
+            name: item.name,
+            year: dayjs(item.end_date).format("YYYY"),
+            difference: monthDiff,
+            month: expiringMonth,
+            expiring_threshold: expiringThreshold,
+          };
+        });
+        // order the table data by the difference in ascending order
+        this.tableData = tableData.sort(
+          (a: { difference: number }, b: { difference: number }) =>
+            a.difference - b.difference
+        );
+      } catch (error) {
+        console.log(error);
+      } finally {
+        this.isLoading = false;
+      }
     },
   },
 
   async mounted() {
-    this.generateDate();
+    await this.generateDate();
+    await this.getDataFromApi();
   },
 });
 </script>

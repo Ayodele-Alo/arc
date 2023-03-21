@@ -10,7 +10,7 @@ export interface AlertTableI {
 }
 
 export interface GenericI {
-  [key: string]: string | number | boolean;
+  [key: string]: string | number;
 }
 
 export interface seriesDataI {
