@@ -76,7 +76,7 @@ export default defineComponent({
 <style lang="scss">
 .vue-highcharts {
   width: 100%;
-  min-height: 35rem;
+  height: 35rem;
 }
 div.chart_wrapper {
   position: relative;

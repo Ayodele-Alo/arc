@@ -42,6 +42,41 @@ export default defineComponent({
     };
   },
   methods: {
+//     async getMapDataFromApi() {
+//   try {
+//     const projects = await ProjectService.getAllActiveProject();
+//     const countryData = await Promise.all(
+//       projects.map(async ({ no }) => {
+//         const respData = await ProjectService.getCountryByAwardNo(no);
+//         const project = projects.find((p) => p.no === no);
+//         return respData.map((r) => ({
+//           ...r,
+//           grant: project.name,
+//           sponsor: project.sponsoring_funder_name,
+//         }));
+//       })
+//     );
+//     const data = countryData
+//       .flat()
+//       .reduce((r, a) => {
+//         r[a.country_name] = [...(r[a.country_name] || []), a];
+//         return r;
+//       }, {});
+//     this.mapData.series[0].data = Object.entries(data).map(
+//       ([key, values]) => ({
+//         name: key,
+//         value: values.length,
+//         code: values[0].country_code.toLowerCase(),
+//         projectData: values,
+//       })
+//     );
+//   } catch (error) {
+//     console.log(error);
+//   } finally {
+//     this.isLoaded = true;
+//   }
+// }
+
     async getMapDataFromApi() {
       try {
         const result = [];
@@ -49,6 +84,11 @@ export default defineComponent({
         const projects = await ProjectService.getAllActiveProject();
         for (const { no } of projects) {
           const respData = await ProjectService.getCountryByAwardNo(no);
+          const project = projects.find((p) => p.no === no);
+          respData.forEach((r) => {
+            r.grant = project.name;
+            r.sponsor = project.sponsoring_funder_name;
+          });
           result.push(...respData);
         }
 
@@ -62,9 +102,9 @@ export default defineComponent({
             name: key,
             value: values.length,
             code: values[0].country_code.toLowerCase(),
+            projectData: values
           }))
         );
-
         this.mapData.series[0].data = data;
       } catch (error) {
         console.log(error);
@@ -79,7 +119,7 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .vue-highcharts {
   width: 100%;
   height: 75vh;
@@ -92,12 +132,35 @@ div.info_menu {
   top: 15%;
   right: 1%;
   width: 200px;
-  height: 100px;
+  height: 25rem;
   background-color: #f4f4f4;
   z-index: 10;
   border: 1px solid #fff;
   border-radius: 5px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   padding: 0.6rem;
+
+  ul.display_mode {
+    list-style: none;
+    height: 15rem;
+    overflow-y: auto;
+    background: inherit;
+    padding-left: 0.35rem;
+    padding-bottom: 0.5rem;
+    li.sponsor {
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-bottom: 2px solid;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      ul.projects_name {
+        list-style: upper-roman;
+        li.project_name {
+          font-size: 0.7rem;
+          font-weight: 400;
+        }
+      }
+    }
+  }
 }
 </style>

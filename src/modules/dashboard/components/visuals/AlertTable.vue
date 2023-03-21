@@ -1,47 +1,55 @@
 <!-- eslint-disable vue/multi-word-component-years -->
 <template>
-  <section class="alert_table">
-    <el-select v-model="yearValue" placeholder="Select">
-      <el-option
-        v-for="item in yearList"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value"
-      ></el-option>
-    </el-select>
+  <div>
+    <div class="coming_soon_map" v-if="isLoading">
+      <h4>PREPARING TABLE&nbsp;</h4>
+      <div class="loading_dots" />
+    </div>
+    <section class="alert_table" v-else>
+      <el-select v-model="yearValue" placeholder="Select">
+        <el-option
+          v-for="item in yearList"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        ></el-option>
+      </el-select>
 
-    <el-table
-      :load="isLoading"
-      :data="tableData"
-      height="500"
-      style="width: 100%"
-      :default-sort="{ prop: 'difference', order: 'ascending' }"
-    >
-      <el-table-column sortable prop="date" label="Date" width="250" />
-      <el-table-column sortable prop="name" label="Grant Name" width="250" />
-      <el-table-column sortable prop="year" label="Year" width="150" />
-      <el-table-column
-        sortable
-        prop="difference"
-        label="Months Left"
-        width="200"
+      <el-table
+        :data="tableData"
+        height="500"
+        style="width: 100%"
+        lazy
+        :default-sort="{ prop: 'difference', order: 'ascending' }"
       >
-        <template #default="scope">
-          <span>{{ scope.row.difference }}&nbsp;Month(s)</span>
-        </template>
-      </el-table-column>
-      <el-table-column prop="month" label="" width="200">
-        <template #default="scope">
-          <span
-            v-if="scope.row.expiring_threshold === true"
-            class="text-danger fw-bold"
-            >{{ scope.row.month }}</span
-          >
-          <span v-else class="text-primary fw-bold">{{ scope.row.month }}</span>
-        </template>
-      </el-table-column>
-    </el-table>
-  </section>
+        <el-table-column sortable prop="date" label="Date" width="250" />
+        <el-table-column sortable prop="name" label="Grant Name" width="250" />
+        <el-table-column prop="year" label="Year" width="150" />
+        <el-table-column
+          sortable
+          prop="difference"
+          label="Months Left"
+          width="200"
+        >
+          <template #default="scope">
+            <span>{{ scope.row.difference }}&nbsp;Month(s)</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="month" label="" width="200">
+          <template #default="scope">
+            <span
+              v-if="scope.row.expiring_threshold === true"
+              class="text-danger fw-bold"
+              >{{ scope.row.month }}</span
+            >
+            <span v-else class="text-primary fw-bold">{{
+              scope.row.month
+            }}</span>
+          </template>
+        </el-table-column>
+      </el-table>
+    </section>
+  </div>
 </template>
 
 <script lang="ts">
