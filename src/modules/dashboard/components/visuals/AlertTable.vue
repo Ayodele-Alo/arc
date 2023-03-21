@@ -1,6 +1,15 @@
 <!-- eslint-disable vue/multi-word-component-years -->
 <template>
   <section class="alert_table">
+    <el-select v-model="value" placeholder="Select">
+      <el-option
+        v-for="item in yearList"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+      ></el-option>
+    </el-select>
+
     <el-table
       :load="load"
       :data="tableData"
@@ -45,6 +54,8 @@ export default defineComponent({
   components: {},
   data() {
     return {
+      yearList: [] as { label: number; value: number }[],
+      value: 2023,
       tableData: [
         {
           date: "2023/10/03",
@@ -78,6 +89,24 @@ export default defineComponent({
   },
   methods: {
     ...mapMutations(["setActiveTab"]),
+
+    // generate date from 2015 till now
+    generateDate() {
+      const currentYear = new Date().getFullYear();
+      const startYear = 2015;
+
+      this.yearList = Array.from(
+        { length: currentYear - startYear + 1 },
+        (_, i) => {
+          const year = startYear + i;
+          return { label: year, value: year };
+        }
+      ).sort((a, b) => b.value - a.value);
+    },
+  },
+
+  async mounted() {
+    this.generateDate();
   },
 });
 </script>

@@ -36,7 +36,7 @@ export const configObject: configType[] = [
     visuals: [
       {
         name: "Countries with total projects available",
-        url: "",
+        url: "indicator_performance_map",
         tableau: false,
       },
       {

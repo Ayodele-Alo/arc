@@ -232,14 +232,6 @@ button.btn.btn_aphrc {
   padding: 5px 20px;
 }
 
-.el-input-group__prepend {
-  // width: 30%;
-  // span {
-  //   font-weight: 300;
-  //   font-style: italic;
-  //   font-size: 0.9rem;
-  // }
-}
 div.group {
   margin-bottom: 1rem;
   .el-input-group {
@@ -248,8 +240,54 @@ div.group {
     align-items: stretch;
     height: 3rem;
   }
-  small{
+  small {
     font-size: 0.65rem;
     color: #818181;
+  }
+}
+
+div.coming_soon_map {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32.5rem;
+  position: relative;
+  h4 {
+    font-weight: bold;
+    font-size: 0.9rem;
+    font-family: Montserrat;
+    letter-spacing: 0px;
+    color: #707070;
+    text-transform: capitalize;
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+
+  div.loading_dots {
+    position: relative;
+    left: -9999px;
+    width: 7px;
+    height: 7px;
+    border-radius: 7px;
+    background-color: #2c4a13eb;
+    color: #2c4a13eb;
+    box-shadow: 9984px 0 0 0 #2c4a13eb, 9999px 0 0 0 #2c4a13eb,
+      10014px 0 0 0 #2c4a13eb;
+    animation: dot-carousel 1.5s infinite linear;
+  }
+
+  @keyframes dot-carousel {
+    0% {
+      box-shadow: 9984px 0 0 -1px #2c4a13eb, 9999px 0 0 1px #2c4a13eb,
+        10014px 0 0 -1px #2c4a13eb;
+    }
+    50% {
+      box-shadow: 10014px 0 0 -1px #2c4a13eb, 9984px 0 0 -1px #2c4a13eb,
+        9999px 0 0 1px #2c4a13eb;
+    }
+    100% {
+      box-shadow: 9999px 0 0 1px #2c4a13eb, 10014px 0 0 -1px #2c4a13eb,
+        9984px 0 0 -1px #2c4a13eb;
+    }
   }
 }

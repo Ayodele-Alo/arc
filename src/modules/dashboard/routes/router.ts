@@ -4,7 +4,7 @@ import { RouteLocationNormalized } from "vue-router";
 import { configObject } from "@/helpers";
 import Index from "../index.vue";
 import Home from "../views/Dashboard.vue";
-import Map from "../components/visuals/Map.vue";
+import Map from "../components/visuals/IndicatorPerformance.vue";
 
 const routes = [
   {
