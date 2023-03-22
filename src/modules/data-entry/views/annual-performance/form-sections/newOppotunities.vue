@@ -119,6 +119,12 @@ input {
 table {
   background-color: white;
 }
+.add-more {
+  cursor: pointer;
+}
+.add-more:hover {
+  color: red;
+}
 .row-header {
   letter-spacing: 0px;
   color: #707070;

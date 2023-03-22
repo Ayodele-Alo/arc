@@ -29,29 +29,62 @@
               </p>
             </th>
           </tr>
-          <tr>
+          <tr v-for="(item, index) in annual_form" :key="index">
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-2">1.</p>
-                  <input placeholder="Type Here" class="px-1" type="text" />
+                  <p class="mt-2">{{ index + 1 }}.</p>
+                  <input placeholder="Type Here" class="px-1" type="text" v-model="annual_form.project_name" />
                 </div>
               </div>
             </th>
-            <td></td>
-            <td></td>
+            <td>
+              <input placeholder="Type Here" class="px-1" type="text" v-model="annual_form.planned_activities"/>
+            </td>
+            <td>
+              <input placeholder="Type Here" class="px-1" type="text" v-model="annual_form.brief_comment" />
+            </td>
           </tr>
         </tbody>
       </table>
-      <p class="add-more">+ Add more</p>
+      <p class="add-more" @click="addToAnnualForm()">+ Add more</p>
     </div>
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "vue";
+import { mapGetters, mapMutations } from "vuex";
+
+export default defineComponent({
   name: "AnnualPerformanceComponent",
-};
+  components: {},
+  data() {
+    return {
+      formCount: 1,
+      annual_form: [
+        {
+          project_name: "",
+          planned_activities: "",
+          brief_comment: ""
+        },
+      ],
+    };
+  },
+
+  methods: {
+    addFormCount() {
+      this.formCount++;
+    },
+    addToAnnualForm() {
+      this.annual_form.push({
+         project_name: "",
+          planned_activities: "",
+          brief_comment: ""
+      });
+    },
+  },
+});
 </script>
 
 <style scoped>

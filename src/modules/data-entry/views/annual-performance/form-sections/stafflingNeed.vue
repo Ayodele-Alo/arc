@@ -11,6 +11,7 @@
           id=""
           cols="30"
           rows="5"
+          v-model="staffing_level"
         ></textarea>
       </div>
       <div class="col text-start mt-2">
@@ -23,6 +24,7 @@
           id=""
           cols="30"
           rows="5"
+          v-model="staffing_gaps"
         ></textarea>
       </div>
     </div>
@@ -32,6 +34,13 @@
 <script>
 export default {
   name: "StafflingNeed",
+  components: {},
+  data() {
+    return {
+      staffing_level: "",
+      staffing_gaps: ""
+    }
+  }
 };
 </script>
 
