@@ -71,7 +71,7 @@ export const configObject: configType[] = [
       },
       {
         name: "donor performance over time",
-        url: "",
+        url: "donor_performance_overtime",
         tableau: false,
       },
     ],

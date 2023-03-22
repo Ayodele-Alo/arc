@@ -1,0 +1,282 @@
+<template>
+  <div>
+    <div v-if="isLoaded">
+      <div className="d-flex justify-content-end w-100 mt-lg-3 mt-2 mb-3">
+        <el-select v-model="donorValue" filterable placeholder="--Select Donor--" class="mx-2">
+          <el-option
+            v-for="(item, i) in donorList"
+            :key="i"
+            :label="item.label"
+            :value="item.label"
+          ></el-option>
+        </el-select>
+        <el-select v-model="themeValue" filterable placeholder="--Select Theme--">
+          <el-option
+            v-for="(item, j) in themeList"
+            :key="j"
+            :label="item.label"
+            :value="item.label"
+          ></el-option>
+        </el-select>
+      </div>
+      <vue-highcharts type="chart" :options="chartOptions" />
+    </div>
+    <div class="coming_soon_map" v-else>
+      <h4>PREPARING TREND CHART&nbsp;</h4>
+      <div class="loading_dots" />
+    </div>
+  </div>
+</template>
+
+<script lang="js">
+import { defineComponent } from "vue";
+import VueHighcharts from "vue3-highcharts";
+import ProjectService from "@/helpers/Project.Service";
+
+export default defineComponent({
+  name: "DonorPerformanceAcrossTime",
+  components: {
+    VueHighcharts,
+  },
+  data() {
+    return {
+      isLoaded: true,
+      donorValue: "",
+      themeValue: "",
+      donorList: [],
+      themeList: [],
+      chartOptions : {
+        title: {
+          text: "APHRC",
+        },
+
+        chart: {
+        type: 'line'
+        },
+
+        subtitle: {
+          text: "Donor Performance Across Time",
+        },
+
+        credits: {
+          enabled: false,
+        },
+
+        yAxis: {
+          title: {
+            text: "Grant Amount (USD)",
+          },
+        },
+
+        xAxis: {
+          // accessibility: {
+          //   rangeDescription: "Range: 2010 to 2026",
+          // },
+          title: {
+            text: "End Date",
+          },
+          categories: [],
+        },
+
+        legend: {
+          // layout: 'vertical',
+          // align: 'right',
+          // verticalAlign: 'middle'
+        },
+
+        plotOptions: {
+          series: {
+            label: {
+              connectorAllowed: false,
+            },
+            pointStart: 0,
+          },
+          line: {
+            dataLabels: {
+                enabled: true
+            },
+        }
+        },
+
+        series: [
+          {
+            name: "Installation & Developers",
+            data: [],
+          },
+        ],
+        responsive: {
+          rules: [
+            {
+              condition: {
+                maxWidth: 500,
+              },
+              chartOptions: {
+                legend: {
+                  // layout: "horizontal",
+                  // align: "center",
+                  // verticalAlign: "bottom",
+                },
+              },
+            },
+          ],
+        },
+      },
+    };
+  },
+  watch: {
+    // watch for changes in the donor value and theme value: if both create an array of objects with the donor and theme values and pass it to the api call to get the data
+
+    donorValue() {
+      this.getChartData();
+    },
+
+    themeValue() {
+      this.getChartData();
+    },
+
+  },
+  methods: {
+    async getList() {
+      try {
+        const [donorList, themeList] = await Promise.all([
+          ProjectService.getDonorList(),
+          ProjectService.getThemeList(),
+        ]);
+
+        donorList.forEach((item) => {
+          item.label = item.sponsoring_funder_name;
+          delete item.sponsoring_funder_name;
+        });
+
+        themeList.forEach((item) => {
+          item.label = item.global_dimension_4_code;
+          delete item.global_dimension_4_code;
+        });
+        themeList.unshift({ label: "ALL" });
+
+        this.donorList = donorList;
+        this.themeList = themeList;
+
+        // this.donorValue = this.donorList[0].label;
+        this.themeValue = this.themeList[0].label;
+        this.donorValue = "APHRC";
+        // this.themeValue = "GA";
+
+      } catch (error) {
+        console.log(error);
+      } finally {
+        this.isLoaded = true;
+      }
+    },
+
+    async getChartData() {
+      try {
+        const data = await ProjectService.getPerformanceData(
+          this.donorValue,
+          this.themeValue
+        );
+
+        // check if the data is empty
+        if (data.length === 0) {
+          this.chartOptions.series[0].data = [];
+          this.chartOptions.xAxis.categories = [];
+          this.chartOptions.title.text = "No Data";
+          this.chartOptions.series[0].name = "No Data";
+          return;
+        }
+
+        // sort the data by end_date
+        data.sort((a, b) => {
+          return new Date(a.end_date) - new Date(b.end_date);
+        });
+
+        const chartData = data.map((item) => {
+          // convert end_date to month and year string
+          item.end_date = new Date(item.end_date).toLocaleString("en-us", {
+            month: "long",
+            year: "numeric",
+          });
+
+          // format the budget amount from string to number with , 
+          item.total_budget = Number(item.total_budget.replace(/,/g, ""));
+          return [item.description, item.total_budget];
+        });
+
+        // set the categories to the end_date year and month
+        this.chartOptions.xAxis.categories = data.map((item) => item.end_date);
+        // get the first end_date year value convert it to number as the start point
+        // const startYear = Number(data[0].end_date.split(" ")[1]);
+        // set the start point for the xAxis
+        // this.chartOptions.xAxis.min = startYear;
+
+        // change the line color 
+        this.chartOptions.series[0].color = "#D7CE9F";
+
+        if (this.themeValue === "ALL") {
+          this.chartOptions.title.text = `${this.donorValue}`;
+          this.chartOptions.series[0].name = `${this.donorValue}`;
+        } else {
+          this.chartOptions.title.text = `${this.donorValue} - ${this.themeValue}`;
+          this.chartOptions.series[0].name = `${this.donorValue} - ${this.themeValue}`;
+        }
+
+        this.chartOptions.series[0].data = chartData;
+      } catch (error) {
+        console.log(error);
+      } finally {
+        this.isLoaded = true;
+      }
+    },
+  },
+  async mounted() {
+    // await this.getMapDataFromApi();
+    await this.getList();
+  },
+});
+</script>
+
+<style lang="scss" scoped>
+.vue-highcharts {
+  width: 100%;
+  height: 30rem;
+}
+div.chart_wrapper {
+  position: relative;
+}
+div.info_menu {
+  position: absolute;
+  top: 15%;
+  right: 1%;
+  width: 200px;
+  height: 25rem;
+  background-color: #f4f4f4;
+  z-index: 10;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  padding: 0.6rem;
+
+  ul.display_mode {
+    list-style: none;
+    height: 15rem;
+    overflow-y: auto;
+    background: inherit;
+    padding-left: 0.35rem;
+    padding-bottom: 0.5rem;
+    li.sponsor {
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-bottom: 2px solid;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      ul.projects_name {
+        list-style: upper-roman;
+        li.project_name {
+          font-size: 0.7rem;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+</style>

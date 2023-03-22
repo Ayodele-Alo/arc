@@ -32,6 +32,12 @@
             class="height_view"
           />
         </div>
+        <div v-if="el.tableau === false && el.url !== ''" class="height_view">
+          <DonorPerformance
+            v-if="el.url === 'donor_performance_overtime'"
+            class="height_view"
+          />
+        </div>
         <iframe
           v-else-if="el.tableau === true && el.url !== ''"
           :src="el.url"
@@ -53,12 +59,14 @@ import { defineComponent } from "vue";
 import { mapGetters, mapMutations } from "vuex";
 import AlertTable from "./visuals/AlertTable.vue";
 import IndicatorPerformanceVue from "./visuals/IndicatorPerformance.vue";
+import DonorPerformance from "./visuals/DonorPerformance.vue";
 
 export default defineComponent({
   name: "Section-Card",
   components: {
     AlertTable,
     IndicatorPerformanceVue,
+    DonorPerformance,
   },
   data() {
     return {
