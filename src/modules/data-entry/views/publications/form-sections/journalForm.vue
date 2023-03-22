@@ -1,10 +1,41 @@
 <template>
-  <div class="main-sec">
-<span class="form-title">Name of the lead Author</span>
+
+<div>
+     <div class="main-sec">
+<span class="form-title">Journal Volume</span>
 <hr class="hr" />
 <input type="text" placeholder="Type here">
 
 
+</div>
+
+<br>
+
+ <div class="main-sec">
+<span class="form-title">Supplement Number</span>
+<hr class="hr" />
+<input type="text" placeholder="Type here">
+</div>
+
+<br>
+
+ <div class="main-sec">
+<span class="form-title">Journal Issue</span>
+<hr class="hr" />
+<input type="text" placeholder="Type here">
+ 
+
+</div>
+
+<br>
+
+ <div class="main-sec">
+<span class="form-title">Journal Page</span>
+<hr class="hr" />
+<input type="text" placeholder="Type here">
+ 
+
+</div>
 </div>
 </template>
 

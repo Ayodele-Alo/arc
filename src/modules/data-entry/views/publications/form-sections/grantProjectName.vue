@@ -1,6 +1,6 @@
 <template>
   <div class="main-sec">
-<span class="form-title">Name of the lead Author</span>
+<span class="form-title">Grant/Project Name</span>
 <hr class="hr" />
 <input type="text" placeholder="Type here">
 

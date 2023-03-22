@@ -1,8 +1,25 @@
 <template>
-  <div class="main-sec">
-<span class="form-title">Name of the lead Author</span>
-<hr class="hr" />
-<input type="text" placeholder="Type here">
+
+<div>
+     <div class="main-sec">
+<label for="book-upload">Choose a book:</label>
+
+<input type="file"
+       id="book-upload" name="book-upload"
+       accept="image/png, image/jpeg">
+
+
+</div>
+
+<br>
+
+ <div class="main-sec">
+<label for="book-upload">Choose a book:</label>
+
+<input type="file"
+       id="book-upload" name="book-upload"
+       accept="image/png, image/jpeg">
+</div>
 
 
 </div>

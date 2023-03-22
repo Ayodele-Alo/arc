@@ -1,6 +1,8 @@
 <template>
   <div class="main-sec">
-<span>Units</span>
+<span class="form-title">Units</span>
+
+<br>
 
 <div>
     <div class="form-check form-check-inline" v-for="item in years_options" :key="item"> 
@@ -60,5 +62,18 @@ opacity: 1;
 display: flex;
 flex-direction: column;
 padding: 2rem;
+}
+
+.form-title {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold)
+    var(--unnamed-font-size-16) / var(--unnamed-line-spacing-19)
+    var(--unnamed-font-family-montserrat);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--text);
+  text-align: left;
+  font: normal normal bold 16px/19px Montserrat;
+  letter-spacing: 0px;
+  color: #707070;
+  opacity: 1;
 }
 </style>

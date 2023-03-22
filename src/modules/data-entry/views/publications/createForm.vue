@@ -94,8 +94,6 @@
       <researchOutput />
     </div>
 
-    =
-
     <div
       class="section-header text-start"
       data-bs-toggle="collapse"
@@ -106,7 +104,7 @@
     </div>
 
     <div class="collapse" id="collapse-8">
-      <reportingPeriod />
+      <nameOfPublisher />
     </div>
 
     <!-- year of publication -->
@@ -129,14 +127,14 @@
     <div
       class="section-header text-start"
       data-bs-toggle="collapse"
-      data-bs-target="#collapse-9"
+      data-bs-target="#collapse-10"
     >
       <span>J. Publishing Journal</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
-    <div class="collapse" id="collapse-9">
-      <reportingPeriod />
+    <div class="collapse" id="collapse-10">
+      <publishingJournal />
     </div>
 
     <!-- book title -->
@@ -144,14 +142,14 @@
     <div
       class="section-header text-start"
       data-bs-toggle="collapse"
-      data-bs-target="#collapse-9"
+      data-bs-target="#collapse-11"
     >
       <span>K. Book Title</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
-    <div class="collapse" id="collapse-9">
-      <reportingPeriod />
+    <div class="collapse" id="collapse-11">
+      <bookTitle />
     </div>
 
     <!-- book chapter number/ page number -->
@@ -159,14 +157,14 @@
     <div
       class="section-header text-start"
       data-bs-toggle="collapse"
-      data-bs-target="#collapse-9"
+      data-bs-target="#collapse-12"
     >
       <span>L. Book Chapter Number/ Page Number</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
-    <div class="collapse" id="collapse-9">
-      <reportingPeriod />
+    <div class="collapse" id="collapse-12">
+      <bookChapter />
     </div>
 
     <!-- link available to the book -->
@@ -174,14 +172,14 @@
     <div
       class="section-header text-start"
       data-bs-toggle="collapse"
-      data-bs-target="#collapse-9"
+      data-bs-target="#collapse-13"
     >
       <span>M. Link available to the book</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
-    <div class="collapse" id="collapse-9">
-      <reportingPeriod />
+    <div class="collapse" id="collapse-13">
+      <linkAvailable />
     </div>
 
     <!-- Grant/ Project Name -->
@@ -189,14 +187,14 @@
     <div
       class="section-header text-start"
       data-bs-toggle="collapse"
-      data-bs-target="#collapse-9"
+      data-bs-target="#collapse-14"
     >
       <span>N. Grant/ Project Name</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
-    <div class="collapse" id="collapse-9">
-      <reportingPeriod />
+    <div class="collapse" id="collapse-14">
+      <grantProjectName />
     </div>
 
     <!-- Journals -->
@@ -204,14 +202,14 @@
     <div
       class="section-header text-start"
       data-bs-toggle="collapse"
-      data-bs-target="#collapse-9"
+      data-bs-target="#collapse-15"
     >
       <span>O. Journals</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
-    <div class="collapse" id="collapse-9">
-      <reportingPeriod />
+    <div class="collapse" id="collapse-15">
+      <journalForm />
     </div>
 
     <!-- Links -->
@@ -219,14 +217,14 @@
     <div
       class="section-header text-start"
       data-bs-toggle="collapse"
-      data-bs-target="#collapse-9"
+      data-bs-target="#collapse-16"
     >
       <span>P. Links</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
-    <div class="collapse" id="collapse-9">
-      <reportingPeriod />
+    <div class="collapse" id="collapse-16">
+      <linksForm />
     </div>
 
     <!-- Uploads -->
@@ -234,14 +232,14 @@
     <div
       class="section-header text-start"
       data-bs-toggle="collapse"
-      data-bs-target="#collapse-9"
+      data-bs-target="#collapse-17"
     >
       <span>P. Uploads</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
-    <div class="collapse" id="collapse-9">
-      <reportingPeriod />
+    <div class="collapse" id="collapse-17">
+      <uploadsForm />
     </div>
 
     <!-- Citations -->
@@ -249,14 +247,14 @@
     <div
       class="section-header text-start"
       data-bs-toggle="collapse"
-      data-bs-target="#collapse-9"
+      data-bs-target="#collapse-18"
     >
       <span>Q. Citations</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
-    <div class="collapse" id="collapse-9">
-      <reportingPeriod />
+    <div class="collapse" id="collapse-18">
+      <citationsForm />
     </div>
   </div>
 </template>
@@ -268,8 +266,20 @@ import formerUnits from "./form-sections/formerUnits.vue";
 import newThemesAndDivision from "./form-sections/newThemesAndDivision.vue";
 import nameOfLeadAuthor from "./form-sections/nameOfLeadAuthor.vue";
 import nameOfCollaboratingAuthor from "./form-sections/nameOfCollaboratingAuthor.vue";
+import nameOfPublisher from "./form-sections/nameOfPublisher.vue";
 import titleForm from "./form-sections/titleForm.vue";
 import researchOutput from "./form-sections/researchOutput.vue";
+import publishingJournal from "./form-sections/publishingJournal.vue"
+import bookTitle from "./form-sections/bookTitle.vue";
+import bookChapter from "./form-sections/bookChapter.vue";
+import linkAvailable from "./form-sections/linkAvailable.vue";
+import grantProjectName from "./form-sections/grantProjectName.vue";
+import journalForm from "./form-sections/journalForm.vue";
+import linksForm from "./form-sections/linksForm.vue";
+import uploadsForm from "./form-sections/uploadsForm.vue";
+import citationsForm from "./form-sections/citationsForm.vue"
+
+
 
 export default defineComponent({
   name: "createForm",
@@ -281,6 +291,16 @@ export default defineComponent({
     nameOfCollaboratingAuthor,
     titleForm,
     researchOutput,
+    nameOfPublisher,
+    publishingJournal,
+    bookTitle,
+    bookChapter,
+    linkAvailable,
+    grantProjectName,
+    journalForm,
+    linksForm,
+    uploadsForm,
+    citationsForm
   },
   methods: {
     // submitForm(){
