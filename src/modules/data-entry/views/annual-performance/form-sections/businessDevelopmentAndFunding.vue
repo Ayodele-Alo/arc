@@ -27,10 +27,11 @@
                 <p class="">Amounts to be raised from proposals</p>
               </th>
             </tr>
-            <tr>
+            <tr v-for="(item, index) in business_funding_form" :key="index">
               <th class="row-header p-5">
                 <div class="row">
                   <div class="d-flex align-items-center">
+                    {{ index + 1 }}
                     <input
                       placeholder="Type Here"
                       class="px-1 mt-2"
@@ -42,6 +43,7 @@
               <th class="row-header p-5">
                 <div class="row">
                   <div class="d-flex align-items-center">
+                    {{ index + 1}}
                     <input
                       placeholder="Type Here"
                       class="px-1 mt-2"
@@ -53,6 +55,7 @@
               <th class="row-header p-5">
                 <div class="row">
                   <div class="d-flex align-items-center">
+                    {{ index + 1}}
                     <input
                       placeholder="Type Here"
                       class="px-1 mt-2"
@@ -64,6 +67,8 @@
               <th class="row-header p-5">
                 <div class="row">
                   <div class="d-flex align-items-center">
+
+                    {{ index + 1}}
                     <input
                       placeholder="Type Here"
                       class="px-1 mt-2"
@@ -75,6 +80,7 @@
             </tr>
           </tbody>
         </table>
+        <p class="add-more" @click="addToBusinessFundingForm()">+ Add more</p>
       </div>
     </div>
   </div>
@@ -83,6 +89,33 @@
 <script>
 export default {
   name: "BusinessDevelopmentAndFunding",
+  components: {},
+  data(){
+    return{
+      fundingGaps: "",
+          business_funding_form: [
+        {
+          thematic_focus: "",
+          targeted_agency: "",
+          countries_focus: "",
+          amounts_raised: "",
+        },
+      ],
+    }
+  },
+    methods: {
+    addFormCount() {
+      this.formCount++;
+    },
+    addToBusinessFundingForm() {
+      this.business_funding_form.push({
+         thematic_focus: "",
+          targeted_agency: "",
+          countries_focus: "",
+          amounts_raised: "",
+      });
+    },
+  },
 };
 </script>
 
@@ -141,5 +174,12 @@ input {
   font-size: 16px;
   line-height: 19px;
   text-align: left;
+}
+
+.add-more {
+  cursor: pointer;
+}
+.add-more:hover {
+  color: red;
 }
 </style>

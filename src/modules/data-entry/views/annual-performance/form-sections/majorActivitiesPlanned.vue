@@ -18,27 +18,45 @@
               </p>
             </th>
           </tr>
-          <tr>
+          <tr v-for="item in plannedActivitiesCount" :key="item">
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3">1.</p>
-                  <input placeholder="Type Here" type="text" />
+                  <p class="mt-3">{{ item }}.</p>
+                  <input placeholder="Type Here" type="text" v-model="form.planned_activities[item]" />
                 </div>
               </div>
             </th>
           </tr>
         </tbody>
       </table>
-      <p class="add-more">+ Add more</p>
+      <p @click="addPlannedActivitiesField()" class="add-more"> Add more +</p>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: "MajorActivitesPlanned",
-};
+<script lang="ts">
+import { defineComponent } from "vue";
+import { mapGetters, mapMutations } from "vuex";
+
+export default defineComponent({
+  name: "annualProjects",
+  components: {},
+  data() {
+    return {
+      plannedActivitiesCount: 1,
+      form: {
+        planned_activities: {},
+      },
+    };
+  },
+
+  methods: {
+    addPlannedActivitiesField() {
+      this.plannedActivitiesCount++;
+    },
+  },
+});
 </script>
 
 <style scoped>
@@ -61,6 +79,12 @@ export default {
   line-height: 19px;
   text-align: left;
   padding: 25px;
+}
+.add-more {
+  cursor: pointer;
+}
+.add-more:hover {
+  color: red;
 }
 input {
   height: 25px;

@@ -13,27 +13,27 @@
             <th class="row-header p-5">Challenges</th>
             <th class="row-header p-5" scope="col">Lesson Learnt</th>
           </tr>
-          <tr v-for="item in formCount" :key="item">
+          <tr v-for="(item, index) in challenges_form" :key="index">
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3">{{ item }}.</p>
-                  <input placeholder="Type Here" class="px-1" type="text" />
+                  <p class="mt-3">{{ index + 1 }}.</p>
+                  <input placeholder="Type Here" class="px-1" type="text" v-model="item.challenges" />
                 </div>
               </div>
             </th>
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3">{{ item }}.</p>
-                  <input placeholder="Type Here" class="px-1" type="text" />
+                  <p class="mt-3">{{ index + 1 }}.</p>
+                  <input placeholder="Type Here" class="px-1" type="text" v-model="item.lessons_learnt" />
                 </div>
               </div>
             </th>
           </tr>
         </tbody>
       </table>
-      <p class="add-more" @click="addFormCount()">+ Add more</p>
+      <p class="add-more" @click="addToChallengesForm()">+ Add more</p>
     </div>
   </div>
 </template>
@@ -48,12 +48,12 @@ export default defineComponent({
   data() {
     return {
       formCount: 1,
-      form: {
-        1: {
-          themes: "",
-          engagement_type: ""
-        }
-      },
+      challenges_form: [
+        {
+          challenges: "",
+          lessons_learnt: "",
+        },
+      ],
     };
   },
 
@@ -61,27 +61,12 @@ export default defineComponent({
     addFormCount() {
       this.formCount++;
     },
-    // addPoliciesField() {
-    //   this.policyCount++;
-    // },
-    // addProgramsField() {
-    //   this.programCount++;
-    // },
-    // addAliancesField() {
-    //   this.alianceCount++;
-    // },
-    // addLevelsField() {
-    //   this.levelCount++;
-    // },
-    // addIndividualsField() {
-    //   this.individualCount++;
-    // },
-    // addInstitutionsField() {
-    //   this.institutionCount++;
-    // },
-    // addExistingDataField() {
-    //   this.existingDataCount++;
-    // },
+    addToChallengesForm() {
+      this.challenges_form.push({
+        challenges: "",
+        lessons_learnt: "",
+      });
+    },
   },
 });
 </script>
@@ -100,6 +85,14 @@ export default defineComponent({
   text-align: left;
   padding-top: 25px;
 }
+
+.add-more {
+  cursor: pointer;
+}
+.add-more:hover {
+  color: red;
+}
+
 input {
   height: 25px;
   border: none;

@@ -47,29 +47,45 @@
               <p class="row-sub-header">(when the feedback has been given)</p>
             </th>
           </tr>
-          <tr  v-for="item in formCount" :key="item"> 
+          <tr  v-for="(item, index) in business_form" :key="index"> 
             <th class="row-header">
               <div class="row">
                 <div class="row">
                   <div class="d-flex align-items-center">
-                    <p class="mt-3">{{ item }}.</p>
-                    <input placeholder="Type Here" class="px-1" type="text" />
+                    <p class="mt-3">{{ index + 1 }}.</p>
+                    <input placeholder="Type Here" class="px-1" type="text" v-model="item.proposal"/>
                   </div>
                 </div>
               </div>
             </th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>
+               <input placeholder="Type Here" class="px-1" type="text" v-model="item.funder" />
+            </td>
+            <td>
+               <input placeholder="Type Here" class="px-1" type="text" v-model="item.signature_issue" />
+            </td>
+            <td>
+               <input placeholder="Type Here" class="px-1" type="text" v-model="item.signature_date"/>
+            </td>
+            <td>
+               <input placeholder="Type Here" class="px-1" type="text" v-model="item.project_period"/>
+            </td>
+            <td>
+               <input placeholder="Type Here" class="px-1" type="text" v-model="item.project_budget" />
+            </td>
+            <td>
+               <input placeholder="Type Here" class="px-1" type="text" v-model="item.partners"/>
+            </td>
+            <td>
+               <input placeholder="Type Here" class="px-1" type="text" v-model="item.feedback_from_funder" />
+            </td>
+            <td>
+               <input placeholder="Type Here" class="px-1" type="text" v-model="item.date_of_feedback" />
+            </td>
           </tr>
         </tbody>
       </table>
-        <p class="add-more" @click="addFormCount()">+ Add more</p>
+        <p class="add-more" @click="addToBusinessForm()">+ Add more</p>
     </div>
   </div>
 </template>
@@ -90,6 +106,19 @@ export default defineComponent({
           engagement_type: ""
         }
       },
+         business_form: [
+        {
+           proposal: "",
+        funder: "",
+        signature_issue: "",
+        signature_date: "",
+        project_period: "",
+        project_budget: "",
+        partners: "",
+        feedback_from_funder: "",
+        date_of_feedback: ""
+        },
+      ],
     };
   },
 
@@ -97,27 +126,19 @@ export default defineComponent({
     addFormCount() {
       this.formCount++;
     },
-    // addPoliciesField() {
-    //   this.policyCount++;
-    // },
-    // addProgramsField() {
-    //   this.programCount++;
-    // },
-    // addAliancesField() {
-    //   this.alianceCount++;
-    // },
-    // addLevelsField() {
-    //   this.levelCount++;
-    // },
-    // addIndividualsField() {
-    //   this.individualCount++;
-    // },
-    // addInstitutionsField() {
-    //   this.institutionCount++;
-    // },
-    // addExistingDataField() {
-    //   this.existingDataCount++;
-    // },
+     addToBusinessForm() {
+      this.business_form.push({
+        proposal: "",
+        funder: "",
+        signature_issue: "",
+        signature_date: "",
+        project_period: "",
+        project_budget: "",
+        partners: "",
+        feedback_from_funder: "",
+        date_of_feedback: ""
+      });
+    },
   },
 });
 </script>

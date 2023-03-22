@@ -17,7 +17,7 @@
             <th>
               <div class="d-flex align-items-center p-3">
                 <p class="mt-3 sub-heading">Identified Risk:</p>
-                <input placeholder="Type Here" class="m" type="text" />
+                <input placeholder="Type Here" class="m" type="text" v-model="form.identified_risk" />
               </div>
             </th>
           </tr>
@@ -31,7 +31,7 @@
               <div class="row">
                 <div class="d-flex align-items-center">
                   <p class="mt-3">Theme Objective 1:</p>
-                  <input class="px-2" placeholder="Type Here" type="text" />
+                  <input class="px-2" placeholder="Type Here" type="text" v-model="theme_objective" />
                 </div>
               </div>
             </th>
@@ -45,7 +45,7 @@
                     (Kindly include risks identified that hindered the
                     achievement of the objective of the theme)
                   </p>
-                  <input placeholder="Type Here" type="text" />
+                  <input placeholder="Type Here" type="text" v-model="risk_description" />
                 </div>
               </div>
             </th>
@@ -58,7 +58,7 @@
                   <p class="sub-heading-2">
                     (These are the risk dimensions within the risk identified)
                   </p>
-                  <input placeholder="Type Here" type="text" />
+                  <input placeholder="Type Here" type="text" v-model="key_risk_factors" />
                 </div>
               </div>
             </th>
@@ -71,7 +71,7 @@
                   <p class="sub-heading-2">
                     (what can we do further to combat the risk)
                   </p>
-                  <input placeholder="Type Here" type="text" />
+                  <input placeholder="Type Here" type="text" v-model="current_status_rationale" />
                 </div>
               </div>
             </th>
@@ -84,7 +84,7 @@
                   <p class="sub-heading-2">
                     (what can we do further to combat the risk)
                   </p>
-                  <input placeholder="Type Here" type="text" />
+                  <input placeholder="Type Here" type="text" v-model="agreed_actions" />
                 </div>
               </div>
             </th>
@@ -98,7 +98,7 @@
                     (Who is responsible in overseeing the process of managing
                     the risk)
                   </p>
-                  <input placeholder="Type Here" type="text" />
+                  <input placeholder="Type Here" type="text" v-model="responsible_persons" />
                 </div>
               </div>
             </th>
@@ -114,7 +114,7 @@
                   <p class="sub-heading-2">
                     Probability (probability of the risk occurring)
                   </p>
-                  <select class="custom-select">
+                  <select class="custom-select" v-model="risk_rating_probability">
                     <option selected>Select</option>
                     <option value="1">1</option>
                     <option value="2">1</option>
@@ -122,7 +122,7 @@
                   </select>
 
                   <p class="sub-heading-2 mt-3">Impact (Impact of the risk)</p>
-                  <select class="custom-select">
+                  <select class="custom-select" v-model="risk_rating_impact">
                     <option selected>Select</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -130,7 +130,7 @@
                   </select>
 
                   <p class="sub-heading-2 mt-3">Overall = P x I :</p>
-                  <select class="custom-select">
+                  <select class="custom-select" v-model="risk_rating_overall">
                     <option selected>Select</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -149,7 +149,26 @@
 <script>
 export default {
   name: "RiskIdentified",
+  data(){
+  return{
+    form: {
+          identified_risk: "",
+    theme_objective: "",
+    risk_description: "",
+    key_risk_factors: "",
+    current_status_rationale: "",
+    agreed_actions: "",
+    responsible_persons: "", 
+    risk_rating_probability: "",
+    risk_rating_impact: "",
+    risk_rating_overall: ""
+    }
+
+
+  }
+}
 };
+
 </script>
 
 <style scoped>

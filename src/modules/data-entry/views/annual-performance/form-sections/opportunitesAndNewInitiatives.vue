@@ -8,15 +8,25 @@
         id=""
         cols="30"
         rows="5"
+        v-model="opportunities"
       ></textarea>
     </div>
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "vue";
+import { mapGetters, mapMutations } from "vuex";
+
+export default defineComponent({
   name: "OpportunitiesAndNewInitiatives",
-};
+  components: {},
+  data() {
+    return {
+      opportunities: ""
+    };
+  },
+});
 </script>
 
 <style scoped>
