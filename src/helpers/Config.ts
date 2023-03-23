@@ -61,7 +61,7 @@ export const configObject: configType[] = [
     visuals: [
       {
         name: "Donor geographic reach map",
-        url: "",
+        url: "donor_geographic",
         tableau: false,
       },
       {

@@ -6,12 +6,12 @@
       <div class="loading_dots" />
     </div>
     <section class="alert_table" v-else>
-      <el-select v-model="yearValue" placeholder="Select">
+      <el-select v-model="yearValue" filterable placeholder="--Select Year--">
         <el-option
-          v-for="item in yearList"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
+          v-for="(item, i) in yearList"
+          :key="i"
+          :label="item.year"
+          :value="item.year"
         ></el-option>
       </el-select>
 
@@ -65,7 +65,7 @@ export default defineComponent({
   data() {
     return {
       isLoading: false,
-      yearList: [] as { label: number; value: number }[],
+      yearList: [] as { year: number }[],
       yearValue: "" as string,
       tableData: [] as GenericI[],
     };
@@ -84,19 +84,17 @@ export default defineComponent({
   methods: {
     ...mapMutations(["setActiveTab"]),
 
-    // generate date from 2015 till now
-    generateDate() {
-      const currentYear = new Date().getFullYear();
-      const startYear = 2015;
-
-      this.yearList = Array.from(
-        { length: currentYear - startYear + 1 },
-        (_, i) => {
-          const year = startYear + i;
-          return { label: year, value: year };
-        }
-      ).sort((a, b) => b.value - a.value);
-      this.yearValue = this.yearList[0].value.toString();
+    async getYearList() {
+      try {
+        this.isLoading = true;
+        const resp = await ProjectService.getEndYearList()
+        this.yearList = resp;
+        this.yearValue = dayjs().format("YYYY");
+      } catch (error) {
+        console.log(error);
+      } finally {
+        this.isLoading = false;
+      }
     },
 
     async getDataFromApi() {
@@ -138,7 +136,7 @@ export default defineComponent({
   },
 
   async mounted() {
-    await this.generateDate();
+    await this.getYearList();
     await this.getDataFromApi();
   },
 });

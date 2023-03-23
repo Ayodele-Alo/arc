@@ -40,7 +40,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-, "src/modules/dashboard/components/visuals/defaultOptions.js"  ],
+, "src/modules/dashboard/components/visuals/donorOptions.js"  ],
   "exclude": [
     "node_modules"
   ]

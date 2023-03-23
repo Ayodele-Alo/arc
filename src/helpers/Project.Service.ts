@@ -82,6 +82,21 @@ class ProjectService {
   }
 
   /**
+   * @function getEndYearList
+   * @description: This function is used to get all end years
+   * @returns {Promise<array>}
+   */
+  async getEndYearList() {
+    try {
+      const { data } = await Request("years/");
+      return data.results;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
+  /**
    * @function getPerformanceData
    * @description: This function is used to get all themes
    * @returns {Promise<array>}
@@ -92,12 +107,27 @@ class ProjectService {
     }
 
     const query1 = arg1 ? `donor=${arg1}` : "";
-    const query2 = arg2 === '' ? "" : `&theme=${arg2}`;
-    const url = `performance/?${query1}${query2}`
+    const query2 = arg2 === "" ? "" : `&theme=${arg2}`;
+    const url = `performance/?${query1}${query2}`;
 
     try {
       const { data } = await Request(url);
       return data;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
+  /**
+   * @function getDonorAndCountryList
+   * @description: This function is used to get all donors and countries
+   * @returns {Promise<array>}
+   */
+  async getDonorAndCountryList() {
+    try {
+      const { data } = await Request("donor_country/?size=1000");
+      return data.results;
     } catch (error) {
       console.log(error);
       throw error;

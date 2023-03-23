@@ -65,6 +65,10 @@ export default defineComponent({
   async mounted() {
     this.isLoaded = false;
     this.chartOption.series[0].data = this.mapOptions.series[0].data;
+    this.chartOption.series[0].name = this.mapOptions.series[0].name;
+    this.chartOption.series[0].events = this.mapOptions.series[0].events;
+    this.chartOption.subtitle = this.mapOptions.subtitle;
+    this.chartOption.legend.title.text = this.mapOptions.legend.title.text;
     this.isLoaded = true;
   },
   async created() {
@@ -76,7 +80,7 @@ export default defineComponent({
 <style lang="scss">
 .vue-highcharts {
   width: 100%;
-  height: 35rem;
+  height: 32.5rem;
 }
 div.chart_wrapper {
   position: relative;
@@ -86,12 +90,12 @@ div.info_menu {
   top: 15%;
   right: 1%;
   width: 200px;
-  height: 100px;
+  height: 25rem;
   background-color: #f4f4f4;
   z-index: 10;
   border: 1px solid #fff;
   border-radius: 5px;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   padding: 0.6rem;
 }
 </style>

@@ -24,19 +24,18 @@
       </div>
       <div class="card-body">
         <div v-if="el.tableau === false && el.url !== ''">
-          <AlertTable v-if="el.url === 'alert_table'" class="height_view" />
+          <AlertTable v-if="el.url === 'alert_table'" />
         </div>
-        <div v-if="el.tableau === false && el.url !== ''" class="height_view">
+        <div v-if="el.tableau === false && el.url !== ''">
           <IndicatorPerformanceVue
             v-if="el.url === 'indicator_performance_map'"
-            class="height_view"
           />
         </div>
-        <div v-if="el.tableau === false && el.url !== ''" class="height_view">
-          <DonorPerformance
-            v-if="el.url === 'donor_performance_overtime'"
-            class="height_view"
-          />
+        <div v-if="el.tableau === false && el.url !== ''">
+          <DonorGeographic v-if="el.url === 'donor_geographic'" />
+        </div>
+        <div v-if="el.tableau === false && el.url !== ''">
+          <DonorPerformance v-if="el.url === 'donor_performance_overtime'" />
         </div>
         <iframe
           v-else-if="el.tableau === true && el.url !== ''"
@@ -60,6 +59,7 @@ import { mapGetters, mapMutations } from "vuex";
 import AlertTable from "./visuals/AlertTable.vue";
 import IndicatorPerformanceVue from "./visuals/IndicatorPerformance.vue";
 import DonorPerformance from "./visuals/DonorPerformance.vue";
+import DonorGeographic from "./visuals/DonorGeographic.vue";
 
 export default defineComponent({
   name: "Section-Card",
@@ -67,6 +67,7 @@ export default defineComponent({
     AlertTable,
     IndicatorPerformanceVue,
     DonorPerformance,
+    DonorGeographic,
   },
   data() {
     return {
@@ -98,8 +99,7 @@ export default defineComponent({
               "vue-highcharts"
             )[0] as HTMLDivElement;
             if (highcharts) {
-              highcharts.style.height = "35rem";
-              highcharts.style.width = "100%";
+              highcharts.style.height = "32.5rem";
               highcharts.style.transition = "none";
             }
           } else {
@@ -117,8 +117,7 @@ export default defineComponent({
               "vue-highcharts"
             )[0] as HTMLDivElement;
             if (highcharts) {
-              highcharts.style.height = "80vh";
-              highcharts.style.width = "100%";
+              highcharts.style.height = "70rem";
               highcharts.style.transition = "all 0.5s ease-in-out";
             }
           }

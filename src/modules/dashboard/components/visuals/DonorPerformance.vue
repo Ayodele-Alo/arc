@@ -2,7 +2,12 @@
   <div>
     <div v-if="isLoaded">
       <div className="d-flex justify-content-end w-100 mt-lg-3 mt-2 mb-3">
-        <el-select v-model="donorValue" filterable placeholder="--Select Donor--" class="mx-2">
+        <el-select
+          v-model="donorValue"
+          filterable
+          placeholder="--Select Donor--"
+          class="mx-2"
+        >
           <el-option
             v-for="(item, i) in donorList"
             :key="i"
@@ -10,7 +15,11 @@
             :value="item.label"
           ></el-option>
         </el-select>
-        <el-select v-model="themeValue" filterable placeholder="--Select Theme--">
+        <el-select
+          v-model="themeValue"
+          filterable
+          placeholder="--Select Theme--"
+        >
           <el-option
             v-for="(item, j) in themeList"
             :key="j"
@@ -77,13 +86,6 @@ export default defineComponent({
           },
           categories: [],
         },
-
-        legend: {
-          // layout: 'vertical',
-          // align: 'right',
-          // verticalAlign: 'middle'
-        },
-
         plotOptions: {
           series: {
             label: {
@@ -111,11 +113,6 @@ export default defineComponent({
                 maxWidth: 500,
               },
               chartOptions: {
-                legend: {
-                  // layout: "horizontal",
-                  // align: "center",
-                  // verticalAlign: "bottom",
-                },
               },
             },
           ],
@@ -197,7 +194,7 @@ export default defineComponent({
             year: "numeric",
           });
 
-          // format the budget amount from string to number with , 
+          // format the budget amount from string to number with ,
           item.total_budget = Number(item.total_budget.replace(/,/g, ""));
           return [item.description, item.total_budget];
         });
@@ -209,7 +206,7 @@ export default defineComponent({
         // set the start point for the xAxis
         // this.chartOptions.xAxis.min = startYear;
 
-        // change the line color 
+        // change the line color
         this.chartOptions.series[0].color = "#D7CE9F";
 
         if (this.themeValue === "ALL") {
@@ -221,6 +218,7 @@ export default defineComponent({
         }
 
         this.chartOptions.series[0].data = chartData;
+
       } catch (error) {
         console.log(error);
       } finally {
@@ -229,7 +227,6 @@ export default defineComponent({
     },
   },
   async mounted() {
-    // await this.getMapDataFromApi();
     await this.getList();
   },
 });
@@ -242,41 +239,5 @@ export default defineComponent({
 }
 div.chart_wrapper {
   position: relative;
-}
-div.info_menu {
-  position: absolute;
-  top: 15%;
-  right: 1%;
-  width: 200px;
-  height: 25rem;
-  background-color: #f4f4f4;
-  z-index: 10;
-  border: 1px solid #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-  padding: 0.6rem;
-
-  ul.display_mode {
-    list-style: none;
-    height: 15rem;
-    overflow-y: auto;
-    background: inherit;
-    padding-left: 0.35rem;
-    padding-bottom: 0.5rem;
-    li.sponsor {
-      font-size: 0.9rem;
-      font-weight: 600;
-      border-bottom: 2px solid;
-      padding-top: 0.25rem;
-      padding-bottom: 0.25rem;
-      ul.projects_name {
-        list-style: upper-roman;
-        li.project_name {
-          font-size: 0.7rem;
-          font-weight: 400;
-        }
-      }
-    }
-  }
 }
 </style>
