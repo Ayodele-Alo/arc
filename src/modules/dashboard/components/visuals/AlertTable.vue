@@ -6,36 +6,42 @@
       <div class="loading_dots" />
     </div>
     <section class="alert_table" v-else>
-      <el-select v-model="yearValue" filterable placeholder="--Select Year--">
-        <el-option
-          v-for="(item, i) in yearList"
-          :key="i"
-          :label="item.year"
-          :value="item.year"
-        ></el-option>
-      </el-select>
+      <div class="mb-3 mt-2 alert_table_select">
+        <label for="end_year">End Year</label><br />
+        <el-select
+          v-model="yearValue"
+          filterable
+          placeholder="--Select Year--"
+          label="End Year"
+          placement="top-start"
+        >
+          <el-option
+            v-for="(item, i) in yearList"
+            :key="i"
+            :label="item.year"
+            :value="item.year"
+            id="end_year"
+          ></el-option>
+        </el-select>
+      </div>
 
       <el-table
         :data="tableData"
-        height="500"
+        height="400"
         style="width: 100%"
         lazy
         :default-sort="{ prop: 'difference', order: 'ascending' }"
       >
-        <el-table-column sortable prop="date" label="Date" width="250" />
-        <el-table-column sortable prop="name" label="Grant Name" width="250" />
-        <el-table-column prop="year" label="Year" width="150" />
-        <el-table-column
-          sortable
-          prop="difference"
-          label="Months Left"
-          width="200"
-        >
+        <el-table-column sortable prop="date" label="Date" />
+        <el-table-column sortable prop="name" label="Grant Name" />
+        <el-table-column sortable prop="no" label="Grant Code" />
+        <el-table-column prop="year" label="Year" />
+        <el-table-column sortable prop="difference" label="Months Left">
           <template #default="scope">
             <span>{{ scope.row.difference }}&nbsp;Month(s)</span>
           </template>
         </el-table-column>
-        <el-table-column prop="month" label="" width="200">
+        <el-table-column prop="month" label="">
           <template #default="scope">
             <span
               v-if="scope.row.expiring_threshold === true"
@@ -87,7 +93,7 @@ export default defineComponent({
     async getYearList() {
       try {
         this.isLoading = true;
-        const resp = await ProjectService.getEndYearList()
+        const resp = await ProjectService.getEndYearList();
         this.yearList = resp;
         this.yearValue = dayjs().format("YYYY");
       } catch (error) {
@@ -116,6 +122,7 @@ export default defineComponent({
           return {
             date: item.end_date,
             name: item.name,
+            no: item.no,
             year: dayjs(item.end_date).format("YYYY"),
             difference: monthDiff,
             month: expiringMonth,

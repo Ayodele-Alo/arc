@@ -13,12 +13,22 @@
             <div class="underline" />
           </div>
           <div
+            v-if="el.fullScreen"
             class="col-md-2 d-flex justify-content-end"
             @click="toggleFullScreen(`${el.name}-${i}`)"
           >
             <el-icon :size="25" :color="'white'" style="cursor: pointer"
-              ><Close v-if="isFullScreen === true" /> <FullScreen v-else
-            /></el-icon>
+              ><Close v-if="isFullScreen === true" />
+              <el-tooltip
+                v-else
+                class="box-item"
+                effect="dark"
+                content="click to view this section on fullscreen"
+                placement="top-start"
+              >
+                <FullScreen />
+              </el-tooltip>
+            </el-icon>
           </div>
         </div>
       </div>
@@ -82,6 +92,16 @@ export default defineComponent({
 
     toggleFullScreen(arg: string) {
       const elem = document.getElementById(arg) as HTMLDivElement;
+      const alertTableSelect = elem.getElementsByClassName(
+        "alert_table_select"
+      )[0] as HTMLDivElement;
+      const donorSelect = elem.getElementsByClassName(
+        "donor_select"
+      )[0] as HTMLDivElement;
+      const themeSelect = elem.getElementsByClassName(
+        "theme_select"
+      )[0] as HTMLDivElement;
+
       if (elem) {
         if (elem.requestFullscreen) {
           if (document.fullscreenElement) {
@@ -102,6 +122,16 @@ export default defineComponent({
               highcharts.style.height = "32.5rem";
               highcharts.style.transition = "none";
             }
+
+            if (alertTableSelect) {
+              alertTableSelect.style.display = "block";
+            }
+            if (donorSelect) {
+              donorSelect.style.display = "block";
+            }
+            if (themeSelect) {
+              themeSelect.style.display = "block";
+            }
           } else {
             elem.requestFullscreen();
             // increase the height of the iframe
@@ -120,6 +150,18 @@ export default defineComponent({
               highcharts.style.height = "70rem";
               highcharts.style.transition = "all 0.5s ease-in-out";
             }
+
+            // fix dropdown menu not showing on fullscreen
+
+            // if (alertTableSelect) {
+            //   alertTableSelect.style.display = "none";
+            // }
+            // if (donorSelect) {
+            //   donorSelect.style.display = "none";
+            // }
+            // if (themeSelect) {
+            //   themeSelect.style.display = "none";
+            // }
           }
         } else {
           console.error("Fullscreen API is not supported");

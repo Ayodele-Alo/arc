@@ -2,31 +2,39 @@
   <div>
     <div v-if="isLoaded">
       <div className="d-flex justify-content-end w-100 mt-lg-3 mt-2 mb-3">
-        <el-select
-          v-model="donorValue"
-          filterable
-          placeholder="--Select Donor--"
-          class="mx-2"
-        >
-          <el-option
-            v-for="(item, i) in donorList"
-            :key="i"
-            :label="item.label"
-            :value="item.label"
-          ></el-option>
-        </el-select>
-        <el-select
-          v-model="themeValue"
-          filterable
-          placeholder="--Select Theme--"
-        >
-          <el-option
-            v-for="(item, j) in themeList"
-            :key="j"
-            :label="item.label"
-            :value="item.label"
-          ></el-option>
-        </el-select>
+        <div class="donor_select">
+          <label for="donor">Donor:</label><br />
+          <el-select
+            v-model="donorValue"
+            filterable
+            placeholder="--Select Donor--"
+            class="mx-2"
+            id="donor"
+          >
+            <el-option
+              v-for="(item, i) in donorList"
+              :key="i"
+              :label="item.label"
+              :value="item.label"
+            ></el-option>
+          </el-select>
+        </div>
+        <div class="theme_select">
+          <label for="theme">Theme:</label><br />
+          <el-select
+            v-model="themeValue"
+            filterable
+            placeholder="--Select Theme--"
+          >
+            <el-option
+              v-for="(item, j) in themeList"
+              :key="j"
+              :label="item.label"
+              :value="item.label"
+              id="theme"
+            ></el-option>
+          </el-select>
+        </div>
       </div>
       <vue-highcharts type="chart" :options="chartOptions" />
     </div>
@@ -56,7 +64,7 @@ export default defineComponent({
       themeList: [],
       chartOptions : {
         title: {
-          text: "APHRC",
+          text: "",
         },
 
         chart: {

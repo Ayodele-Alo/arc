@@ -54,13 +54,8 @@ export default defineComponent({
 
                 document.getElementById("info-menu").innerHTML = content;
                 document.getElementById("info-menu").className = "info_menu";
+                document.getElementById("close_btn").classList.remove("d-none");
 
-              },
-              mouseOut() {
-                // Remove the details from the side info menu
-                const sideMenu = document.getElementById("info-menu");
-                sideMenu.innerHTML = "";
-                sideMenu.className = "";
               },
             },
           },
@@ -93,6 +88,8 @@ export default defineComponent({
           r[a.country_name] = [...(r[a.country_name] || []), a];
           return r;
         }, {});
+
+        console.log(data)
 
         // loop through data and create a series data for the map
         const mapData = Object.entries(data).map(

@@ -2,6 +2,21 @@
   <div v-if="isLoaded" class="chart_wrapper">
     <vue-highcharts type="mapChart" :options="chartOption" />
     <div id="info-menu" />
+    <div class="close_btn d-none shadow-sm" id="close_btn" @click="closeMenu">
+      <el-tooltip
+        class="box-item"
+        effect="dark"
+        content="click to close menu"
+        placement="top-start"
+      >
+        <el-icon
+          :size="20"
+          :color="'black'"
+          style="cursor: pointer; font-weight: 700"
+          ><Close />
+        </el-icon>
+      </el-tooltip>
+    </div>
   </div>
 </template>
 
@@ -48,6 +63,10 @@ export default defineComponent({
     };
   },
   methods: {
+    closeMenu() {
+      document.getElementById("info-menu").style.display = "none";
+      document.getElementById("close_btn").classList.add("d-none");
+    },
     async populateMapOptions() {
       this.chartOption = chartOptions;
       this.chartOption.legend.style = {
@@ -81,6 +100,13 @@ export default defineComponent({
 .vue-highcharts {
   width: 100%;
   height: 32.5rem;
+}
+div.close_btn {
+  position: absolute;
+  top: 12%;
+  right: 0.5%;
+  z-index: 10;
+  background: transparent;
 }
 div.chart_wrapper {
   position: relative;

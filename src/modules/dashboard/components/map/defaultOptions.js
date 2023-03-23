@@ -3,7 +3,7 @@ const chartOptions = {
     map: "custom/world",
   },
   title: {
-    text: "APHRC",
+    text: "",
   },
   subtitle: {
     text: "",

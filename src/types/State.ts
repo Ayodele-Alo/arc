@@ -4,6 +4,7 @@ type visualType = {
   name: string;
   url: string;
   tableau: boolean;
+  fullScreen: boolean;
 };
 
 type configType = {
