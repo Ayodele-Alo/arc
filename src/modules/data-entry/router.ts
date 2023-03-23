@@ -14,6 +14,10 @@ import policyCreateForm from "./views/policy-engagement/createForm.vue";
 import publicationsHome from "./views/publications/publicationsHome.vue";
 import publicationsCreateForm from "./views/publications/createForm.vue";
 
+// Research related
+import researchHome from "./views/research-related/researchHome.vue";
+import researchCreateForm from "./views/research-related/createForm.vue"
+
 // no format
 import EmptyForm from "./views/EmptyForm.vue";
 
@@ -100,7 +104,17 @@ export default [
           requiresAuth: false,
           transition: "slide-fade-up",
         },
-        component: EmptyForm,
+        component: researchHome,
+        children: [
+          {
+            path: "create",
+            meta: {
+              requiresAuth: false,
+              transition: "slide-fade-right",
+            },
+            component: researchCreateForm,
+          },
+        ],
       },
 
       {
