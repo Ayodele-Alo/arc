@@ -1,7 +1,7 @@
 <template>
   <section class="px-1">
     <Header />
-    <div class="mt-5 pt-5 mb-3 pb-3 px-lg-5 container-fluid">
+    <div class="my-5 pt-5 pb-3 px-lg-5 container-fluid">
       <router-view />
     </div>
     <Footer />
