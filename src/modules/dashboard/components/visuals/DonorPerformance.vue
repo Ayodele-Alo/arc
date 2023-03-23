@@ -102,7 +102,7 @@ export default defineComponent({
 
         series: [
           {
-            name: "Installation & Developers",
+            name: "",
             data: [],
           },
         ],
