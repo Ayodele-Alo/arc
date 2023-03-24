@@ -179,6 +179,7 @@ export default defineComponent({
   methods: {
     async getList() {
       try {
+        this.isLoaded = false;
         const [donorList, themeList] = await Promise.all([
           ProjectService.getDonorList(),
           ProjectService.getThemeList(),
@@ -212,6 +213,7 @@ export default defineComponent({
 
     async getChartData() {
       // check if both donor and theme and  are selected
+      this.isLoaded = false;
       try {
         const data = await ProjectService.getPerformanceData(
           this.donorValue,
