@@ -148,7 +148,6 @@ export default defineComponent({
             )[0] as HTMLDivElement;
             if (highcharts) {
               highcharts.style.height = "80vh";
-              // highcharts.style.transition = "all 1s ease-in-out";
             }
 
             // fix dropdown menu not showing on fullscreen
