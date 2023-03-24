@@ -10,6 +10,7 @@
             placeholder="--Select Donor--"
             class="mx-2"
             id="donor"
+            placement="top-start"
           >
             <el-option
               v-for="(item, i) in donorList"
@@ -25,6 +26,8 @@
             v-model="themeValue"
             filterable
             placeholder="--Select Theme--"
+            id="theme"
+            placement="top-start"
           >
             <el-option
               v-for="(item, j) in themeList"

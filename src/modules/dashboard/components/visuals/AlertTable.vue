@@ -81,8 +81,11 @@ export default defineComponent({
   },
   watch: {
     yearValue: {
-      handler: async function () {
-        await this.getDataFromApi();
+      async handler() {
+        // check if the year value is not empty
+        if (this.yearValue !== "") {
+          await this.getDataFromApi();
+        }
       },
       immediate: true,
     },
@@ -144,7 +147,7 @@ export default defineComponent({
 
   async mounted() {
     await this.getYearList();
-    await this.getDataFromApi();
+    // await this.getDataFromApi();
   },
 });
 </script>

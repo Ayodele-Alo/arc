@@ -55,7 +55,6 @@ export default defineComponent({
                 document.getElementById("info-menu").innerHTML = content;
                 document.getElementById("info-menu").className = "info_menu";
                 document.getElementById("close_btn").classList.remove("d-none");
-
               },
             },
           },

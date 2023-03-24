@@ -140,28 +140,28 @@ export default defineComponent({
               iframe.style.height = "100%";
               iframe.style.width = "100%";
               // add animation
-              iframe.style.transition = "all 0.5s ease-in-out";
+              iframe.style.transition = "all 1s ease-in-out";
             }
 
             const highcharts = elem.getElementsByClassName(
               "vue-highcharts"
             )[0] as HTMLDivElement;
             if (highcharts) {
-              highcharts.style.height = "70rem";
-              highcharts.style.transition = "all 0.5s ease-in-out";
+              highcharts.style.height = "80vh";
+              // highcharts.style.transition = "all 1s ease-in-out";
             }
 
             // fix dropdown menu not showing on fullscreen
 
-            // if (alertTableSelect) {
-            //   alertTableSelect.style.display = "none";
-            // }
-            // if (donorSelect) {
-            //   donorSelect.style.display = "none";
-            // }
-            // if (themeSelect) {
-            //   themeSelect.style.display = "none";
-            // }
+            if (alertTableSelect) {
+              alertTableSelect.style.display = "none";
+            }
+            if (donorSelect) {
+              donorSelect.style.display = "none";
+            }
+            if (themeSelect) {
+              themeSelect.style.display = "none";
+            }
           }
         } else {
           console.error("Fullscreen API is not supported");

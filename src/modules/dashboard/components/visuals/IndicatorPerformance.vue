@@ -66,13 +66,7 @@ export default defineComponent({
 
                 document.getElementById("info-menu").innerHTML = content;
                 document.getElementById("info-menu").className = "info_menu";
-
-              },
-              mouseOut() {
-                // Remove the details from the side info menu
-                const sideMenu = document.getElementById("info-menu");
-                sideMenu.innerHTML = "";
-                sideMenu.className = "";
+                document.getElementById("close_btn").classList.remove("d-none");
               },
             },
           },
@@ -81,86 +75,6 @@ export default defineComponent({
     };
   },
   methods: {
-    // async getMapDataFromApi() {
-    //   try {
-    //     // check if the data is cached
-    //     const cacheData = localStorage.getItem("mapData-indicator-performance");
-    //       if (cacheData) {
-    //         const { data, timestamp } = JSON.parse(cacheData);
-    //         const now = Date.now();
-    //         const diff = now - timestamp;
-    //         // if the data is cached and it is less than 15 minutes old, use it
-    //         if (diff < 900000) {
-    //           this.mapData.series[0].data = data;
-    //           this.mapData.subtitle.text =
-    //             "Indicator Performance Across Time (Active Projects)";
-    //           this.mapData.legend.title.text =
-    //             "Number of Active Projects in a country";
-    //           return;
-    //         } else {
-    //           // if the data is cached but it is more than 15 minutes old, delete it
-    //           localStorage.removeItem("mapData-indicator-performance");
-    //         }
-    //       }
-
-    //     // -------Else fetch the data from the API
-    //     const result = [];
-    //     const data = [];
-
-    //     const projectsPromise = ProjectService.getAllActiveProject();
-    //     const projects = await projectsPromise;
-
-    //     const countriesPromise = Promise.allSettled(
-    //       projects.map(({ no }) => ProjectService.getCountryByAwardNo(no))
-    //     );
-    //     const countriesPromiseResults = await countriesPromise;
-    //     const countries = countriesPromiseResults
-    //       .filter((result) => result.status === "fulfilled")
-    //       .map((result) => result.value);
-
-    //     for (let i = 0; i < projects.length; i++) {
-    //       const project = projects[i];
-    //       const respData = countries[i];
-    //       respData.forEach((r) => {
-    //         r.grant = project.name;
-    //         r.sponsor = project.sponsoring_funder_name;
-    //       });
-    //       result.push(...respData);
-    //     }
-
-    //     const grouped = result.reduce((r, a) => {
-    //       r[a.country_name] = [...(r[a.country_name] || []), a];
-    //       return r;
-    //     }, {});
-
-    //     data.push(
-    //       ...Object.entries(grouped).map(([key, values]) => ({
-    //         name: key,
-    //         value: values.length,
-    //         code: values[0].country_code.toLowerCase(),
-    //         projectData: values,
-    //       }))
-    //     );
-
-    //     this.mapData.series[0].data = data;
-        // this.mapData.subtitle.text =
-        //   "Indicator Performance Across Time (Active Projects)";
-        // this.mapData.legend.title.text = "Number of Active Projects in a country";
-
-        // // cache the data for the next time
-        // const cache = {
-        //   data,
-        //   timestamp: new Date().getTime(),
-        // };
-        // localStorage.setItem("mapData-indicator-performance", JSON.stringify(cache));
-
-    //   } catch (error) {
-    //     console.log(error);
-    //   } finally {
-    //     this.isLoaded = true;
-    //   }
-    // },
-
     async getMapDataFromApi() {
       try {
         //  check if the data is cached

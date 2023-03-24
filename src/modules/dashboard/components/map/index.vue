@@ -64,7 +64,8 @@ export default defineComponent({
   },
   methods: {
     closeMenu() {
-      document.getElementById("info-menu").style.display = "none";
+      document.getElementById("info-menu").innerHTML = "";
+      document.getElementById("info-menu").className = "";
       document.getElementById("close_btn").classList.add("d-none");
     },
     async populateMapOptions() {
