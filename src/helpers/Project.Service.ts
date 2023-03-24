@@ -43,7 +43,9 @@ class ProjectService {
    */
   async getProjectByExpiryYear(year: string) {
     try {
-      const { data } = await Request(`projects/?end_date_year=${year}&size=1500`);
+      const { data } = await Request(
+        `projects/?end_date_year=${year}&size=1500`
+      );
       return data.results;
     } catch (error) {
       console.log(error);
@@ -88,7 +90,25 @@ class ProjectService {
    */
   async getEndYearList() {
     try {
-      const { data } = await Request("years/");
+      const { data } = await Request("end_years/");
+      return data.results;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
+  /**
+   * @function getStartYearList
+   * @description: This function is used to get all end years
+   * @returns {Promise<array>}
+   */
+  async getStartYearList(arg1?: string, arg2?: string) {
+    const query1 = arg1 ? `?donor=${arg1}` : "";
+    const query2 = arg2 === "" ? "" : `&theme=${arg2}`;
+    const url = `start_years/${query1}${query2}`;
+    try {
+      const { data } = await Request(url);
       return data.results;
     } catch (error) {
       console.log(error);
@@ -101,14 +121,18 @@ class ProjectService {
    * @description: This function is used to get all themes
    * @returns {Promise<array>}
    */
-  async getPerformanceData(arg1: string, arg2: string) {
+  async getPerformanceData(arg1: string, arg2: string, arg3 = null) {
     if (arg2 === "ALL") {
       arg2 = "";
     }
 
     const query1 = arg1 ? `donor=${arg1}` : "";
     const query2 = arg2 === "" ? "" : `&theme=${arg2}`;
-    const url = `performance/?${query1}${query2}`;
+    const query3 =
+      arg3 === null && (arg2 !== "" && arg2 !== "ALL")
+        ? ""
+        : `&start_year=${arg3}`;
+    const url = `performance/?${query1}${query2}${query3}`;
 
     try {
       const { data } = await Request(url);

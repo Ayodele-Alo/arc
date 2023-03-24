@@ -6,6 +6,7 @@
       <div class="loading_dots" />
     </div>
     <section class="alert_table" v-else>
+    <div class="d-flex justify-content-between align-items-center mb-2">
       <div class="mb-3 mt-2 alert_table_select">
         <label for="end_year">End Year</label><br />
         <el-select
@@ -24,6 +25,10 @@
           ></el-option>
         </el-select>
       </div>
+      <p>
+        No. of Projects:&nbsp;<strong><u>{{ tableData.length }}</u></strong>
+      </p>
+    </div>
 
       <el-table
         :data="tableData"
@@ -127,7 +132,7 @@ export default defineComponent({
             name: item.name,
             no: item.no,
             year: dayjs(item.end_date).format("YYYY"),
-            difference: monthDiff,
+            difference: monthDiff > 0 ? monthDiff : 0,
             month: expiringMonth,
             expiring_threshold: expiringThreshold,
           };

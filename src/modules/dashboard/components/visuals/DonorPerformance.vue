@@ -2,8 +2,26 @@
   <div>
     <div v-if="isLoaded">
       <div className="d-flex justify-content-end w-100 mt-lg-3 mt-2 mb-3">
+        <div class="year_select">
+          <label for="year" class="mx-2">Start Year:</label><br />
+          <el-select
+            v-model="yearValue"
+            filterable
+            placeholder="--Select Year--"
+            class="mx-2"
+            id="year"
+            placement="top-start"
+          >
+            <el-option
+              v-for="(item, i) in yearList"
+              :key="i"
+              :label="item.year"
+              :value="item.year"
+            ></el-option>
+          </el-select>
+        </div>
         <div class="donor_select">
-          <label for="donor">Donor:</label><br />
+          <label for="donor" class="mx-2">Donor:</label><br />
           <el-select
             v-model="donorValue"
             filterable
@@ -52,6 +70,7 @@
 import { defineComponent } from "vue";
 import VueHighcharts from "vue3-highcharts";
 import ProjectService from "@/helpers/Project.Service";
+import dayjs from "dayjs";
 
 export default defineComponent({
   name: "DonorPerformanceAcrossTime",
@@ -63,8 +82,10 @@ export default defineComponent({
       isLoaded: true,
       donorValue: "",
       themeValue: "",
+      yearValue: "",
       donorList: [],
       themeList: [],
+      yearList: [],
       chartOptions : {
         title: {
           text: "",
@@ -93,7 +114,7 @@ export default defineComponent({
           //   rangeDescription: "Range: 2010 to 2026",
           // },
           title: {
-            text: "End Date",
+            text: "Start Date",
           },
           categories: [],
         },
@@ -135,10 +156,22 @@ export default defineComponent({
     // watch for changes in the donor value and theme value: if both create an array of objects with the donor and theme values and pass it to the api call to get the data
 
     donorValue() {
+      if (this.themeValue === "ALL" || this.themeValue === "") {
+        return
+      }
       this.getChartData();
+      this.getYearList(this.donorValue, this.themeValue);
     },
 
     themeValue() {
+      if (this.themeValue === "ALL" || this.themeValue === "") {
+        return
+      }
+      this.getChartData();
+      this.getYearList(this.donorValue, this.themeValue);
+    },
+
+    yearValue() {
       this.getChartData();
     },
 
@@ -178,10 +211,12 @@ export default defineComponent({
     },
 
     async getChartData() {
+      // check if both donor and theme and  are selected
       try {
         const data = await ProjectService.getPerformanceData(
           this.donorValue,
-          this.themeValue
+          this.themeValue,
+          this.yearValue
         );
 
         // check if the data is empty
@@ -193,14 +228,14 @@ export default defineComponent({
           return;
         }
 
-        // sort the data by end_date
+        // sort the data by start_date
         data.sort((a, b) => {
-          return new Date(a.end_date) - new Date(b.end_date);
+          return new Date(a.start_date) - new Date(b.start_date);
         });
 
         const chartData = data.map((item) => {
-          // convert end_date to month and year string
-          item.end_date = new Date(item.end_date).toLocaleString("en-us", {
+          // convert start_date to month and year string
+          item.start_date = new Date(item.start_date).toLocaleString("en-us", {
             month: "long",
             year: "numeric",
           });
@@ -210,10 +245,10 @@ export default defineComponent({
           return [item.description, item.total_budget];
         });
 
-        // set the categories to the end_date year and month
-        this.chartOptions.xAxis.categories = data.map((item) => item.end_date);
-        // get the first end_date year value convert it to number as the start point
-        // const startYear = Number(data[0].end_date.split(" ")[1]);
+        // set the categories to the start_date year and month
+        this.chartOptions.xAxis.categories = data.map((item) => item.start_date);
+        // get the first start_date year value convert it to number as the start point
+        // const startYear = Number(data[0].start_date.split(" ")[1]);
         // set the start point for the xAxis
         // this.chartOptions.xAxis.min = startYear;
 
@@ -236,9 +271,24 @@ export default defineComponent({
         this.isLoaded = true;
       }
     },
+
+    async getYearList(arg1='', arg2='') {
+      // if the donor and theme values are not empty, pass them to the api call
+      try {
+        this.isLoaded = false;
+        const resp = await ProjectService.getStartYearList(arg1, arg2);
+        this.yearList = resp;
+        this.yearValue = this.yearList[resp.length - 1].year;
+      } catch (error) {
+        console.log(error);
+      } finally {
+        this.isLoaded = true;
+      }
+    },
   },
   async mounted() {
     await this.getList();
+    await this.getYearList();
   },
 });
 </script>
