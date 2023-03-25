@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="isLoaded">
-      <div className="d-flex justify-content-end w-100 mt-lg-3 mt-2 mb-3">
+      <div className="d-flex justify-content-end w-100 mb-2">
         <div class="year_select">
           <label for="year" class="mx-2">Start Year:</label><br />
           <el-select
