@@ -40,7 +40,7 @@ export default defineComponent({
             events: {
               click(event) {
                 const { name, value, code, donorData } = event.point;
-                const donorList = donorData.map((el, i) => `<li class="donor_name">${i+1}: ${el.donor} - (${el.donor_code})</li>`).join("").replace(/,/g, "");
+                const donorList = donorData.map((el, i) => `<li class="donor_name">${i+1}: ${el.donor} - (${el.donor_code})<br /><small>Link: <a href="${el.website}" target="_blank" rel="noopener noreferrer">website</a></small></li>`).join("").replace(/,/g, "");
 
                 const content = `
                   <small>Country: <strong>${name}</strong></small><br />
@@ -50,7 +50,7 @@ export default defineComponent({
                   <hr />
                   <ol id="donor_name" class="display_mode_donor">
                     <strong>Donor(s):</strong>
-                  ${donorList}</ul>`;
+                    ${donorList}</ol>`;
 
                 document.getElementById("info-menu").innerHTML = content;
                 document.getElementById("info-menu").className = "info_menu";
