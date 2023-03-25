@@ -73,9 +73,10 @@ class ProjectService {
    * @description: This function is used to get all themes
    * @returns {Promise<array>}
    */
-  async getThemeList() {
+  async getThemeList(arg?: string) {
+    const query = arg ? `themes/?donor=${arg}` : "themes/";
     try {
-      const { data } = await Request("themes/");
+      const { data } = await Request(query);
       return data.results;
     } catch (error) {
       console.log(error);
@@ -105,8 +106,9 @@ class ProjectService {
    */
   async getStartYearList(arg1?: string, arg2?: string) {
     const query1 = arg1 ? `?donor=${arg1}` : "";
-    const query2 = arg2 === "" ? "" : `&theme=${arg2}`;
+    const query2 = arg2 === "" || arg2 === "ALL" ? "" : `&theme=${arg2}`;
     const url = `start_years/${query1}${query2}`;
+    console.log(url, "url theme list");
     try {
       const { data } = await Request(url);
       return data.results;
@@ -129,7 +131,7 @@ class ProjectService {
     const query1 = arg1 ? `donor=${arg1}` : "";
     const query2 = arg2 === "" ? "" : `&theme=${arg2}`;
     const query3 =
-      arg3 === null && (arg2 !== "" && arg2 !== "ALL")
+      arg3 === null && arg2 !== "" && arg2 !== "ALL"
         ? ""
         : `&start_year=${arg3}`;
     const url = `performance/?${query1}${query2}${query3}`;

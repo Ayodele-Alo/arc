@@ -11,6 +11,7 @@
             class="mx-2"
             id="year"
             placement="top-start"
+            :loading="selectLoadingYear"
           >
             <el-option
               v-for="(item, i) in yearList"
@@ -46,6 +47,7 @@
             placeholder="--Select Theme--"
             id="theme"
             placement="top-start"
+            :loading="selectLoadingTheme"
           >
             <el-option
               v-for="(item, j) in themeList"
@@ -70,7 +72,6 @@
 import { defineComponent } from "vue";
 import VueHighcharts from "vue3-highcharts";
 import ProjectService from "@/helpers/Project.Service";
-import dayjs from "dayjs";
 
 export default defineComponent({
   name: "DonorPerformanceAcrossTime",
@@ -80,6 +81,8 @@ export default defineComponent({
   data() {
     return {
       isLoaded: true,
+      selectLoadingTheme: false,
+      selectLoadingYear: false,
       donorValue: "",
       themeValue: "",
       yearValue: "",
@@ -156,19 +159,20 @@ export default defineComponent({
     // watch for changes in the donor value and theme value: if both create an array of objects with the donor and theme values and pass it to the api call to get the data
 
     donorValue() {
+      this.getThemeList();
+      this.getYearList(this.donorValue, this.themeValue);
       if (this.themeValue === "ALL" || this.themeValue === "") {
         return
       }
       this.getChartData();
-      this.getYearList(this.donorValue, this.themeValue);
     },
 
     themeValue() {
-      if (this.themeValue === "ALL" || this.themeValue === "") {
+      if (this.themeValue === "") {
         return
       }
-      this.getChartData();
       this.getYearList(this.donorValue, this.themeValue);
+      this.getChartData();
     },
 
     yearValue() {
@@ -177,32 +181,20 @@ export default defineComponent({
 
   },
   methods: {
-    async getList() {
+    // Get Theme List !! Important: as it controls the donor list and the year list
+    async getDonor() {
       try {
         this.isLoaded = false;
-        const [donorList, themeList] = await Promise.all([
-          ProjectService.getDonorList(),
-          ProjectService.getThemeList(),
-        ]);
+        const donorList = await ProjectService.getDonorList()
 
         donorList.forEach((item) => {
-          item.label = item.sponsoring_funder_name;
-          delete item.sponsoring_funder_name;
+          item.label = item.sponsor;
+          delete item.sponsor;
         });
-
-        themeList.forEach((item) => {
-          item.label = item.global_dimension_4_code;
-          delete item.global_dimension_4_code;
-        });
-        themeList.unshift({ label: "ALL" });
 
         this.donorList = donorList;
-        this.themeList = themeList;
-
-        // this.donorValue = this.donorList[0].label;
-        this.themeValue = this.themeList[0].label;
         this.donorValue = "APHRC";
-        // this.themeValue = "GA";
+        // this.donorValue = this.donorList[0].label;
 
       } catch (error) {
         console.log(error);
@@ -210,7 +202,7 @@ export default defineComponent({
         this.isLoaded = true;
       }
     },
-
+    // Plot Trend Chart
     async getChartData() {
       // check if both donor and theme and  are selected
       this.isLoaded = false;
@@ -273,24 +265,43 @@ export default defineComponent({
         this.isLoaded = true;
       }
     },
-
+    // get year list
     async getYearList(arg1='', arg2='') {
       // if the donor and theme values are not empty, pass them to the api call
       try {
-        this.isLoaded = false;
+        this.selectLoadingYear = true;
         const resp = await ProjectService.getStartYearList(arg1, arg2);
         this.yearList = resp;
         this.yearValue = this.yearList[resp.length - 1].year;
+        console.log(resp, "theme list year")
       } catch (error) {
         console.log(error);
       } finally {
-        this.isLoaded = true;
+        this.selectLoadingYear = false;
+      }
+    },
+    // get theme list
+    async getThemeList() {
+      try {
+        this.selectLoadingTheme = true;
+        const resp = await ProjectService.getThemeList(this.donorValue);
+        console.log(resp, "theme list")
+        await resp.forEach((item) => {
+          item.label = item.theme;
+          delete item.theme;
+        });
+        resp.unshift({ label: "ALL" });
+        this.themeList = resp;
+        this.themeValue = this.themeValue || this.themeList[0].label;
+      } catch (error) {
+        console.log(error);
+      } finally {
+        this.selectLoadingTheme = false;
       }
     },
   },
   async mounted() {
-    await this.getList();
-    await this.getYearList();
+    await this.getDonor();
   },
 });
 </script>
