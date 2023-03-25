@@ -273,7 +273,6 @@ export default defineComponent({
         const resp = await ProjectService.getStartYearList(arg1, arg2);
         this.yearList = resp;
         this.yearValue = this.yearList[resp.length - 1].year;
-        console.log(resp, "theme list year")
       } catch (error) {
         console.log(error);
       } finally {
@@ -285,7 +284,6 @@ export default defineComponent({
       try {
         this.selectLoadingTheme = true;
         const resp = await ProjectService.getThemeList(this.donorValue);
-        console.log(resp, "theme list")
         await resp.forEach((item) => {
           item.label = item.theme;
           delete item.theme;

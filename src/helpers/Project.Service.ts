@@ -108,7 +108,6 @@ class ProjectService {
     const query1 = arg1 ? `?donor=${arg1}` : "";
     const query2 = arg2 === "" || arg2 === "ALL" ? "" : `&theme=${arg2}`;
     const url = `start_years/${query1}${query2}`;
-    console.log(url, "url theme list");
     try {
       const { data } = await Request(url);
       return data.results;
