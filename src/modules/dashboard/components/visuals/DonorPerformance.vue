@@ -158,25 +158,19 @@ export default defineComponent({
   watch: {
     // watch for changes in the donor value and theme value: if both create an array of objects with the donor and theme values and pass it to the api call to get the data
 
-    donorValue() {
-      this.getThemeList();
-      this.getYearList(this.donorValue, this.themeValue);
-      if (this.themeValue === "ALL" || this.themeValue === "") {
-        return
-      }
-      this.getChartData();
+    async donorValue() {
+      await this.getThemeList();
+      await  this.getYearList();
+      await  this.getChartData();
     },
 
-    themeValue() {
-      if (this.themeValue === "") {
-        return
-      }
-      this.getYearList(this.donorValue, this.themeValue);
-      this.getChartData();
+    async themeValue() {
+      await  this.getYearList();
+      await  this.getChartData();
     },
 
-    yearValue() {
-      this.getChartData();
+    async yearValue() {
+      await  this.getChartData();
     },
 
   },
@@ -266,23 +260,26 @@ export default defineComponent({
       }
     },
     // get year list
-    async getYearList(arg1='', arg2='') {
+    async getYearList() {
       // if the donor and theme values are not empty, pass them to the api call
       try {
         this.selectLoadingYear = true;
-        const resp = await ProjectService.getStartYearList(arg1, arg2);
+      this.isLoaded = false;
+        const resp = await ProjectService.getStartYearList(this.donorValue, this.themeValue);
         this.yearList = resp;
         this.yearValue = this.yearList[resp.length - 1].year;
       } catch (error) {
         console.log(error);
       } finally {
         this.selectLoadingYear = false;
+        this.isLoaded = true;
       }
     },
     // get theme list
     async getThemeList() {
       try {
         this.selectLoadingTheme = true;
+        this.isLoaded = false;
         const resp = await ProjectService.getThemeList(this.donorValue);
         await resp.forEach((item) => {
           item.label = item.theme;
@@ -290,11 +287,13 @@ export default defineComponent({
         });
         resp.unshift({ label: "ALL" });
         this.themeList = resp;
-        this.themeValue = this.themeValue || this.themeList[0].label;
+        // this.themeValue = this.themeValue || this.themeList[0].label;
+        this.themeValue = this.themeList[0].label;
       } catch (error) {
         console.log(error);
       } finally {
         this.selectLoadingTheme = false;
+        this.isLoaded = true;
       }
     },
   },
