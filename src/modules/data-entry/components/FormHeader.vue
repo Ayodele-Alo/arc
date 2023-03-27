@@ -9,26 +9,32 @@
     </div>
 
     <div class="col">
-      <div class="text-start">Select Units</div>
+      <div class="text-start">Select Reports</div>
       <select
         class="form-select"
         aria-label="Default select example"
         v-model="unit"
       >
         <option value="" disabled>--Select Option--</option>
-        <option value="Annual Performance">
-          Annual Performance Report and Planning
+        <option value="Annually">
+          Annually
         </option>
-        <option value="Human Resource">
-          Human Resource Report
+        <option value="Quarterly">
+          Quaterly
         </option>
-        <option value="Policy Engagement">Policy Engagement Reporting</option>
-        <option value="research">
-          Research And Research Related Capacity Strengthening Report
+           <option value="Yearly">
+          Monthly
         </option>
-        <option value="publications">
+             <option value="Yearly">
+        Human Resource
+        </option>
+             <option value="Yearly">
+          Resource Related
+        </option>
+                 <option value="Yearly">
           Publications
         </option>
+  
       </select>
     </div>
   </div>
@@ -55,11 +61,11 @@ export default defineComponent({
     unit(val) {
       this.setActiveForm(val)
       switch (val) {
-        case "Annual Performance":
+        case "Annually":
           this.$router.push("/data-entry/annual-performance/create");
           break;
-        case "Human Resource":
-          this.$router.push("/data-entry/human-resource/create");
+        case "Quarterly":
+          this.$router.push("/data-entry/quarterly/create");
           break;
         case "Policy Engagement":
           this.$router.push("/data-entry/policy-engagement/create");

@@ -11,7 +11,7 @@
     </div>
 
     <div class="collapse" id="collapse-1">
-      <reportingPeriod />
+      <ReportingPeriod />
     </div>
 
     <!-- Former Units -->
@@ -25,7 +25,7 @@
     </div>
 
     <div class="collapse" id="collapse-2">
-      <formerUnits />
+      <FormerUnits />
     </div>
 
     <!-- New Themes & Divisions -->
@@ -39,7 +39,7 @@
     </div>
 
     <div class="collapse" id="collapse-3">
-      <newThemesAndDivision />
+      <NewThemesAndDivision />
     </div>
 
     <div
@@ -52,7 +52,7 @@
     </div>
 
     <div class="collapse" id="collapse-4">
-      <nameOfLeadAuthor />
+      <NameOfLeadAuthor />
     </div>
 
     <div
@@ -65,7 +65,7 @@
     </div>
 
     <div class="collapse" id="collapse-5">
-      <nameOfCollaboratingAuthor />
+      <NameOfCollaboratingAuthor />
     </div>
 
     <div
@@ -78,7 +78,7 @@
     </div>
 
     <div class="collapse" id="collapse-6">
-      <titleForm />
+      <TitleForm />
     </div>
 
     <div
@@ -91,7 +91,7 @@
     </div>
 
     <div class="collapse" id="collapse-7">
-      <researchOutput />
+      <ResearchOutput />
     </div>
 
     <div
@@ -104,7 +104,7 @@
     </div>
 
     <div class="collapse" id="collapse-8">
-      <nameOfPublisher />
+      <NameOfPublisher />
     </div>
 
     <!-- year of publication -->
@@ -119,7 +119,7 @@
     </div>
 
     <div class="collapse" id="collapse-9">
-      <reportingPeriod />
+      <YearOfPublication />
     </div>
 
     <!-- publishing journal -->
@@ -134,7 +134,7 @@
     </div>
 
     <div class="collapse" id="collapse-10">
-      <publishingJournal />
+      <PublishingJournal />
     </div>
 
     <!-- book title -->
@@ -149,7 +149,7 @@
     </div>
 
     <div class="collapse" id="collapse-11">
-      <bookTitle />
+      <BookTitle />
     </div>
 
     <!-- book chapter number/ page number -->
@@ -164,7 +164,7 @@
     </div>
 
     <div class="collapse" id="collapse-12">
-      <bookChapter />
+      <BookChapter />
     </div>
 
     <!-- link available to the book -->
@@ -179,7 +179,7 @@
     </div>
 
     <div class="collapse" id="collapse-13">
-      <linkAvailable />
+      <LinkAvailable />
     </div>
 
     <!-- Grant/ Project Name -->
@@ -194,7 +194,7 @@
     </div>
 
     <div class="collapse" id="collapse-14">
-      <grantProjectName />
+      <GrantProjectName />
     </div>
 
     <!-- Journals -->
@@ -209,7 +209,7 @@
     </div>
 
     <div class="collapse" id="collapse-15">
-      <journalForm />
+      <JournalForm />
     </div>
 
     <!-- Links -->
@@ -224,7 +224,7 @@
     </div>
 
     <div class="collapse" id="collapse-16">
-      <linksForm />
+      <LinksForm />
     </div>
 
     <!-- Uploads -->
@@ -239,7 +239,7 @@
     </div>
 
     <div class="collapse" id="collapse-17">
-      <uploadsForm />
+      <UploadsForm />
     </div>
 
     <!-- Citations -->
@@ -254,53 +254,55 @@
     </div>
 
     <div class="collapse" id="collapse-18">
-      <citationsForm />
+      <CitationsForm />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import reportingPeriod from "./form-sections/reportingPeriod.vue";
-import formerUnits from "./form-sections/formerUnits.vue";
-import newThemesAndDivision from "./form-sections/newThemesAndDivision.vue";
-import nameOfLeadAuthor from "./form-sections/nameOfLeadAuthor.vue";
-import nameOfCollaboratingAuthor from "./form-sections/nameOfCollaboratingAuthor.vue";
-import nameOfPublisher from "./form-sections/nameOfPublisher.vue";
-import titleForm from "./form-sections/titleForm.vue";
-import researchOutput from "./form-sections/researchOutput.vue";
-import publishingJournal from "./form-sections/publishingJournal.vue"
-import bookTitle from "./form-sections/bookTitle.vue";
-import bookChapter from "./form-sections/bookChapter.vue";
-import linkAvailable from "./form-sections/linkAvailable.vue";
-import grantProjectName from "./form-sections/grantProjectName.vue";
-import journalForm from "./form-sections/journalForm.vue";
-import linksForm from "./form-sections/linksForm.vue";
-import uploadsForm from "./form-sections/uploadsForm.vue";
-import citationsForm from "./form-sections/citationsForm.vue"
+import ReportingPeriod from "./form-sections/ReportingPeriod.vue";
+import FormerUnits from "./form-sections/FormerUnits.vue";
+import NewThemesAndDivision from "./form-sections/NewThemesAndDivision.vue";
+import NameOfLeadAuthor from "./form-sections/NameOfLeadAuthor.vue";
+import NameOfCollaboratingAuthor from "./form-sections/NameOfCollaboratingAuthor.vue";
+import NameOfPublisher from "./form-sections/NameOfPublisher.vue";
+import YearOfPublication from "./form-sections/YearOfPublication.vue";
+import TitleForm from "./form-sections/TitleForm.vue";
+import ResearchOutput from "./form-sections/ResearchOutput.vue";
+import PublishingJournal from "./form-sections/PublishingJournal.vue"
+import BookTitle from "./form-sections/BookTitle.vue";
+import BookChapter from "./form-sections/BookChapter.vue";
+import LinkAvailable from "./form-sections/LinkAvailable.vue";
+import GrantProjectName from "./form-sections/GrantProjectName.vue";
+import JournalForm from "./form-sections/JournalForm.vue";
+import LinksForm from "./form-sections/LinksForm.vue";
+import UploadsForm from "./form-sections/UploadsForm.vue";
+import CitationsForm from "./form-sections/CitationsForm.vue"
 
 
 
 export default defineComponent({
   name: "createForm",
   components: {
-    reportingPeriod,
-    formerUnits,
-    nameOfLeadAuthor,
-    newThemesAndDivision,
-    nameOfCollaboratingAuthor,
-    titleForm,
-    researchOutput,
-    nameOfPublisher,
-    publishingJournal,
-    bookTitle,
-    bookChapter,
-    linkAvailable,
-    grantProjectName,
-    journalForm,
-    linksForm,
-    uploadsForm,
-    citationsForm
+    ReportingPeriod,
+    FormerUnits,
+    NameOfLeadAuthor,
+    NewThemesAndDivision,
+    NameOfCollaboratingAuthor,
+    TitleForm,
+    ResearchOutput,
+    NameOfPublisher,
+    PublishingJournal,
+    BookTitle,
+    BookChapter,
+    LinkAvailable,
+    GrantProjectName,
+    JournalForm,
+    LinksForm,
+    UploadsForm,
+    CitationsForm,
+    YearOfPublication
   },
   methods: {
     // submitForm(){

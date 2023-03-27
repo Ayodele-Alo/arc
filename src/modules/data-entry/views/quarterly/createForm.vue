@@ -19,6 +19,8 @@
             <option value="Annually">Human Development (HD)</option>
             <option value="Quarterly">Health and Wellbeing (HaW)</option>
             <option value="Yearly">Data Science and Evaluation (DSE)</option>
+             <option value="Quarterly">Human Resource</option>
+            <option value="Yearly">Research Related</option>
           </select>
         </div>
         <div class="col">
@@ -28,18 +30,10 @@
             v-model="unit"
           >
             <option value="" disabled>--Select Option--</option>
-           <option value="January">January</option>
-<option value="February">February</option>
-<option value="March">March</option>
-<option value="April">April</option>
-<option value="May">May</option>
-<option value="June">June</option>
-<option value="July">July</option>
-<option value="August">August</option>
-<option value="September">September</option>
-<option value="October">October</option>
-<option value="November">November</option>
-<option value="December">December</option>
+           <option value="January">Quarter 1</option>
+ <option value="January">Quarter 2</option>
+ <option value="January">Quarter 3</option>
+ <option value="January">Quarter 4</option>
           </select>
         </div>
         <div class="col">

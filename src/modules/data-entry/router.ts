@@ -2,6 +2,10 @@ import index from "./views/index.vue";
 import annualHome from "./views/annual-performance/annualHome.vue";
 import annualCreateForm from "./views/annual-performance/createForm.vue";
 
+// quarterly
+import quarterlyHome from "./views/quarterly/quarterlyHome.vue";
+import quarterlyCreateForm from "./views/quarterly/createForm.vue";
+
 // human resource
 import humanHome from "./views/human-resource/humanHome.vue";
 import humanCreateForm from "./views/human-resource/createForm.vue";
@@ -57,6 +61,24 @@ export default [
               transition: "slide-fade-up",
             },
             component: annualCreateForm,
+          },
+        ],
+      },
+      {
+        path: "quarterly",
+        meta: {
+          requiresAuth: false,
+          transition: "slide-fade-down",
+        },
+        component: quarterlyHome,
+        children: [
+          {
+            path: "create",
+            meta: {
+              requiresAuth: false,
+              transition: "slide-fade-up",
+            },
+            component: quarterlyCreateForm,
           },
         ],
       },

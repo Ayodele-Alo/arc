@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="main-sec">
+    <div class="form">
       <span class="form-title">Cite as APA users</span>
       <hr class="hr" />
       <input type="text" placeholder="Type here" />
@@ -8,8 +8,10 @@
 
     <br />
 
-    <div class="main-sec">
-      <span>Units</span>
+       <div class="form">
+      <span class="form-title">Units</span>
+
+      <br />
 
       <div>
         <div
@@ -31,9 +33,9 @@
       </div>
     </div>
 
-    <br>
+    <br />
 
-    <div class="main-sec">
+    <div class="form">
       <span>Units</span>
 
       <div>
@@ -74,41 +76,33 @@ export default {
 };
 </script>
 
-<style scoped>
-.main-sec {
+<style lang="scss" scoped>
+.form {
   /* Layout Properties */
   top: 495px;
   left: 434px;
   width: 80vw;
-  height: 20vh;
+  height: 25vh;
   /* UI Properties */
-  background: var(--60-bg) 0% 0% no-repeat padding-box;
-  background: #ffffff 0% 0% no-repeat padding-box;
+  background: #ffffff;
   border: 1px solid #707070ab;
   opacity: 1;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
-}
+  padding: 2.5rem;
 
-input {
-  height: 25px;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  margin-left: 4px;
-}
+  .form-title {
+    text-align: left;
+    font: normal normal 16px/19px Montserrat;
+    font-weight: 500;
+    letter-spacing: 0px;
+    color: #707070;
+    opacity: 1;
+  }
 
-.form-title {
-  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold)
-    var(--unnamed-font-size-16) / var(--unnamed-line-spacing-19)
-    var(--unnamed-font-family-montserrat);
-  letter-spacing: var(--unnamed-character-spacing-0);
-  color: var(--text);
-  text-align: left;
-  font: normal normal bold 16px/19px Montserrat;
-  letter-spacing: 0px;
-  color: #707070;
-  opacity: 1;
+  input[type="radio"] {
+    margin-right: 20px;
+    margin-bottom: 25px;
+  }
 }
 </style>

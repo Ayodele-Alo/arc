@@ -1,23 +1,27 @@
 <template>
-  <div class="main-sec">
-    <span>Units</span>
+  <div>
+    <div class="form">
+      <span class="form-title">Research Output</span>
 
-    <div>
-      <div
-        class="form-check form-check-inline"
-        v-for="item in years_options"
-        :key="item"
-      >
-        <input
-          class="form-check-input"
-          type="radio"
-          name="inlineRadioOptions"
-          id="inlineRadio1"
-          :value="item.value"
-        />
-        <label class="form-check-label" for="inlineRadio1">{{
-          item.text
-        }}</label>
+      <br />
+
+      <div>
+        <div
+          class="form-check form-check-inline"
+          v-for="item in research_options"
+          :key="item"
+        >
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            :value="item.value"
+          />
+          <label class="form-check-label" for="inlineRadio1">{{
+            item.text
+          }}</label>
+        </div>
       </div>
     </div>
   </div>
@@ -27,7 +31,7 @@
 export default {
   data() {
     return {
-      years_options: [
+      research_options: [
         { text: "Published paper", value: "Published paper" },
         { text: "Supplement", value: "Supplement" },
         { text: "Book", value: "Book" },
@@ -42,20 +46,33 @@ export default {
 };
 </script>
 
-<style scoped>
-.main-sec {
+<style lang="scss" scoped>
+.form {
   /* Layout Properties */
   top: 495px;
   left: 434px;
   width: 80vw;
-  height: 20vh;
+  height: 25vh;
   /* UI Properties */
-  background: var(--60-bg) 0% 0% no-repeat padding-box;
-  background: #ffffff 0% 0% no-repeat padding-box;
+  background: #ffffff;
   border: 1px solid #707070ab;
   opacity: 1;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 2.5rem;
+
+  .form-title {
+    text-align: left;
+    font: normal normal 16px/19px Montserrat;
+    font-weight: 500;
+    letter-spacing: 0px;
+    color: #707070;
+    opacity: 1;
+  }
+
+  input[type="radio"] {
+    margin-right: 20px;
+    margin-bottom: 25px;
+  }
 }
 </style>
