@@ -6,9 +6,9 @@
           <select
             class="form-select"
             aria-label="Default select example"
-            v-model="unit"
+            v-model="theme_name"
           >
-            <option value="" disabled>Themes</option>
+            <option value="" disabled>--Select Theme--</option>
             <option value="Annually">
               Policy Engagement and Communication (PEC)
             </option>
@@ -25,30 +25,9 @@
           <select
             class="form-select"
             aria-label="Default select example"
-            v-model="unit"
+            v-model="year"
           >
-            <option value="" disabled>--Select Option--</option>
-           <option value="January">January</option>
-<option value="February">February</option>
-<option value="March">March</option>
-<option value="April">April</option>
-<option value="May">May</option>
-<option value="June">June</option>
-<option value="July">July</option>
-<option value="August">August</option>
-<option value="September">September</option>
-<option value="October">October</option>
-<option value="November">November</option>
-<option value="December">December</option>
-          </select>
-        </div>
-        <div class="col">
-          <select
-            class="form-select"
-            aria-label="Default select example"
-            v-model="unit"
-          >
-            <option value="" disabled>--Select Option--</option>
+            <option value="" disabled>--Select Year--</option>
             <option value="Annually">2021</option>
             <option value="Quarterly">2022</option>
             <option value="Yearly">2023</option>
@@ -67,7 +46,7 @@
     <br /><br />
 
     <div class="text-start">
-      <span class="annual-text1">1. Performace Report</span>
+      <span class="annual-text1">1.   Annual Performance Report</span>
     </div>
 
     <br />
@@ -208,7 +187,7 @@
     </div>
 
     <div class="">
-      <h1 class="header-2">2. Annual Work Plan 2023</h1>
+      <h1 class="header-2">2. Annual Work Plan</h1>
       <p class="sub-header-2">
         This annual work plan outlines activities for the theme from the set
         targets highlighted in the strategic plan 2022-2026 as well as
@@ -346,6 +325,13 @@ import StafflingNeed from "../form-sections/stafflingNeed.vue";
 
 export default defineComponent({
   name: "createForm",
+  data(){
+    return{
+      theme_name: "",
+      month: "",
+      year: ""
+    }
+  },
   components: {
     strategicOutcomes,
     // PublicationComponent,

@@ -6,9 +6,9 @@
           <select
             class="form-select"
             aria-label="Default select example"
-            v-model="unit"
+            v-model="theme_name"
           >
-            <option value="" disabled>Themes</option>
+            <option value="" disabled>--Select Theme--</option>
             <option value="Annually">
               Policy Engagement and Communication (PEC)
             </option>
@@ -27,9 +27,9 @@
           <select
             class="form-select"
             aria-label="Default select example"
-            v-model="unit"
+            v-model="quarter"
           >
-            <option value="" disabled>--Select Option--</option>
+            <option value="" disabled>--Select Quarter--</option>
            <option value="January">Quarter 1</option>
  <option value="January">Quarter 2</option>
  <option value="January">Quarter 3</option>
@@ -40,9 +40,9 @@
           <select
             class="form-select"
             aria-label="Default select example"
-            v-model="unit"
+            v-model="year"
           >
-            <option value="" disabled>--Select Option--</option>
+            <option value="" disabled>--Select Year--</option>
             <option value="Annually">2021</option>
             <option value="Quarterly">2022</option>
             <option value="Yearly">2023</option>
@@ -61,48 +61,16 @@
     <br /><br />
 
     <div class="text-start">
-      <span class="annual-text1">1. Performace Report</span>
+      <span class="annual-text1">1. Quarter Performance Report</span>
     </div>
 
-    <br />
-    <div class="text-start annual-text2">
-      This report gives a summary of the performance and achievements of the
-      theme from the set targets highlighted in the strategic plan 2022-2026 as
-      well as performance from the annual work plans for 2021.
-    </div>
-
-    <div
-      class="section-header text-start"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapseExample"
-    >
-      <span>A. Strategic Outcomes</span>
-      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
-    </div>
-
-    <div class="collapse" id="collapseExample">
-      <strategicOutcomes :bus="bus" />
-    </div>
-
-    <!-- <div
-      class="section-header text-start"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapse2"
-    > -->
-    <!-- <span>B. Publications</span>
-      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
-    </div>
-
-    <div class="collapse" id="collapse2">
-      <PublicationComponent />
-    </div> -->
 
     <div
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse3"
     >
-      <span>B. Engagement with policy and decision makers</span>
+      <span>A. Engagement with policy and decision makers</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
@@ -115,7 +83,7 @@
       data-bs-toggle="collapse"
       data-bs-target="#collapse4"
     >
-      <span>C. Annual Performance against the work plans</span>
+      <span>B. Annual Performance against the work plans</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
@@ -128,7 +96,7 @@
       data-bs-toggle="collapse"
       data-bs-target="#collapse5"
     >
-      <span>D. Additional achievements or updates:</span>
+      <span>C. Additional achievements or updates:</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
@@ -141,7 +109,7 @@
       data-bs-toggle="collapse"
       data-bs-target="#collapse6"
     >
-      <span>E. Challenges and Lessons Learnt</span>
+      <span>D. Challenges and Lessons Learnt</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
@@ -154,7 +122,7 @@
       data-bs-toggle="collapse"
       data-bs-target="#collapse7"
     >
-      <span>F. Business Development</span>
+      <span>E. Business Development</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
@@ -167,7 +135,7 @@
       data-bs-toggle="collapse"
       data-bs-target="#collapse8"
     >
-      <span>G. New opportunities identified during the year</span>
+      <span>F. New opportunities identified during the year</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
@@ -180,7 +148,7 @@
       data-bs-toggle="collapse"
       data-bs-target="#collapse9"
     >
-      <span>H. Additional achievements or updates:</span>
+      <span>G. Additional achievements or updates:</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
@@ -193,133 +161,18 @@
       data-bs-toggle="collapse"
       data-bs-target="#collapse10"
     >
-      <span>I. Risk Identified</span>
+      <span>H. Risk Identified</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse10">
       <RiskIdentified />
     </div>
-
-    <div class="">
-      <h1 class="header-2">2. Annual Work Plan 2023</h1>
-      <p class="sub-header-2">
-        This annual work plan outlines activities for the theme from the set
-        targets highlighted in the strategic plan 2022-2026 as well as
-        activities from the projects’ annual work plans 2023.
-      </p>
-    </div>
-
-    <div
-      class="section-header text-start"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapse11"
-    >
-      <span>A. Major planned activities aligned to the Strategic Plan</span>
-      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
-    </div>
-
-    <div class="collapse" id="collapse11">
-      <MajorActivitesPlanned />
-    </div>
-
-    <div
-      class="section-header text-start"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapse115"
-    >
-      <span>B. 2023 Projects</span>
-      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
-    </div>
-
-    <div class="collapse" id="collapse115">
-      <annualProjects />
-    </div>
-
-    <div
-      class="section-header text-start"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapse12"
-    >
-      <span>C. Plans and targets for the year</span>
-      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
-    </div>
-
-    <div class="collapse" id="collapse12">
-      <PlanAndTargetComponent />
-    </div>
-
-    <div
-      class="section-header text-start"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapse13"
-    >
-      <span>D. Engagements with policy and decision makers</span>
-      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
-    </div>
-
-    <div class="collapse" id="collapse13">
-      <EngagementAndPolicy />
-    </div>
-
-    <div
-      class="section-header text-start"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapse14"
-    >
-      <span>E. Collaborations, Partnerships and Alliances for 2023:</span>
-      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
-    </div>
-
-    <div class="collapse" id="collapse14">
-      <CollaborationsAndPartnership />
-    </div>
-
-    <div
-      class="section-header text-start"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapse15"
-    >
-      <span>F. Opportunities and new initiatives for 2023</span>
-      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
-    </div>
-
-    <div class="collapse" id="collapse15">
-      <OpportunitiesAndNewInitiatives />
-    </div>
-
-    <div
-      class="section-header text-start"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapse16"
-    >
-      <span>G. Business Development and funding</span>
-      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
-    </div>
-
-    <div class="collapse" id="collapse16">
-      <BusinessDevelopmentAndFunding />
-    </div>
-
-    <div
-      class="section-header text-start"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapse17"
-    >
-      <span>G. Staffing Needs and Proposed Staff Time Allocation</span>
-      <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
-    </div>
-
-    <div class="collapse" id="collapse17">
-      <StafflingNeed />
-    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import strategicOutcomes from "../form-sections/strategicOutcomes.vue";
-// import PublicationComponent from "./form-sections/publications.vue";
 import EngagementComponent from "../form-sections/engagement.vue";
 import AnnualPerformanceComponent from "../form-sections/annualPerformance.vue";
 // import AnnualPerformanceComponent from "./form-sections/annualPerformance.vue";
@@ -329,19 +182,17 @@ import BusinessDevelopment from "../form-sections/businessDevelopment.vue";
 import NewOpportunities from "../form-sections/newOppotunities.vue";
 import AchivementsComponent from "../form-sections/Achivements.vue";
 import RiskIdentified from "../form-sections/riskIdentified.vue";
-import MajorActivitesPlanned from "../form-sections/majorActivitiesPlanned.vue";
-import annualProjects from "../form-sections/annualProjects.vue";
-import PlanAndTargetComponent from "../form-sections/planAndTarget.vue";
-import EngagementAndPolicy from "../form-sections/engagementAndPolicy.vue";
-import CollaborationsAndPartnership from "../form-sections/collaborationsAndPartnership.vue";
-import OpportunitiesAndNewInitiatives from "../form-sections/opportunitesAndNewInitiatives.vue";
-import BusinessDevelopmentAndFunding from "../form-sections/businessDevelopmentAndFunding.vue";
-import StafflingNeed from "../form-sections/stafflingNeed.vue";
 
 export default defineComponent({
   name: "createForm",
+  data(){
+    return{
+      theme_name: "",
+      quarter: "",
+      year: ""
+    }
+  },
   components: {
-    strategicOutcomes,
     // PublicationComponent,
     EngagementComponent,
     AnnualPerformanceComponent,
@@ -351,14 +202,7 @@ export default defineComponent({
     NewOpportunities,
     AchivementsComponent,
     RiskIdentified,
-    MajorActivitesPlanned,
-    annualProjects,
-    PlanAndTargetComponent,
-    EngagementAndPolicy,
-    CollaborationsAndPartnership,
-    OpportunitiesAndNewInitiatives,
-    BusinessDevelopmentAndFunding,
-    StafflingNeed,
+    
   },
   methods: {
     // submitForm(){
