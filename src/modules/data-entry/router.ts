@@ -22,6 +22,10 @@ import publicationsCreateForm from "./views/publications/createForm.vue";
 import researchHome from "./views/research-related/researchHome.vue";
 import researchCreateForm from "./views/research-related/createForm.vue"
 
+// Monthly
+import monthlyHome from "./views/monthly/monthlyHome.vue";
+import monthlyCreateForm from "./views/monthly/createForm.vue"
+
 // no format
 import EmptyForm from "./views/EmptyForm.vue";
 
@@ -154,6 +158,25 @@ export default [
               transition: "slide-fade-right",
             },
             component: publicationsCreateForm,
+          },
+        ],
+      },
+
+      {
+        path: "monthly",
+        meta: {
+          requiresAuth: false,
+          transition: "slide-fade-right",
+        },
+        component: monthlyHome,
+        children: [
+          {
+            path: "create",
+            meta: {
+              requiresAuth: false,
+              transition: "slide-fade-right",
+            },
+            component: monthlyCreateForm,
           },
         ],
       },

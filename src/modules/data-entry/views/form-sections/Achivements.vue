@@ -56,27 +56,10 @@ export default defineComponent({
     addFormCount() {
       this.formCount++;
     },
-    // addPoliciesField() {
-    //   this.policyCount++;
-    // },
-    // addProgramsField() {
-    //   this.programCount++;
-    // },
-    // addAliancesField() {
-    //   this.alianceCount++;
-    // },
-    // addLevelsField() {
-    //   this.levelCount++;
-    // },
-    // addIndividualsField() {
-    //   this.individualCount++;
-    // },
-    // addInstitutionsField() {
-    //   this.institutionCount++;
-    // },
-    // addExistingDataField() {
-    //   this.existingDataCount++;
-    // },
+    // saveAchievementsForm(){
+
+    // }
+
   },
 });
 </script>
