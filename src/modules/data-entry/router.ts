@@ -20,7 +20,7 @@ import publicationsCreateForm from "./views/publications/createForm.vue";
 
 // Research related
 import researchHome from "./views/research-related/researchHome.vue";
-import researchCreateForm from "./views/research-related/createForm.vue"
+import researchCreateForm from "./views/research-related/createForm.vue";
 
 // no format
 import EmptyForm from "./views/EmptyForm.vue";
@@ -32,9 +32,9 @@ export default [
     meta: {
       requiresAuth: false,
       description:
-      "The APHRC dashboard is an interactive monitoring and evaluation (M&E) platform that provides real-time insights into the organization's programs and projects. The dashboard features a range of visualizations that allow users to easily track and analyze key performance indicators (KPIs) related to health, education, urbanization, and other development issues in sub-Saharan Africa. The M&E platform is designed to help APHRC staff and partners make data-driven decisions and improve the impact of their interventions",
-    keywords:
-      "Dashboard, Monitoring and evaluation, Real-time, Performance indicators, Health, Education, Urbanization, Development, Sub-Saharan, Africa, Data-driven, Impact, Programs, Projects, Visualization, Analytics, Decision-making, Partners, Interventions, KPIs",
+        "The APHRC dashboard is an interactive monitoring and evaluation (M&E) platform that provides real-time insights into the organization's programs and projects. The dashboard features a range of visualizations that allow users to easily track and analyze key performance indicators (KPIs) related to health, education, urbanization, and other development issues in sub-Saharan Africa. The M&E platform is designed to help APHRC staff and partners make data-driven decisions and improve the impact of their interventions",
+      keywords:
+        "Dashboard, Monitoring and evaluation, Real-time, Performance indicators, Health, Education, Urbanization, Development, Sub-Saharan, Africa, Data-driven, Impact, Programs, Projects, Visualization, Analytics, Decision-making, Partners, Interventions, KPIs",
     },
     children: [
       {

@@ -16,25 +16,12 @@
         v-model="unit"
       >
         <option value="" disabled>--Select Option--</option>
-        <option value="Annually">
-          Annually
-        </option>
-        <option value="Quarterly">
-          Quaterly
-        </option>
-           <option value="Yearly">
-          Monthly
-        </option>
-             <option value="Yearly">
-        Human Resource
-        </option>
-             <option value="Yearly">
-          Resource Related
-        </option>
-                 <option value="Yearly">
-          Publications
-        </option>
-  
+        <option value="Annually">Annually</option>
+        <option value="Quarterly">Quaterly</option>
+        <option value="Yearly">Monthly</option>
+        <option value="Yearly">Human Resource</option>
+        <option value="research">Resource Related</option>
+        <option value="Yearly">Publications</option>
       </select>
     </div>
   </div>
@@ -59,7 +46,7 @@ export default defineComponent({
   },
   watch: {
     unit(val) {
-      this.setActiveForm(val)
+      this.setActiveForm(val);
       switch (val) {
         case "Annually":
           this.$router.push("/data-entry/annual-performance/create");

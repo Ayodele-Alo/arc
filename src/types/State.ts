@@ -17,6 +17,11 @@ interface state {
   activeTab: string;
   activeModal: string;
   activeForm: string;
+  resourceRelatedForm: {
+    initial: [];
+    linkageBetweenInstitution: [];
+    annualPerformance: [];
+  };
 }
 
 export { state, generic, visualType, configType };

@@ -10,7 +10,17 @@ const mutations: MutationTree<state> = {
   },
   setActiveForm: (state, data): void => {
     state.activeForm = data;
-  }
+  },
+  saveResourceRelatedData: (state, data) => {
+    console.log("called again");
+    if (data.theme === "initial") {
+      state.resourceRelatedForm.initial = data.form;
+    } else if (data.theme === "linkageBetweenInstitution") {
+      state.resourceRelatedForm.linkageBetweenInstitution = data.form;
+    } else {
+      state.resourceRelatedForm.annualPerformance = data.form;
+    }
+  },
 };
 
 export default mutations;
