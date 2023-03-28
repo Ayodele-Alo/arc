@@ -1,21 +1,44 @@
 <template>
+<div>
   <div class="main-sec">
 <span class="form-title">Name of the lead Author</span>
 <hr class="hr" />
 <input type="text" placeholder="Type here">
+</div>
 
-
+   <div class="d-flex justify-content-end mt-4">
+      <div @click="saveForm()" class="save-icon">
+        <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+        <h5>save</h5>
+      </div>
+    </div>
 </div>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
+import { mapActions } from "vuex";
+export default {
+  data() {
+    return {
+      name_of_lead_author: "",
+    };
+  },
 
-      }
-    }
-  }
+  methods: {
+    ...mapActions(["SAVE_DATA"]),
+
+    saveForm() {
+      const data = {
+        name_of_lead_author: this.name_of_lead_author,
+      };
+      const newItem = {
+        component: "publications",
+        item: { name: "nameOfLeadAuthor", form: data },
+      };
+      this.SAVE_DATA(newItem);
+    },
+  },
+};
 </script>
 
 

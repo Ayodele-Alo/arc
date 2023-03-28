@@ -2,20 +2,40 @@
   <div class="main-sec">
 <span class="form-title">Title</span>
 <hr class="hr" />
-<input type="text" placeholder="Type here">
-
-
+<input type="text" placeholder="Type here" v-model="title">
 </div>
+  <div class="d-flex justify-content-end mt-4">
+      <div @click="saveForm()" class="save-icon">
+        <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+        <h5>save</h5>
+      </div>
+    </div>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
+import { mapActions } from "vuex";
+export default {
+  data() {
+    return {
+      title: "",
+    };
+  },
 
-      }
-    }
-  }
+  methods: {
+    ...mapActions(["SAVE_DATA"]),
+
+    saveForm() {
+      const data = {
+        title: this.title,
+      };
+      const newItem = {
+        component: "publications",
+        item: { name: "titleForm", form: data },
+      };
+      this.SAVE_DATA(newItem);
+    },
+  },
+};
 </script>
 
 

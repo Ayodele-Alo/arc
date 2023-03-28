@@ -16,6 +16,26 @@ interface state {
   activeTab: string;
   activeModal: string;
   activeForm: string;
+  publicationsForm: {
+    bookTitle: "",
+    bookchapter: "",
+    citationsForm: "",
+    formerUnits: "",
+    grantProjectName: "",
+    journalForm: "",
+    linkAvailable: "",
+    linksForm: "",
+    nameOfCollaboratingAuthor: "",
+    nameOfLeadAuthor: "",
+    nameOfPublisher: "",
+    newThemesAndDivision: "",
+    publishingJournal: "",
+    reportingperiod: "",
+    researchOutput: "",
+    titleForm: "",
+    uploadsForm: "",
+    yearOfPublications: "",
+  };
 }
 
 export { state, generic, visualType, configType };

@@ -12,7 +12,25 @@ const state: state = {
   activeModal: "",
   activeForm: "",
   publicationsForm: {
-    bookTitle: [],
+    bookTitle: "",
+    bookchapter: "",
+    citationsForm: "",
+    formerUnits: "",
+    grantProjectName: "",
+    journalForm: "",
+    linkAvailable: "",
+    linksForm: "",
+    nameOfCollaboratingAuthor: "",
+    nameOfLeadAuthor: "",
+    nameOfPublisher: "",
+    newThemesAndDivision: "",
+    publishingJournal: "",
+    reportingperiod: "",
+    researchOutput: "",
+    titleForm: "",
+    uploadsForm: "",
+    yearOfPublications: "",
+
 
   },
 };
