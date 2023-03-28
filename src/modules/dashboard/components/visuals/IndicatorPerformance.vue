@@ -24,17 +24,50 @@ export default defineComponent({
     return {
       isLoaded: false,
       mapData: {
+        subtitle: {},
+        legend: {
+          title: {
+            text: ""
+          }
+        },
         series: [
           {
             data: [],
-            dataLabels: {
-              enabled: true,
-              color: "#FFFFFF",
-              format: "{point.name}",
-            },
             tooltip: {
               headerFormat: "",
               pointFormat: "{point.name}: <b>{point.value}</b>",
+            },
+            events: {
+              click(event) {
+                const { name, value, code, projectData } = event.point;
+                const sponsors = {};
+
+                for (const grant of projectData) {
+                  const { sponsor } = grant;
+                  if (!(sponsor in sponsors)) {
+                    sponsors[sponsor] = [];
+                  }
+                  sponsors[sponsor].push(grant);
+                }
+
+                const sponsorList = Object.entries(sponsors).map(([sponsor, grants]) => {
+                  const grantList = grants.map(grant => `<li class="project_name">${grant.grant}</li>`);
+                  return `<li class="sponsor">${sponsor}<ul class="projects_name">${grantList.join("")}</ul></li>`;
+                }).join("");
+
+                const content = `
+                  <small>Country: <strong>${name}</strong></small><br />
+                  <small>Code: <strong>${code.toUpperCase()}</strong></small><br />
+                  <small>Active Project: <strong>${value}</strong></small>
+                  <br />
+                  <hr />
+                  <ul id="list_details" class="display_mode">
+                  ${sponsorList}</ul>`;
+
+                document.getElementById("info-menu").innerHTML = content;
+                document.getElementById("info-menu").className = "info_menu";
+                document.getElementById("close_btn").classList.remove("d-none");
+              },
             },
           },
         ],
@@ -42,43 +75,29 @@ export default defineComponent({
     };
   },
   methods: {
-//     async getMapDataFromApi() {
-//   try {
-//     const projects = await ProjectService.getAllActiveProject();
-//     const countryData = await Promise.all(
-//       projects.map(async ({ no }) => {
-//         const respData = await ProjectService.getCountryByAwardNo(no);
-//         const project = projects.find((p) => p.no === no);
-//         return respData.map((r) => ({
-//           ...r,
-//           grant: project.name,
-//           sponsor: project.sponsoring_funder_name,
-//         }));
-//       })
-//     );
-//     const data = countryData
-//       .flat()
-//       .reduce((r, a) => {
-//         r[a.country_name] = [...(r[a.country_name] || []), a];
-//         return r;
-//       }, {});
-//     this.mapData.series[0].data = Object.entries(data).map(
-//       ([key, values]) => ({
-//         name: key,
-//         value: values.length,
-//         code: values[0].country_code.toLowerCase(),
-//         projectData: values,
-//       })
-//     );
-//   } catch (error) {
-//     console.log(error);
-//   } finally {
-//     this.isLoaded = true;
-//   }
-// }
-
     async getMapDataFromApi() {
       try {
+        //  check if the data is cached
+        const cacheData = localStorage.getItem("mapData-indicator-performance");
+          if (cacheData) {
+            const { data, timestamp } = JSON.parse(cacheData);
+            const now = Date.now();
+            const diff = now - timestamp;
+            // if the data is cached and it is less than 15 minutes old, use it
+            if (diff < 900000) {
+              this.mapData.series[0].data = data;
+              this.mapData.subtitle.text =
+                "Indicator Performance Across Time (Active Projects)";
+              this.mapData.legend.title.text =
+                "Number of Active Projects in a country";
+              return;
+            } else {
+              // if the data is cached but it is more than 15 minutes old, delete it
+              localStorage.removeItem("mapData-indicator-performance");
+            }
+          }
+
+        // -------Else fetch the data from the API
         const result = [];
         const data = [];
         const projects = await ProjectService.getAllActiveProject();
@@ -106,12 +125,22 @@ export default defineComponent({
           }))
         );
         this.mapData.series[0].data = data;
+        this.mapData.subtitle.text =
+          "Indicator Performance Across Time (Active Projects)";
+        this.mapData.legend.title.text = "Number of Active Projects in a country";
+             // cache the data for the next time
+             const cache = {
+          data,
+          timestamp: new Date().getTime(),
+        };
+        localStorage.setItem("mapData-indicator-performance", JSON.stringify(cache));
       } catch (error) {
         console.log(error);
       } finally {
         this.isLoaded = true;
       }
     },
+
   },
   async mounted() {
     await this.getMapDataFromApi();
@@ -120,26 +149,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.vue-highcharts {
-  width: 100%;
-  height: 75vh;
-}
-div.chart_wrapper {
-  position: relative;
-}
 div.info_menu {
-  position: absolute;
-  top: 15%;
-  right: 1%;
-  width: 200px;
-  height: 25rem;
-  background-color: #f4f4f4;
-  z-index: 10;
-  border: 1px solid #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-  padding: 0.6rem;
-
   ul.display_mode {
     list-style: none;
     height: 15rem;

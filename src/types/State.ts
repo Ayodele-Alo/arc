@@ -4,6 +4,7 @@ type visualType = {
   name: string;
   url: string;
   tableau: boolean;
+  fullScreen: boolean;
 };
 
 type configType = {
@@ -35,6 +36,17 @@ interface state {
     titleForm: "",
     uploadsForm: "",
     yearOfPublications: "",
+  }
+  resourceRelatedForm: {
+    initial: [];
+    linkageBetweenInstitution: [];
+    annualPerformance: [];
+    additionalAchivements: [];
+    businessDevelopment: [];
+    challengesAndLesson: [];
+    majorPlannedActivities: [];
+    newOpportunities: [];
+    risksIndentified: [];
   };
 }
 

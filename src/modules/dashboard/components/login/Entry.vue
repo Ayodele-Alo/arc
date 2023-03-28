@@ -46,10 +46,10 @@
           </div>
 
           <div class="text-center py-4">
-            <router-link to="/data-entry" >
-   <button class="btn btn_aphrc">
-              Login into APHRC - Data Entry Module
-            </button>
+            <router-link to="/data-entry">
+              <button class="btn btn_aphrc">
+                Login into APHRC - Data Entry Module
+              </button>
             </router-link>
           </div>
         </form>

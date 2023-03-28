@@ -13,24 +13,39 @@
             <div class="underline" />
           </div>
           <div
+            v-if="el.fullScreen"
             class="col-md-2 d-flex justify-content-end"
             @click="toggleFullScreen(`${el.name}-${i}`)"
           >
             <el-icon :size="25" :color="'white'" style="cursor: pointer"
-              ><Close v-if="isFullScreen === true" /> <FullScreen v-else
-            /></el-icon>
+              ><Close v-if="isFullScreen === true" />
+              <el-tooltip
+                v-else
+                class="box-item"
+                effect="dark"
+                content="click to view this section on fullscreen"
+                placement="top-start"
+              >
+                <FullScreen />
+              </el-tooltip>
+            </el-icon>
           </div>
         </div>
       </div>
       <div class="card-body">
         <div v-if="el.tableau === false && el.url !== ''">
-          <AlertTable v-if="el.url === 'alert_table'" class="height_view" />
+          <AlertTable v-if="el.url === 'alert_table'" />
         </div>
-        <div v-if="el.tableau === false && el.url !== ''" class="height_view">
+        <div v-if="el.tableau === false && el.url !== ''">
           <IndicatorPerformanceVue
             v-if="el.url === 'indicator_performance_map'"
-            class="height_view"
           />
+        </div>
+        <div v-if="el.tableau === false && el.url !== ''">
+          <DonorGeographic v-if="el.url === 'donor_geographic'" />
+        </div>
+        <div v-if="el.tableau === false && el.url !== ''">
+          <DonorPerformance v-if="el.url === 'donor_performance_overtime'" />
         </div>
         <iframe
           v-else-if="el.tableau === true && el.url !== ''"
@@ -53,12 +68,16 @@ import { defineComponent } from "vue";
 import { mapGetters, mapMutations } from "vuex";
 import AlertTable from "./visuals/AlertTable.vue";
 import IndicatorPerformanceVue from "./visuals/IndicatorPerformance.vue";
+import DonorPerformance from "./visuals/DonorPerformance.vue";
+import DonorGeographic from "./visuals/DonorGeographic.vue";
 
 export default defineComponent({
   name: "Section-Card",
   components: {
     AlertTable,
     IndicatorPerformanceVue,
+    DonorPerformance,
+    DonorGeographic,
   },
   data() {
     return {
@@ -73,6 +92,16 @@ export default defineComponent({
 
     toggleFullScreen(arg: string) {
       const elem = document.getElementById(arg) as HTMLDivElement;
+      const alertTableSelect = elem.getElementsByClassName(
+        "alert_table_select"
+      )[0] as HTMLDivElement;
+      const donorSelect = elem.getElementsByClassName(
+        "donor_select"
+      )[0] as HTMLDivElement;
+      const themeSelect = elem.getElementsByClassName(
+        "theme_select"
+      )[0] as HTMLDivElement;
+
       if (elem) {
         if (elem.requestFullscreen) {
           if (document.fullscreenElement) {
@@ -90,9 +119,18 @@ export default defineComponent({
               "vue-highcharts"
             )[0] as HTMLDivElement;
             if (highcharts) {
-              highcharts.style.height = "35rem";
-              highcharts.style.width = "100%";
+              highcharts.style.height = "32.5rem";
               highcharts.style.transition = "none";
+            }
+
+            if (alertTableSelect) {
+              alertTableSelect.style.display = "block";
+            }
+            if (donorSelect) {
+              donorSelect.style.display = "block";
+            }
+            if (themeSelect) {
+              themeSelect.style.display = "block";
             }
           } else {
             elem.requestFullscreen();
@@ -102,7 +140,7 @@ export default defineComponent({
               iframe.style.height = "100%";
               iframe.style.width = "100%";
               // add animation
-              iframe.style.transition = "all 0.5s ease-in-out";
+              iframe.style.transition = "all 1s ease-in-out";
             }
 
             const highcharts = elem.getElementsByClassName(
@@ -110,8 +148,18 @@ export default defineComponent({
             )[0] as HTMLDivElement;
             if (highcharts) {
               highcharts.style.height = "80vh";
-              highcharts.style.width = "100%";
-              highcharts.style.transition = "all 0.5s ease-in-out";
+            }
+
+            // fix dropdown menu not showing on fullscreen
+
+            if (alertTableSelect) {
+              alertTableSelect.style.display = "none";
+            }
+            if (donorSelect) {
+              donorSelect.style.display = "none";
+            }
+            if (themeSelect) {
+              themeSelect.style.display = "none";
             }
           }
         } else {

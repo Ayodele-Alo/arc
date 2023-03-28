@@ -1,39 +1,47 @@
 <template>
-
 <div>
-     <div class="main-sec">
-<label for="book-upload">Choose a book:</label>
-
-<input type="file"
-       id="book-upload" name="book-upload"
-       accept="image/png, image/jpeg">
-
+  <div class="main-sec">
+<span class="form-title">Grant/Project Name</span>
+<hr class="hr" />
+<input type="text" placeholder="Type here" v-model="grant_project_name">
 
 </div>
-
-<br>
-
- <div class="main-sec">
-<label for="book-upload">Choose a book:</label>
-
-<input type="file"
-       id="book-upload" name="book-upload"
-       accept="image/png, image/jpeg">
+        <div class="d-flex justify-content-end mt-4">
+      <div @click="saveForm()" class="save-icon">
+        <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+        <h5>save</h5>
+      </div>
+    </div>
 </div>
 
-
-</div>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
+import { mapActions } from "vuex";
+export default {
+  data() {
+    return {
+      grant_project_name: "",
+    };
+  },
 
-      }
-    }
-  }
+  methods: {
+    ...mapActions(["SAVE_DATA"]),
+
+    saveForm() {
+      const data = {
+       grant_project_name: this.grant_project_name,
+      };
+      const newItem = {
+        component: "publications",
+        item: { name: "grantProjectName", form: data },
+      };
+      this.SAVE_DATA(newItem);
+    },
+  },
+};
 </script>
+
 
 
 

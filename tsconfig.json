@@ -4,6 +4,7 @@
     "module": "esnext",
     "strict": true,
     "jsx": "preserve",
+    "allowJs": true,
     "moduleResolution": "node",
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -39,7 +40,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-, "src/modules/dashboard/components/visuals/defaultOptions.js"  ],
+, "src/modules/dashboard/components/visuals/donorOptions.js"  ],
   "exclude": [
     "node_modules"
   ]

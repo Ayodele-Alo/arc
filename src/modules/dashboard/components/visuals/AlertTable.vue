@@ -6,36 +6,47 @@
       <div class="loading_dots" />
     </div>
     <section class="alert_table" v-else>
-      <el-select v-model="yearValue" placeholder="Select">
-        <el-option
-          v-for="item in yearList"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        ></el-option>
-      </el-select>
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <div class="mb-3 mt-2 alert_table_select">
+        <label for="end_year">End Year</label><br />
+        <el-select
+          v-model="yearValue"
+          filterable
+          placeholder="--Select Year--"
+          label="End Year"
+          placement="top-start"
+        >
+          <el-option
+            v-for="(item, i) in yearList"
+            :key="i"
+            :label="item.year"
+            :value="item.year"
+            id="end_year"
+          ></el-option>
+        </el-select>
+      </div>
+      <p>
+        No. of Projects:&nbsp;<strong><u>{{ tableData.length }}</u></strong>
+      </p>
+    </div>
 
       <el-table
         :data="tableData"
-        height="500"
+        height="400"
         style="width: 100%"
         lazy
         :default-sort="{ prop: 'difference', order: 'ascending' }"
       >
-        <el-table-column sortable prop="date" label="Date" width="250" />
-        <el-table-column sortable prop="name" label="Grant Name" width="250" />
-        <el-table-column prop="year" label="Year" width="150" />
-        <el-table-column
-          sortable
-          prop="difference"
-          label="Months Left"
-          width="200"
-        >
+        <el-table-column sortable prop="date" label="Date" />
+        <el-table-column sortable prop="name" label="Grant Name" />
+        <el-table-column sortable prop="no" label="Grant Code" />
+        <el-table-column prop="year" label="Year" />
+        <el-table-column sortable prop="difference" label="Months Left">
           <template #default="scope">
             <span>{{ scope.row.difference }}&nbsp;Month(s)</span>
           </template>
         </el-table-column>
-        <el-table-column prop="month" label="" width="200">
+        <el-table-column prop="month" label="">
           <template #default="scope">
             <span
               v-if="scope.row.expiring_threshold === true"
@@ -65,7 +76,7 @@ export default defineComponent({
   data() {
     return {
       isLoading: false,
-      yearList: [] as { label: number; value: number }[],
+      yearList: [] as { year: number }[],
       yearValue: "" as string,
       tableData: [] as GenericI[],
     };
@@ -75,8 +86,11 @@ export default defineComponent({
   },
   watch: {
     yearValue: {
-      handler: async function () {
-        await this.getDataFromApi();
+      async handler() {
+        // check if the year value is not empty
+        if (this.yearValue !== "") {
+          await this.getDataFromApi();
+        }
       },
       immediate: true,
     },
@@ -84,19 +98,17 @@ export default defineComponent({
   methods: {
     ...mapMutations(["setActiveTab"]),
 
-    // generate date from 2015 till now
-    generateDate() {
-      const currentYear = new Date().getFullYear();
-      const startYear = 2015;
-
-      this.yearList = Array.from(
-        { length: currentYear - startYear + 1 },
-        (_, i) => {
-          const year = startYear + i;
-          return { label: year, value: year };
-        }
-      ).sort((a, b) => b.value - a.value);
-      this.yearValue = this.yearList[0].value.toString();
+    async getYearList() {
+      try {
+        this.isLoading = true;
+        const resp = await ProjectService.getEndYearList();
+        this.yearList = resp;
+        this.yearValue = dayjs().format("YYYY");
+      } catch (error) {
+        console.log(error);
+      } finally {
+        this.isLoading = false;
+      }
     },
 
     async getDataFromApi() {
@@ -118,8 +130,9 @@ export default defineComponent({
           return {
             date: item.end_date,
             name: item.name,
+            no: item.no,
             year: dayjs(item.end_date).format("YYYY"),
-            difference: monthDiff,
+            difference: monthDiff > 0 ? monthDiff : 0,
             month: expiringMonth,
             expiring_threshold: expiringThreshold,
           };
@@ -138,8 +151,8 @@ export default defineComponent({
   },
 
   async mounted() {
-    await this.generateDate();
-    await this.getDataFromApi();
+    await this.getYearList();
+    // await this.getDataFromApi();
   },
 });
 </script>

@@ -1,12 +1,43 @@
 <template>
+
 <div>
-  <div class="main-sec">
-<span class="form-title">Name of the lead Author</span>
+     <div class="main-sec">
+<span class="form-title">Journal Volume</span>
 <hr class="hr" />
-<input type="text" placeholder="Type here">
+<input type="text" placeholder="Type here" v-model="journal_form">
+
+
 </div>
 
-   <div class="d-flex justify-content-end mt-4">
+<br>
+
+ <div class="main-sec">
+<span class="form-title">Supplement Number</span>
+<hr class="hr" />
+<input type="text" placeholder="Type here" v-model="supplement_number">
+</div>
+
+<br>
+
+ <div class="main-sec">
+<span class="form-title">Journal Issue</span>
+<hr class="hr" />
+<input type="text" placeholder="Type here" v-model="journal_issue">
+ 
+
+</div>
+
+<br>
+
+ <div class="main-sec">
+<span class="form-title">Journal Page</span>
+<hr class="hr" />
+<input type="text" placeholder="Type here" v-model="journal_page">
+ 
+
+</div>
+
+  <div class="d-flex justify-content-end mt-4">
       <div @click="saveForm()" class="save-icon">
         <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
         <h5>save</h5>
@@ -20,7 +51,10 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
-      name_of_lead_author: "",
+      journal_form: "",
+      supplement_number: "",
+      journal_issue: "",
+      journal_page: ""
     };
   },
 
@@ -29,11 +63,14 @@ export default {
 
     saveForm() {
       const data = {
-        name_of_lead_author: this.name_of_lead_author,
+        journal_form: this.journal_form,
+        supplement_number: this.supplement_number,
+        journal_issue: this.journal_issue,
+        journal_page: this.journal_page
       };
       const newItem = {
         component: "publications",
-        item: { name: "nameOfLeadAuthor", form: data },
+        item: { name: "journalForm", form: data },
       };
       this.SAVE_DATA(newItem);
     },

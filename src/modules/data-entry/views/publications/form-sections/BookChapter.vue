@@ -1,12 +1,12 @@
 <template>
+
 <div>
   <div class="main-sec">
-<span class="form-title">Name of the pubishing journal</span>
+<span class="form-title">Book Chapter Number/ Page Number</span>
 <hr class="hr" />
-<input type="text" placeholder="Type here" v-model=" publishing_journal">
+<input type="text" placeholder="Type here">
 </div>
-
-   <div class="d-flex justify-content-end mt-4">
+     <div class="d-flex justify-content-end mt-4">
       <div @click="saveForm()" class="save-icon">
         <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
         <h5>save</h5>
@@ -21,7 +21,7 @@ import { mapActions } from "vuex";
 export default {
   data() {
     return {
-      publishing_journal: "",
+      book_chapter: "",
     };
   },
 
@@ -30,11 +30,11 @@ export default {
 
     saveForm() {
       const data = {
-        publishing_journal: this.publishing_journal,
+        book_chapter: this.book_chapter,
       };
       const newItem = {
         component: "publications",
-        item: { name: "publishingJournal", form: data },
+        item: { name: "bookChapter", form: data },
       };
       this.SAVE_DATA(newItem);
     },
@@ -46,10 +46,12 @@ export default {
 
 <style scoped>
 .main-sec{
+   /* Layout Properties */
 top: 495px;
 left: 434px;
 width: 80vw;
 height: 20vh;
+/* UI Properties */
 background: var(--60-bg) 0% 0% no-repeat padding-box;
 background: #FFFFFF 0% 0% no-repeat padding-box;
 border: 1px solid #707070AB;

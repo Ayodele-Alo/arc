@@ -30,8 +30,18 @@ const state: state = {
     titleForm: "",
     uploadsForm: "",
     yearOfPublications: "",
+  },
 
-
+  resourceRelatedForm: {
+    initial: [],
+    linkageBetweenInstitution: [],
+    annualPerformance: [],
+    additionalAchivements: [],
+    businessDevelopment: [],
+    challengesAndLesson: [],
+    majorPlannedActivities: [],
+    newOpportunities: [],
+    risksIndentified: [],
   },
 };
 

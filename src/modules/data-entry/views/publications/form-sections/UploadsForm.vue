@@ -1,45 +1,38 @@
 <template>
 
 <div>
-  <div class="main-sec">
-<span class="form-title">Book Chapter Number/ Page Number</span>
-<hr class="hr" />
-<input type="text" placeholder="Type here">
-</div>
-     <div class="d-flex justify-content-end mt-4">
-      <div @click="saveForm()" class="save-icon">
-        <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
-        <h5>save</h5>
-      </div>
-    </div>
+     <div class="main-sec">
+<label for="book-upload">Choose a book:</label>
+
+<input type="file"
+       id="book-upload" name="book-upload"
+       accept="image/png, image/jpeg">
+
+
 </div>
 
+<br>
+
+ <div class="main-sec">
+<label for="book-upload">Choose a book:</label>
+
+<input type="file"
+       id="book-upload" name="book-upload"
+       accept="image/png, image/jpeg">
+</div>
+
+
+</div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
-export default {
-  data() {
-    return {
-      book_chapter: "",
-    };
-  },
+  export default {
+    data() {
+      return {
 
-  methods: {
-    ...mapActions(["SAVE_DATA"]),
-
-    saveForm() {
-      const data = {
-        book_chapter: this.book_chapter,
-      };
-      const newItem = {
-        component: "publications",
-        item: { name: "bookChapter", form: data },
-      };
-      this.SAVE_DATA(newItem);
-    },
-  },
-};
+      }
+    }
+  }
 </script>
 
 
