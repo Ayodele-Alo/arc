@@ -5,6 +5,8 @@
 <input type="text" placeholder="Type here">
 
 
+
+
 </div>
 </template>
 

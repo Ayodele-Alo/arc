@@ -10,7 +10,19 @@ const mutations: MutationTree<state> = {
   },
   setActiveForm: (state, data): void => {
     state.activeForm = data;
-  }
+  },
+
+  savePublicationsData: (state, data) => {
+    if (data.name === "bookTitle") {
+      state.publicationsForm.bookTitle = data.form;
+    } 
+    // else if (data.theme === "linkageBetweenInstitution") {
+    //   state.resourceRelatedForm.linkageBetweenInstitution = data.form;
+    // } else {
+    //   state.resourceRelatedForm.annualPerformance = data.form;
+    // }
+  },
+
 };
 
 export default mutations;
