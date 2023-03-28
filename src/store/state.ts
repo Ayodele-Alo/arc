@@ -15,6 +15,12 @@ const state: state = {
     initial: [],
     linkageBetweenInstitution: [],
     annualPerformance: [],
+    additionalAchivements: [],
+    businessDevelopment: [],
+    challengesAndLesson: [],
+    majorPlannedActivities: [],
+    newOpportunities: [],
+    risksIndentified: [],
   },
 };
 

@@ -16,7 +16,7 @@
                   Planned Activities and targets for the project in the year
                 </h4>
               </th>
-              <th class="header-width row-header p-5" scope="col">
+              <th class="header-width-2 row-header p-5" scope="col">
                 <h4>
                   Brief comment on the performance as well as quality assurance
                   measures undertaken towards achievement of the activity.
@@ -61,7 +61,7 @@
     </div>
 
     <div class="d-flex justify-content-end mt-4">
-      <div class="save-icon">
+      <div @click="saveForm()" class="save-icon">
         <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
         <h5>save</h5>
       </div>
@@ -70,9 +70,37 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from "vue";
+import { mapActions } from "vuex";
+import { createToast } from "mosha-vue-toastify";
+import "mosha-vue-toastify/dist/style.css";
+
+export default defineComponent({
+  setup() {
+    const toast = (title, desc, type) => {
+      createToast(
+        {
+          title: title,
+          description: desc,
+        },
+        {
+          type: type,
+          transition: "zoom",
+          hideProgressBar: true,
+          showIcon: true,
+          timeout: 3000,
+          position: "top-right",
+        }
+      );
+    };
+    return {
+      toast,
+    };
+  },
+
   data() {
     return {
+      error: true,
       annualPerformance: [
         {
           id: 1,
@@ -84,6 +112,8 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["SAVE_DATA"]),
+
     addToAnnualPerformance() {
       this.annualPerformance.push({
         id: new Date().getTime(),
@@ -97,8 +127,36 @@ export default {
         (item) => item.id !== rowItem.id
       );
     },
+    saveForm() {
+      this.annualPerformance.forEach((item) => {
+        for (const property in item) {
+          // console.log(`${property}: ${object[property]}`);
+          if (item[property] === "") {
+            this.error = true;
+            return;
+          } else {
+            this.error = false;
+            // console.log(this.engagements_form);
+          }
+        }
+      });
+
+      if (this.error) {
+        this.toast("Warning", "Fill form completely", "warning");
+        return;
+      }
+      console.log("PASSED");
+      const data = {
+        annualPerformance: this.annualPerformance,
+      };
+      const newItem = {
+        component: "resource_related",
+        item: { name: "annualPerformance", form: data },
+      };
+      this.SAVE_DATA(newItem);
+    },
   },
-};
+});
 </script>
 
 <style scoped>
@@ -126,7 +184,10 @@ export default {
   line-height: 19px;
 }
 .header-width {
-  width: 33%;
+  width: 25%;
+}
+.header-width-2 {
+  width: 50%;
 }
 
 table {

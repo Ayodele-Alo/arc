@@ -21,6 +21,12 @@ interface state {
     initial: [];
     linkageBetweenInstitution: [];
     annualPerformance: [];
+    additionalAchivements: [];
+    businessDevelopment: [];
+    challengesAndLesson: [];
+    majorPlannedActivities: [];
+    newOpportunities: [];
+    risksIndentified: [];
   };
 }
 

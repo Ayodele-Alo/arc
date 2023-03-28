@@ -97,11 +97,37 @@
 </template>
 
 <script>
-import { mapMutations, mapActions, mapGetters } from "vuex";
+import { defineComponent } from "vue";
+import { mapActions } from "vuex";
+import { createToast } from "mosha-vue-toastify";
+import "mosha-vue-toastify/dist/style.css";
 
-export default {
+export default defineComponent({
+  setup() {
+    const toast = (title, desc, type) => {
+      createToast(
+        {
+          title: title,
+          description: desc,
+        },
+        {
+          type: type,
+          transition: "zoom",
+          hideProgressBar: true,
+          showIcon: true,
+          timeout: 3000,
+          position: "top-right",
+        }
+      );
+    };
+    return {
+      toast,
+    };
+  },
+
   data() {
     return {
+      error: true,
       frameworkDeveloped: [
         {
           id: 1,
@@ -161,6 +187,58 @@ export default {
     },
 
     saveForm() {
+      this.frameworkDeveloped.forEach((item) => {
+        for (const property in item) {
+          // console.log(`${property}: ${object[property]}`);
+          if (item[property] === "") {
+            this.error = true;
+            return;
+          } else {
+            this.error = false;
+            // console.log(this.engagements_form);
+          }
+        }
+      });
+
+      if (this.error) {
+        this.toast("Warning", "Fill form completely", "warning");
+        return;
+      }
+      this.partnerInstutions.forEach((item) => {
+        for (const property in item) {
+          // console.log(`${property}: ${object[property]}`);
+          if (item[property] === "") {
+            this.error = true;
+
+            return;
+          } else {
+            this.error = false;
+            // console.log(this.engagements_form);
+          }
+        }
+      });
+
+      if (this.error) {
+        this.toast("Warning", "Fill form completely", "warning");
+        return;
+      }
+      this.LinkagesEstablished.forEach((item) => {
+        for (const property in item) {
+          // console.log(`${property}: ${object[property]}`);
+          if (item[property] === "") {
+            this.error = true;
+            return;
+          } else {
+            this.error = false;
+            // console.log(this.engagements_form);
+          }
+        }
+      });
+
+      if (this.error) {
+        this.toast("Warning", "Fill form completely", "warning");
+        return;
+      }
       const data = {
         LinkagesEstablished: this.LinkagesEstablished,
         partnerInstutions: this.partnerInstutions,
@@ -168,12 +246,12 @@ export default {
       };
       const newItem = {
         component: "resource_related",
-        item: { theme: "linkageBetweenInstitution", form: data },
+        item: { name: "linkageBetweenInstitution", form: data },
       };
       this.SAVE_DATA(newItem);
     },
   },
-};
+});
 </script>
 
 <style scoped>
