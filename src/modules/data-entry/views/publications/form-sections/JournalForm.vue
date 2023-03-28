@@ -1,10 +1,41 @@
 <template>
-  <div class="main-sec">
-<span class="form-title">Book Chapter Number/ Page Number</span>
+
+<div>
+     <div class="main-sec">
+<span class="form-title">Journal Volume</span>
 <hr class="hr" />
 <input type="text" placeholder="Type here">
 
 
+</div>
+
+<br>
+
+ <div class="main-sec">
+<span class="form-title">Supplement Number</span>
+<hr class="hr" />
+<input type="text" placeholder="Type here">
+</div>
+
+<br>
+
+ <div class="main-sec">
+<span class="form-title">Journal Issue</span>
+<hr class="hr" />
+<input type="text" placeholder="Type here">
+ 
+
+</div>
+
+<br>
+
+ <div class="main-sec">
+<span class="form-title">Journal Page</span>
+<hr class="hr" />
+<input type="text" placeholder="Type here">
+ 
+
+</div>
 </div>
 </template>
 

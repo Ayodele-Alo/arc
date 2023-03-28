@@ -1,6 +1,6 @@
 <template>
   <div class="main-sec">
-<span class="form-title">Book Title</span>
+<span class="form-title">Name of the lead Author</span>
 <hr class="hr" />
 <input type="text" placeholder="Type here">
 

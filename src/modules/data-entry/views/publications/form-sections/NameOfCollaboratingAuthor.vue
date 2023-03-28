@@ -1,6 +1,6 @@
 <template>
   <div class="main-sec">
-<span class="form-title">Name of the pubishing journal</span>
+<span class="form-title">Name of the Collaborating Author</span>
 <hr class="hr" />
 <input type="text" placeholder="Type here">
 

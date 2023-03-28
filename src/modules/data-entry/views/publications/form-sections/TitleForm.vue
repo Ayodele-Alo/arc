@@ -1,25 +1,8 @@
 <template>
-
-<div>
-     <div class="main-sec">
-<label for="book-upload">Choose a book:</label>
-
-<input type="file"
-       id="book-upload" name="book-upload"
-       accept="image/png, image/jpeg">
-
-
-</div>
-
-<br>
-
- <div class="main-sec">
-<label for="book-upload">Choose a book:</label>
-
-<input type="file"
-       id="book-upload" name="book-upload"
-       accept="image/png, image/jpeg">
-</div>
+  <div class="main-sec">
+<span class="form-title">Title</span>
+<hr class="hr" />
+<input type="text" placeholder="Type here">
 
 
 </div>

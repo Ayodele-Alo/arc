@@ -1,6 +1,6 @@
 <template>
   <div class="main-sec">
-<span class="form-title">Grant/Project Name</span>
+<span class="form-title">Book Chapter Number/ Page Number</span>
 <hr class="hr" />
 <input type="text" placeholder="Type here">
 

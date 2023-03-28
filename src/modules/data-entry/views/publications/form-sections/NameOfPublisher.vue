@@ -1,41 +1,10 @@
 <template>
-
-<div>
-     <div class="main-sec">
-<span class="form-title">Journal Volume</span>
+  <div class="main-sec">
+<span class="form-title">Name of Publisher</span>
 <hr class="hr" />
 <input type="text" placeholder="Type here">
 
 
-</div>
-
-<br>
-
- <div class="main-sec">
-<span class="form-title">Supplement Number</span>
-<hr class="hr" />
-<input type="text" placeholder="Type here">
-</div>
-
-<br>
-
- <div class="main-sec">
-<span class="form-title">Journal Issue</span>
-<hr class="hr" />
-<input type="text" placeholder="Type here">
- 
-
-</div>
-
-<br>
-
- <div class="main-sec">
-<span class="form-title">Journal Page</span>
-<hr class="hr" />
-<input type="text" placeholder="Type here">
- 
-
-</div>
 </div>
 </template>
 
@@ -43,7 +12,7 @@
   export default {
     data() {
       return {
-
+        
       }
     }
   }
@@ -53,12 +22,10 @@
 
 <style scoped>
 .main-sec{
-   /* Layout Properties */
 top: 495px;
 left: 434px;
 width: 80vw;
 height: 20vh;
-/* UI Properties */
 background: var(--60-bg) 0% 0% no-repeat padding-box;
 background: #FFFFFF 0% 0% no-repeat padding-box;
 border: 1px solid #707070AB;

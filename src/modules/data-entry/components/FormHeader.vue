@@ -16,12 +16,14 @@
         v-model="unit"
       >
         <option value="" disabled>--Select Option--</option>
+        <option value="Monthly">Monthly</option>
+        <option value="Quarterly">Quarterly</option>
         <option value="Annually">Annually</option>
-        <option value="Quarterly">Quaterly</option>
-        <option value="Yearly">Monthly</option>
-        <option value="Yearly">Human Resource</option>
-        <option value="research">Resource Related</option>
-        <option value="Yearly">Publications</option>
+        <option value="Publications">Publications</option>
+        <option value="Research">
+          Resource And Research Related Capacity Strengthening Report
+        </option>
+        <option value="Human Resource">Human Resource (HR)</option>
       </select>
     </div>
   </div>
@@ -54,13 +56,19 @@ export default defineComponent({
         case "Quarterly":
           this.$router.push("/data-entry/quarterly/create");
           break;
+           case "Monthly":
+          this.$router.push("/data-entry/monthly/create");
+          break;
         case "Policy Engagement":
           this.$router.push("/data-entry/policy-engagement/create");
           break;
-        case "research":
+        case "Human Resource":
+          this.$router.push("/data-entry/human-resource/create");
+          break;
+        case "Research":
           this.$router.push("/data-entry/research-related/create");
           break;
-        case "publications":
+        case "Publications":
           this.$router.push("/data-entry/publications/create");
           break;
         default:
