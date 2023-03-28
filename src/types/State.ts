@@ -17,6 +17,17 @@ interface state {
   activeTab: string;
   activeModal: string;
   activeForm: string;
+  resourceRelatedForm: {
+    initial: [];
+    linkageBetweenInstitution: [];
+    annualPerformance: [];
+    additionalAchivements: [];
+    businessDevelopment: [];
+    challengesAndLesson: [];
+    majorPlannedActivities: [];
+    newOpportunities: [];
+    risksIndentified: [];
+  };
 }
 
 export { state, generic, visualType, configType };
