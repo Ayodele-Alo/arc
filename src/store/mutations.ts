@@ -33,6 +33,20 @@ const mutations: MutationTree<state> = {
       state.resourceRelatedForm.annualPerformance = data.form;
     }
   },
+  saveHumanResourceData: (state, data) => {
+    console.log("called again");
+    if (data.name === "byCadre") {
+      state.humanResourceForm.byCadre = data.form;
+    } else if (data.name === "sensitization_meetings") {
+      state.humanResourceForm.sensitizationMettings = data.form;
+    } else if (data.name === "human_resource_recruitment") {
+      state.humanResourceForm.recruitmentProcess = data.form;
+    } else if (data.name === "human_resource") {
+      state.humanResourceForm.humanResource = data.form;
+    } else {
+      state.humanResourceForm.systemsThinking = data.form;
+    }
+  },
 };
 
 export default mutations;

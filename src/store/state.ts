@@ -22,6 +22,13 @@ const state: state = {
     newOpportunities: [],
     risksIndentified: [],
   },
+  humanResourceForm: {
+    byCadre: [],
+    humanResource: [],
+    recruitmentProcess: [],
+    sensitizationMettings: [],
+    systemsThinking: [],
+  },
 };
 
 export default state;

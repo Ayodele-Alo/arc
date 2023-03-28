@@ -24,6 +24,9 @@ const actions: ActionTree<state, unknown> = {
     if (payload.component === "resource_related") {
       commit("saveResourceRelatedData", payload.item);
     }
+    if (payload.component === "human_resource") {
+      commit("saveHumanResourceData", payload.item);
+    }
   },
 };
 
