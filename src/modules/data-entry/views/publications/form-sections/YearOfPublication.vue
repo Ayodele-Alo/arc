@@ -1,21 +1,46 @@
 <template>
-  <div class="main-sec">
+<div>
+    <div class="main-sec">
 <span class="form-title">Year of Publication</span>
 <hr class="hr" />
-<input type="text" placeholder="Type here">
-
-
+<input type="text" placeholder="Type here" v-model="year_of_publication">
 </div>
+
+ <div class="d-flex justify-content-end mt-4">
+      <div @click="saveForm()" class="save-icon">
+        <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+        <h5>save</h5>
+      </div>
+    </div>
+  
+</div>
+
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
+import { mapActions } from "vuex";
+export default {
+  data() {
+    return {
+      year_of_publication: "",
+    };
+  },
 
-      }
-    }
-  }
+  methods: {
+    ...mapActions(["SAVE_DATA"]),
+
+    saveForm() {
+      const data = {
+        year_of_publication: this.year_of_publication,
+      };
+      const newItem = {
+        component: "publications",
+        item: { name: "yearOfPublication", form: data },
+      };
+      this.SAVE_DATA(newItem);
+    },
+  },
+};
 </script>
 
 

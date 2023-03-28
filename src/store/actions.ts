@@ -18,8 +18,14 @@ const actions: ActionTree<state, unknown> = {
       return;
     }
   },
-  SAVE_DATA({ commit }, payload) {
-    console.log("called");
+  
+
+  async SAVE_DATA({ commit }, payload) {
+
+    if (payload.component === "publications") {
+      commit("savePublicationsData", payload.item);
+    }
+
 
     if (payload.component === "resource_related") {
       commit("saveResourceRelatedData", payload.item);
