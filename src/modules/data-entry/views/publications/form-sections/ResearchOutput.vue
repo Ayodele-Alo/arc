@@ -17,6 +17,7 @@
             name="inlineRadioOptions"
             id="inlineRadio1"
             :value="item.value"
+            v-model="output"
           />
           <label class="form-check-label" for="inlineRadio1">{{
             item.text
@@ -24,10 +25,18 @@
         </div>
       </div>
     </div>
+
+        <div class="d-flex justify-content-end mt-4">
+      <div @click="saveForm()" class="save-icon">
+        <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+        <h5>save</h5>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -41,7 +50,23 @@ export default {
         { text: "Policy Brief", value: "Policy Brief" },
         { text: "Fact Sheet", value: "Fact Sheet" },
       ],
+      output: ""
     };
+  },
+
+     methods: {
+    ...mapActions(["SAVE_DATA"]),
+
+    saveForm() {
+      const data = {
+       output: this.output,
+      };
+      const newItem = {
+        component: "publications",
+        item: { name: "researchOutput", form: data },
+      };
+      this.SAVE_DATA(newItem);
+    },
   },
 };
 </script>

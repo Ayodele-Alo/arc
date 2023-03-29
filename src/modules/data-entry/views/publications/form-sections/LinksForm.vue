@@ -15,6 +15,7 @@
             name="inlineRadioOptions"
             id="inlineRadio1"
             :value="item.value"
+            v-model="document"
           />
           <label class="form-check-label" for="inlineRadio1">{{
             item.text
@@ -40,6 +41,7 @@
             name="inlineRadioOptions"
             id="inlineRadio1"
             :value="item.value"
+            v-model="report"
           />
           <label class="form-check-label" for="inlineRadio1">{{
             item.text
@@ -65,6 +67,7 @@
             name="inlineRadioOptions"
             id="inlineRadio1"
             :value="item.value"
+            v-model="supplement"
           />
           <label class="form-check-label" for="inlineRadio1">{{
             item.text
@@ -78,7 +81,7 @@
     <div class="form-input">
       <span class="form-title">ISBN</span>
       <hr class="hr" />
-      <input type="text" placeholder="Type here" />
+      <input type="text" placeholder="Type here" v-model="isbn" />
     </div>
 
     <br /><br />
@@ -86,7 +89,7 @@
     <div class="form-input">
       <span class="form-title">DOI (Digital Object Identifier)</span>
       <hr class="hr" />
-      <input type="text" placeholder="Type here" />
+      <input type="text" placeholder="Type here" v-model="doi" />
     </div>
 
     <br /><br />
@@ -94,29 +97,45 @@
     <div class="form-input">
       <span class="form-title">Hyperlink</span>
       <hr class="hr" />
-      <input type="text" placeholder="Type here" />
+      <input type="text" placeholder="Type here" v-model="hyperlink" />
     </div>
 
     <br /><br />
     <div class="form-input">
       <span class="form-title">PMID</span>
       <hr class="hr" />
-      <input type="text" placeholder="Type here" />
+      <input type="text" placeholder="Type here" v-model="pmid" />
     </div>
 
     <br /><br />
     <div class="form-input">
       <span class="form-title">PMCID</span>
       <hr class="hr" />
-      <input type="text" placeholder="Type here" />
+      <input type="text" placeholder="Type here" v-model="pmcid" />
+    </div>
+
+    <div class="d-flex justify-content-end mt-4">
+      <div @click="saveForm()" class="save-icon">
+        <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+        <h5>save</h5>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
+      document: "",
+      report: "",
+      supplement: "",
+      isbn: "",
+      doi: "",
+      hyperlink: "",
+      pmid: "",
+      pmcid: "",
       document_options: [
         { text: "DOI", value: "DOI" },
         { text: "Hyperlink", value: "Hyperlink" },
@@ -134,6 +153,28 @@ export default {
         { text: "PMCID", value: "PMCID" },
       ],
     };
+  },
+
+            methods: {
+    ...mapActions(["SAVE_DATA"]),
+
+    saveForm() {
+      const data = {
+        document: this.document,
+        report: this.report,
+        supplement: this.supplement,
+        isbn: this.isbn,
+        doi: this.doi,
+        hyperlink: this.hyperlink,
+        pmid: this.pmid,
+        pmcid: this.pmcid,
+      };
+      const newItem = {
+        component: "publications",
+        item: { name: "linksForm", form: data },
+      };
+      this.SAVE_DATA(newItem);
+    },
   },
 };
 </script>

@@ -17,6 +17,7 @@
             name="inlineRadioOptions"
             id="inlineRadio1"
             :value="item.value"
+            v-model="year"
           />
           <label class="form-check-label" for="inlineRadio1">{{
             item.text
@@ -24,13 +25,22 @@
         </div>
       </div>
     </div>
+
+       <div class="d-flex justify-content-end mt-4">
+      <div @click="saveForm()" class="save-icon">
+        <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+        <h5>save</h5>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
+      year: "",
       years_options: [
         { text: "2005", value: "2005" },
         { text: "2006", value: "2006" },
@@ -53,6 +63,21 @@ export default {
         { text: "2023", value: "2023" },
       ],
     };
+  },
+
+      methods: {
+    ...mapActions(["SAVE_DATA"]),
+
+    saveForm() {
+      const data = {
+        year: this.year,
+      };
+      const newItem = {
+        component: "publications",
+        item: { name: "reportingPeriod", form: data },
+      };
+      this.SAVE_DATA(newItem);
+    },
   },
 };
 </script>

@@ -1,9 +1,9 @@
 import { state } from "@/types";
-import { configObject } from "@/helpers"
+import { configObject } from "@/helpers";
 
 // init state
-const TabConfig = configObject
-const defaultTabConfig = configObject[0].name
+const TabConfig = configObject;
+const defaultTabConfig = configObject[0].name;
 
 // state object
 const state: state = {
@@ -11,6 +11,38 @@ const state: state = {
   activeTab: defaultTabConfig,
   activeModal: "",
   activeForm: "",
+  publicationsForm: {
+    bookTitle: "",
+    bookchapter: "",
+    citationsForm: "",
+    formerUnits: "",
+    grantProjectName: "",
+    journalForm: "",
+    linkAvailable: "",
+    linksForm: "",
+    nameOfCollaboratingAuthor: "",
+    nameOfLeadAuthor: "",
+    nameOfPublisher: "",
+    newThemesAndDivision: "",
+    publishingJournal: "",
+    reportingperiod: "",
+    researchOutput: "",
+    titleForm: "",
+    uploadsForm: "",
+    yearOfPublications: "",
+  },
+
+  resourceRelatedForm: {
+    initial: [],
+    linkageBetweenInstitution: [],
+    annualPerformance: [],
+    additionalAchivements: [],
+    businessDevelopment: [],
+    challengesAndLesson: [],
+    majorPlannedActivities: [],
+    newOpportunities: [],
+    risksIndentified: [],
+  },
 };
 
 export default state;

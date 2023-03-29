@@ -17,6 +17,7 @@
             name="inlineRadioOptions"
             id="inlineRadio1"
             :value="item.value"
+            v-model="unit"
           />
           <label class="form-check-label" for="inlineRadio1">{{
             item.text
@@ -24,35 +25,57 @@
         </div>
       </div>
     </div>
+
+       <div class="d-flex justify-content-end mt-4">
+      <div @click="saveForm()" class="save-icon">
+        <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+        <h5>save</h5>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        units_options: [
-{ text: "MCW", value: "MCW" },
-{ text: "PDRH", value: "PDRH" },
-{ text: "EYE", value: "EYE" },
-{ text: "HSH", value: "HSH" },
-{ text: "DME", value: "DME" },
-{ text: "AAD", value: "AAD" },
-{ text: "UWB", value: "UWB" },
-{ text: "WARO", value: "WARO" },
-{ text: "RoCS / RCS", value: "RoCS / RCS" },
-{ text: "Visibility Unit", value: "Visibility Unit" },
-{ text: "Advocacy Unit", value: "Advocacy Unit" },
-{ text: "Synergy Unit", value: "Synergy Unit" },
-{ text: "PEC", value: "PEC" },
-{ text: "Operations", value: "Operations" }
-]
-      }
-    }
-  }
+import { mapActions } from "vuex";
+export default {
+  data() {
+    return {
+      units_options: [
+        { text: "MCW", value: "MCW" },
+        { text: "PDRH", value: "PDRH" },
+        { text: "EYE", value: "EYE" },
+        { text: "HSH", value: "HSH" },
+        { text: "DME", value: "DME" },
+        { text: "AAD", value: "AAD" },
+        { text: "UWB", value: "UWB" },
+        { text: "WARO", value: "WARO" },
+        { text: "RoCS / RCS", value: "RoCS / RCS" },
+        { text: "Visibility Unit", value: "Visibility Unit" },
+        { text: "Advocacy Unit", value: "Advocacy Unit" },
+        { text: "Synergy Unit", value: "Synergy Unit" },
+        { text: "PEC", value: "PEC" },
+        { text: "Operations", value: "Operations" },
+      ],
+      unit: "",
+      
+    };
+  },
+    methods: {
+    ...mapActions(["SAVE_DATA"]),
+
+    saveForm() {
+      const data = {
+        unit: this.unit,
+      };
+      const newItem = {
+        component: "publications",
+        item: { name: "formerUnits", form: data },
+      };
+      this.SAVE_DATA(newItem);
+    },
+  },
+};
 </script>
-
-
 
 <style lang="scss" scoped>
 .form {

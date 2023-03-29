@@ -17,6 +17,37 @@ interface state {
   activeTab: string;
   activeModal: string;
   activeForm: string;
+  publicationsForm: {
+    bookTitle: "",
+    bookchapter: "",
+    citationsForm: "",
+    formerUnits: "",
+    grantProjectName: "",
+    journalForm: "",
+    linkAvailable: "",
+    linksForm: "",
+    nameOfCollaboratingAuthor: "",
+    nameOfLeadAuthor: "",
+    nameOfPublisher: "",
+    newThemesAndDivision: "",
+    publishingJournal: "",
+    reportingperiod: "",
+    researchOutput: "",
+    titleForm: "",
+    uploadsForm: "",
+    yearOfPublications: "",
+  }
+  resourceRelatedForm: {
+    initial: [];
+    linkageBetweenInstitution: [];
+    annualPerformance: [];
+    additionalAchivements: [];
+    businessDevelopment: [];
+    challengesAndLesson: [];
+    majorPlannedActivities: [];
+    newOpportunities: [];
+    risksIndentified: [];
+  };
 }
 
 export { state, generic, visualType, configType };
