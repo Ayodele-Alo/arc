@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="form">
+    <div class="form-input">
       <span class="form-title">Cite as APA users</span>
       <hr class="hr" />
       <input type="text" placeholder="Type here" />
@@ -8,7 +8,7 @@
 
     <br />
 
-       <div class="form">
+       <div class="form-check">
       <span class="form-title">Units</span>
 
       <br />
@@ -35,12 +35,12 @@
 
     <br />
 
-    <div class="form">
+    <div class="form-check">
       <span>Units</span>
 
       <div>
         <div
-          class="form-check form-check-inline"
+          class="form-check-inline"
           v-for="item in related_options"
           :key="item"
         >
@@ -59,6 +59,13 @@
     </div>
 
     <br />
+
+     <div class="d-flex justify-content-end mt-4">
+      <div @click="saveForm()" class="save-icon">
+        <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+        <h5>save</h5>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -77,7 +84,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.form {
+.form-input {
   /* Layout Properties */
   top: 495px;
   left: 434px;
@@ -100,9 +107,38 @@ export default {
     opacity: 1;
   }
 
+  input {
+  height: 25px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin-left: 4px;
+}
+
+.form-check{
+
+    top: 495px;
+  left: 434px;
+  width: 80vw;
+  height: 25vh;
+  /* UI Properties */
+  background: #ffffff;
+  border: 1px solid #707070ab;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+
   input[type="radio"] {
+     height: 20px;
+     width: 20px;
+     margin-left: 0px;
     margin-right: 20px;
     margin-bottom: 25px;
+    border: 1px solid black;
   }
 }
+}
+
+
 </style>
