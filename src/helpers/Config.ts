@@ -47,8 +47,8 @@ export const configObject: configType[] = [
       },
       {
         name: "Multi country project chart overtime",
-        url: "",
-        tableau: false,
+        url: "https://public.tableau.com/views/Multicountriesovertime/Dashboard13?:language=en-GB&publish=yes&:display_count=n&:origin=viz_share_link&amp;:embed=true&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
+        tableau: true,
         fullScreen: true,
       },
       {

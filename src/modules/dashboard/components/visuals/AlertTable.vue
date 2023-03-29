@@ -43,7 +43,8 @@
         <el-table-column prop="year" label="Year" />
         <el-table-column sortable prop="difference" label="Months Left">
           <template #default="scope">
-            <span>{{ scope.row.difference }}&nbsp;Month(s)</span>
+            <span v-if="scope.row.difference === 0">CLOSED</span>
+            <span v-else>{{ scope.row.difference }}&nbsp;Month(s)</span>
           </template>
         </el-table-column>
         <el-table-column prop="month" label="">
