@@ -25,28 +25,43 @@
               <p class="">Targets</p>
             </th>
           </tr>
-          <tr  v-for="(item, index) in plan_form" :key="index">
+          <tr v-for="(item, index) in plan_form" :key="index">
             <th class="row-header p-5">
               <div class="row">
                 <div class="d-flex align-items-center">
                   <p class="mt-3">{{ index + 1 }}.</p>
-                  <input placeholder="Type Here" class="px-1" type="text" v-model="item.project_name"  />
+                  <input
+                    placeholder="Type Here"
+                    class="px-1"
+                    type="text"
+                    v-model="item.project_name"
+                  />
                 </div>
               </div>
             </th>
             <th class="row-header p-5">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3"> {{index + 1}}.</p>
-                  <input placeholder="Type Here" class="px-1" type="text" v-model="item.planned_activities" />
+                  <p class="mt-3">{{ index + 1 }}.</p>
+                  <input
+                    placeholder="Type Here"
+                    class="px-1"
+                    type="text"
+                    v-model="item.planned_activities"
+                  />
                 </div>
               </div>
             </th>
             <th class="row-header p-5">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3"> {{index + 1}}.</p>
-                  <input placeholder="Type Here" class="px-1" type="text" v-model="item.targets" />
+                  <p class="mt-3">{{ index + 1 }}.</p>
+                  <input
+                    placeholder="Type Here"
+                    class="px-1"
+                    type="text"
+                    v-model="item.targets"
+                  />
                 </div>
               </div>
             </th>
@@ -54,6 +69,13 @@
         </tbody>
       </table>
       <p class="add-more" @click="addToPlanForm">+ Add more</p>
+
+      <div class="d-flex justify-content-end mt-4">
+        <div @click="saveForm()" class="save-icon">
+          <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+          <h5>save</h5>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -68,23 +90,26 @@ export default defineComponent({
   data() {
     return {
       formCount: 1,
-         plan_form: [
+      plan_form: [
         {
           project_name: "",
           planned_activities: "",
-          targets: ""
+          targets: "",
         },
       ],
     };
   },
 
   methods: {
-       addToPlanForm() {
+    addToPlanForm() {
       this.plan_form.push({
-             project_name: "",
-          planned_activities: "",
-          targets: ""
+        project_name: "",
+        planned_activities: "",
+        targets: "",
       });
+    },
+    saveForm() {
+      console.log(this.plan_form);
     },
   },
 });

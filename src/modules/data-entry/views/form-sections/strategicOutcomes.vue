@@ -1,264 +1,292 @@
 <template>
-  <div>
-    <!-- form -->
-    <form action="" class="form-section">
-      <div class="form-card text-start">
-        Innovations based on or informed by research conducted by APHRC.
-        (Innovations can be new ideas, methodology, processes, best practices or
-        products. Include Innovations adopted and the
-        institution/individual/community/ using it). (For RRCS may include
-        innovations by the RRCS fellows that can be attributed to the
-        fellowships) <br /><br />
-        <strong>Ideas, Methodology, Processes, Best Practices, Products</strong>
-        <br /><br />
+  <label class="form-label fs-6 text-secondary"
+    >Sensitization meetings held for staff on the succession plan</label
+  >
+  <div class="card p-4 form-card">
+    <h5>
+      Innovations based on or informed by research conducted by APHRC.
+      (Innovations can be new ideas, methodology, processes, best practices or
+      products. Include Innovations adopted and the
+      institution/individual/community/ using it). (For RRCS may include
+      innovations by the RRCS fellows that can be attributed to the fellowships)
+    </h5>
 
-        <div v-for="item in ideasCount" :key="item">
-          <span
-            >{{ item }}
-
-            <input
-              type="email"
-              class="form-control"
-              placeholder="Type here"
-              v-model="form.ideas[item]"
-            />
-          </span>
-        </div>
-        <br />
-        <strong>
-          <span class="add-more" @click="addIdeasField()">Add more +</span>
-        </strong>
+    <h4>Ideas, Methodology, Processes, Best Practices, Products</h4>
+    <div v-for="(item, index) in ideas" :key="index" class="">
+      <div class="item-wrapper d-flex align-items-center py-2">
+        <h4 class="mt-3">{{ index + 1 }}.</h4>
+        <input
+          type="text"
+          v-model="item.idea"
+          placeholder="Type Here"
+          name=""
+          id=""
+        />
       </div>
+    </div>
+    <div
+      @click="addIdeasField()"
+      class="add-more d-flex justify-content-end mt-2"
+    >
+      <i class="fa fa-plus fs-6 mr-2" aria-hidden="true"></i>
+      <h5 class="px-2">Add more</h5>
+    </div>
+  </div>
+  <div class="card p-4 my-3 form-card">
+    <h5>
+      Policy actions/policy decisions informed by research and policy engagement
+      efforts on APHRC’s focus areas/ signature issues.
+    </h5>
 
-      <br /><br />
-      <div class="form-card text-start">
-        Policy actions/policy decisions informed by research and policy
-        engagement efforts on APHRC’s focus areas/ signature issues.
-        <br /><br />
-
-        <div v-for="item in policyCount" :key="item">
-          <span
-            >{{ item }}
-
-            <input
-              type="email"
-              class="form-control"
-              placeholder="Type here"
-              v-model="form.policies[item]"
-            />
-          </span>
-        </div>
-        <br />
-        <strong>
-          <span class="add-more" @click="addPoliciesField()">Add more +</span>
-        </strong>
+    <div v-for="(item, index) in policies" :key="index" class="">
+      <div class="item-wrapper d-flex align-items-center py-2">
+        <h4 class="mt-3">{{ index + 1 }}.</h4>
+        <input
+          type="text"
+          v-model="item.policy"
+          placeholder="Type Here"
+          name=""
+          id=""
+        />
       </div>
+    </div>
 
-      <br /><br />
-      <div class="form-card text-start">
-        Programs informed by research on APHRC’s signature issues/ focus areas
-        (also state the decision makers or thought influencers APHRC has engaged
-        with to develop policies)
-        <br /><br />
-        <div v-for="item in programCount" :key="item">
-          <span
-            >{{ item }}
+    <div
+      @click="addPoliciesField()"
+      class="add-more d-flex justify-content-end mt-2"
+    >
+      <i class="fa fa-plus fs-6 mr-2" aria-hidden="true"></i>
+      <h5 class="px-2">Add more</h5>
+    </div>
+  </div>
+  <div class="card p-4 my-3 form-card">
+    <h5>
+      Programs informed by research on APHRC’s signature issues/ focus areas
+      (also state the decision makers or thought influencers APHRC has engaged
+      with to develop policies)
+    </h5>
 
-            <input
-              type="email"
-              class="form-control"
-              placeholder="Type here"
-              v-model="form.programs[item]"
-            />
-          </span>
-        </div>
-        <br />
-        <strong>
-          <span class="add-more" @click="addProgramsField()">Add more +</span>
-        </strong>
+    <div v-for="(item, index) in programs" :key="index" class="">
+      <div class="item-wrapper d-flex align-items-center py-2">
+        <h4 class="mt-3">{{ index + 1 }}.</h4>
+        <input
+          type="text"
+          v-model="item.program"
+          placeholder="Type Here"
+          name=""
+          id=""
+        />
       </div>
+    </div>
+    <div
+      @click="addProgramsField()"
+      class="add-more d-flex justify-content-end mt-2"
+    >
+      <i class="fa fa-plus fs-6 mr-2" aria-hidden="true"></i>
+      <h5 class="px-2">Add more</h5>
+    </div>
+  </div>
+  <div class="card p-4 my-3 form-card">
+    <h5>
+      Alliances created with governments, critical national and pan-African
+      civil society networks, regional, parliamentary and economic bodies across
+      sub-Saharan Africa
+    </h5>
 
-      <br /><br />
-      <div class="form-card text-start">
-        Alliances created with governments, critical national and pan-African
-        civil society networks, regional, parliamentary and economic bodies
-        across sub-Saharan Africa
-        <br /><br />
-        <div v-for="item in alianceCount" :key="item">
-          <span
-            >{{ item }}
-
-            <input
-              type="email"
-              class="form-control"
-              placeholder="Type here"
-              v-model="form.aliances[item]"
-            />
-          </span>
-        </div>
-        <br />
-        <strong>
-          <span class="add-more" @click="addAliancesField()">Add more +</span>
-        </strong>
+    <div v-for="(item, index) in aliances" :key="index" class="">
+      <div class="item-wrapper d-flex align-items-center py-2">
+        <h4 class="mt-3">{{ index + 1 }}.</h4>
+        <input
+          type="text"
+          v-model="item.aliance"
+          placeholder="Type Here"
+          name=""
+          id=""
+        />
       </div>
+    </div>
+    <div
+      @click="addAliancesField()"
+      class="add-more d-flex justify-content-end mt-2"
+    >
+      <i class="fa fa-plus fs-6 mr-2" aria-hidden="true"></i>
+      <h5 class="px-2">Add more</h5>
+    </div>
+  </div>
+  <div class="card p-4 my-3 form-card">
+    <h5>
+      Level of participation of APHRC in national, regional and global technical
+      working groups around the signature issues/ focus areas/focus areas
+    </h5>
 
-      <br /><br />
-      <div class="form-card text-start">
-        Level of participation of APHRC in national, regional and global
-        technical working groups around the signature issues/ focus areas/focus
-        areas
-        <br /><br />
-        <div v-for="item in levelCount" :key="item">
-          <span
-            >{{ item }}
-
-            <input
-              type="email"
-              class="form-control"
-              placeholder="Type here"
-              v-model="form.levels[item]"
-            />
-          </span>
-        </div>
-        <br />
-        <strong>
-          <span class="add-more" @click="addLevelsField()">Add more +</span>
-        </strong>
+    <div v-for="(item, index) in levels" :key="index" class="">
+      <div class="item-wrapper d-flex align-items-center py-2">
+        <h4 class="mt-3">{{ index + 1 }}.</h4>
+        <input
+          type="text"
+          v-model="item.level"
+          placeholder="Type Here"
+          name=""
+          id=""
+        />
       </div>
+    </div>
+    <div
+      @click="addLevelsField()"
+      class="add-more d-flex justify-content-end mt-2"
+    >
+      <i class="fa fa-plus fs-6 mr-2" aria-hidden="true"></i>
+      <h5 class="px-2">Add more</h5>
+    </div>
+  </div>
+  <label class="form-label fs-6 text-secondary mt-4 mb-2">
+    Specific to DSE</label
+  >
+  <div class="card p-4 my-3 form-card">
+    <h5>
+      Individuals and organizations that used data from the APHRC micro data
+      portal (specific to DSE)
+    </h5>
 
-      <br /><br />
-      Specific to DSE
-
-      <div class="form-card text-start">
-        Individuals and organizations that used data from the APHRC micro data
-        portal (specific to DSE) <br /><br />
-        <div>
-          <span class="row">
-            <strong>Individuals: </strong>
-            <div v-for="item in individualCount" :key="item">
-              <span
-                >{{ item }}
-
-                <input
-                  type="email"
-                  class="form-control"
-                  placeholder="Type here"
-                  v-model="form.individuals[item]"
-                />
-              </span>
-            </div>
-            <br />
-            <strong>
-              <span class="add-more" @click="addIndividualsField()">Add more +</span>
-            </strong>
-          </span>
-        </div>
-        <br />
-        <div>
-          <span>
-            <strong>institutions: </strong>
-            <div v-for="item in institutionCount" :key="item">
-              <span
-                >{{ item }}
-
-                <input
-                  type="email"
-                  class="form-control"
-                  placeholder="Type here"
-                  v-model="form.institutions[item]"
-                />
-              </span>
-            </div>
-            <br />
-            <strong>
-              <span class="add-more" @click="addInstitutionsField()">Add more +</span>
-            </strong>
-          </span>
-        </div>
+    <div v-for="(item, index) in individuals" :key="index" class="">
+      <div class="item-wrapper d-flex align-items-center py-2">
+        <h4 class="mt-3">{{ index + 1 }}.</h4>
+        <input
+          type="text"
+          v-model="item.individual"
+          placeholder="Type Here"
+          name=""
+          id=""
+        />
       </div>
-      <br />
-      <div class="form-card text-start">
-        Existing data repositories utilized to inform the R&D ecosystems in
-        Africa <br /><br />
-        <div v-for="item in existingDataCount" :key="item">
-          <span
-            >{{ item }}
+    </div>
+    <div
+      @click="addIndividualsField()"
+      class="add-more d-flex justify-content-end mt-2"
+    >
+      <i class="fa fa-plus fs-6 mr-2" aria-hidden="true"></i>
+      <h5 class="px-2">Add more</h5>
+    </div>
+  </div>
+  <div class="card p-4 my-3 form-card">
+    <h5>
+      Existing data repositories utilized to inform the R&D ecosystems in Africa
+    </h5>
 
-            <input
-              type="email"
-              class="form-control"
-              placeholder="Type here"
-              v-model="form.existing_data[item]"
-            />
-          </span>
-        </div>
-        <br />
-        <strong>
-          <span class="add-more" @click="addExistingDataField()">Add more +</span>
-        </strong>
+    <div v-for="(item, index) in existing_data" :key="index" class="">
+      <div class="item-wrapper d-flex align-items-center py-2">
+        <h4 class="mt-3">{{ index + 1 }}.</h4>
+        <input
+          type="text"
+          v-model="item.existing"
+          placeholder="Type Here"
+          name=""
+          id=""
+        />
       </div>
-    </form>
+    </div>
+    <div
+      @click="addExistingDataField()"
+      class="add-more d-flex justify-content-end mt-2"
+    >
+      <i class="fa fa-plus fs-6 mr-2" aria-hidden="true"></i>
+      <h5 class="px-2">Add more</h5>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapGetters, mapMutations } from "vuex";
+import { mapActions } from "vuex";
+import { createToast } from "mosha-vue-toastify";
+import "mosha-vue-toastify/dist/style.css";
 
 export default defineComponent({
   name: "Strategic-Outcomes",
   components: {},
   data() {
     return {
-      ideasCount: 1,
-      policyCount: 1,
-      programCount: 1,
-      alianceCount: 1,
-      levelCount: 1,
-      individualCount: 1,
-      institutionCount: 1,
-      existingDataCount: 1,
-      form: {
-        ideas: {},
-        policies: {},
-        programs: {},
-        aliances: {},
-        levels: {},
-        individuals: {},
-        institutions: {},
-        existing_data: {},
-      },
+      ideas: [{ id: 1, idea: null }],
+      policies: [{ id: 1, policy: null }],
+      programs: [{ id: 1, program: null }],
+      aliances: [{ id: 1, aliance: null }],
+      levels: [{ id: 1, level: null }],
+      individuals: [{ id: 1, individual: null }],
+      institutions: [{ id: 1, institution: null }],
+      existing_data: [{ id: 1, existing: null }],
     };
   },
 
   methods: {
+    ...mapActions(["SAVE_DATA"]),
+
     addIdeasField() {
-      this.ideasCount++;
+      this.ideas.push({
+        id: new Date().getTime(),
+        idea: null,
+      });
     },
     addPoliciesField() {
-      this.policyCount++;
+      this.policies.push({
+        id: new Date().getTime(),
+        policy: null,
+      });
     },
     addProgramsField() {
-      this.programCount++;
+      this.programs.push({
+        id: new Date().getTime(),
+        program: null,
+      });
     },
     addAliancesField() {
-      this.alianceCount++;
+      this.aliances.push({
+        id: new Date().getTime(),
+        aliance: null,
+      });
     },
     addLevelsField() {
-      this.levelCount++;
+      this.levels.push({
+        id: new Date().getTime(),
+        level: null,
+      });
     },
     addIndividualsField() {
-      this.individualCount++;
+      this.individuals.push({
+        id: new Date().getTime(),
+        individual: null,
+      });
     },
     addInstitutionsField() {
-      this.institutionCount++;
+      this.institutions.push({
+        id: new Date().getTime(),
+        institution: null,
+      });
     },
     addExistingDataField() {
-      this.existingDataCount++;
+      this.existing_data.push({
+        id: new Date().getTime(),
+        existing: null,
+      });
     },
-    save(){
-      console.log('form', this.form)
-    }
+    save() {
+      const data = {
+        ideas: this.ideas,
+        policies: this.policies,
+        programs: this.programs,
+        aliances: this.aliances,
+        levels: this.levels,
+        individuals: this.individuals,
+        institutions: this.institutions,
+        existing_data: this.existing_data,
+      };
+      // console.log("form", this.form);
+      const newItem = {
+        component: "annually",
+        type: "report",
+        item: { name: "strategicOutcomes", form: data },
+      };
+      this.SAVE_DATA(newItem);
+    },
   },
 });
 </script>
@@ -266,24 +294,40 @@ export default defineComponent({
 <style scoped>
 .form-card {
   background-color: white;
-  min-height: 15vh;
-  width: 82vw;
-  padding: 20px;
-  background: var(--60-bg) 0% 0% no-repeat padding-box;
-  background: #ffffff 0% 0% no-repeat padding-box;
-  border: 1px solid #707070ab;
-  opacity: 1;
-  color: #707070;
-  font: normal normal normal 16px/19px Montserrat;
+}
+.form-card h5 {
   letter-spacing: 0px;
   color: #707070;
+  opacity: 1;
+  /* font: normal normal bold 16px/19px Montserrat; */
+  font-weight: 600;
+  font-style: normal;
+  font-family: Montserrat;
+  font-size: 14px;
+  line-height: 19px;
 }
 
-.add-more {
-  cursor: pointer;
+.form-card h4 {
+  letter-spacing: 0px;
+  color: #707070;
+  opacity: 1;
+  /* font: normal normal bold 16px/19px Montserrat; */
+  font-weight: 900;
+  font-style: normal;
+  font-family: Montserrat;
+  font-size: 15px;
+  line-height: 19px;
 }
-.add-more:hover {
-  color: red;
+.item-wrapper h4 {
+  letter-spacing: 0px;
+  color: #707070;
+  opacity: 1;
+  /* font: normal normal bold 16px/19px Montserrat; */
+  font-weight: 900;
+  font-style: normal;
+  font-family: Montserrat;
+  font-size: 17px;
+  line-height: 19px;
 }
 
 .section-header {
@@ -296,10 +340,11 @@ export default defineComponent({
 }
 
 input {
-  height: 25px;
+  height: 35px;
+  width: 100%;
   border: none;
   outline: none;
   background-color: transparent;
-  margin-left: 4px;
+  margin: 0 8px;
 }
 </style>

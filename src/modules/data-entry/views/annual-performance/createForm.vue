@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <!-- <div>
       <div class="row">
         <div class="col">
           <select
@@ -34,6 +34,45 @@
           </select>
         </div>
       </div>
+    </div> -->
+
+    <div class="select-wrapper px-4">
+      <div class="select-item">
+        <label for="">Select Theme <span>*</span></label>
+        <select
+          v-model="theme"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option disabled selected>Select Theme</option>
+          <option value="Policy Engagement and Communication (PEC)">
+            Policy Engagement and Communication (PEC)
+          </option>
+          <option value="Population Dynamics and Urbanization (PDU)">
+            Population Dynamics and Urbanization (PDU)
+          </option>
+          <option value="Operations (OPU)">Operations (OPU)</option>
+          <option value="Human Development (HD)">Human Development (HD)</option>
+          <option value=">Health and Wellbeing (HaW)">
+            Health and Wellbeing (HaW)
+          </option>
+          <option value="Data Science and Evaluation (DSE)">
+            Data Science and Evaluation (DSE)
+          </option>
+        </select>
+      </div>
+      <div class="select-item">
+        <label for="">Select Year <span>*</span></label>
+        <select
+          v-model="year"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option disabled selected>Select Year</option>
+          <option value="2023">2023</option>
+          <option value="2024">2024</option>
+        </select>
+      </div>
     </div>
 
     <div class="position-fixed bottom-0 end-0">
@@ -46,7 +85,7 @@
     <br /><br />
 
     <div class="text-start">
-      <span class="annual-text1">1.   Annual Performance Report</span>
+      <span class="annual-text1">1. Annual Performance Report</span>
     </div>
 
     <br />
@@ -301,7 +340,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 import strategicOutcomes from "../form-sections/strategicOutcomes.vue";
 // import PublicationComponent from "./form-sections/publications.vue";
@@ -325,12 +364,13 @@ import StafflingNeed from "../form-sections/stafflingNeed.vue";
 
 export default defineComponent({
   name: "createForm",
-  data(){
-    return{
+  data() {
+    return {
       theme_name: "",
       month: "",
-      year: ""
-    }
+      theme: "Policy Engagement and Communication (PEC)",
+      year: "2023",
+    };
   },
   components: {
     strategicOutcomes,
@@ -468,5 +508,27 @@ export default defineComponent({
   border-radius: 5px;
   border: none;
   z-index: 10;
+}
+
+.select-wrapper {
+  display: flex;
+}
+.select-item select {
+  width: 100%;
+}
+.select-item {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  margin-right: 10px;
+}
+
+.select-item span {
+  color: red;
+}
+option {
+  font-size: 18px;
+  background-color: #ffffff;
+  border: 1px solid red !important;
 }
 </style>

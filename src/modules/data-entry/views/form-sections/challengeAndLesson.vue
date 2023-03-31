@@ -18,7 +18,12 @@
               <div class="row">
                 <div class="d-flex align-items-center">
                   <p class="mt-3">{{ index + 1 }}.</p>
-                  <input placeholder="Type Here" class="px-1" type="text" v-model="item.challenges" />
+                  <input
+                    placeholder="Type Here"
+                    class="px-1"
+                    type="text"
+                    v-model="item.challenges"
+                  />
                 </div>
               </div>
             </th>
@@ -26,7 +31,12 @@
               <div class="row">
                 <div class="d-flex align-items-center">
                   <p class="mt-3">{{ index + 1 }}.</p>
-                  <input placeholder="Type Here" class="px-1" type="text" v-model="item.lessons_learnt" />
+                  <input
+                    placeholder="Type Here"
+                    class="px-1"
+                    type="text"
+                    v-model="item.lessons_learnt"
+                  />
                 </div>
               </div>
             </th>
@@ -34,13 +44,22 @@
         </tbody>
       </table>
       <p class="add-more" @click="addToChallengesForm()">+ Add more</p>
+
+      <div class="d-flex justify-content-end mt-4">
+        <div @click="saveForm()" class="save-icon">
+          <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+          <h5>save</h5>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapGetters, mapMutations } from "vuex";
+import { mapActions } from "vuex";
+import { createToast } from "mosha-vue-toastify";
+import "mosha-vue-toastify/dist/style.css";
 
 export default defineComponent({
   name: "ChallengesAndLessons",
@@ -58,6 +77,8 @@ export default defineComponent({
   },
 
   methods: {
+    ...mapActions(["SAVE_DATA"]),
+
     addFormCount() {
       this.formCount++;
     },
@@ -66,6 +87,15 @@ export default defineComponent({
         challenges: "",
         lessons_learnt: "",
       });
+    },
+
+    saveForm() {
+      const newItem = {
+        component: "annually",
+        type: "report",
+        item: { name: "challengesAndLessonLearnt", form: this.challenges_form },
+      };
+      this.SAVE_DATA(newItem);
     },
   },
 });

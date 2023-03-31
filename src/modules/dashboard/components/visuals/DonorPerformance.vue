@@ -190,6 +190,8 @@ export default defineComponent({
         this.donorValue = "APHRC";
         // this.donorValue = this.donorList[0].label;
 
+        // console.log( this.donorList);
+
       } catch (error) {
         console.log(error);
       } finally {
@@ -206,6 +208,8 @@ export default defineComponent({
           this.themeValue,
           this.yearValue
         );
+
+        console.log(data);
 
         // check if the data is empty
         if (data.length === 0) {

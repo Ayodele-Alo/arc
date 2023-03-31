@@ -28,16 +28,26 @@
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3">{{ index + 1}}.</p>
-                  <input placeholder="Type Here" class="px-1" type="text" v-model="item.opportunity_type" />
+                  <p class="mt-3">{{ index + 1 }}.</p>
+                  <input
+                    placeholder="Type Here"
+                    class="px-1"
+                    type="text"
+                    v-model="item.opportunity_type"
+                  />
                 </div>
               </div>
             </th>
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-3"> {{ index + 1}}.</p>
-                  <input placeholder="Type Here" class="px-1" type="text" v-model="item.comments" />
+                  <p class="mt-3">{{ index + 1 }}.</p>
+                  <input
+                    placeholder="Type Here"
+                    class="px-1"
+                    type="text"
+                    v-model="item.comments"
+                  />
                 </div>
               </div>
             </th>
@@ -45,6 +55,13 @@
         </tbody>
       </table>
       <p class="add-more" @click="addToCollaborationsForm()">+ Add more</p>
+
+      <div class="d-flex justify-content-end mt-4">
+        <div @click="saveForm()" class="save-icon">
+          <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+          <h5>save</h5>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -68,7 +85,7 @@ export default defineComponent({
       collaborations_form: [
         {
           opportunity_type: "",
-       comments: ""
+          comments: "",
         },
       ],
     };
@@ -77,9 +94,12 @@ export default defineComponent({
   methods: {
     addToCollaborationsForm() {
       this.collaborations_form.push({
-       opportunity_type: "",
-       comments: ""
+        opportunity_type: "",
+        comments: "",
       });
+    },
+    saveForm() {
+      console.log(this.collaborations_form);
     },
   },
 });

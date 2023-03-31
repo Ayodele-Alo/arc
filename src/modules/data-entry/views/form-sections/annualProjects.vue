@@ -11,19 +11,23 @@
                 and projects shall commence within the year)
               </th>
             </tr>
-            <tr v-for="item in newProjectsCount" :key="item">
+            <tr v-for="(item, index) in projects" :key="index">
               <th class="row-header">
                 <div class="row">
                   <div class="d-flex align-items-center">
-                    <p class="mt-3">{{ item }}.</p>
-                    <input placeholder="Type Here" type="text" />
+                    <p class="mt-3">{{ index + 1 }}.</p>
+                    <input
+                      v-model="item.project"
+                      placeholder="Type Here"
+                      type="text"
+                    />
                   </div>
                 </div>
               </th>
             </tr>
           </tbody>
         </table>
-         <span @click="addNewProjectsField()" class="add-more">Add more +</span>
+        <span @click="addNewProjectsField()" class="add-more">+ Add more</span>
       </div>
       <div class="col text-start mt-2">
         <div class="text-start"></div>
@@ -35,19 +39,25 @@
                 year)
               </th>
             </tr>
-            <tr v-for="item in ongoingProjectsCount" :key="item">
+            <tr v-for="(item, index) in ongoing_projects" :key="index">
               <th class="row-header">
                 <div class="row">
                   <div class="d-flex align-items-center">
-                    <p class="mt-3">{{ item }}.</p>
-                    <input placeholder="Type Here" type="text" />
+                    <p class="mt-3">{{ index + 1 }}.</p>
+                    <input
+                      v-model="item.project"
+                      placeholder="Type Here"
+                      type="text"
+                    />
                   </div>
                 </div>
               </th>
             </tr>
           </tbody>
         </table>
-        <span @click="addOngoingProjectsField()" class="add-more">Add more +</span>
+        <span @click="addOngoingProjectsField()" class="add-more"
+          >+ Add more</span
+        >
       </div>
       <div class="col text-start mt-2">
         <div class="text-start"></div>
@@ -59,19 +69,31 @@
                 year)
               </th>
             </tr>
-            <tr v-for="item in closingProjectsCount" :key="item">
+            <tr v-for="(item, index) in closing_projects" :key="index">
               <th class="row-header">
                 <div class="row">
                   <div class="d-flex align-items-center">
-                    <p class="mt-3">{{ item }}.</p>
-                    <input placeholder="Type Here" type="text" />
+                    <p class="mt-3">{{ index + 1 }}.</p>
+                    <input
+                      v-model="item.project"
+                      placeholder="Type Here"
+                      type="text"
+                    />
                   </div>
                 </div>
               </th>
             </tr>
           </tbody>
         </table>
-       <span @click="addClosingProjectsField()" class="add-more">Add more +</span>
+        <span @click="addClosingProjectsField()" class="add-more"
+          >+ Add more</span
+        >
+        <div class="d-flex justify-content-end mt-4">
+          <div @click="saveForm()" class="save-icon">
+            <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+            <h5>save</h5>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -94,19 +116,25 @@ export default defineComponent({
         ongoing_projects: {},
         closing_projects: {},
       },
+      projects: [{ id: 1, project: null }],
+      ongoing_projects: [{ id: 1, project: null }],
+      closing_projects: [{ id: 1, project: null }],
     };
   },
 
   methods: {
     addNewProjectsField() {
-      this.newProjectsCount++;
+      this.projects.push({ id: new Date().getTime(), project: null });
     },
     addOngoingProjectsField() {
-      this.ongoingProjectsCount++;
+      this.ongoing_projects.push({ id: new Date().getTime(), project: null });
     },
     addClosingProjectsField() {
-      this.closingProjectsCount++;
-    }
+      this.closing_projects.push({ id: new Date().getTime(), project: null });
+    },
+    saveForm() {
+      console.log("kklk");
+    },
   },
 });
 </script>
@@ -138,23 +166,5 @@ input {
   outline: none;
   background-color: transparent;
   margin-left: 4px;
-}
-.add-more {
-  cursor: pointer;
-}
-.add-more {
-  cursor: pointer;
-  letter-spacing: 0px;
-  opacity: 1;
-  /* font: normal normal bold 16px/19px Montserrat; */
-  font-weight: normal;
-  font-style: normal;
-  font-family: Montserrat;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: left;
-}
-.add-more:hover {
-  color: red;
 }
 </style>

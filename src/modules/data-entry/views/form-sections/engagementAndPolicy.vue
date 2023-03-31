@@ -17,7 +17,7 @@
               <p class="row-header">Comments and Next Steps</p>
             </th>
           </tr>
-          <tr v-for="(item, index) in engagements_policy_form" :key="index">
+          <tr>
             <th class="row-header">
               <div class="d-flex align-items-center mt-3">
                 <p class="row-sub-header">1. Policy engagement plans</p>
@@ -30,7 +30,7 @@
                     placeholder="Type Here"
                     class="mt-2"
                     type="text"
-                    v-model="item.opportunity_type"
+                    v-model="engagements_policy_form.policy_engagement_plan"
                   />
                 </div>
               </div>
@@ -48,7 +48,12 @@
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <input placeholder="Type Here" class="mt-2" type="text" />
+                  <input
+                    placeholder="Type Here"
+                    class="mt-2"
+                    type="text"
+                    v-model="engagements_policy_form.engagement_with_actors"
+                  />
                 </div>
               </div>
             </th>
@@ -65,7 +70,12 @@
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <input placeholder="Type Here" class="mt-2" type="text" />
+                  <input
+                    placeholder="Type Here"
+                    class="mt-2"
+                    type="text"
+                    v-model="engagements_policy_form.target_policies"
+                  />
                 </div>
               </div>
             </th>
@@ -79,7 +89,12 @@
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <input placeholder="Type Here" class="mt-2" type="text" />
+                  <input
+                    placeholder="Type Here"
+                    class="mt-2"
+                    type="text"
+                    v-model="engagements_policy_form.policy_briefs"
+                  />
                 </div>
               </div>
             </th>
@@ -93,14 +108,24 @@
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <input placeholder="Type Here" class="mt-2" type="text" />
+                  <input
+                    placeholder="Type Here"
+                    class="mt-2"
+                    type="text"
+                    v-model="engagements_policy_form.media_appearence"
+                  />
                 </div>
               </div>
             </th>
           </tr>
         </tbody>
       </table>
-      <p class="add-more" @click="addToEngagementsPolicyForm()">+ Add more</p>
+      <div class="d-flex justify-content-end mt-4">
+        <div @click="saveForm()" class="save-icon">
+          <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+          <h5>save</h5>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -125,24 +150,19 @@ export default defineComponent({
         institutions: {},
         existing_data: {},
       },
-      engagements_policy_form: [
-        {
-          opportunity_type: "",
-          comments: "",
-        },
-      ],
+      engagements_policy_form: {
+        policy_engagement_plan: "",
+        engagement_with_actors: "",
+        target_policies: "",
+        policy_briefs: "",
+        media_appearence: "",
+      },
     };
   },
 
   methods: {
-    addFormCount() {
-      this.formCount++;
-    },
-    addToEngagementsPolicyForm() {
-      this.engagements_policy_form.push({
-        opportunity_type: "",
-        comments: "",
-      });
+    saveForm() {
+      console.log(this.engagements_policy_form);
     },
   },
 });

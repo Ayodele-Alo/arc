@@ -50,6 +50,23 @@ const state: state = {
     sensitizationMettings: [],
     systemsThinking: [],
   },
+  annualForm: {
+    period: "",
+    year: "",
+    theme: "",
+    forms: {
+      annualPerformanceReport: {
+        strategicOutcomes: {},
+        annualPerformaceAgainstPlan: [],
+        additionalAchivement: "",
+        challengesAndLessonLearnt: [],
+        businessDevelopment: [],
+        newOpportunities: [],
+        engagementWithPolicyMakers: [],
+        riskIdentified: [],
+      },
+    },
+  },
 };
 
 export default state;

@@ -27,6 +27,12 @@
           v-model="staffing_gaps"
         ></textarea>
       </div>
+      <div class="d-flex justify-content-end mt-4">
+        <div @click="saveForm()" class="save-icon">
+          <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+          <h5>save</h5>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -38,9 +44,14 @@ export default {
   data() {
     return {
       staffing_level: "",
-      staffing_gaps: ""
-    }
-  }
+      staffing_gaps: "",
+    };
+  },
+  methods: {
+    saveForm() {
+      console.log("cccc");
+    },
+  },
 };
 </script>
 

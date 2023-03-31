@@ -1,72 +1,102 @@
 <template>
-  <div class="row">
+  <div class="row px-2">
     <div class="col text-start">
       <div class="text-start">
         <p class="engagement-text">
-          Highlight the key plans as a theme for 2023
+          Highlight the key plans for next year for the quarter. Breakdown of
+          the specific activities will be in the annual work plan document.
         </p>
       </div>
-      <table class="table table-bordered">
-        <tbody>
-          <tr>
-            <th class="row-header">
-              <p>Major planned activities for as a theme</p>
-              <p>
-                Alignment to the 2022-26 strategy, including the principles and
-                values: Collaborative, Innovative, Truly African and Impact
-                oriented
-              </p>
-            </th>
-          </tr>
-          <tr v-for="item in plannedActivitiesCount" :key="item">
-            <th class="row-header">
-              <div class="row">
-                <div class="d-flex align-items-center">
-                  <p class="mt-3">{{ item }}.</p>
-                  <input placeholder="Type Here" type="text" v-model="form.planned_activities[item]" />
-                </div>
-              </div>
-            </th>
-          </tr>
-        </tbody>
-      </table>
-      <p @click="addPlannedActivitiesField()" class="add-more"> Add more +</p>
+      <div class="mt-5">
+        <div class="border institution">
+          <div class="p-4">
+            <h4>Major planned activities as a theme for the quarter.</h4>
+            <h4>
+              Alignment to the 2022-26 strategy, including the principles and
+              values: Collaborative, Innovative, Truly African and Impact
+              oriented
+            </h4>
+          </div>
+          <div class="border-top p-4 d-flex">
+            <input
+              type="text"
+              placeholder="Type Here"
+              id=""
+              v-model="MajorPlannedActivities"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end mt-4">
+        <div @click="saveForm()" class="save-icon">
+          <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+          <h5>save</h5>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
-import { mapGetters, mapMutations } from "vuex";
+import { mapActions } from "vuex";
+import { createToast } from "mosha-vue-toastify";
+import "mosha-vue-toastify/dist/style.css";
 
 export default defineComponent({
-  name: "annualProjects",
-  components: {},
+  setup() {
+    const toast = (title, desc, type) => {
+      createToast(
+        {
+          title: title,
+          description: desc,
+        },
+        {
+          type: type,
+          transition: "zoom",
+          hideProgressBar: true,
+          showIcon: true,
+          timeout: 3000,
+          position: "top-right",
+        }
+      );
+    };
+    return {
+      toast,
+    };
+  },
+
   data() {
     return {
-      plannedActivitiesCount: 1,
-      form: {
-        planned_activities: {},
-      },
+      formCount: 1,
+      MajorPlannedActivities: null,
     };
   },
 
   methods: {
-    addPlannedActivitiesField() {
-      this.plannedActivitiesCount++;
+    ...mapActions(["SAVE_DATA"]),
+
+    saveForm() {
+      console.log(this.MajorPlannedActivities);
+      const newItem = {
+        component: "resource_related",
+        item: {
+          name: "majorPlannedActivities",
+          form: this.MajorPlannedActivities,
+        },
+      };
+      if (this.MajorPlannedActivities === null) {
+        this.toast("Warning", "Fill form completely", "warning");
+      } else {
+        // this.SAVE_DATA(newItem);
+      }
     },
   },
 });
 </script>
 
 <style scoped>
-.engagement-text {
-  color: #707070;
-  font: normal normal normal 16px/19px Montserrat;
-  letter-spacing: 0px;
-  color: #707070;
-  line-height: 40px;
-}
 .row-header {
   letter-spacing: 0px;
   color: #707070;
@@ -78,14 +108,9 @@ export default defineComponent({
   font-size: 16px;
   line-height: 19px;
   text-align: left;
-  padding: 25px;
+  padding-top: 25px;
 }
-.add-more {
-  cursor: pointer;
-}
-.add-more:hover {
-  color: red;
-}
+
 input {
   height: 25px;
   border: none;
@@ -93,7 +118,40 @@ input {
   background-color: transparent;
   margin-left: 4px;
 }
-.add-more {
-  cursor: pointer;
+table {
+  background-color: white;
+}
+table th {
+  width: 400px;
+}
+.institution input {
+  margin-left: 20px;
+  width: 75%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.institution h5 {
+  letter-spacing: 0px;
+  color: #707070;
+  opacity: 1;
+  /* font: normal normal bold 16px/19px Montserrat; */
+  font-weight: 400;
+  font-style: normal;
+  font-family: Montserrat;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.institution h4 {
+  letter-spacing: 0px;
+  color: #707070;
+  opacity: 1;
+  /* font: normal normal bold 16px/19px Montserrat; */
+  font-weight: bold;
+  font-style: normal;
+  font-family: Montserrat;
+  font-size: 16px;
+  line-height: 19px;
 }
 </style>

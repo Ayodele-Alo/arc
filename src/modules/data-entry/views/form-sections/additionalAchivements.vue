@@ -15,27 +15,47 @@
         v-model="additional_achievements"
       ></textarea>
     </div>
+    <div class="d-flex justify-content-end mt-4">
+      <div @click="saveForm()" class="save-icon">
+        <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+        <h5>save</h5>
+      </div>
+    </div>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapGetters, mapMutations } from "vuex";
+import { mapActions } from "vuex";
+import { createToast } from "mosha-vue-toastify";
+import "mosha-vue-toastify/dist/style.css";
 
 export default defineComponent({
   name: "AdditionalAchievementsComponent",
   components: {},
   data() {
     return {
-      additional_achievements: ""
+      additional_achievements: "",
     };
   },
 
   methods: {
+    ...mapActions(["SAVE_DATA"]),
 
+    saveForm() {
+      const newItem = {
+        component: "annually",
+        type: "report",
+        item: {
+          name: "additionalAchievement",
+          form: this.additional_achievements,
+        },
+      };
+      this.SAVE_DATA(newItem);
+      // console.log(this.additional_achievements);
+    },
   },
 });
 </script>
-
 
 <style scoped>
 .engagement-text {

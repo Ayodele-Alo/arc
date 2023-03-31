@@ -3,172 +3,289 @@
     <div class="col text-start">
       <div class="text-start">
         <p class="engagement-text">
-          The type of engagement include consultative meetings with policy
-          makers, policy cafes, conferences and any other fora. Kindly provide
-          the list of engagements and indicate the roles played by the theme
-          (e.g., keynote speaker, presenter, discussant, chair etc.) Kindly
-          attach, as a means of verification, the notes from the
-          engagement/meeting including action points and next steps for APHRC.
+          Kindly describe at least two risks that have been identified and/or
+          materialized in this reporting year.
         </p>
       </div>
-      <table class="table table-bordered">
-        <tbody>
-          <tr>
-            <th>
-              <div class="d-flex align-items-center p-3">
-                <p class="mt-3 sub-heading">Identified Risk:</p>
-                <input placeholder="Type Here" class="m" type="text" v-model="form.identified_risk" />
-              </div>
-            </th>
-          </tr>
-        </tbody>
-      </table>
 
-      <table class="table table-bordered">
-        <tbody>
-          <tr>
-            <th class="row-header py-4 header-bg">
-              <div class="row">
-                <div class="d-flex align-items-center">
-                  <p class="mt-3">Theme Objective 1:</p>
-                  <input class="px-2" placeholder="Type Here" type="text" v-model="theme_objective" />
+      <div v-for="(item, index) in risks_inderntified" :key="index" class="">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th class="row-header py-4 header-bg">
+                <div class="row">
+                  <div class="d-flex align-items-center">
+                    <p class="mt-3">Theme Objective {{ index + 1 }}:</p>
+                  </div>
                 </div>
-              </div>
-            </th>
-          </tr>
-          <tr>
-            <th class="row-header">
-              <div class="row">
-                <div class="col">
-                  <p class="mt-3 sub-heading">Risk Description:</p>
-                  <p class="sub-heading-2">
-                    (Kindly include risks identified that hindered the
-                    achievement of the objective of the theme)
-                  </p>
-                  <input placeholder="Type Here" type="text" v-model="risk_description" />
+              </th>
+            </tr>
+            <tr>
+              <th class="row-header">
+                <div class="row">
+                  <div class="col">
+                    <p class="mt-3 sub-heading">Risk Description:</p>
+                    <p class="sub-heading-2">
+                      (Kindly include risks identified that hindered the
+                      achievement of the objective of the theme)
+                    </p>
+                    <input
+                      placeholder="Type Here"
+                      type="text"
+                      v-model="item.risk_description"
+                    />
+                  </div>
                 </div>
-              </div>
-            </th>
-          </tr>
-          <tr>
-            <th class="row-header">
-              <div class="row">
-                <div class="col">
-                  <p class="mt-3 sub-heading">Key Risk Factors</p>
-                  <p class="sub-heading-2">
-                    (These are the risk dimensions within the risk identified)
-                  </p>
-                  <input placeholder="Type Here" type="text" v-model="key_risk_factors" />
+              </th>
+            </tr>
+            <tr>
+              <th class="row-header">
+                <div class="row">
+                  <div class="col">
+                    <p class="mt-3 sub-heading">Key Risk Factors</p>
+                    <p class="sub-heading-2">
+                      (These are the risk dimensions within the risk identified)
+                    </p>
+                    <input
+                      placeholder="Type Here"
+                      type="text"
+                      v-model="item.key_risk_factors"
+                    />
+                  </div>
                 </div>
-              </div>
-            </th>
-          </tr>
-          <tr>
-            <th class="row-header">
-              <div class="row">
-                <div class="col">
-                  <p class="mt-3 sub-heading">Current Status and rationale</p>
-                  <p class="sub-heading-2">
-                    (what can we do further to combat the risk)
-                  </p>
-                  <input placeholder="Type Here" type="text" v-model="current_status_rationale" />
+              </th>
+            </tr>
+            <tr>
+              <th class="row-header">
+                <div class="row">
+                  <div class="col">
+                    <p class="mt-3 sub-heading">Current Status and rationale</p>
+                    <p class="sub-heading-2">
+                      (what can we do further to combat the risk)
+                    </p>
+                    <input
+                      placeholder="Type Here"
+                      type="text"
+                      v-model="item.current_status_rationale"
+                    />
+                  </div>
                 </div>
-              </div>
-            </th>
-          </tr>
-          <tr>
-            <th class="row-header">
-              <div class="row">
-                <div class="col">
-                  <p class="mt-3 sub-heading">Agreed Actions</p>
-                  <p class="sub-heading-2">
-                    (what can we do further to combat the risk)
-                  </p>
-                  <input placeholder="Type Here" type="text" v-model="agreed_actions" />
+              </th>
+            </tr>
+            <tr>
+              <th class="row-header">
+                <div class="row">
+                  <div class="col">
+                    <p class="mt-3 sub-heading">Agreed Actions</p>
+                    <p class="sub-heading-2">
+                      (what can we do further to combat the risk)
+                    </p>
+                    <input
+                      placeholder="Type Here"
+                      type="text"
+                      v-model="item.agreed_actions"
+                    />
+                  </div>
                 </div>
-              </div>
-            </th>
-          </tr>
-          <tr>
-            <th class="row-header">
-              <div class="row">
-                <div class="col">
-                  <p class="mt-3 sub-heading">Responsible Persons</p>
-                  <p class="sub-heading-2">
-                    (Who is responsible in overseeing the process of managing
-                    the risk)
-                  </p>
-                  <input placeholder="Type Here" type="text" v-model="responsible_persons" />
+              </th>
+            </tr>
+            <tr>
+              <th class="row-header">
+                <div class="row">
+                  <div class="col">
+                    <p class="mt-3 sub-heading">Responsible Persons</p>
+                    <p class="sub-heading-2">
+                      (Who is responsible in overseeing the process of managing
+                      the risk)
+                    </p>
+                    <input
+                      placeholder="Type Here"
+                      type="text"
+                      v-model="item.responsible_persons"
+                    />
+                  </div>
                 </div>
-              </div>
-            </th>
-          </tr>
-          <tr>
-            <th class="row-header">
-              <div class="row">
-                <div class="col">
-                  <p class="mt-3 sub-heading">Risk Rating</p>
-                  <p class="sub-heading-1">
-                    The scale is 1 to 3: 1 being - low, 2 - moderate and 3- high
-                  </p>
-                  <p class="sub-heading-2">
-                    Probability (probability of the risk occurring)
-                  </p>
-                  <select class="custom-select" v-model="risk_rating_probability">
-                    <option selected>Select</option>
-                    <option value="1">1</option>
-                    <option value="2">1</option>
-                    <option value="3">3</option>
-                  </select>
+              </th>
+            </tr>
+            <tr class="position-relative">
+              <th class="row-header">
+                <div class="row">
+                  <div class="col">
+                    <p class="mt-3 sub-heading">Risk Rating</p>
+                    <p class="sub-heading-1">
+                      The scale is 1 to 3: 1 being - low, 2 - moderate and 3-
+                      high
+                    </p>
+                    <p class="sub-heading-2">
+                      Probability (probability of the risk occurring)
+                    </p>
+                    <select
+                      class="custom-select"
+                      v-model="item.risk_rating_probability"
+                    >
+                      <option disabled selected>Select</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
 
-                  <p class="sub-heading-2 mt-3">Impact (Impact of the risk)</p>
-                  <select class="custom-select" v-model="risk_rating_impact">
-                    <option selected>Select</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                  </select>
+                    <p class="sub-heading-2 mt-3">
+                      Impact (Impact of the risk)
+                    </p>
+                    <select
+                      class="custom-select"
+                      v-model="item.risk_rating_impact"
+                    >
+                      <option disabled selected>Select</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
 
-                  <p class="sub-heading-2 mt-3">Overall = P x I :</p>
-                  <select class="custom-select" v-model="risk_rating_overall">
-                    <option selected>Select</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                  </select>
+                    <p class="sub-heading-2 mt-3">Overall = P x I :</p>
+                    <select
+                      class="custom-select"
+                      v-model="item.risk_rating_overall"
+                    >
+                      <option disabled selected>Select</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </div>
                 </div>
+              </th>
+              <div
+                v-if="risks_inderntified.length > 2"
+                @click="removeFromRiskIndentified(item)"
+                class="remove-icon position-absolute bottom-0 end-0"
+              >
+                x
               </div>
-            </th>
-          </tr>
-        </tbody>
-      </table>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p @click="addToRiskIndentified()" class="add-more">+ Add more</p>
+
+      <div class="d-flex justify-content-end mt-4">
+        <div @click="saveForm()" class="save-icon">
+          <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+          <h5>save</h5>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: "RiskIdentified",
-  data(){
-  return{
-    form: {
-          identified_risk: "",
-    theme_objective: "",
-    risk_description: "",
-    key_risk_factors: "",
-    current_status_rationale: "",
-    agreed_actions: "",
-    responsible_persons: "", 
-    risk_rating_probability: "",
-    risk_rating_impact: "",
-    risk_rating_overall: ""
-    }
+import { defineComponent } from "vue";
+import { mapActions } from "vuex";
+import { createToast } from "mosha-vue-toastify";
+import "mosha-vue-toastify/dist/style.css";
 
+export default defineComponent({
+  setup() {
+    const toast = (title, desc, type) => {
+      createToast(
+        {
+          title: title,
+          description: desc,
+        },
+        {
+          type: type,
+          transition: "zoom",
+          hideProgressBar: true,
+          showIcon: true,
+          timeout: 3000,
+          position: "top-right",
+        }
+      );
+    };
+    return {
+      toast,
+    };
+  },
 
-  }
-}
-};
+  data() {
+    return {
+      error: true,
+      risks_inderntified: [
+        {
+          id: 1,
+          risk_description: "",
+          key_risk_factors: "",
+          current_status_rationale: "",
+          agreed_actions: "",
+          responsible_persons: "",
+          risk_rating_probability: "1",
+          risk_rating_impact: "1",
+          risk_rating_overall: "1",
+        },
+        {
+          id: 2,
+          risk_description: "",
+          key_risk_factors: "",
+          current_status_rationale: "",
+          agreed_actions: "",
+          responsible_persons: "",
+          risk_rating_probability: "1",
+          risk_rating_impact: "1",
+          risk_rating_overall: "1",
+        },
+      ],
+    };
+  },
+  methods: {
+    ...mapActions(["SAVE_DATA"]),
 
+    addToRiskIndentified() {
+      this.risks_inderntified.push({
+        id: new Date().getTime(),
+        risk_description: "",
+        key_risk_factors: "",
+        current_status_rationale: "",
+        agreed_actions: "",
+        responsible_persons: "",
+        risk_rating_probability: "1",
+        risk_rating_impact: "1",
+        risk_rating_overall: "1",
+      });
+    },
+    removeFromRiskIndentified(rowItem) {
+      if (this.risks_inderntified.length > 1) {
+        this.risks_inderntified = this.risks_inderntified.filter(
+          (item) => item.id !== rowItem.id
+        );
+      }
+    },
+    saveForm() {
+      this.risks_inderntified.forEach((item) => {
+        for (const property in item) {
+          // console.log(`${property}: ${object[property]}`);
+          if (item[property] === "") {
+            this.error = true;
+            return;
+          } else {
+            this.error = false;
+            // console.log(this.engagements_form);
+          }
+        }
+      });
+
+      if (this.error) {
+        this.toast("Warning", "Fill form completely", "warning");
+        return;
+      }
+      const newItem = {
+        component: "resource_related",
+        type: "report",
+        item: { name: "risksIdentified", form: this.risks_inderntified },
+      };
+      this.SAVE_DATA(newItem);
+    },
+  },
+});
 </script>
 
 <style scoped>
@@ -253,5 +370,18 @@ select {
 option {
   font-size: 18px;
   padding-left: 20px;
+}
+
+.remove-icon {
+  background-color: #f75d59;
+  padding: 2px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
 }
 </style>

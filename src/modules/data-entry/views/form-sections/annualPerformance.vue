@@ -33,32 +33,79 @@
             <th class="row-header">
               <div class="row">
                 <div class="d-flex align-items-center">
-                  <p class="mt-2">{{ index + 1 }}.</p>
-                  <input placeholder="Type Here" class="px-1" type="text" v-model="annual_form.project_name" />
+                  <p class="mt-4">{{ index + 1 }}.</p>
+                  <input
+                    placeholder="Type Here"
+                    class="px-1"
+                    type="text"
+                    v-model="item.project_name"
+                  />
                 </div>
               </div>
             </th>
             <td>
-              <input placeholder="Type Here" class="px-1" type="text" v-model="annual_form.planned_activities"/>
+              <input
+                placeholder="Type Here"
+                class="px-1 mt-3"
+                type="text"
+                v-model="item.planned_activities"
+              />
             </td>
             <td>
-              <input placeholder="Type Here" class="px-1" type="text" v-model="annual_form.brief_comment" />
+              <input
+                placeholder="Type Here"
+                class="px-1 mt-3"
+                type="text"
+                v-model="item.brief_comment"
+              />
             </td>
           </tr>
         </tbody>
       </table>
       <p class="add-more" @click="addToAnnualForm()">+ Add more</p>
+
+      <div class="d-flex justify-content-end mt-4">
+        <div @click="saveForm()" class="save-icon">
+          <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+          <h5>save</h5>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
-import { mapGetters, mapMutations } from "vuex";
+import { mapActions } from "vuex";
+import { createToast } from "mosha-vue-toastify";
+import "mosha-vue-toastify/dist/style.css";
 
 export default defineComponent({
   name: "AnnualPerformanceComponent",
   components: {},
+
+  setup() {
+    const toast = (title, desc, type) => {
+      createToast(
+        {
+          title: title,
+          description: desc,
+        },
+        {
+          type: type,
+          transition: "zoom",
+          hideProgressBar: true,
+          showIcon: true,
+          timeout: 3000,
+          position: "top-right",
+        }
+      );
+    };
+    return {
+      toast,
+    };
+  },
+
   data() {
     return {
       formCount: 1,
@@ -66,22 +113,32 @@ export default defineComponent({
         {
           project_name: "",
           planned_activities: "",
-          brief_comment: ""
+          brief_comment: "",
         },
       ],
     };
   },
 
   methods: {
+    ...mapActions(["SAVE_DATA"]),
+
     addFormCount() {
       this.formCount++;
     },
     addToAnnualForm() {
       this.annual_form.push({
-         project_name: "",
-          planned_activities: "",
-          brief_comment: ""
+        project_name: "",
+        planned_activities: "",
+        brief_comment: "",
       });
+    },
+    saveForm() {
+      const newItem = {
+        component: "annually",
+        type: "report",
+        item: { name: "annualPerformanceAgainstPlan", form: this.annual_form },
+      };
+      this.SAVE_DATA(newItem);
     },
   },
 });
@@ -124,18 +181,13 @@ input {
   outline: none;
   background-color: transparent;
   margin-left: 4px;
+  width: 100%;
 }
 .pub-item-wrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 15px 4px;
-}
-.add-more {
-  cursor: pointer;
-}
-.add-more:hover {
-  color: red;
 }
 .row-sub-header {
   letter-spacing: 0px;
