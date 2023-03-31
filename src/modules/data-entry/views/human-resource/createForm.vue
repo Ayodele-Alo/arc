@@ -1,96 +1,107 @@
 <template>
   <div class="mt-4 px-4">
-       <div class="position-fixed bottom-0 end-0">
+    <div class="position-fixed bottom-0 end-0">
       <button class="submit-btn">Submit Form</button>
       <button class="save-btn">Save to draft</button>
-    </div> 
-    <div class="mb-3 text-start">
+    </div>
+    <div class="select-item">
+      <label for="">Select Year <span>*</span></label>
+      <select class="form-select" aria-label="Default select example">
+        <option disabled selected>Select Year</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+      </select>
+    </div>
+    <div class="my-4 text-start">
       <p class="fw-bold text-secondary mb-1">1. Human Resource Report Tool</p>
-      <small class="text-secondary">This report gives an annual summary of the status of the Center in terms of human Resource guided by the strategic plan 2022-2026</small>
+      <small class="text-secondary"
+        >This report gives an annual summary of the status of the Center in
+        terms of human Resource guided by the strategic plan 2022-2026</small
+      >
     </div>
 
     <div>
       <div
-      class="section-header text-start"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapseExample"
-    >
-      <span>A. Human Resource</span>
-         <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
-    </div>
+        class="section-header text-start"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseExample"
+      >
+        <span>A. Human Resource</span>
+        <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
+      </div>
 
-    <div class="collapse" id="collapseExample">
-      <humanResource />
-    </div>
-    </div>
-
-    <div>
-      <div
-      class="section-header text-start"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapseExample2"
-    >
-      <span>B. By Cadre</span>
-         <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
-    </div>
-
-    <div class="collapse" id="collapseExample2">
-      <byCadre />
-    </div>
+      <div class="collapse" id="collapseExample">
+        <humanResource />
+      </div>
     </div>
 
     <div>
       <div
-      class="section-header text-start"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapseExample3"
-    >
-      <span>C. Human Resource Recruitment Process</span>
-         <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
-    </div>
+        class="section-header text-start"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseExample2"
+      >
+        <span>B. By Cadre</span>
+        <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
+      </div>
 
-    <div class="collapse" id="collapseExample3">
-      <recruitmentProcess />
-    </div>
-    </div>
-
-    <div>
-      <div
-      class="section-header text-start"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapseExample4"
-    >
-      <span>D. Sensitization meetings</span>
-         <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
-    </div>
-
-    <div class="collapse" id="collapseExample4">
-      <sensitizationMeetings />
-    </div>
+      <div class="collapse" id="collapseExample2">
+        <byCadre />
+      </div>
     </div>
 
     <div>
       <div
-      class="section-header text-start"
-      data-bs-toggle="collapse"
-      data-bs-target="#collapseExample5"
-    >
-      <span>E. Systems Thinking Approach -HR</span>
-         <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
+        class="section-header text-start"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseExample3"
+      >
+        <span>C. Human Resource Recruitment Process</span>
+        <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
+      </div>
+
+      <div class="collapse" id="collapseExample3">
+        <recruitmentProcess />
+      </div>
     </div>
 
-    <div class="collapse" id="collapseExample5">
-      <systemThinkingApproach />
+    <div>
+      <div
+        class="section-header text-start"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseExample4"
+      >
+        <span>D. Sensitization meetings</span>
+        <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
+      </div>
+
+      <div class="collapse" id="collapseExample4">
+        <sensitizationMeetings />
+      </div>
     </div>
+
+    <div>
+      <div
+        class="section-header text-start"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseExample5"
+      >
+        <span>E. Systems Thinking Approach -HR</span>
+        <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
+      </div>
+
+      <div class="collapse" id="collapseExample5">
+        <systemThinkingApproach />
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import humanResource from './form-sections/humanResource.vue'
-import byCadre from './form-sections/byCadre.vue'
-import recruitmentProcess from './form-sections/recruitmentProcess.vue'
+import humanResource from "./form-sections/humanResource.vue";
+import byCadre from "./form-sections/byCadre.vue";
+import recruitmentProcess from "./form-sections/recruitmentProcess.vue";
 import sensitizationMeetings from "./form-sections/sensitizationMeetings.vue";
 import systemThinkingApproach from "./form-sections/systemsThinking.vue";
 
@@ -101,7 +112,7 @@ export default defineComponent({
     byCadre,
     recruitmentProcess,
     sensitizationMeetings,
-    systemThinkingApproach
+    systemThinkingApproach,
   },
 });
 </script>
@@ -202,5 +213,9 @@ export default defineComponent({
   border-radius: 5px;
   border: none;
   z-index: 10;
+}
+
+.select-item select {
+  width: 400px;
 }
 </style>

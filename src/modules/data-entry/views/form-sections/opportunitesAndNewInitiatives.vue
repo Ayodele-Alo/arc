@@ -11,6 +11,12 @@
         v-model="opportunities"
       ></textarea>
     </div>
+    <div class="d-flex justify-content-end mt-4">
+      <div @click="saveForm()" class="save-icon">
+        <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+        <h5>save</h5>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -23,8 +29,14 @@ export default defineComponent({
   components: {},
   data() {
     return {
-      opportunities: ""
+      opportunities: "",
     };
+  },
+
+  methods: {
+    saveForm() {
+      console.log(this.opportunities);
+    },
   },
 });
 </script>

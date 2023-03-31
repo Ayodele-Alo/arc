@@ -6,25 +6,25 @@ export const configObject: configType[] = [
     visuals: [
       {
         name: "Total number of active and inactive grants",
-        url: "https://public.tableau.com/views/Donutdb/Donutdb?:language=en-GB&publish=yes&:display_count=n&:origin=viz_share_link&amp;:embed=true&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
+        url: "https://public.tableau.com/shared/FJ396TJWH?:display_count=n&:origin=viz_share_link:showVizHome=no&:embed=true",
         tableau: true,
         fullScreen: true,
       },
       {
         name: "Total number of active and inactive themes",
-        url: "https://public.tableau.com/views/ActiveInactivethemes/ActiveInactivethemes_1?:language=en-US&:origin=viz_share_link&amp;:embed=true&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
+        url: "https://public.tableau.com/views/Totalnumberofactiveandinactivethemes/ActiveInactivethemes_1?:language=en-US&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
         fullScreen: true,
       },
       {
         name: "Grants of less than one year and more than one year",
-        url: "https://public.tableau.com/views/1year1year/1year1year?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link&amp;:embed=true&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
+        url: "https://public.tableau.com/views/Grantsoflessthanoneyearandmorethanoneyear/Grants1yrmore?:language=en-US&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
         fullScreen: true,
       },
       {
         name: "Grants of less than 1 million and more than 1 million",
-        url: "https://public.tableau.com/views/Oneyearmultiyears/oneyearmultiyear?:language=en-US&:origin=viz_share_link&amp;:embed=true&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
+        url: "https://public.tableau.com/views/Oneyearmultiyears/1MmultiMillion?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
         fullScreen: true,
       },
@@ -47,14 +47,14 @@ export const configObject: configType[] = [
       },
       {
         name: "Multi country project chart overtime",
-        url: "https://public.tableau.com/views/Multicountriesovertime/Dashboard13?:language=en-GB&publish=yes&:display_count=n&:origin=viz_share_link&amp;:embed=true&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
+        url: "https://public.tableau.com/views/Multicountriesovertime/Dashboard13?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
         fullScreen: true,
       },
       {
         name: "Kenya vs other country projects overtime",
-        url: "",
-        tableau: false,
+        url: "https://public.tableau.com/views/KvsOthers/Dashboard11?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
+        tableau: true,
         fullScreen: true,
       },
       {
@@ -93,25 +93,25 @@ export const configObject: configType[] = [
     visuals: [
       {
         name: "total number of grants per theme",
-        url: "https://public.tableau.com/views/Grantspertheme/NoofGrantspertheme?:language=en-US&:origin=viz_share_link&amp;:embed=true&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
+        url: "https://public.tableau.com/views/Totalnumberofgrantspertheme/NoofGrantspertheme?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
         fullScreen: true,
       },
       {
         name: "themes as synergy or signature",
-        url: "https://public.tableau.com/views/Themesassignaturesynergy/ThemesasSignaturesynergy?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
+        url: "https://public.tableau.com/views/ThemesasSynergyorSignature/ThemesasSignaturesynergy?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
         fullScreen: true,
       },
       {
         name: "Theme as prime or sub-award with amount ",
-        url: "https://public.tableau.com/views/Themesasprimesubaward/Themeasprimesub?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
+        url: "https://public.tableau.com/views/ThemeasPrimeorsub-awardwithamount/Themeasprimesub?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
         fullScreen: true,
       },
       {
         name: "Percentage of products as prime or subaward",
-        url: "https://public.tableau.com/views/Themesasprimesubaward_16783800455270/Dashboard10?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
+        url: "https://public.tableau.com/views/PercentageofProductsasPrimeorSubaward/Dashboard10?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
         fullScreen: true,
       },
@@ -128,19 +128,19 @@ export const configObject: configType[] = [
     visuals: [
       {
         name: "indicator versus set target",
-        url: "",
+        url: "https://public.tableau.com/views/APHRCDemo2/Dashboard8?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
         fullScreen: true,
       },
       {
         name: "indicator scorecard",
-        url: "",
+        url: "https://public.tableau.com/views/Indicatorscorecard/Dashboard9?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
         fullScreen: true,
       },
       {
         name: "indicator comparison",
-        url: "",
+        url: "https://public.tableau.com/views/Indicatorcomparison_16802607593950/Dashboard10?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
         tableau: true,
         fullScreen: true,
       },

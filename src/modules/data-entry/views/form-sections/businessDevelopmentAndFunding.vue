@@ -8,6 +8,7 @@
         id=""
         cols="30"
         rows="5"
+        v-model="fundingGaps"
       ></textarea>
       <div class="mt-2">
         <table class="table table-bordered">
@@ -36,6 +37,7 @@
                       placeholder="Type Here"
                       class="px-1 mt-2"
                       type="text"
+                      v-model="item.thematic_focus"
                     />
                   </div>
                 </div>
@@ -43,11 +45,12 @@
               <th class="row-header p-5">
                 <div class="row">
                   <div class="d-flex align-items-center">
-                    {{ index + 1}}
+                    {{ index + 1 }}
                     <input
                       placeholder="Type Here"
                       class="px-1 mt-2"
                       type="text"
+                      v-model="item.targeted_agency"
                     />
                   </div>
                 </div>
@@ -55,11 +58,12 @@
               <th class="row-header p-5">
                 <div class="row">
                   <div class="d-flex align-items-center">
-                    {{ index + 1}}
+                    {{ index + 1 }}
                     <input
                       placeholder="Type Here"
                       class="px-1 mt-2"
                       type="text"
+                      v-model="item.countries_focus"
                     />
                   </div>
                 </div>
@@ -67,12 +71,12 @@
               <th class="row-header p-5">
                 <div class="row">
                   <div class="d-flex align-items-center">
-
-                    {{ index + 1}}
+                    {{ index + 1 }}
                     <input
                       placeholder="Type Here"
                       class="px-1 mt-2"
                       type="text"
+                      v-model="item.amounts_raised"
                     />
                   </div>
                 </div>
@@ -81,6 +85,12 @@
           </tbody>
         </table>
         <p class="add-more" @click="addToBusinessFundingForm()">+ Add more</p>
+        <div class="d-flex justify-content-end mt-4">
+          <div @click="saveForm()" class="save-icon">
+            <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+            <h5>save</h5>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -90,10 +100,10 @@
 export default {
   name: "BusinessDevelopmentAndFunding",
   components: {},
-  data(){
-    return{
+  data() {
+    return {
       fundingGaps: "",
-          business_funding_form: [
+      business_funding_form: [
         {
           thematic_focus: "",
           targeted_agency: "",
@@ -101,19 +111,22 @@ export default {
           amounts_raised: "",
         },
       ],
-    }
+    };
   },
-    methods: {
+  methods: {
     addFormCount() {
       this.formCount++;
     },
     addToBusinessFundingForm() {
       this.business_funding_form.push({
-         thematic_focus: "",
-          targeted_agency: "",
-          countries_focus: "",
-          amounts_raised: "",
+        thematic_focus: "",
+        targeted_agency: "",
+        countries_focus: "",
+        amounts_raised: "",
       });
+    },
+    saveForm() {
+      console.log(this.business_funding_form);
     },
   },
 };

@@ -43,6 +43,30 @@ const state: state = {
     newOpportunities: [],
     risksIndentified: [],
   },
+  humanResourceForm: {
+    byCadre: [],
+    humanResource: [],
+    recruitmentProcess: [],
+    sensitizationMettings: [],
+    systemsThinking: [],
+  },
+  annualForm: {
+    period: "",
+    year: "",
+    theme: "",
+    forms: {
+      annualPerformanceReport: {
+        strategicOutcomes: {},
+        annualPerformaceAgainstPlan: [],
+        additionalAchivement: "",
+        challengesAndLessonLearnt: [],
+        businessDevelopment: [],
+        newOpportunities: [],
+        engagementWithPolicyMakers: [],
+        riskIdentified: [],
+      },
+    },
+  },
 };
 
 export default state;

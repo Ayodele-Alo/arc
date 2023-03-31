@@ -6,29 +6,31 @@
       <div class="loading_dots" />
     </div>
     <section class="alert_table" v-else>
-    <div class="d-flex flex-md-row flex-column justify-content-between align-items-center mb-2">
-      <div class="mb-3 mt-2 alert_table_select">
-        <label for="end_year">End Year</label><br />
-        <el-select
-          v-model="yearValue"
-          filterable
-          placeholder="--Select Year--"
-          label="End Year"
-          placement="top-start"
-        >
-          <el-option
-            v-for="(item, i) in yearList"
-            :key="i"
-            :label="item.year"
-            :value="item.year"
-            id="end_year"
-          ></el-option>
-        </el-select>
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <div class="mb-3 mt-2 alert_table_select">
+          <label for="end_year">End Year</label><br />
+          <el-select
+            v-model="yearValue"
+            filterable
+            placeholder="--Select Year--"
+            label="End Year"
+            placement="top-start"
+          >
+            <el-option
+              v-for="(item, i) in yearList"
+              :key="i"
+              :label="item.year"
+              :value="item.year"
+              id="end_year"
+            ></el-option>
+          </el-select>
+        </div>
+        <p>
+          No. of Projects:&nbsp;<strong
+            ><u>{{ tableData.length }}</u></strong
+          >
+        </p>
       </div>
-      <p>
-        No. of Projects:&nbsp;<strong><u>{{ tableData.length }}</u></strong>
-      </p>
-    </div>
 
       <el-table
         :data="tableData"
@@ -38,13 +40,30 @@
         :default-sort="{ prop: 'difference', order: 'ascending' }"
       >
         <el-table-column sortable prop="date" label="Date" min-width="150" />
-        <el-table-column sortable prop="name" label="Grant Name" min-width="150" />
-        <el-table-column sortable prop="no" label="Grant Code" min-width="150" />
+        <el-table-column
+          sortable
+          prop="name"
+          label="Grant Name"
+          min-width="150"
+        />
+        <el-table-column
+          sortable
+          prop="no"
+          label="Grant Code"
+          min-width="150"
+        />
         <el-table-column prop="year" label="Year" min-width="150" />
-        <el-table-column sortable prop="difference" label="Months Left" min-width="150">
+        <el-table-column
+          sortable
+          prop="difference"
+          label="Months Left"
+          min-width="150"
+        >
           <template #default="scope">
-            <span v-if="scope.row.difference === 0">CLOSED</span>
-            <span v-else>{{ scope.row.difference }}&nbsp;Month(s)</span>
+            <span v-if="scope.row.difference !== 0"
+              >{{ scope.row.difference }}&nbsp;Month(s)</span
+            >
+            <span v-else>Closed</span>
           </template>
         </el-table-column>
         <el-table-column prop="month" label="" min-width="150">

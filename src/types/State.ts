@@ -18,25 +18,25 @@ interface state {
   activeModal: string;
   activeForm: string;
   publicationsForm: {
-    bookTitle: "",
-    bookchapter: "",
-    citationsForm: "",
-    formerUnits: "",
-    grantProjectName: "",
-    journalForm: "",
-    linkAvailable: "",
-    linksForm: "",
-    nameOfCollaboratingAuthor: "",
-    nameOfLeadAuthor: "",
-    nameOfPublisher: "",
-    newThemesAndDivision: "",
-    publishingJournal: "",
-    reportingperiod: "",
-    researchOutput: "",
-    titleForm: "",
-    uploadsForm: "",
-    yearOfPublications: "",
-  }
+    bookTitle: "";
+    bookchapter: "";
+    citationsForm: "";
+    formerUnits: "";
+    grantProjectName: "";
+    journalForm: "";
+    linkAvailable: "";
+    linksForm: "";
+    nameOfCollaboratingAuthor: "";
+    nameOfLeadAuthor: "";
+    nameOfPublisher: "";
+    newThemesAndDivision: "";
+    publishingJournal: "";
+    reportingperiod: "";
+    researchOutput: "";
+    titleForm: "";
+    uploadsForm: "";
+    yearOfPublications: "";
+  };
   resourceRelatedForm: {
     initial: [];
     linkageBetweenInstitution: [];
@@ -47,6 +47,30 @@ interface state {
     majorPlannedActivities: [];
     newOpportunities: [];
     risksIndentified: [];
+  };
+  humanResourceForm: {
+    byCadre: [];
+    humanResource: [];
+    recruitmentProcess: [];
+    sensitizationMettings: [];
+    systemsThinking: [];
+  };
+  annualForm: {
+    period: string;
+    year: string;
+    theme: string;
+    forms: {
+      annualPerformanceReport: {
+        strategicOutcomes: {};
+        annualPerformaceAgainstPlan: [];
+        additionalAchivement: string;
+        challengesAndLessonLearnt: [];
+        businessDevelopment: [];
+        newOpportunities: [];
+        engagementWithPolicyMakers: [];
+        riskIdentified: [];
+      };
+    };
   };
 }
 
