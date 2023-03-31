@@ -39,11 +39,26 @@
         lazy
         :default-sort="{ prop: 'difference', order: 'ascending' }"
       >
-        <el-table-column sortable prop="date" label="Date" />
-        <el-table-column sortable prop="name" label="Grant Name" />
-        <el-table-column sortable prop="no" label="Grant Code" />
-        <el-table-column prop="year" label="Year" />
-        <el-table-column sortable prop="difference" label="Months Left">
+        <el-table-column sortable prop="date" label="Date" min-width="150" />
+        <el-table-column
+          sortable
+          prop="name"
+          label="Grant Name"
+          min-width="150"
+        />
+        <el-table-column
+          sortable
+          prop="no"
+          label="Grant Code"
+          min-width="150"
+        />
+        <el-table-column prop="year" label="Year" min-width="150" />
+        <el-table-column
+          sortable
+          prop="difference"
+          label="Months Left"
+          min-width="150"
+        >
           <template #default="scope">
             <span v-if="scope.row.difference !== 0"
               >{{ scope.row.difference }}&nbsp;Month(s)</span
@@ -51,7 +66,7 @@
             <span v-else>Closed</span>
           </template>
         </el-table-column>
-        <el-table-column prop="month" label="">
+        <el-table-column prop="month" label="" min-width="150">
           <template #default="scope">
             <span
               v-if="scope.row.expiring_threshold === true"

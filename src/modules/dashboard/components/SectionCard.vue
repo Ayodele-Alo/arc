@@ -47,6 +47,8 @@
         <div v-if="el.tableau === false && el.url !== ''">
           <DonorPerformance v-if="el.url === 'donor_performance_overtime'" />
         </div>
+        <!--
+          style="height: inherit; width: 100%" -->
         <iframe
           v-else-if="el.tableau === true && el.url !== ''"
           :src="el.url"
