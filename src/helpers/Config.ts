@@ -53,8 +53,8 @@ export const configObject: configType[] = [
       },
       {
         name: "Kenya vs other country projects overtime",
-        url: "https://public.tableau.com/views/KvsOthers/Dashboard11?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
-        tableau: true,
+        url: "",
+        tableau: false,
         fullScreen: true,
       },
       {
@@ -128,20 +128,20 @@ export const configObject: configType[] = [
     visuals: [
       {
         name: "indicator versus set target",
-        url: "https://public.tableau.com/views/APHRCDemo2/Dashboard8?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
-        tableau: true,
+        url: "",
+        tableau: false,
         fullScreen: true,
       },
       {
         name: "indicator scorecard",
-        url: "https://public.tableau.com/views/Indicatorscorecard/Dashboard9?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
-        tableau: true,
+        url: "",
+        tableau: false,
         fullScreen: true,
       },
       {
         name: "indicator comparison",
-        url: "https://public.tableau.com/views/Indicatorcomparison_16802607593950/Dashboard10?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link:showVizHome=no&amp;:embed=true",
-        tableau: true,
+        url: "",
+        tableau: false,
         fullScreen: true,
       },
     ],
