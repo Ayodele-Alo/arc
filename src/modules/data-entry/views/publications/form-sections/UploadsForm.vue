@@ -22,19 +22,41 @@
 </div>
 
 
+ <div class="d-flex justify-content-end mt-4">
+      <div @click="saveForm()" class="save-icon">
+        <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
+        <h5>save</h5>
+      </div>
+    </div>
+
 </div>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
+import { mapActions } from "vuex";
+export default {
+  data() {
+    return {
+      book_title: "",
+    };
+  },
 
-      }
-    }
-  }
+  methods: {
+    ...mapActions(["SAVE_DATA"]),
+
+    saveForm() {
+      const data = {
+        book_title: this.book_title,
+      };
+      const newItem = {
+        component: "publications",
+        item: { name: "bookTitle", form: data },
+      };
+      this.SAVE_DATA(newItem);
+    },
+  },
+};
 </script>
-
 
 
 <style scoped>

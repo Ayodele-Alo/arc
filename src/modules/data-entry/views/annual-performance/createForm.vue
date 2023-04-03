@@ -252,7 +252,7 @@
       data-bs-toggle="collapse"
       data-bs-target="#collapse115"
     >
-      <span>B. 2023 Projects</span>
+      <span>B. Projects for the next year</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
