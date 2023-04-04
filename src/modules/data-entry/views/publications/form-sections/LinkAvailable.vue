@@ -26,7 +26,7 @@
       </div>
     </div>
 
-     <div class="d-flex justify-content-end mt-4">
+    <div class="d-flex justify-content-end mt-4">
       <div @click="saveForm()" class="save-icon">
         <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
         <h5>save</h5>
@@ -37,20 +37,20 @@
 
 <script>
 import { mapActions } from "vuex";
-  export default {
-    data() {
-      return {
-        link: "",
-        link_options: [
-{ text: "ISBN", value: "ISBN" },
-{ text: "DOI", value: "DOI" },
-{ text : "Hyperlink", value: "Hyperlink" },
-{ text: "Soft copy of the book", value: "Soft copy of the book" },
-]
-      }
-    },
+export default {
+  data() {
+    return {
+      link: "",
+      link_options: [
+        { text: "ISBN", value: "ISBN" },
+        { text: "DOI", value: "DOI" },
+        { text: "Hyperlink", value: "Hyperlink" },
+        { text: "Soft copy of the book", value: "Soft copy of the book" },
+      ],
+    };
+  },
 
-          methods: {
+  methods: {
     ...mapActions(["SAVE_DATA"]),
 
     saveForm() {
@@ -64,17 +64,15 @@ import { mapActions } from "vuex";
       this.SAVE_DATA(newItem);
     },
   },
-  }
+};
 </script>
-
-
 
 <style lang="scss" scoped>
 .form {
   /* Layout Properties */
   top: 495px;
   left: 434px;
-  width: 80vw;
+  width: 100%;
   height: 25vh;
   /* UI Properties */
   background: #ffffff;
