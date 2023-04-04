@@ -1,7 +1,5 @@
 {
-  "form":{
-    "quarterlyPerformanceReport": {
-    "strategicOutcomes": "ttttt",
+  "quarterlyPerformanceReport": {
     "annualPerformaceAgainstPlan": [
       {
         "project_name": "rrrrr",
@@ -74,16 +72,8 @@
         "risk_rating_overall": "1"
       }
     ]
-  }
   },
-  "quarter"
-:
-"Quarter 1",
-"theme"
-:
-"Policy Engagement and Communication (PEC)",
-"year"
-:
-"2023"
+  "quarter": "Quarter 1",
+  "theme": "Policy Engagement and Communication (PEC)",
+  "year": "2023"
 }
-

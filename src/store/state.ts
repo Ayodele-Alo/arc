@@ -87,6 +87,18 @@ const state: state = {
       },
     },
   },
+
+  monthlyForm: {
+    month: "",
+    year: "",
+    theme: "",
+    forms: {
+      project_name: "",
+      progress_for_the_month: "",
+      challenges_and_lesson: "",
+      planned_activities: "",
+    },
+  },
 };
 
 export default state;

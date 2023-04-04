@@ -54,6 +54,9 @@ const actions: ActionTree<state, unknown> = {
     if (payload.component === "publications") {
       commit("submitPublicationsData", payload);
     }
+    if (payload.component === "monthly") {
+      commit("submitMonthlyData", payload);
+    }
   },
 };
 

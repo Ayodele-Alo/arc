@@ -92,6 +92,17 @@ interface state {
       };
     };
   };
+  monthlyForm: {
+    month: string;
+    year: string;
+    theme: string;
+    forms: {
+      project_name: "";
+      progress_for_the_month: "";
+      challenges_and_lesson: "";
+      planned_activities: "";
+    };
+  };
 }
 
 export { state, generic, visualType, configType };

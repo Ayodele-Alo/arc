@@ -136,6 +136,13 @@ const mutations: MutationTree<state> = {
   submitPublicationsData: (state) => {
     console.log(state.publicationsForm);
   },
+  submitMonthlyData: (state, payload) => {
+    state.monthlyForm.month = payload.month;
+    state.monthlyForm.year = payload.ye;
+    state.monthlyForm.theme = payload.theme;
+    state.monthlyForm.forms = payload.forms;
+    console.log(state.monthlyForm);
+  },
 };
 
 export default mutations;
