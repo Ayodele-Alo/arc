@@ -109,7 +109,7 @@
             <div class="row">
               <div class="d-flex align-items-center">
                 <input
-                  v-model="lessons"
+                  v-model="lesson"
                   placeholder="Type Here"
                   class="px-1"
                   type="text"
@@ -122,7 +122,7 @@
     </table>
     <div>
       <span>Planned activities for next month</span>
-      <textarea v-model="progress" name="" id=""></textarea>
+      <textarea v-model="planned_activities" name="" id=""></textarea>
     </div>
   </div>
 </template>
@@ -163,20 +163,36 @@ export default defineComponent({
       year: "2023",
       project_name: "",
       progress_for_the_month: "",
-      progress: "",
       challenges: "",
       lesson: "",
+      planned_activities: "",
     };
   },
 
   methods: {
+    ...mapActions(["SUBMIT_FORM"]),
     submitForm() {
-      console.log("jjjj");
-      this.progress = "";
+      const data = {
+        component: "monthly",
+        theme: this.theme_name,
+        month: this.month,
+        year: this.year,
+        forms: {
+          project_name: this.project_name,
+          progress_for_the_month: this.progress_for_the_month,
+          challenges: this.challenges,
+          lesson: this.lesson,
+          planned_activities: this.planned_activities,
+        },
+      };
+
+      this.SUBMIT_FORM(data);
       this.progress_for_the_month = "";
       this.project_name = "";
       this.challenges = "";
       this.lesson = "";
+      this.planned_activities = "";
+
       this.toast("Success", "Form submitted successfully", "success");
     },
 
@@ -210,16 +226,6 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .main {
-  // input {
-  //   top: 428px;
-  //   left: 434px;
-  //   width: 100%;
-  //   height: 76px;
-  //   background: var(--60-bg) 0% 0% no-repeat padding-box;
-  //   background: #ffffff 0% 0% no-repeat padding-box;
-  //   border: 1px solid #707070ab;
-  //   opacity: 1;
-  // }
   .row-header {
     letter-spacing: 0px;
     color: #707070;

@@ -138,9 +138,16 @@ const mutations: MutationTree<state> = {
   },
   submitMonthlyData: (state, payload) => {
     state.monthlyForm.month = payload.month;
-    state.monthlyForm.year = payload.ye;
+    state.monthlyForm.year = payload.year;
     state.monthlyForm.theme = payload.theme;
-    state.monthlyForm.forms = payload.forms;
+    state.monthlyForm.project_name = payload.forms.project_name;
+    state.monthlyForm.progress_for_the_month =
+      payload.forms.progress_for_the_month;
+    state.monthlyForm.challenges_and_lesson.challenges =
+      payload.forms.challenges;
+    state.monthlyForm.challenges_and_lesson.lesson = payload.forms.lesson;
+    state.monthlyForm.planned_activities = payload.forms.planned_activities;
+
     console.log(state.monthlyForm);
   },
 };

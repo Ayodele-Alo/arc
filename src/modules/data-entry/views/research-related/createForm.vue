@@ -1,17 +1,17 @@
 <template>
   <div class="select-wrapper px-4">
     <div class="select-item">
-      <label for="">Select Quater <span>*</span></label>
+      <label for="">Select Quarter <span>*</span></label>
       <select
-        v-model="quater"
+        v-model="Quarter"
         class="form-select"
         aria-label="Default select example"
       >
-        <option disabled selected>Select Quater</option>
-        <option value="Quater 1">Quater 1</option>
-        <option value="Quater 2">Quater 2</option>
-        <option value="Quater 3">Quater 3</option>
-        <option value="Quater 4">Quater 4</option>
+        <option disabled selected>Select Quarter</option>
+        <option value="Quarter 1">Quarter 1</option>
+        <option value="Quarter 2">Quarter 2</option>
+        <option value="Quarter 3">Quarter 3</option>
+        <option value="Quarter 4">Quarter 4</option>
       </select>
     </div>
     <div class="select-item">
@@ -282,7 +282,7 @@ export default defineComponent({
   data() {
     return {
       error: true,
-      quater: "Quater 1",
+      Quarter: "Quarter 1",
       year: "2023",
       partner_institution_facilated: {
         universities: null,
@@ -299,7 +299,7 @@ export default defineComponent({
 
     saveForm() {
       const data = {
-        quater: this.quater,
+        Quarter: this.Quarter,
         year: this.year,
         partner_institution_facilated: this.partner_institution_facilated,
         colaboration_established: this.colaboration_established,

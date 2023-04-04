@@ -92,12 +92,13 @@ const state: state = {
     month: "",
     year: "",
     theme: "",
-    forms: {
-      project_name: "",
-      progress_for_the_month: "",
-      challenges_and_lesson: "",
-      planned_activities: "",
+    project_name: "",
+    progress_for_the_month: "",
+    challenges_and_lesson: {
+      challenges: "",
+      lesson: "",
     },
+    planned_activities: "",
   },
 };
 
