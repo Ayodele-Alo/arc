@@ -1,17 +1,17 @@
 <template>
   <div class="select-wrapper px-4">
     <div class="select-item">
-      <label for="">Select Quater <span>*</span></label>
+      <label for="">Select Quarter <span>*</span></label>
       <select
-        v-model="quater"
+        v-model="Quarter"
         class="form-select"
         aria-label="Default select example"
       >
-        <option disabled selected>Select Quater</option>
-        <option value="Quater 1">Quater 1</option>
-        <option value="Quater 2">Quater 2</option>
-        <option value="Quater 3">Quater 3</option>
-        <option value="Quater 4">Quater 4</option>
+        <option disabled selected>Select Quarter</option>
+        <option value="Quarter 1">Quarter 1</option>
+        <option value="Quarter 2">Quarter 2</option>
+        <option value="Quarter 3">Quarter 3</option>
+        <option value="Quarter 4">Quarter 4</option>
       </select>
     </div>
     <div class="select-item">
@@ -28,6 +28,13 @@
     </div>
   </div>
 
+  <div class="position-fixed bottom-0 end-0">
+    <button class="submit-btn" @click.prevent="submitForm()">
+      Submit Form
+    </button>
+    <button @click="saveToDraft()" class="save-btn">Save to draft</button>
+  </div>
+
   <div class="mt-5 px-4">
     <h4 class="sub-header">
       Institutionalization of doctoral strengthening programs and courses
@@ -41,7 +48,7 @@
           </h4>
         </div>
         <div class="border-top p-4 d-flex">
-          <div class="mr-4">
+          <div class="mr-4 mt-3">
             <h5>Universities:</h5>
           </div>
           <input
@@ -52,7 +59,7 @@
           />
         </div>
         <div class="border-top p-4 d-flex">
-          <div class="mr-4">
+          <div class="mr-4 mt-3">
             <h5>Research Institution:</h5>
           </div>
           <input
@@ -275,7 +282,7 @@ export default defineComponent({
   data() {
     return {
       error: true,
-      quater: "Quater 1",
+      Quarter: "Quarter 1",
       year: "2023",
       partner_institution_facilated: {
         universities: null,
@@ -288,11 +295,11 @@ export default defineComponent({
   },
 
   methods: {
-    ...mapActions(["SAVE_DATA"]),
+    ...mapActions(["SAVE_DATA", "SUBMIT_FORM"]),
 
     saveForm() {
       const data = {
-        quater: this.quater,
+        Quarter: this.Quarter,
         year: this.year,
         partner_institution_facilated: this.partner_institution_facilated,
         colaboration_established: this.colaboration_established,
@@ -333,6 +340,18 @@ export default defineComponent({
       } else {
         this.toast("Warning", "Fill form completely", "warning");
       }
+    },
+
+    submitForm() {
+      const data = {
+        component: "resource_related",
+      };
+      this.toast("Success", "Form submitted successfully", "success");
+      this.SUBMIT_FORM(data);
+      // console.log("hello");
+    },
+    saveToDraft() {
+      this.toast("Success", "Form saved to draft", "success");
     },
   },
 });

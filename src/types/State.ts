@@ -49,11 +49,14 @@ interface state {
     risksIndentified: [];
   };
   humanResourceForm: {
-    byCadre: [];
-    humanResource: [];
-    recruitmentProcess: [];
-    sensitizationMettings: [];
-    systemsThinking: [];
+    forms: {
+      byCadre: [];
+      humanResource: [];
+      recruitmentProcess: [];
+      sensitizationMettings: [];
+      systemsThinking: [];
+    };
+    year: string;
   };
   annualForm: {
     period: string;
@@ -71,6 +74,35 @@ interface state {
         riskIdentified: [];
       };
     };
+  };
+  quarterlyForm: {
+    quarter: string;
+    year: string;
+    theme: string;
+    forms: {
+      quarterlyPerformanceReport: {
+        strategicOutcomes: {};
+        annualPerformaceAgainstPlan: [];
+        additionalAchivement: string;
+        challengesAndLessonLearnt: [];
+        businessDevelopment: [];
+        newOpportunities: [];
+        engagementWithPolicyMakers: [];
+        riskIdentified: [];
+      };
+    };
+  };
+  monthlyForm: {
+    month: string;
+    year: string;
+    theme: string;
+    project_name: "";
+    progress_for_the_month: "";
+    challenges_and_lesson: {
+      challenges: "";
+      lesson: "";
+    };
+    planned_activities: "";
   };
 }
 

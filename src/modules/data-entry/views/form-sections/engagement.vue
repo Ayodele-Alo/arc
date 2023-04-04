@@ -175,7 +175,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 import { mapActions } from "vuex";
 import { createToast } from "mosha-vue-toastify";
@@ -184,6 +184,9 @@ import "mosha-vue-toastify/dist/style.css";
 export default defineComponent({
   name: "EngagementAndPolicy",
   components: {},
+  props: {
+    period: String,
+  },
   data() {
     return {
       engagements_form: [
@@ -220,7 +223,7 @@ export default defineComponent({
     },
     saveForm() {
       const newItem = {
-        component: "annually",
+        component: this.period,
         type: "report",
         item: {
           name: "engagementWithPolicyMakers",

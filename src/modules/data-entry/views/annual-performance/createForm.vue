@@ -1,41 +1,5 @@
 <template>
   <div>
-    <!-- <div>
-      <div class="row">
-        <div class="col">
-          <select
-            class="form-select"
-            aria-label="Default select example"
-            v-model="theme_name"
-          >
-            <option value="" disabled>--Select Theme--</option>
-            <option value="Annually">
-              Policy Engagement and Communication (PEC)
-            </option>
-            <option value="Quarterly">
-              Population Dynamics and Urbanization (PDU)
-            </option>
-            <option value="Yearly">Operations (OPU)</option>
-            <option value="Annually">Human Development (HD)</option>
-            <option value="Quarterly">Health and Wellbeing (HaW)</option>
-            <option value="Yearly">Data Science and Evaluation (DSE)</option>
-          </select>
-        </div>
-        <div class="col">
-          <select
-            class="form-select"
-            aria-label="Default select example"
-            v-model="year"
-          >
-            <option value="" disabled>--Select Year--</option>
-            <option value="Annually">2021</option>
-            <option value="Quarterly">2022</option>
-            <option value="Yearly">2023</option>
-          </select>
-        </div>
-      </div>
-    </div> -->
-
     <div class="select-wrapper px-4">
       <div class="select-item">
         <label for="">Select Theme <span>*</span></label>
@@ -79,7 +43,7 @@
       <button class="submit-btn" @click.prevent="submitForm()">
         Submit Form
       </button>
-      <button class="save-btn">Save to draft</button>
+      <button @click="saveToDraft()" class="save-btn">Save to draft</button>
     </div>
 
     <br /><br />
@@ -131,7 +95,7 @@
     </div>
 
     <div class="collapse" id="collapse3">
-      <EngagementComponent />
+      <EngagementComponent period="annually" />
     </div>
 
     <div
@@ -144,7 +108,7 @@
     </div>
 
     <div class="collapse" id="collapse4">
-      <AnnualPerformanceComponent />
+      <AnnualPerformanceComponent period="annually" />
     </div>
 
     <div
@@ -157,7 +121,7 @@
     </div>
 
     <div class="collapse" id="collapse5">
-      <AdditionalAchivementsComponemt />
+      <AdditionalAchivementsComponemt period="annually" />
     </div>
 
     <div
@@ -170,7 +134,7 @@
     </div>
 
     <div class="collapse" id="collapse6">
-      <ChallengesAndLesson />
+      <ChallengesAndLesson period="annually" />
     </div>
 
     <div
@@ -183,7 +147,7 @@
     </div>
 
     <div class="collapse" id="collapse7">
-      <BusinessDevelopment />
+      <BusinessDevelopment period="annually" />
     </div>
 
     <div
@@ -196,7 +160,7 @@
     </div>
 
     <div class="collapse" id="collapse8">
-      <NewOpportunities />
+      <NewOpportunities period="annually" />
     </div>
 
     <div
@@ -209,7 +173,7 @@
     </div>
 
     <div class="collapse" id="collapse9">
-      <AchivementsComponent />
+      <AchivementsComponent period="annually" />
     </div>
 
     <div
@@ -222,7 +186,7 @@
     </div>
 
     <div class="collapse" id="collapse10">
-      <RiskIdentified />
+      <RiskIdentified period="annually" />
     </div>
 
     <div class="">
@@ -244,7 +208,7 @@
     </div>
 
     <div class="collapse" id="collapse11">
-      <MajorActivitesPlanned />
+      <MajorActivitesPlanned period="annually" />
     </div>
 
     <div
@@ -257,7 +221,7 @@
     </div>
 
     <div class="collapse" id="collapse115">
-      <annualProjects />
+      <annualProjects period="annually" />
     </div>
 
     <div
@@ -270,7 +234,7 @@
     </div>
 
     <div class="collapse" id="collapse12">
-      <PlanAndTargetComponent />
+      <PlanAndTargetComponent period="annually" />
     </div>
 
     <div
@@ -283,7 +247,7 @@
     </div>
 
     <div class="collapse" id="collapse13">
-      <EngagementAndPolicy />
+      <EngagementAndPolicy period="annually" />
     </div>
 
     <div
@@ -296,7 +260,7 @@
     </div>
 
     <div class="collapse" id="collapse14">
-      <CollaborationsAndPartnership />
+      <CollaborationsAndPartnership period="annually" />
     </div>
 
     <div
@@ -322,7 +286,7 @@
     </div>
 
     <div class="collapse" id="collapse16">
-      <BusinessDevelopmentAndFunding />
+      <BusinessDevelopmentAndFunding period="annually" />
     </div>
 
     <div
@@ -335,13 +299,16 @@
     </div>
 
     <div class="collapse" id="collapse17">
-      <StafflingNeed />
+      <StafflingNeed period="annually" />
     </div>
   </div>
 </template>
 
 <script>
 import { defineComponent } from "vue";
+import { mapActions } from "vuex";
+import { createToast } from "mosha-vue-toastify";
+import "mosha-vue-toastify/dist/style.css";
 import strategicOutcomes from "../form-sections/strategicOutcomes.vue";
 // import PublicationComponent from "./form-sections/publications.vue";
 import EngagementComponent from "../form-sections/engagement.vue";
@@ -364,6 +331,29 @@ import StafflingNeed from "../form-sections/stafflingNeed.vue";
 
 export default defineComponent({
   name: "createForm",
+
+  setup() {
+    const toast = (title, desc, type) => {
+      createToast(
+        {
+          title: title,
+          description: desc,
+        },
+        {
+          type: type,
+          transition: "zoom",
+          hideProgressBar: true,
+          showIcon: true,
+          timeout: 3000,
+          position: "top-right",
+        }
+      );
+    };
+    return {
+      toast,
+    };
+  },
+
   data() {
     return {
       theme_name: "",
@@ -393,8 +383,23 @@ export default defineComponent({
     StafflingNeed,
   },
   methods: {
-    // submitForm(){
-    // }
+    ...mapActions(["SUBMIT_FORM"]),
+
+    submitForm() {
+      const data = {
+        component: "annually",
+        theme: this.theme,
+        year: this.year,
+      };
+
+      this.toast("Success", "Form submitted successfully", "success");
+      this.SUBMIT_FORM(data);
+      // console.log("hello");
+    },
+
+    saveToDraft() {
+      this.toast("Success", "Form saved to draft", "success");
+    },
   },
 });
 </script>
@@ -465,49 +470,6 @@ export default defineComponent({
   letter-spacing: 0px;
   color: #707070;
   opacity: 1;
-}
-
-.submit-btn {
-  letter-spacing: var(--unnamed-character-spacing-0);
-  color: var(--60-bg);
-  text-align: center;
-  font: normal normal normal 16px/19px Montserrat;
-  letter-spacing: 0px;
-  color: #ffffff;
-  opacity: 1;
-  background: transparent
-    linear-gradient(
-      180deg,
-      var(--unnamed-color-000000db) 0%,
-      #2c4a13eb 0%,
-      var(--30-) 100%
-    )
-    0% 0% no-repeat padding-box;
-  background: transparent
-    linear-gradient(180deg, #000000db 0%, #2c4a13eb 0%, #61a229 100%) 0% 0%
-    no-repeat padding-box;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 5px;
-  border: none;
-  z-index: 10;
-}
-
-.save-btn {
-  letter-spacing: var(--unnamed-character-spacing-0);
-  color: var(--60-bg);
-  text-align: center;
-  font: normal normal normal 16px/19px Montserrat;
-  letter-spacing: 0px;
-  color: #ffffff;
-  opacity: 1;
-  background: var(--unnamed-color-000000) 0% 0% no-repeat padding-box;
-  background: #000000 0% 0% no-repeat padding-box;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 5px;
-  border: none;
-  z-index: 10;
 }
 
 .select-wrapper {

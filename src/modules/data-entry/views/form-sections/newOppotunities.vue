@@ -75,6 +75,10 @@ import { createToast } from "mosha-vue-toastify";
 import "mosha-vue-toastify/dist/style.css";
 
 export default defineComponent({
+  props: {
+    period: String,
+  },
+
   setup() {
     const toast = (title, desc, type) => {
       createToast(
@@ -148,8 +152,8 @@ export default defineComponent({
         this.toast("Warning", "Fill form completely", "warning");
         return;
       }
-       const newItem = {
-        component: "annually",
+      const newItem = {
+        component: this.period,
         type: "report",
         item: {
           name: "newOpportunities",

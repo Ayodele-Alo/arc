@@ -185,6 +185,10 @@ import { createToast } from "mosha-vue-toastify";
 import "mosha-vue-toastify/dist/style.css";
 
 export default defineComponent({
+  props: {
+    period: String,
+  },
+
   setup() {
     const toast = (title, desc, type) => {
       createToast(
@@ -278,7 +282,7 @@ export default defineComponent({
         return;
       }
       const newItem = {
-        component: "resource_related",
+        component: this.period,
         type: "report",
         item: { name: "risksIdentified", form: this.risks_inderntified },
       };
