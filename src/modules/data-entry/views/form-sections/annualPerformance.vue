@@ -84,6 +84,10 @@ export default defineComponent({
   name: "AnnualPerformanceComponent",
   components: {},
 
+  props: {
+    period: String,
+  },
+
   setup() {
     const toast = (title, desc, type) => {
       createToast(
@@ -134,7 +138,7 @@ export default defineComponent({
     },
     saveForm() {
       const newItem = {
-        component: "annually",
+        component: this.period,
         type: "report",
         item: { name: "annualPerformanceAgainstPlan", form: this.annual_form },
       };

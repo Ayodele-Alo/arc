@@ -44,11 +44,14 @@ const state: state = {
     risksIndentified: [],
   },
   humanResourceForm: {
-    byCadre: [],
-    humanResource: [],
-    recruitmentProcess: [],
-    sensitizationMettings: [],
-    systemsThinking: [],
+    forms: {
+      byCadre: [],
+      humanResource: [],
+      recruitmentProcess: [],
+      sensitizationMettings: [],
+      systemsThinking: [],
+    },
+    year: "",
   },
   annualForm: {
     period: "",
@@ -56,6 +59,23 @@ const state: state = {
     theme: "",
     forms: {
       annualPerformanceReport: {
+        strategicOutcomes: {},
+        annualPerformaceAgainstPlan: [],
+        additionalAchivement: "",
+        challengesAndLessonLearnt: [],
+        businessDevelopment: [],
+        newOpportunities: [],
+        engagementWithPolicyMakers: [],
+        riskIdentified: [],
+      },
+    },
+  },
+  quarterlyForm: {
+    quarter: "",
+    year: "",
+    theme: "",
+    forms: {
+      quarterlyPerformanceReport: {
         strategicOutcomes: {},
         annualPerformaceAgainstPlan: [],
         additionalAchivement: "",

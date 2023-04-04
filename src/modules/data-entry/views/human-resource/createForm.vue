@@ -1,12 +1,16 @@
 <template>
   <div class="mt-4 px-4">
     <div class="position-fixed bottom-0 end-0">
-      <button class="submit-btn">Submit Form</button>
-      <button class="save-btn">Save to draft</button>
+      <button @click="submitForm()" class="submit-btn">Submit Form</button>
+      <button @click="saveToDraft()" class="save-btn">Save to draft</button>
     </div>
     <div class="select-item">
       <label for="">Select Year <span>*</span></label>
-      <select class="form-select" aria-label="Default select example">
+      <select
+        v-model="year"
+        class="form-select"
+        aria-label="Default select example"
+      >
         <option disabled selected>Select Year</option>
         <option value="2023">2023</option>
         <option value="2024">2024</option>
@@ -97,8 +101,11 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
+import { mapActions } from "vuex";
+import { createToast } from "mosha-vue-toastify";
+import "mosha-vue-toastify/dist/style.css";
 import humanResource from "./form-sections/humanResource.vue";
 import byCadre from "./form-sections/byCadre.vue";
 import recruitmentProcess from "./form-sections/recruitmentProcess.vue";
@@ -107,12 +114,58 @@ import systemThinkingApproach from "./form-sections/systemsThinking.vue";
 
 export default defineComponent({
   name: "createForm",
+
+  setup() {
+    const toast = (title, desc, type) => {
+      createToast(
+        {
+          title: title,
+          description: desc,
+        },
+        {
+          type: type,
+          transition: "zoom",
+          hideProgressBar: true,
+          showIcon: true,
+          timeout: 3000,
+          position: "top-right",
+        }
+      );
+    };
+    return {
+      toast,
+    };
+  },
+
   components: {
     humanResource,
     byCadre,
     recruitmentProcess,
     sensitizationMeetings,
     systemThinkingApproach,
+  },
+
+  data() {
+    return {
+      year: "2023",
+    };
+  },
+  methods: {
+    ...mapActions(["SUBMIT_FORM"]),
+
+    submitForm() {
+      const data = {
+        component: "human_resource",
+        year: this.year,
+      };
+      this.toast("Success", "Form submitted successfully", "success");
+      this.SUBMIT_FORM(data);
+      // console.log("hello");
+    },
+
+    saveToDraft() {
+      this.toast("Success", "Form saved to draft", "success");
+    },
   },
 });
 </script>

@@ -1,0 +1,403 @@
+{
+  "byCadre": {
+    "cadre": [
+      {
+        "id": 1,
+        "cadre": "Post Docs",
+        "research": "",
+        "rrcs": "",
+        "pec": "",
+        "operations": "",
+        "genderDistributions": {
+          "male": null,
+          "female": null
+        },
+        "total": ""
+      },
+      {
+        "id": 2,
+        "cadre": "Research Scientist",
+        "Research": "",
+        "rrcs": "",
+        "pec": "",
+        "operations": "",
+        "genderDistributions": {
+          "male": null,
+          "female": null
+        },
+        "total": ""
+      },
+      {
+        "id": 3,
+        "cadre": "Associate Research Scientists",
+        "Research": "",
+        "rrcs": "",
+        "pec": "",
+        "operations": "",
+        "genderDistributions": {
+          "male": null,
+          "female": null
+        },
+        "total": ""
+      },
+      {
+        "id": 4,
+        "cadre": "Research Officers",
+        "Research": "",
+        "rrcs": "",
+        "pec": "",
+        "operations": "",
+        "genderDistributions": {
+          "male": null,
+          "female": null
+        },
+        "total": ""
+      },
+      {
+        "id": 5,
+        "cadre": "Data Analyst",
+        "Research": "",
+        "rrcs": "",
+        "pec": "",
+        "operations": "",
+        "genderDistributions": {
+          "male": null,
+          "female": null
+        },
+        "total": ""
+      },
+      {
+        "id": 6,
+        "cadre": "Program Assistants",
+        "Research": "",
+        "rrcs": "",
+        "pec": "",
+        "operations": "",
+        "genderDistributions": {
+          "male": null,
+          "female": null
+        },
+        "total": ""
+      },
+      {
+        "id": 7,
+        "cadre": "M&E Officers",
+        "Research": "",
+        "rrcs": "",
+        "pec": "",
+        "operations": "",
+        "genderDistributions": {
+          "male": null,
+          "female": null
+        },
+        "total": ""
+      },
+      {
+        "id": 8,
+        "cadre": "HR officers",
+        "Research": "",
+        "rrcs": "",
+        "pec": "",
+        "operations": "",
+        "genderDistributions": {
+          "male": null,
+          "female": null
+        },
+        "total": ""
+      },
+      {
+        "id": 9,
+        "cadre": "Finance officers",
+        "Research": "",
+        "rrcs": "",
+        "pec": "",
+        "operations": "",
+        "genderDistributions": {
+          "male": null,
+          "female": null
+        },
+        "total": ""
+      },
+      {
+        "id": 10,
+        "cadre": "Development officers",
+        "Research": "",
+        "rrcs": "",
+        "pec": "",
+        "operations": "",
+        "genderDistributions": {
+          "male": null,
+          "female": null
+        },
+        "total": ""
+      },
+      {
+        "id": 11,
+        "cadre": "IT officers",
+        "Research": "",
+        "rrcs": "",
+        "pec": "",
+        "operations": "",
+        "genderDistributions": {
+          "male": null,
+          "female": null
+        },
+        "total": ""
+      },
+      {
+        "id": 12,
+        "cadre": "Procurement officers",
+        "Research": "",
+        "rrcs": "",
+        "pec": "",
+        "operations": "",
+        "genderDistributions": {
+          "male": null,
+          "female": null
+        },
+        "total": ""
+      },
+      {
+        "id": 13,
+        "cadre": "Government liaison officers",
+        "Research": "",
+        "rrcs": "",
+        "pec": "",
+        "operations": "",
+        "genderDistributions": {
+          "male": null,
+          "female": null
+        },
+        "total": ""
+      },
+      {
+        "id": 14,
+        "cadre": "Policy engagement and outreach staff",
+        "Research": "",
+        "rrcs": "",
+        "pec": "",
+        "operations": "",
+        "genderDistributions": {
+          "male": null,
+          "female": null
+        },
+        "total": ""
+      },
+      {
+        "id": 15,
+        "cadre": "Systems thinking experts",
+        "Research": "",
+        "rrcs": "",
+        "pec": "",
+        "operations": "",
+        "genderDistributions": {
+          "male": null,
+          "female": null
+        },
+        "total": ""
+      },
+      {
+        "id": 16,
+        "cadre": "Strategic proposal writers",
+        "Research": "",
+        "rrcs": "",
+        "pec": "",
+        "operations": "",
+        "genderDistributions": {
+          "male": null,
+          "female": null
+        },
+        "total": ""
+      },
+      {
+        "id": 17,
+        "cadre": "Interns (through HR)",
+        "Research": "",
+        "rrcs": "",
+        "pec": "",
+        "operations": "",
+        "genderDistributions": {
+          "male": null,
+          "female": null
+        },
+        "total": ""
+      },
+      {
+        "id": 18,
+        "cadre": "Total",
+        "Research": "",
+        "rrcs": "",
+        "pec": "",
+        "operations": "",
+        "genderDistributions": {
+          "male": null,
+          "female": null
+        },
+        "total": ""
+      }
+    ]
+  },
+  "humanResource": {
+    "indicators": [
+      {
+        "total": "",
+        "indicator": "Number of regular employees at the start of the year",
+        "rrcs": {
+          "male": null,
+          "female": null
+        },
+        "pec": {
+          "male": null,
+          "female": null
+        },
+        "operations": {
+          "male": null,
+          "female": null
+        },
+        "research": {
+          "male": null,
+          "female": null
+        },
+        "national": ""
+      },
+      {
+        "total": "",
+        "indicator": "Number of regular employees at the start of the year",
+        "rrcs": {
+          "male": null,
+          "female": null
+        },
+        "pec": {
+          "male": null,
+          "female": null
+        },
+        "operations": {
+          "male": null,
+          "female": null
+        },
+        "research": {
+          "male": null,
+          "female": null
+        },
+        "national": ""
+      },
+      {
+        "total": "",
+        "indicator": "Number of employees hired under short term flexi contracts by mid- year",
+        "rrcs": {
+          "male": null,
+          "female": null
+        },
+        "pec": {
+          "male": null,
+          "female": null
+        },
+        "operations": {
+          "male": null,
+          "female": null
+        },
+        "research": {
+          "male": null,
+          "female": null
+        },
+        "national": ""
+      },
+      {
+        "total": "",
+        "indicator": "Number of employees who have left APHRC e.g. through resignation, termination, laying off, Contracting ending etc.",
+        "rrcs": {
+          "male": null,
+          "female": null
+        },
+        "pec": {
+          "male": null,
+          "female": null
+        },
+        "operations": {
+          "male": null,
+          "female": null
+        },
+        "research": {
+          "male": null,
+          "female": null
+        },
+        "national": ""
+      }
+    ],
+    "employees_hired_short_term": {
+      "voluntary_turn_over_rate": null,
+      "involuntary_trun_over_rate": null
+    }
+  },
+  "recruitmentProcess": {
+    "institutionalized_procedures": [
+      {
+        "id": 1,
+        "procedure": ""
+      }
+    ],
+    "lead_time_in_mobilizing": [
+      {
+        "id": 1,
+        "lead_time": ""
+      }
+    ],
+    "turn_around_time_of_acqusition": [
+      {
+        "id": 1,
+        "turn_around_time": ""
+      }
+    ],
+    "updates_on_operation": [
+      {
+        "id": 1,
+        "operation_update": ""
+      }
+    ],
+    "updates_on_procedures": [
+      {
+        "id": 1,
+        "procedure_update": ""
+      }
+    ]
+  },
+  "sensitizationMettings": {
+    "sensitization_meetings": [
+      {
+        "id": 1,
+        "meeting": "",
+        "staff_count": ""
+      }
+    ],
+    "sensitization_forums": [
+      {
+        "id": 1,
+        "meeting": "",
+        "staff_count": ""
+      }
+    ]
+  },
+  "systemsThinking": [
+    {
+      "activity": " Number of mapping exercises conducted to map the expertise required to implement the systems thinking approach",
+      "number": "",
+      "additionalInformation": ""
+    },
+    {
+      "activity": "Number of capacity strengthening activities for staff held on systems thinking",
+      "number": "",
+      "additionalInformation": ""
+    },
+    {
+      "activity": "Number os systems thinking consultants recruited",
+      "number": "",
+      "additionalInformation": ""
+    },
+    {
+      "activity": "Number of organizations identified with relevant skills in systems thinking for benchmarking",
+      "number": "",
+      "additionalInformation": ""
+    }
+  ],
+  "year": "2023"
+}

@@ -48,15 +48,15 @@ const mutations: MutationTree<state> = {
   saveHumanResourceData: (state, data) => {
     console.log("called again");
     if (data.name === "byCadre") {
-      state.humanResourceForm.byCadre = data.form;
+      state.humanResourceForm.forms.byCadre = data.form;
     } else if (data.name === "sensitization_meetings") {
-      state.humanResourceForm.sensitizationMettings = data.form;
+      state.humanResourceForm.forms.sensitizationMettings = data.form;
     } else if (data.name === "human_resource_recruitment") {
-      state.humanResourceForm.recruitmentProcess = data.form;
+      state.humanResourceForm.forms.recruitmentProcess = data.form;
     } else if (data.name === "human_resource") {
-      state.humanResourceForm.humanResource = data.form;
+      state.humanResourceForm.forms.humanResource = data.form;
     } else {
-      state.humanResourceForm.systemsThinking = data.form;
+      state.humanResourceForm.forms.systemsThinking = data.form;
     }
   },
   saveAnnualPerformanceData: (state, data) => {
@@ -84,6 +84,57 @@ const mutations: MutationTree<state> = {
       state.annualForm.forms.annualPerformanceReport.strategicOutcomes =
         data.form;
     }
+  },
+
+  saveQuarterlyPerformanceData: (state, data) => {
+    if (data.name === "annualPerformanceAgainstPlan") {
+      state.quarterlyForm.forms.quarterlyPerformanceReport.annualPerformaceAgainstPlan =
+        data.form;
+    } else if (data.name === "additionalAchievement") {
+      state.quarterlyForm.forms.quarterlyPerformanceReport.additionalAchivement =
+        data.form;
+    } else if (data.name === "challengesAndLessonLearnt") {
+      state.quarterlyForm.forms.quarterlyPerformanceReport.challengesAndLessonLearnt =
+        data.form;
+    } else if (data.name === "businessDevelopment") {
+      state.quarterlyForm.forms.quarterlyPerformanceReport.businessDevelopment =
+        data.form;
+    } else if (data.name === "newOpportunities") {
+      state.quarterlyForm.forms.quarterlyPerformanceReport.newOpportunities =
+        data.form;
+    } else if (data.name === "engagementWithPolicyMakers") {
+      state.quarterlyForm.forms.quarterlyPerformanceReport.engagementWithPolicyMakers =
+        data.form;
+    } else if (data.name === "risksIdentified") {
+      state.quarterlyForm.forms.quarterlyPerformanceReport.riskIdentified =
+        data.form;
+    } else {
+      state.quarterlyForm.forms.quarterlyPerformanceReport.strategicOutcomes =
+        data.form;
+    }
+  },
+
+  submitResourceRelatedData: (state) => {
+    console.log(state.resourceRelatedForm);
+  },
+  submitAnnualPerformanceData: (state, payload) => {
+    state.annualForm.theme = payload.theme;
+    state.annualForm.year = payload.year;
+    console.log(state.annualForm);
+  },
+
+  submitQuarterlyPerformanceData: (state, payload) => {
+    state.quarterlyForm.theme = payload.theme;
+    state.quarterlyForm.year = payload.year;
+    state.quarterlyForm.quarter = payload.quarter;
+    console.log(state.quarterlyForm);
+  },
+  submitHumanResourceData: (state, payload) => {
+    state.humanResourceForm.year = payload.year;
+    console.log(state.humanResourceForm);
+  },
+  submitPublicationsData: (state) => {
+    console.log(state.publicationsForm);
   },
 };
 

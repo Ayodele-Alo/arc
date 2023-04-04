@@ -9,18 +9,24 @@
             v-model="theme_name"
           >
             <option value="" disabled>--Select Theme--</option>
-            <option value="Annually">
+            <option value="Policy Engagement and Communication (PEC)">
               Policy Engagement and Communication (PEC)
             </option>
-            <option value="Quarterly">
+            <option value="Population Dynamics and Urbanization (PDU)">
               Population Dynamics and Urbanization (PDU)
             </option>
-            <option value="Yearly">Operations (OPU)</option>
-            <option value="Annually">Human Development (HD)</option>
-            <option value="Quarterly">Health and Wellbeing (HaW)</option>
-            <option value="Yearly">Data Science and Evaluation (DSE)</option>
-             <option value="Quarterly">Human Resource</option>
-            <option value="Yearly">Research Related</option>
+            <option value="Operations (OPU)">Operations (OPU)</option>
+            <option value="Human Development (HD)">
+              Human Development (HD)
+            </option>
+            <option value="Health and Wellbeing (HaW)">
+              Health and Wellbeing (HaW)
+            </option>
+            <option value="Data Science and Evaluation (DSE)">
+              Data Science and Evaluation (DSE)
+            </option>
+            <option value="Human Resource">Human Resource</option>
+            <option value="Research Related">Research Related</option>
           </select>
         </div>
         <div class="col">
@@ -30,10 +36,10 @@
             v-model="quarter"
           >
             <option value="" disabled>--Select Quarter--</option>
-           <option value="January">Quarter 1</option>
- <option value="January">Quarter 2</option>
- <option value="January">Quarter 3</option>
- <option value="January">Quarter 4</option>
+            <option value="Quarter 1">Quarter 1</option>
+            <option value="Quarter 2">Quarter 2</option>
+            <option value="Quarter 3">Quarter 3</option>
+            <option value="Quarter 4">Quarter 4</option>
           </select>
         </div>
         <div class="col">
@@ -43,9 +49,9 @@
             v-model="year"
           >
             <option value="" disabled>--Select Year--</option>
-            <option value="Annually">2021</option>
-            <option value="Quarterly">2022</option>
-            <option value="Yearly">2023</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
           </select>
         </div>
       </div>
@@ -55,7 +61,7 @@
       <button class="submit-btn" @click.prevent="submitForm()">
         Submit Form
       </button>
-      <button class="save-btn">Save to draft</button>
+      <button @click="saveToDraft()" class="save-btn">Save to draft</button>
     </div>
 
     <br /><br />
@@ -63,7 +69,6 @@
     <div class="text-start">
       <span class="annual-text1">1. Quarter Performance Report</span>
     </div>
-
 
     <div
       class="section-header text-start"
@@ -75,7 +80,7 @@
     </div>
 
     <div class="collapse" id="collapse3">
-      <EngagementComponent />
+      <EngagementComponent period="quarterly" />
     </div>
 
     <div
@@ -83,12 +88,12 @@
       data-bs-toggle="collapse"
       data-bs-target="#collapse4"
     >
-      <span>B. Annual Performance against the work plans</span>
+      <span>B. Quarterly Performance against the work plans</span>
       <i class="fa fa-angle-down fs-6" aria-hidden="true"></i>
     </div>
 
     <div class="collapse" id="collapse4">
-      <AnnualPerformanceComponent />
+      <AnnualPerformanceComponent period="quarterly" />
     </div>
 
     <div
@@ -101,7 +106,7 @@
     </div>
 
     <div class="collapse" id="collapse5">
-      <AdditionalAchivementsComponemt />
+      <AdditionalAchivementsComponemt period="quarterly" />
     </div>
 
     <div
@@ -114,7 +119,7 @@
     </div>
 
     <div class="collapse" id="collapse6">
-      <ChallengesAndLesson />
+      <ChallengesAndLesson period="quarterly" />
     </div>
 
     <div
@@ -127,7 +132,7 @@
     </div>
 
     <div class="collapse" id="collapse7">
-      <BusinessDevelopment />
+      <BusinessDevelopment period="quarterly" />
     </div>
 
     <div
@@ -140,7 +145,7 @@
     </div>
 
     <div class="collapse" id="collapse8">
-      <NewOpportunities />
+      <NewOpportunities period="quarterly" />
     </div>
 
     <div
@@ -153,7 +158,7 @@
     </div>
 
     <div class="collapse" id="collapse9">
-      <AchivementsComponent />
+      <AchivementsComponent period="quarterly" />
     </div>
 
     <div
@@ -166,13 +171,16 @@
     </div>
 
     <div class="collapse" id="collapse10">
-      <RiskIdentified />
+      <RiskIdentified period="quarterly" />
     </div>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
+import { mapActions } from "vuex";
+import { createToast } from "mosha-vue-toastify";
+import "mosha-vue-toastify/dist/style.css";
 import EngagementComponent from "../form-sections/engagement.vue";
 import AnnualPerformanceComponent from "../form-sections/annualPerformance.vue";
 // import AnnualPerformanceComponent from "./form-sections/annualPerformance.vue";
@@ -185,13 +193,36 @@ import RiskIdentified from "../form-sections/riskIdentified.vue";
 
 export default defineComponent({
   name: "createForm",
-  data(){
-    return{
-      theme_name: "",
-      quarter: "",
-      year: ""
-    }
+  data() {
+    return {
+      theme_name: "Policy Engagement and Communication (PEC)",
+      quarter: "Quarter 1",
+      year: "2023",
+    };
   },
+
+  setup() {
+    const toast = (title, desc, type) => {
+      createToast(
+        {
+          title: title,
+          description: desc,
+        },
+        {
+          type: type,
+          transition: "zoom",
+          hideProgressBar: true,
+          showIcon: true,
+          timeout: 3000,
+          position: "top-right",
+        }
+      );
+    };
+    return {
+      toast,
+    };
+  },
+
   components: {
     // PublicationComponent,
     EngagementComponent,
@@ -202,11 +233,24 @@ export default defineComponent({
     NewOpportunities,
     AchivementsComponent,
     RiskIdentified,
-    
   },
   methods: {
-    // submitForm(){
-    // }
+    ...mapActions(["SUBMIT_FORM"]),
+
+    submitForm() {
+      const data = {
+        component: "quarterly",
+        theme: this.theme_name,
+        year: this.year,
+        quarter: this.quarter,
+      };
+      this.toast("Success", "Form submitted successfully", "success");
+      this.SUBMIT_FORM(data);
+      // console.log("hello");
+    },
+    saveToDraft() {
+      this.toast("Success", "Form saved to draft", "success");
+    },
   },
 });
 </script>
