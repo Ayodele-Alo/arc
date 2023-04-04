@@ -155,7 +155,7 @@ export default {
     };
   },
 
-            methods: {
+  methods: {
     ...mapActions(["SAVE_DATA"]),
 
     saveForm() {
@@ -213,7 +213,7 @@ export default {
   /* Layout Properties */
   top: 495px;
   left: 434px;
-  width: 80vw;
+  width: 100%;
   height: 25vh;
   /* UI Properties */
   background: #ffffff;
