@@ -1,79 +1,133 @@
 <template>
-  <div>
-    <div class="main-sec">
-      <label for="book-upload">Choose a book:</label>
 
-      <input
-        type="file"
-        id="book-upload"
-        name="book-upload"
-        accept="image/png, image/jpeg"
-      />
-    </div>
+<div>
+     <div class="main-sec">
+<label for="book-upload">Choose a book:</label>
 
-    <br />
+   <el-upload action="#" list-type="picture-card" :auto-upload="false">
+    <el-icon><Upload /></el-icon>
 
-    <div class="main-sec">
-      <label for="book-upload">Choose a book:</label>
-
-      <input
-        type="file"
-        id="book-upload"
-        name="book-upload"
-        accept="image/png, image/jpeg"
-      />
-    </div>
-
-    <div class="d-flex justify-content-end mt-4">
-      <div @click="saveForm()" class="save-icon">
-        <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
-        <h5>save</h5>
+    <template #file="{ file }">
+      <div>
+        <img class="el-upload-list__item-thumbnail" :src="file.url" alt="" />
+        <span class="el-upload-list__item-actions">
+          <span
+            class="el-upload-list__item-preview"
+            @click="handlePictureCardPreview(file)"
+          >
+            <el-icon><zoom-in /></el-icon>
+          </span>
+          <span
+            v-if="!disabled"
+            class="el-upload-list__item-delete"
+            @click="handleDownload(file)"
+          >
+            <el-icon><Download /></el-icon>
+          </span>
+          <span
+            v-if="!disabled"
+            class="el-upload-list__item-delete"
+            @click="handleRemove(file)"
+          >
+            <el-icon><Delete /></el-icon>
+          </span>
+        </span>
       </div>
-    </div>
-  </div>
+    </template>
+  </el-upload>
+
+  <el-dialog v-model="dialogVisible">
+    <img w-full :src="dialogImageUrl" alt="Preview Image" />
+  </el-dialog>
+</div>
+
+<br>
+
+ <div class="main-sec">
+<label for="book-upload">Choose a book:</label>
+
+
+   <el-upload action="#" list-type="picture-card" :auto-upload="false">
+    <el-icon><Upload /></el-icon>
+
+    <template #file="{ file }">
+      <div>
+        <img class="el-upload-list__item-thumbnail" :src="file.url" alt="" />
+        <span class="el-upload-list__item-actions">
+          <span
+            class="el-upload-list__item-preview"
+            @click="handlePictureCardPreview(file)"
+          >
+            <el-icon><zoom-in /></el-icon>
+          </span>
+          <span
+            v-if="!disabled"
+            class="el-upload-list__item-delete"
+            @click="handleDownload(file)"
+          >
+            <el-icon><Download /></el-icon>
+          </span>
+          <span
+            v-if="!disabled"
+            class="el-upload-list__item-delete"
+            @click="handleRemove(file)"
+          >
+            <el-icon><Delete /></el-icon>
+          </span>
+        </span>
+      </div>
+    </template>
+  </el-upload>
+
+  <el-dialog v-model="dialogVisible">
+    <img w-full :src="dialogImageUrl" alt="Preview Image" />
+  </el-dialog>
+</div>
+
+
+</div>
 </template>
 
-<script>
-import { mapActions } from "vuex";
-export default {
-  data() {
-    return {
-      book_title: "",
-    };
-  },
+<script lang="ts" setup>
+import { ref } from 'vue'
+import { Delete, Download, Plus, ZoomIn } from '@element-plus/icons-vue'
 
-  methods: {
-    ...mapActions(["SAVE_DATA"]),
+import type { UploadFile } from 'element-plus'
 
-    saveForm() {
-      const data = {
-        book_title: this.book_title,
-      };
-      const newItem = {
-        component: "publications",
-        item: { name: "bookTitle", form: data },
-      };
-      this.SAVE_DATA(newItem);
-    },
-  },
-};
+const dialogImageUrl = ref('')
+const dialogVisible = ref(false)
+const disabled = ref(false)
+
+const handleRemove = (file: UploadFile) => {
+  console.log(file)
+}
+
+const handlePictureCardPreview = (file: UploadFile) => {
+  dialogImageUrl.value = file.url!
+  dialogVisible.value = true
+}
+
+const handleDownload = (file: UploadFile) => {
+  console.log(file)
+}
 </script>
 
+
 <style scoped>
-.main-sec {
-  /* Layout Properties */
-  top: 495px;
-  left: 434px;
-  width: 100%;
-  height: 20vh;
-  /* UI Properties */
-  background: var(--60-bg) 0% 0% no-repeat padding-box;
-  background: #ffffff 0% 0% no-repeat padding-box;
-  border: 1px solid #707070ab;
-  opacity: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
+.main-sec{
+   /* Layout Properties */
+top: 495px;
+left: 434px;
+width: 80vw;
+height: 30vh;
+/* UI Properties */
+background: var(--60-bg) 0% 0% no-repeat padding-box;
+background: #FFFFFF 0% 0% no-repeat padding-box;
+border: 1px solid #707070AB;
+opacity: 1;
+display: flex;
+flex-direction: column;
+padding: 2rem;
 }
 
 input {
@@ -96,4 +150,37 @@ input {
   color: #707070;
   opacity: 1;
 }
+
+.avatar-uploader .avatar {
+  width: 178px;
+  height: 178px;
+  display: block;
+}
 </style>
+
+<style>
+.avatar-uploader .el-upload {
+  border: 1px dashed black;
+  height: 100px;
+  width: 100px;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: var(--el-transition-duration-fast);
+}
+
+.avatar-uploader .el-upload:hover {
+  border-color: var(--el-color-primary);
+}
+
+.el-icon.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 178px;
+  height: 178px;
+  text-align: center;
+}
+</style>
+
+

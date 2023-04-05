@@ -10,7 +10,7 @@
       institution/individual/community/ using it). (For RRCS may include
       innovations by the RRCS fellows that can be attributed to the fellowships)
     </h5>
-
+    
     <h4>Ideas, Methodology, Processes, Best Practices, Products</h4>
     <div v-for="(item, index) in ideas" :key="index" class="">
       <div class="item-wrapper d-flex align-items-center py-2">

@@ -14,7 +14,7 @@
           <input
             class="form-check-input"
             type="radio"
-            name="inlineRadioOptions"
+            name="ReportingRadioOptions"
             id="inlineRadio1"
             :value="item.value"
             @click="changeValue($event, item)"

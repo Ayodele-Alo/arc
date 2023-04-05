@@ -12,7 +12,7 @@
           <input
             class="form-check-input"
             type="radio"
-            name="inlineRadioOptions"
+            name="LinksFormOptions"
             id="inlineRadio1"
             :value="item.value"
             v-model="document"
@@ -38,7 +38,7 @@
           <input
             class="form-check-input"
             type="radio"
-            name="inlineRadioOptions"
+            name="LinksAvailableOptions"
             id="inlineRadio1"
             :value="item.value"
             v-model="report"
@@ -64,7 +64,7 @@
           <input
             class="form-check-input"
             type="radio"
-            name="inlineRadioOptions"
+            name="inlineSupplementOptions"
             id="inlineRadio1"
             :value="item.value"
             v-model="supplement"
