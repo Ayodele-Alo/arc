@@ -15,6 +15,7 @@ const getters: GetterTree<state, unknown> = {
     state.config.find((item: configType) => item.name === state.activeTab),
   getActiveModal: (state: state) => state.activeModal,
   getActiveForm: (state: state) => state.activeForm,
+  getActiveResearchOutput: (state: state) => state.activeResearchOutput,
 };
 
 export default getters;

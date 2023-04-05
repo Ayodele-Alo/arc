@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="form-radio">
+    <div
+      class="form-radio"
+      v-if="['Published Paper'].includes(getActiveResearchOutput)"
+    >
       <span class="form-title">Links available to the document</span>
       <br />
       <div>
@@ -22,11 +25,16 @@
           }}</label>
         </div>
       </div>
+
+       <br /><br />
+
     </div>
 
-    <br /><br />
-
-    <div class="form-radio">
+   
+    <div
+      class="form-radio"
+      v-if="['Technical Report'].includes(getActiveResearchOutput)"
+    >
       <span class="form-title">Links available to the report</span>
       <br />
       <div>
@@ -48,11 +56,16 @@
           }}</label>
         </div>
       </div>
+
+         <br /><br />
     </div>
 
-    <br /><br />
+ 
 
-    <div class="form-radio">
+    <div
+      class="form-radio"
+      v-if="['Supplement'].includes(getActiveResearchOutput)"
+    >
       <span class="form-title">Links available to the supplement</span>
       <br />
       <div>
@@ -94,7 +107,10 @@
 
     <br /><br />
 
-    <div class="form-input">
+    <div
+      class="form-input"
+      v-if="['Policy Brief', 'Fact Sheet'].includes(getActiveResearchOutput)"
+    >
       <span class="form-title">Hyperlink</span>
       <hr class="hr" />
       <input type="text" placeholder="Type here" v-model="hyperlink" />
@@ -124,7 +140,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -175,6 +191,10 @@ export default {
       };
       this.SAVE_DATA(newItem);
     },
+  },
+
+  computed: {
+    ...mapGetters(["getActiveResearchOutput"]),
   },
 };
 </script>

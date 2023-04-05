@@ -150,6 +150,11 @@ const mutations: MutationTree<state> = {
 
     console.log(state.monthlyForm);
   },
+
+  saveActiveResearchOutput: (state, payload) => {
+    state.activeResearchOutput = payload;
+  },
+  
 };
 
 export default mutations;

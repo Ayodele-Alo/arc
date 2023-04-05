@@ -11,6 +11,7 @@ const state: state = {
   activeTab: defaultTabConfig,
   activeModal: "",
   activeForm: "",
+  activeResearchOutput: "",
   publicationsForm: {
     bookTitle: "",
     bookchapter: "",

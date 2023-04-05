@@ -58,6 +58,10 @@ const actions: ActionTree<state, unknown> = {
       commit("submitMonthlyData", payload);
     }
   },
+
+  async SET_ACTIVE_RESEARCH_OUTPUT({ commit }, payload) {
+    commit("saveActiveResearchOutput", payload);
+  },
 };
 
 export default actions;

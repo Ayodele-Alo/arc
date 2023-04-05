@@ -17,6 +17,7 @@ interface state {
   activeTab: string;
   activeModal: string;
   activeForm: string;
+  activeResearchOutput: string;
   publicationsForm: {
     bookTitle: "";
     bookchapter: "";

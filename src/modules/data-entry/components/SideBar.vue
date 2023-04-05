@@ -65,7 +65,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 16rem !important;
+  width: 18vw;
   background-color: white;
   color: white;
   position: fixed;
