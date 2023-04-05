@@ -26,7 +26,7 @@
       </div>
     </div>
 
-       <div class="d-flex justify-content-end mt-4">
+    <div class="d-flex justify-content-end mt-4">
       <div @click="saveForm()" class="save-icon">
         <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
         <h5>save</h5>
@@ -57,10 +57,9 @@ export default {
         { text: "Operations", value: "Operations" },
       ],
       unit: "",
-      
     };
   },
-    methods: {
+  methods: {
     ...mapActions(["SAVE_DATA"]),
 
     saveForm() {
@@ -82,7 +81,7 @@ export default {
   /* Layout Properties */
   top: 495px;
   left: 434px;
-  width: 80vw;
+  width: 100%;
   height: 25vh;
   /* UI Properties */
   background: #ffffff;

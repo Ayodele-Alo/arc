@@ -45,7 +45,7 @@ export default {
 .main-sec {
   top: 495px;
   left: 434px;
-  width: 80vw;
+  width: 100%;
   height: 20vh;
   background: var(--60-bg) 0% 0% no-repeat padding-box;
   background: #ffffff 0% 0% no-repeat padding-box;

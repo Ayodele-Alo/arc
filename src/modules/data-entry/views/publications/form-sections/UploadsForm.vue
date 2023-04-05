@@ -138,15 +138,17 @@ input {
   margin-left: 4px;
 }
 
-.form-title{
-font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-16)/var(--unnamed-line-spacing-19) var(--unnamed-font-family-montserrat);
-letter-spacing: var(--unnamed-character-spacing-0);
-color: var(--text);
-text-align: left;
-font: normal normal bold 16px/19px Montserrat;
-letter-spacing: 0px;
-color: #707070;
-opacity: 1;
+.form-title {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold)
+    var(--unnamed-font-size-16) / var(--unnamed-line-spacing-19)
+    var(--unnamed-font-family-montserrat);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--text);
+  text-align: left;
+  font: normal normal bold 16px/19px Montserrat;
+  letter-spacing: 0px;
+  color: #707070;
+  opacity: 1;
 }
 
 .avatar-uploader .avatar {

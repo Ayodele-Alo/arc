@@ -64,6 +64,9 @@ import "mosha-vue-toastify/dist/style.css";
 export default defineComponent({
   name: "ChallengesAndLessons",
   components: {},
+  props: {
+    period: String,
+  },
   data() {
     return {
       formCount: 1,
@@ -91,7 +94,7 @@ export default defineComponent({
 
     saveForm() {
       const newItem = {
-        component: "annually",
+        component: this.period,
         type: "report",
         item: { name: "challengesAndLessonLearnt", form: this.challenges_form },
       };

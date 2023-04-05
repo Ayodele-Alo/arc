@@ -44,11 +44,14 @@ const state: state = {
     risksIndentified: [],
   },
   humanResourceForm: {
-    byCadre: [],
-    humanResource: [],
-    recruitmentProcess: [],
-    sensitizationMettings: [],
-    systemsThinking: [],
+    forms: {
+      byCadre: [],
+      humanResource: [],
+      recruitmentProcess: [],
+      sensitizationMettings: [],
+      systemsThinking: [],
+    },
+    year: "",
   },
   annualForm: {
     period: "",
@@ -66,6 +69,36 @@ const state: state = {
         riskIdentified: [],
       },
     },
+  },
+  quarterlyForm: {
+    quarter: "",
+    year: "",
+    theme: "",
+    forms: {
+      quarterlyPerformanceReport: {
+        strategicOutcomes: {},
+        annualPerformaceAgainstPlan: [],
+        additionalAchivement: "",
+        challengesAndLessonLearnt: [],
+        businessDevelopment: [],
+        newOpportunities: [],
+        engagementWithPolicyMakers: [],
+        riskIdentified: [],
+      },
+    },
+  },
+
+  monthlyForm: {
+    month: "",
+    year: "",
+    theme: "",
+    project_name: "",
+    progress_for_the_month: "",
+    challenges_and_lesson: {
+      challenges: "",
+      lesson: "",
+    },
+    planned_activities: "",
   },
 };
 

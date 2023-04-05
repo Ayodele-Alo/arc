@@ -33,6 +33,30 @@ const actions: ActionTree<state, unknown> = {
     if (payload.component === "annually" && payload.type === "report") {
       commit("saveAnnualPerformanceData", payload.item);
     }
+    if (payload.component === "quarterly" && payload.type === "report") {
+      commit("saveQuarterlyPerformanceData", payload.item);
+    }
+  },
+
+  async SUBMIT_FORM({ commit }, payload) {
+    if (payload.component === "resource_related") {
+      commit("submitResourceRelatedData");
+    }
+    if (payload.component === "annually") {
+      commit("submitAnnualPerformanceData", payload);
+    }
+    if (payload.component === "human_resource") {
+      commit("submitHumanResourceData", payload);
+    }
+    if (payload.component === "quarterly") {
+      commit("submitQuarterlyPerformanceData", payload);
+    }
+    if (payload.component === "publications") {
+      commit("submitPublicationsData", payload);
+    }
+    if (payload.component === "monthly") {
+      commit("submitMonthlyData", payload);
+    }
   },
 };
 

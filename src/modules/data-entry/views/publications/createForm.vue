@@ -1,5 +1,13 @@
 <template>
   <div>
+    <div class="position-fixed bottom-0 end-0">
+      <button class="submit-btn" @click.prevent="submitForm()">
+        Submit Form
+      </button>
+      <button @click="saveToDraft()" class="save-btn">Save to draft</button>
+    </div>
+
+    <br /><br />
     <!-- Reporting period -->
     <div
       class="section-header text-start"
@@ -259,8 +267,11 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
+import { mapActions } from "vuex";
+import { createToast } from "mosha-vue-toastify";
+import "mosha-vue-toastify/dist/style.css";
 import ReportingPeriod from "./form-sections/ReportingPeriod.vue";
 import FormerUnits from "./form-sections/FormerUnits.vue";
 import NewThemesAndDivision from "./form-sections/NewThemesAndDivision.vue";
@@ -270,7 +281,7 @@ import NameOfPublisher from "./form-sections/NameOfPublisher.vue";
 import YearOfPublication from "./form-sections/YearOfPublication.vue";
 import TitleForm from "./form-sections/TitleForm.vue";
 import ResearchOutput from "./form-sections/ResearchOutput.vue";
-import PublishingJournal from "./form-sections/PublishingJournal.vue"
+import PublishingJournal from "./form-sections/PublishingJournal.vue";
 import BookTitle from "./form-sections/BookTitle.vue";
 import BookChapter from "./form-sections/BookChapter.vue";
 import LinkAvailable from "./form-sections/LinkAvailable.vue";
@@ -278,12 +289,33 @@ import GrantProjectName from "./form-sections/GrantProjectName.vue";
 import JournalForm from "./form-sections/JournalForm.vue";
 import LinksForm from "./form-sections/LinksForm.vue";
 import UploadsForm from "./form-sections/UploadsForm.vue";
-import CitationsForm from "./form-sections/CitationsForm.vue"
-
-
+import CitationsForm from "./form-sections/CitationsForm.vue";
 
 export default defineComponent({
   name: "createForm",
+
+  setup() {
+    const toast = (title, desc, type) => {
+      createToast(
+        {
+          title: title,
+          description: desc,
+        },
+        {
+          type: type,
+          transition: "zoom",
+          hideProgressBar: true,
+          showIcon: true,
+          timeout: 3000,
+          position: "top-right",
+        }
+      );
+    };
+    return {
+      toast,
+    };
+  },
+
   components: {
     ReportingPeriod,
     FormerUnits,
@@ -302,11 +334,23 @@ export default defineComponent({
     LinksForm,
     UploadsForm,
     CitationsForm,
-    YearOfPublication
+    YearOfPublication,
   },
   methods: {
-    // submitForm(){
-    // }
+    ...mapActions(["SUBMIT_FORM"]),
+
+    submitForm() {
+      const data = {
+        component: "publications",
+      };
+      this.toast("Success", "Form submitted successfully", "success");
+      this.SUBMIT_FORM(data);
+      // console.log("hello");
+    },
+
+    saveToDraft() {
+      this.toast("Success", "Form saved to draft", "success");
+    },
   },
 });
 </script>

@@ -34,6 +34,10 @@ import "mosha-vue-toastify/dist/style.css";
 export default defineComponent({
   name: "AdditionalAchivements",
 
+  props: {
+    period: String,
+  },
+
   setup() {
     const toast = (title, desc, type) => {
       createToast(
@@ -67,7 +71,7 @@ export default defineComponent({
 
     saveForm() {
       const newItem = {
-        component: "annually",
+        component: this.period,
         type: "report",
         item: {
           name: "additionalAchivements",

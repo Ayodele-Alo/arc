@@ -25,7 +25,7 @@
       </div>
     </div>
 
-        <div class="d-flex justify-content-end mt-4">
+    <div class="d-flex justify-content-end mt-4">
       <div @click="saveForm()" class="save-icon">
         <i class="fa fa-save fs-5 mr-2" aria-hidden="true"></i>
         <h5>save</h5>
@@ -36,22 +36,34 @@
 
 <script>
 import { mapActions } from "vuex";
-  export default {
-    data() {
-      return {
-        themes_options: [
-{ text: "WARO", value: "WARO" },
-{ text: "PEC", value: "PEC" },
-{ text: "Human Development (HD)", value: "Human Development (HD)" },
-{ text: "Health and Well-Being (HaW)", value: "Health and Well-Being (HaW)" },
-{ text: "Population Dynamics and Urbanization in Africa (PDAU)", value: "Population Dynamics and Urbanization in Africa (PDAU)" },
-{ text: "Data Science and Evaluation (DSE)", value: "Data Science and Evaluation (DSE)" },
-{ text: "Research & Related Capacity Strengthening (RRCS)", value: "Research & Related Capacity Strengthening (RRCS)" },
-{ text: "Operations", value: "Operations" }
-]
-      }
-    },
-     methods: {
+export default {
+  data() {
+    return {
+      themes_options: [
+        { text: "WARO", value: "WARO" },
+        { text: "PEC", value: "PEC" },
+        { text: "Human Development (HD)", value: "Human Development (HD)" },
+        {
+          text: "Health and Well-Being (HaW)",
+          value: "Health and Well-Being (HaW)",
+        },
+        {
+          text: "Population Dynamics and Urbanization in Africa (PDAU)",
+          value: "Population Dynamics and Urbanization in Africa (PDAU)",
+        },
+        {
+          text: "Data Science and Evaluation (DSE)",
+          value: "Data Science and Evaluation (DSE)",
+        },
+        {
+          text: "Research & Related Capacity Strengthening (RRCS)",
+          value: "Research & Related Capacity Strengthening (RRCS)",
+        },
+        { text: "Operations", value: "Operations" },
+      ],
+    };
+  },
+  methods: {
     ...mapActions(["SAVE_DATA"]),
 
     saveForm() {
@@ -65,17 +77,15 @@ import { mapActions } from "vuex";
       this.SAVE_DATA(newItem);
     },
   },
-  }
+};
 </script>
-
-
 
 <style lang="scss" scoped>
 .form {
   /* Layout Properties */
   top: 495px;
   left: 434px;
-  width: 80vw;
+  width: 100%;
   height: 25vh;
   /* UI Properties */
   background: #ffffff;

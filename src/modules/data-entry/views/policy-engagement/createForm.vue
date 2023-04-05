@@ -2,8 +2,8 @@
   <div>
         <div class="position-fixed bottom-0 end-0">
       <button class="submit-btn" @click.prevent="submitForm()">Submit Form</button>
-      <button class="save-btn">Save to draft</button>
-    </div> 
+      <button @click="saveToDraft()" class="save-btn">Save to draft</button>
+    </div>
     <div class="text-start mt-4">
       <span class="annual-text1">Policy Engagement Report Tool</span>
       <h1 class="sub-header">
@@ -123,8 +123,11 @@
     </div>
   </div>
 </template>
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
+import { mapActions } from "vuex";
+import { createToast } from "mosha-vue-toastify";
+import "mosha-vue-toastify/dist/style.css";
 import HumanResourceComponent from "./form-sections/HumanResource.vue";
 import PolicyEngagementStrategies from "./form-sections/PolicyEngagementStrategies.vue";
 import PolicyBtiefsAndFacts from "./form-sections/PolicyBriefsAndFacts.vue";
@@ -137,6 +140,27 @@ import RecruitmentOfTargetExpertise from "./form-sections/RecruitmentOfTargetExp
 export default defineComponent({
   name: "CreateForm",
 
+    setup() {
+    const toast = (title, desc, type) => {
+      createToast(
+        {
+          title: title,
+          description: desc,
+        },
+        {
+          type: type,
+          transition: "zoom",
+          hideProgressBar: true,
+          showIcon: true,
+          timeout: 3000,
+          position: "top-right",
+        }
+      );
+    };
+    return {
+      toast,
+    };
+  },
   components: {
     HumanResourceComponent,
     PolicyEngagementStrategies,
@@ -147,6 +171,18 @@ export default defineComponent({
     StrategicInitiatives,
     RecruitmentOfTargetExpertise,
   },
+
+  methods:{
+    submitForm() {
+      console.log("jjjj");
+
+      this.toast("Success", "Form submitted successfully", "success");
+    },
+
+    saveToDraft() {
+      this.toast("Success", "Form saved to draft", "success");
+    },
+  }
 });
 </script>
 
