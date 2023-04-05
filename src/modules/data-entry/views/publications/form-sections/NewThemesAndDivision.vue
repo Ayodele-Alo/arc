@@ -14,7 +14,7 @@
           <input
             class="form-check-input"
             type="radio"
-            name="inlineRadioOptions"
+            name="ThemesDivisionsOptions"
             id="inlineRadio1"
             :value="item.value"
           />

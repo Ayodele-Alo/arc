@@ -22,7 +22,7 @@
           <input
             class="form-check-input"
             type="radio"
-            name="inlineRadioOptions"
+            name="CitationsFormOptions"
             id="inlineRadio1"
             :value="item.value"
           />
