@@ -25,10 +25,12 @@
           }}</label>
         </div>
       </div>
+
+       <br /><br />
+
     </div>
 
-    <br /><br />
-
+   
     <div
       class="form-radio"
       v-if="['Technical Report'].includes(getActiveResearchOutput)"
@@ -54,9 +56,11 @@
           }}</label>
         </div>
       </div>
+
+         <br /><br />
     </div>
 
-    <br /><br />
+ 
 
     <div
       class="form-radio"
