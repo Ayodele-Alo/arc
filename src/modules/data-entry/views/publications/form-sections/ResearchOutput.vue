@@ -41,10 +41,10 @@ export default {
   data() {
     return {
       research_options: [
-        { text: "Published paper", value: "Published paper" },
+        { text: "Published paper", value: "Published Paper" },
         { text: "Supplement", value: "Supplement" },
         { text: "Book", value: "Book" },
-        { text: "Book chapter", value: "Book chapter" },
+        { text: "Book chapter", value: "Book Chapter" },
         { text: "Technical Report", value: "Technical Report" },
         { text: "Framework", value: "Framework" },
         { text: "Policy Brief", value: "Policy Brief" },
@@ -54,8 +54,16 @@ export default {
     };
   },
 
+  watch: {
+    output: {
+      async handler(value) {
+        this.SET_ACTIVE_RESEARCH_OUTPUT(value);
+      },
+    },
+  },
+
   methods: {
-    ...mapActions(["SAVE_DATA"]),
+    ...mapActions(["SAVE_DATA", "SET_ACTIVE_RESEARCH_OUTPUT"]),
 
     saveForm() {
       const data = {

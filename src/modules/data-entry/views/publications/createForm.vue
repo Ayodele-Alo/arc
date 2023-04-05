@@ -103,6 +103,18 @@
     </div>
 
     <div
+     v-if="
+        [
+          'Published Paper',
+          'Supplement',
+          'Book',
+          'Book Chapter',
+          'Technical Report',
+          'Framework',
+          'Policy Brief',
+          'Fact Sheet',
+        ].includes(getActiveResearchOutput)
+      "
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse-8"
@@ -118,6 +130,18 @@
     <!-- year of publication -->
 
     <div
+      v-if="
+        [
+          'Published Paper',
+          'Supplement',
+          'Book',
+          'Book Chapter',
+          'Technical Report',
+          'Framework',
+          'Policy Brief',
+          'Fact Sheet',
+        ].includes(getActiveResearchOutput)
+      "
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse-9"
@@ -133,6 +157,7 @@
     <!-- publishing journal -->
 
     <div
+      v-if="['Published Paper', 'Supplement'].includes(getActiveResearchOutput)"
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse-10"
@@ -148,6 +173,7 @@
     <!-- book title -->
 
     <div
+      v-if="['Book Chapter'].includes(getActiveResearchOutput)"
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse-11"
@@ -163,6 +189,7 @@
     <!-- book chapter number/ page number -->
 
     <div
+      v-if="['Book Chapter'].includes(getActiveResearchOutput)"
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse-12"
@@ -178,6 +205,7 @@
     <!-- link available to the book -->
 
     <div
+      v-if="['Book Chapter', 'Book'].includes(getActiveResearchOutput)"
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse-13"
@@ -193,6 +221,7 @@
     <!-- Grant/ Project Name -->
 
     <div
+      v-if="['Technical Report'].includes(getActiveResearchOutput)"
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse-14"
@@ -208,6 +237,7 @@
     <!-- Journals -->
 
     <div
+      v-if="['Published Paper', 'Supplement'].includes(getActiveResearchOutput)"
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse-15"
@@ -223,6 +253,16 @@
     <!-- Links -->
 
     <div
+      v-if="
+        [
+          'Published Paper',
+          'Supplement',
+          'Book',
+          'Book Chapter',
+          'Technical Report',
+          'Framework',
+        ].includes(getActiveResearchOutput)
+      "
       class="section-header text-start"
       data-bs-toggle="collapse"
       data-bs-target="#collapse-16"
@@ -269,7 +309,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import { createToast } from "mosha-vue-toastify";
 import "mosha-vue-toastify/dist/style.css";
 import ReportingPeriod from "./form-sections/ReportingPeriod.vue";
@@ -351,6 +391,10 @@ export default defineComponent({
     saveToDraft() {
       this.toast("Success", "Form saved to draft", "success");
     },
+  },
+
+  computed: {
+    ...mapGetters(["getActiveResearchOutput"]),
   },
 });
 </script>
